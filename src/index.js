@@ -10,7 +10,9 @@ import ActivityBar from './components/activityBar';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <div className={'BallboyDev'}>
+  <div className={'BallboyWeb'}>
+    {/* <ActivityBar />
+    <Blog /> */}
     <BrowserRouter>
       <ActivityBar />
       <Routes>
