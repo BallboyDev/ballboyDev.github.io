@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import tempData from './temp.json'
+import tempData from './blog.json'
 import './styles.scss'
 import Root from './root'
 

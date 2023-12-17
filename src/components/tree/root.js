@@ -22,7 +22,8 @@ const Root = ({ title, tree }) => {
             {
                 open && items.map((v, i) => {
                     return (
-                        typeof tree[v] === 'object' ?
+                        // typeof tree[v] === 'object' ?
+                        !(tree[v]?.type === 'post') ?
                             <Folder key={`${v}${i}`} title={v} path={`${title}/${v}`} tree={tree[v]} /> :
                             <File key={`${v}${i}`} title={v} path={`${title}/${v}`} tree={tree[v]} />
                     )
