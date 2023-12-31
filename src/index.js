@@ -1,27 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Default from './pages/Default'
+import Tools from './pages/Tools'
 import Ide from './pages/Ide'
 import Blog from './pages/Blog'
 import './styles.scss'
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Route, Routes } from 'react-router-dom';
 import ActivityBar from './components/activityBar';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <div className={'BallboyWeb'}>
-    {/* <ActivityBar />
-    <Blog /> */}
-    <BrowserRouter>
+  <div className={'BallboyDev'}>
+    <HashRouter>
+      {/* <BrowserRouter> */}
       <ActivityBar />
       <Routes>
-        <Route path='/' element={<Default />}> </Route>
-        <Route path='/temp/1' element={<Blog />}> </Route>
-        <Route path='/temp/2' element={<Default />}> </Route>
-        <Route path='/temp/3' element={<Ide />}> </Route>
+        <Route path='/' element={<Blog />}> </Route>
+        <Route path='Blog' element={<Blog />}> </Route>
+        <Route path='Tools' element={<Tools />}> </Route>
+        <Route path='Ide' element={<Ide />}> </Route>
       </Routes>
-    </BrowserRouter>
+      {/* </BrowserRouter> */}
+    </HashRouter>
   </div >
 
 );

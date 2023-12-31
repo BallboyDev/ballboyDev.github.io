@@ -1,50 +1,149 @@
 import { useState, useEffect } from 'react'
 import Tree from '../../components/tree'
+import Intro from '../../components/intro'
 import './styles.scss'
 import axios from 'axios'
 import MarkdownIt from 'markdown-it'
+import { CloseIcon } from '../../common/icon'
 
-const posting = async () => {
+const posting = async (url) => {
     try {
-        const baseUrl = process.env.REACT_APP_GITHUB_URL
-        const repoBranch = 'jirareport_back/main/'
-        const file = 'ReadMe.md'
-        const { data } = await axios.get(`${baseUrl}${repoBranch}${file}`)
+        // const baseUrl = process.env.REACT_APP_GITHUB_URL
+        // const repoBranch = 'jirareport_back/main/'
+        // const file = 'ReadMe.md'
+        // const { data } = await axios.get(`${baseUrl}${repoBranch}${file}`)
 
-        const regex = /\!\[([^\]]+)\]\(([^\)]+)\)/g
-        const post = data.split('\n').map((v) => {
-            return (
-                regex.test(v)
-                    ? v.replace(regex, `![$1](${baseUrl}${repoBranch}$2)`)
-                    : v
-            )
-        })
+        // const regex = /\!\[([^\]]+)\]\(([^\)]+)\)/g
+        // const post = data.split('\n').map((v) => {
+        //     return (
+        //         regex.test(v)
+        //             ? v.replace(regex, `![$1](${baseUrl}${repoBranch}$2)`)
+        //             : v
+        //     )
+        // })
 
-        const parse3 = MarkdownIt().render(post.join('\n'))
+        // const parse3 = MarkdownIt().render(post.join('\n'))
 
-        return parse3
+        // return parse3
+
+        const baseUrl = process.env.REACT_APP_GITHUB_URL || 'https://raw.githubusercontent.com/BallboyDev/'
+        const fileUrl = url
+        const { data } = await axios.get(`${baseUrl}${fileUrl}`)
+
+        const conversion = MarkdownIt().render(data)
+
+        return conversion
     } catch (ex) { }
 }
 
 const Blog = () => {
-    const [post, setPost] = useState('<></>')
+    const [convert, setConvert] = useState('<></>')
+    const [currentPost, setCurrentPost] = useState({})
+    const [postList, setPostList] = useState([])
 
     useEffect(() => {
-        posting().then((res) => {
-            setPost(res)
-        })
+        const openList = localStorage.getItem('openList')
+        if (!openList) {
+            console.log(1)
+            localStorage.setItem('openList', JSON.stringify([]))
+            setPostList([])
+        } else {
+            const temp = JSON.parse(openList)
+
+            if (temp.length > 0) {
+                setPostList(temp)
+                setCurrentPost(() => {
+                    posting(temp[0]._data).then((res) => {
+                        setConvert(res)
+                    })
+                    return temp[0]
+                })
+            }
+        }
     }, [])
 
+    const selectItem = async (item) => {
+        // 아이템 중복 경우 해결
+        const temp = postList.some((v) => { return v.id === item.id })
+        if (!temp) {
+            if (postList.length >= 5) {
+                const [first, ...others] = postList
+                localStorage.setItem('openList', JSON.stringify([...others, item]))
+                setPostList([...others, item])
+            } else {
+                localStorage.setItem('openList', JSON.stringify([...postList, item]))
+                setPostList([...postList, item])
+            }
+        }
+        setCurrentPost(() => {
+            posting(item._data).then((res) => {
+                setConvert(res)
+            })
+            return item
+        })
+        // setConvert(await posting(item._data))
 
+    }
+
+    const closeItem = (item) => {
+        const others = postList.filter((v) => { return v.id !== item.id })
+
+        localStorage.setItem('openList', JSON.stringify(others))
+        setPostList(others)
+        if (currentPost.id === item.id) {
+            setCurrentPost(() => {
+                posting(others[0]._data).then((res) => { setConvert(res) })
+                return others[0]
+            })
+        }
+    }
+
+    const supportBtn = [
+        {
+            title: 'a',
+            tooltip: '',
+            func: () => { }
+        },
+        {
+            title: 'b',
+            tooltip: '',
+            func: () => { }
+        },
+        {
+            title: 'c',
+            tooltip: '',
+            func: () => { }
+        },
+        {
+            title: 'd',
+            tooltip: '',
+            func: () => {
+
+            }
+        },
+    ]
 
     return (
         <div className='Blog'>
             <div className='Blog__nav'>
-                <Tree />
+                <Tree selectItem={selectItem} supportBtn={supportBtn} />
             </div>
             <div className='Blog__content'>
-                {/* <div>title</div> */}
-                <article className='markdown-body' dangerouslySetInnerHTML={{ __html: post || '<h2>Loading...</h2>' }} />
+                {postList.length === 0 ? <Intro /> :
+                    <>
+                        <div className='Blog__content__titles'>
+                            {
+                                postList.map((v, i) => <div
+                                    key={`${v.id}-${i}`}
+                                    className={`Blog__content__titles__title ${currentPost.id === v.id && 'Blog__active'}`} >
+                                    <div className='Blog__content__titles__title__t' onClick={() => { selectItem(v) }}>{v.title}</div>
+                                    <CloseIcon className='Blog__close' onClick={() => { closeItem(v) }} />
+                                </div>)
+                            }
+                        </div>
+                        <article className='markdown-body' dangerouslySetInnerHTML={{ __html: convert || '<h2>Loading...</h2>' }} />
+                    </>
+                }
             </div>
         </div>
     )

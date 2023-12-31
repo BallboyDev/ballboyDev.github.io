@@ -1,0 +1,21 @@
+.Intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    &>div {
+        margin-bottom: 0.5rem;
+    }
+
+    &__image {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+        background-color: white;
+        margin-bottom: 1rem !important;
+        object-fit: cover;
+    }
+}

@@ -1,0 +1,241 @@
+[
+    {
+        "title": "database",
+        "desc": "데이터 베이스 study",
+        "id": "0",
+        "type": "folder",
+        "_include": [
+            {
+                "title": "mongoDB",
+                "desc": "",
+                "id": "1",
+                "type": "folder",
+                "_include": [
+                    {
+                        "title": "1. 소개 및 데이터 모델링",
+                        "desc": "",
+                        "id": "2",
+                        "type": "file",
+                        "_index": 1,
+                        "_date": "20231228/20231228",
+                        "_data": "study/master/database/MongoDB/과거/1_소개%20및%20데이터%20모델링.md"
+                    },
+                    {
+                        "title": "2. Database, Collection, Document 생성, 제거",
+                        "desc": "",
+                        "id": "3",
+                        "type": "file",
+                        "_index": 2,
+                        "_date": "20231228/20231228",
+                        "_data": "study/master/database/MongoDB/과거/2_Database%2C%20Collection%2C%20Document%20생성%2C%20제거.md"
+                    },
+                    {
+                        "title": "3. Document Query(조회) - find()",
+                        "desc": "",
+                        "id": "4",
+                        "type": "file",
+                        "_index": 3,
+                        "_date": "20231228/20231228",
+                        "_data": "study/master/database/MongoDB/과거/3_Document%20Query(조회)%20-%20find().md"
+                    },
+                    {
+                        "title": "4. find()메소드 활용 - sort, limit, skip",
+                        "desc": "",
+                        "id": "5",
+                        "type": "file",
+                        "_index": 4,
+                        "_date": "20231228/",
+                        "_data": "study/master/database/MongoDB/과거/4_find()메소드%20활용-sort%2C%20limit%2C%20skip.md"
+                    },
+                    {
+                        "title": "5. Document 수정 - update()",
+                        "desc": "",
+                        "id": "6",
+                        "type": "file",
+                        "_index": 5,
+                        "_date": "20231228/",
+                        "_data": "study/master/database/MongoDB/과거/5_Document%20수정-update().md"
+                    },
+                    {
+                        "title": "6. index설정",
+                        "desc": "",
+                        "id": "7",
+                        "type": "file",
+                        "_index": 6,
+                        "_date": "20231228/",
+                        "_data": "study/master/database/MongoDB/과거/6_Index설정.md"
+                    }
+                ]
+            },
+            {
+                "title": "MySql",
+                "desc": "",
+                "id": "8",
+                "type": "folder",
+                "_include": [
+                    {
+                        "title": "MySQL 날짜형 함수들",
+                        "desc": "temp Data",
+                        "id": "9",
+                        "type": "file",
+                        "_index": 1,
+                        "_date": "20231228/",
+                        "_data": "1 - 20231228 - MySQL 날짜형 함수들"
+                    },
+                    {
+                        "title": "MySQL 문자형 함수들",
+                        "desc": "temp Data",
+                        "id": "10",
+                        "type": "file",
+                        "_index": 2,
+                        "_date": "20231228/",
+                        "_data": "2 - 20231228 - MySQL 문자형 함수들"
+                    },
+                    {
+                        "title": "MySQL 숫자형 함수들",
+                        "desc": "temp Data",
+                        "id": "11",
+                        "type": "file",
+                        "_index": 3,
+                        "_date": "20231228/",
+                        "_data": "3 - 20231228 - MySQL 숫자형 함수들"
+                    },
+                    {
+                        "title": "MySQL 집계 함수",
+                        "desc": "temp Data",
+                        "id": "12",
+                        "type": "file",
+                        "_index": 4,
+                        "_date": "20231228/",
+                        "_data": "4 - 20231228 - MySQL 집계 함수"
+                    },
+                    {
+                        "title": "join",
+                        "desc": "temp Data",
+                        "id": "13",
+                        "type": "file",
+                        "_index": 5,
+                        "_date": "20231228/",
+                        "_data": "5 - 20231228 - join"
+                    },
+                    {
+                        "title": "practice01",
+                        "desc": "temp Data",
+                        "id": "14",
+                        "type": "file",
+                        "_index": 6,
+                        "_date": "20231228/",
+                        "_data": "6 - 20231228 - practice01"
+                    },
+                    {
+                        "title": "practice02",
+                        "desc": "temp Data",
+                        "id": "15",
+                        "type": "file",
+                        "_index": 7,
+                        "_date": "20231228/",
+                        "_data": "7 - 20231228 - practice02"
+                    },
+                    {
+                        "title": "practice03(group by, join)",
+                        "desc": "temp Data",
+                        "id": "16",
+                        "type": "file",
+                        "_index": 8,
+                        "_date": "20231228/",
+                        "_data": "8 - 20231228 - practice03(group by, join)"
+                    },
+                    {
+                        "title": "practice04(subquery)",
+                        "desc": "temp Data",
+                        "id": "17",
+                        "type": "file",
+                        "_index": 9,
+                        "_date": "20231228/",
+                        "_data": "9 - 20231228 - practice04(subquery)"
+                    },
+                    {
+                        "title": "subquery",
+                        "desc": "temp Data",
+                        "id": "18",
+                        "type": "file",
+                        "_index": 10,
+                        "_date": "20231228/",
+                        "_data": "10 - 20231228 - subquery"
+                    },
+                    {
+                        "title": "기본 select",
+                        "desc": "temp Data",
+                        "id": "19",
+                        "type": "file",
+                        "_index": 11,
+                        "_date": "20231228/",
+                        "_data": "11 - 20231228 - 기본 select"
+                    }
+                ]
+            },
+            {
+                "title": "Oracle",
+                "desc": "",
+                "id": "20",
+                "type": "folder",
+                "_include": [
+                    {
+                        "title": "1. 데이터 베이스 개념 및 기본 용어.md",
+                        "desc": "temp Data",
+                        "id": "21",
+                        "type": "file",
+                        "_index": 1,
+                        "_date": "20231228/",
+                        "_data": "1 - 20231228 - 1. 데이터 베이스 개념 및 기본 용어.md"
+                    },
+                    {
+                        "title": "2. 데이터 유형.md",
+                        "desc": "temp Data",
+                        "id": "22",
+                        "type": "file",
+                        "_index": 2,
+                        "_date": "20231228/",
+                        "_data": "2 - 20231228 - 2. 데이터 유형.md"
+                    },
+                    {
+                        "title": "3. 컬럼 및 로우의 선택.md",
+                        "desc": "temp Data",
+                        "id": "23",
+                        "type": "file",
+                        "_index": 3,
+                        "_date": "20231228/",
+                        "_data": "3 - 20231228 - 3. 컬럼 및 로우의 선택.md"
+                    },
+                    {
+                        "title": "4. 복합 조건 지정 및 데이터 정렬.md",
+                        "desc": "temp Data",
+                        "id": "24",
+                        "type": "file",
+                        "_index": 4,
+                        "_date": "20231228/",
+                        "_data": "4 - 20231228 - 4. 복합 조건 지정 및 데이터 정렬.md"
+                    },
+                    {
+                        "title": "5. 문자, 숫자 함수.md",
+                        "desc": "temp Data",
+                        "id": "25",
+                        "type": "file",
+                        "_index": 5,
+                        "_date": "20231228/",
+                        "_data": "5 - 20231228 - 5. 문자, 숫자 함수.md"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "readMe file",
+        "desc": "README",
+        "id": "26",
+        "type": "file",
+        "_index": 1,
+        "_date": "20231228/20231228",
+        "_data": "README"
+    }
+]

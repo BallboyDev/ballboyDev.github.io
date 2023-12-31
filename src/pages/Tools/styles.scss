@@ -1,0 +1,37 @@
+.Default {
+    display: flex;
+    // position: absolute;
+    flex-direction: column;
+    background-color: rgb(232, 232, 232);
+    height: 100%;
+    width: 100%;
+    flex: 1 0;
+
+    &__buttons {
+        display: flex;
+
+        &>div {
+            width: 50%;
+        }
+
+    }
+
+    &__editors {
+        display: flex;
+        height: 100%;
+
+        &__editor {
+            width: 50%;
+            height: 100%;
+        }
+    }
+
+    &__half {
+        height: 50%;
+    }
+
+    &__manual {
+        position: absolute;
+        right: 0;
+    }
+}

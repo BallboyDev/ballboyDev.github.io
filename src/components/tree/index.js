@@ -1,36 +1,42 @@
 import { useEffect } from 'react'
 
-import tempData from './blog.json'
+// import tempData from './tempData/blog.json'
+import tempData from './tempData/temp.json'
+import newData from './tempData/new.json'
 import './styles.scss'
 import Root from './root'
+import File from './file'
 
-const Tree = () => {
-    const roots = Object.keys(tempData)
+const Tree = ({ selectItem, supportBtn }) => {
+    const roots = Object.keys(tempData).sort((a, b) => !!tempData[a]?.type ? (!!tempData[b]?.type ? (tempData[a]?.index - tempData[b]?.index) : 1) : (!!tempData[b]?.type ? -1 : (a > b ? 1 : -1)))
+    const roots_v2 = newData
+
+    useEffect(() => {
+        const openItem = localStorage.getItem('openItem')
+        if (!openItem || openItem.trim() === '') {
+            localStorage.setItem('openItem', '|')
+        }
+
+    }, [])
 
     return (
         <div className={'FileTree'}>
             <div className={'FileTree__buttonGroup'}>
-                <div className={''} onClick={() => {
-                    console.log(process.env.REACT_APP_GITHUB_URL)
-                }} >
-                    1
-                </div>
-                <div className={''} onClick={() => { }}>
-                    2
-                </div>
-                <div className={''} onClick={() => { }}>
-                    3
-                </div>
-                <div className={''} onClick={() => { }}>
-                    4
-                </div>
-            </div>
-            <div>
                 {
-                    roots.map((v, i) => {
-                        return (
-                            <Root key={`${v}${i}`} title={v} tree={tempData[v]} />
-                        )
+                    supportBtn.map((v, i) => {
+                        return (<div key={`${v.title}-${i}`} className={''} onClick={v.func}>{v.title}</div>)
+                    })
+                }
+            </div>
+            <div className={'FileTree__itemList'}>
+                {
+                    roots_v2.map((v, i) => {
+                        if (v.type === 'folder' || v.type === 'root') {
+                            return <Root key={`${v.id}-${i}`} data={v} selectItem={selectItem} />
+                        } else {
+                            return <File key={`${v.id}-${i}`} data={v} selectItem={selectItem} />
+                        }
+
                     })
                 }
             </div>
