@@ -7,8 +7,17 @@ import Blog from './pages/Blog'
 import './styles.scss'
 import { BrowserRouter, HashRouter, Route, Routes } from 'react-router-dom';
 import ActivityBar from './components/activityBar';
+import moment from 'moment'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const enterDate = moment(localStorage.getItem('enterDate'))
+if (!enterDate || moment.duration(enterDate.diff(moment())).asDays() > 31) {
+  localStorage.clear()
+}
+
+localStorage.setItem('enterDate', moment().format('YYYYMMDD'))
+
 root.render(
   <div className={'BallboyDev'}>
     <HashRouter>

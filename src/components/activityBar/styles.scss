@@ -2,7 +2,6 @@
     width: 3rem;
     text-align: center;
     background-color: rgb(24, 24, 24);
-    // z-index: 9999;
 
     &>* {
         display: flex;
@@ -34,7 +33,7 @@
 
     &__tooltip {
         position: relative;
-        z-index: 9999;
+        z-index: 9000;
 
         & .tooltip.show {
             opacity: 1;

@@ -1,0 +1,38 @@
+.MakeJson {
+    z-index: 9999;
+    position: fixed;
+    width: 50rem;
+    height: 50rem;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    border: 1px solid rgb(43, 43, 43);
+    border-radius: 1rem;
+
+    background-color: black;
+    color: rgb(197, 197, 197);
+
+    &__header {
+        display: flex;
+        justify-content: flex-end;
+        padding: 0.5rem 1rem;
+        border-bottom: 1px solid rgb(43, 43, 43);
+
+        &__icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-left: 0.5rem;
+            fill: rgb(197, 197, 197);
+
+            &:hover {
+                fill: white;
+            }
+        }
+    }
+
+    &__body {
+        padding: 0.5rem 1rem;
+    }
+}

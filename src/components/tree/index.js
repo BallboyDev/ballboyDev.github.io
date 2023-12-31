@@ -1,15 +1,18 @@
 import { useEffect } from 'react'
-
-// import tempData from './tempData/blog.json'
-import tempData from './tempData/temp.json'
 import newData from './tempData/new.json'
 import './styles.scss'
 import Root from './root'
 import File from './file'
 
 const Tree = ({ selectItem, supportBtn }) => {
-    const roots = Object.keys(tempData).sort((a, b) => !!tempData[a]?.type ? (!!tempData[b]?.type ? (tempData[a]?.index - tempData[b]?.index) : 1) : (!!tempData[b]?.type ? -1 : (a > b ? 1 : -1)))
-    const roots_v2 = newData
+
+    const roots = newData.sort((a, b) => {
+        return (
+            a.type === 'file '
+                ? (b.type === 'file' ? (a._index - b._index) : 1)
+                : (b.type === 'file' ? -1 : (a.title > b.title ? 1 : -1))
+        )
+    })
 
     useEffect(() => {
         const openItem = localStorage.getItem('openItem')
@@ -24,13 +27,13 @@ const Tree = ({ selectItem, supportBtn }) => {
             <div className={'FileTree__buttonGroup'}>
                 {
                     supportBtn.map((v, i) => {
-                        return (<div key={`${v.title}-${i}`} className={''} onClick={v.func}>{v.title}</div>)
+                        return v
                     })
                 }
             </div>
             <div className={'FileTree__itemList'}>
                 {
-                    roots_v2.map((v, i) => {
+                    roots.map((v, i) => {
                         if (v.type === 'folder' || v.type === 'root') {
                             return <Root key={`${v.id}-${i}`} data={v} selectItem={selectItem} />
                         } else {

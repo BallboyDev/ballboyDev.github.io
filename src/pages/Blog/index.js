@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
 import Tree from '../../components/tree'
 import Intro from '../../components/intro'
+import MakeJson from '../../components/makeJson'
 import './styles.scss'
 import axios from 'axios'
 import MarkdownIt from 'markdown-it'
-import { CloseIcon } from '../../common/icon'
+import { CloseIcon, PostAddIcon } from '../../common/icon'
 
 const posting = async (url) => {
     try {
@@ -40,11 +41,11 @@ const Blog = () => {
     const [convert, setConvert] = useState('<></>')
     const [currentPost, setCurrentPost] = useState({})
     const [postList, setPostList] = useState([])
+    const [isOpen, setIsOpen] = useState(false)
 
     useEffect(() => {
         const openList = localStorage.getItem('openList')
         if (!openList) {
-            console.log(1)
             localStorage.setItem('openList', JSON.stringify([]))
             setPostList([])
         } else {
@@ -92,60 +93,67 @@ const Blog = () => {
         setPostList(others)
         if (currentPost.id === item.id) {
             setCurrentPost(() => {
-                posting(others[0]._data).then((res) => { setConvert(res) })
+                if (others.length > 0) {
+                    posting(others[0]._data).then((res) => { setConvert(res) })
+                }
                 return others[0]
             })
         }
     }
 
     const supportBtn = [
-        {
-            title: 'a',
-            tooltip: '',
-            func: () => { }
-        },
-        {
-            title: 'b',
-            tooltip: '',
-            func: () => { }
-        },
-        {
-            title: 'c',
-            tooltip: '',
-            func: () => { }
-        },
-        {
-            title: 'd',
-            tooltip: '',
-            func: () => {
+        <PostAddIcon key={'PostAddIcon'} className={'Blog__nav__supportBtn'} onClick={() => {
+            setIsOpen(true)
+        }} />,
+        // <PostAddIcon className={'Blog__nav__supportBtn'} onClick={() => {
 
-            }
-        },
+        // }} />,
+        // <PostAddIcon className={'Blog__nav__supportBtn'} onClick={() => {
+
+        // }} />,
+        // <PostAddIcon className={'Blog__nav__supportBtn'} onClick={() => {
+
+        // }} />
     ]
 
     return (
-        <div className='Blog'>
-            <div className='Blog__nav'>
-                <Tree selectItem={selectItem} supportBtn={supportBtn} />
+        <>
+            <div className='Blog'>
+                <div className='Blog__nav'>
+                    <Tree selectItem={selectItem} supportBtn={supportBtn} />
+                </div>
+                <div className='Blog__content'>
+                    {postList.length === 0 ? <Intro /> :
+                        <>
+                            <div className='Blog__content__titles'>
+                                {
+                                    postList.map((v, i) => <div
+                                        key={`${v.id}-${i}`}
+                                        className={`Blog__content__titles__title ${currentPost.id === v.id && 'Blog__active'}`} >
+                                        <div className='Blog__content__titles__title__t' onClick={() => { selectItem(v) }}>{v.title}</div>
+                                        <CloseIcon className='Blog__close' onClick={() => { closeItem(v) }} />
+                                    </div>)
+                                }
+                            </div>
+                            <div className='Blog__content__info'>
+
+                                <div className='Blog__content__info__label'>
+                                    <div className='Blog__content__info__label__key'>Created</div>
+                                    <div className='Blog__content__info__label__value'>{currentPost._date.split('/')[0] || ''}</div>
+                                </div>
+                                <div className='Blog__content__info__label'>
+                                    <div className='Blog__content__info__label__key'>Modified</div>
+                                    <div className='Blog__content__info__label__value'>{currentPost._date.split('/')[1] || currentPost._date.split('/')[0]}</div>
+                                </div>
+                            </div>
+                            <article className='markdown-body' dangerouslySetInnerHTML={{ __html: convert || '<h2>Loading...</h2>' }} />
+                        </>
+                    }
+                </div>
             </div>
-            <div className='Blog__content'>
-                {postList.length === 0 ? <Intro /> :
-                    <>
-                        <div className='Blog__content__titles'>
-                            {
-                                postList.map((v, i) => <div
-                                    key={`${v.id}-${i}`}
-                                    className={`Blog__content__titles__title ${currentPost.id === v.id && 'Blog__active'}`} >
-                                    <div className='Blog__content__titles__title__t' onClick={() => { selectItem(v) }}>{v.title}</div>
-                                    <CloseIcon className='Blog__close' onClick={() => { closeItem(v) }} />
-                                </div>)
-                            }
-                        </div>
-                        <article className='markdown-body' dangerouslySetInnerHTML={{ __html: convert || '<h2>Loading...</h2>' }} />
-                    </>
-                }
-            </div>
-        </div>
+            {isOpen && <MakeJson onClose={() => { setIsOpen(false) }} />}
+
+        </>
     )
 }
 
