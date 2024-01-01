@@ -7,7 +7,7 @@ const Folder = ({ data, selectItem }) => {
     const { title, desc, id, type } = data
     const include = data._include.sort((a, b) => {
         return (
-            a.type === 'file '
+            a.type === 'file'
                 ? (b.type === 'file' ? (a._index - b._index) : 1)
                 : (b.type === 'file' ? -1 : (a.title > b.title ? 1 : -1))
         )

@@ -1,8 +1,5 @@
 .Blog {
     display: flex;
-    // position: absolute;
-    // background-color: rgb(24, 24, 24);
-    // background-color: rgb(2, 4, 9);
     background-color: rgb(14, 17, 22);
     color: rgb(231, 231, 231);
     height: 100%;
@@ -23,7 +20,7 @@
         transition: width 0.3s;
 
         &__supportBtn {
-            fill: rgb(197, 197, 197);
+            fill: rgb(160, 160, 160);
             height: 100%;
             cursor: pointer;
         }

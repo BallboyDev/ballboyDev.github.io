@@ -14,6 +14,11 @@
     background-color: black;
     color: rgb(197, 197, 197);
 
+    display: flex;
+    flex-direction: column;
+
+
+
     &__header {
         display: flex;
         justify-content: flex-end;
@@ -24,7 +29,7 @@
             width: 1.5rem;
             height: 1.5rem;
             margin-left: 0.5rem;
-            fill: rgb(197, 197, 197);
+            fill: rgb(160, 160, 160);
 
             &:hover {
                 fill: white;
@@ -33,6 +38,85 @@
     }
 
     &__body {
-        padding: 0.5rem 1rem;
+        margin: 0.5rem 1rem;
+        overflow: auto;
+
+        &__icon {
+            width: 2rem;
+            height: 2rem;
+            fill: rgb(160, 160, 160);
+
+            &:hover {
+                fill: white;
+            }
+        }
+
+        &>table {
+            // width: 120rem;
+            width: max-content;
+
+            &>tr {
+                height: 2rem;
+                // margin: 1rem 0;
+                border-bottom: 1px solid rgb(38, 38, 38);
+            }
+        }
+
+        &__th {
+            position: sticky;
+            top: 0;
+            background-color: rgb(24, 24, 24);
+        }
+
+        &__tr {
+            &:nth-child(odd) {
+                background-color: rgb(2, 4, 9);
+            }
+
+            &:nth-child(even) {
+                background-color: rgb(19, 24, 32);
+            }
+        }
+
+        &__add {
+            // position: sticky;
+            // left: 0;
+            min-width: 2rem !important;
+            width: max-content !important;
+            padding-right: 1rem;
+        }
+
+        &__id {
+            width: max-content !important;
+            padding-right: 1rem;
+            text-align: right;
+        }
+
+        &__title {
+            width: max-content !important;
+            padding-right: 1rem;
+        }
+
+        &__desc {
+            width: max-content !important;
+            padding-right: 1rem;
+        }
+
+        &__index {
+            min-width: 5rem !important;
+            width: max-content !important;
+            padding-right: 1rem;
+            text-align: center;
+        }
+
+        &__date {
+            width: max-content !important;
+            padding-right: 1rem;
+        }
+
+        &__data {
+            width: max-content !important;
+            padding-right: 1rem;
+        }
     }
 }

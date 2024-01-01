@@ -41,7 +41,7 @@ const Blog = () => {
     const [convert, setConvert] = useState('<></>')
     const [currentPost, setCurrentPost] = useState({})
     const [postList, setPostList] = useState([])
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(true)
 
     useEffect(() => {
         const openList = localStorage.getItem('openList')
@@ -64,7 +64,6 @@ const Blog = () => {
     }, [])
 
     const selectItem = async (item) => {
-        // 아이템 중복 경우 해결
         const temp = postList.some((v) => { return v.id === item.id })
         if (!temp) {
             if (postList.length >= 5) {
@@ -82,8 +81,6 @@ const Blog = () => {
             })
             return item
         })
-        // setConvert(await posting(item._data))
-
     }
 
     const closeItem = (item) => {
@@ -105,15 +102,9 @@ const Blog = () => {
         <PostAddIcon key={'PostAddIcon'} className={'Blog__nav__supportBtn'} onClick={() => {
             setIsOpen(true)
         }} />,
-        // <PostAddIcon className={'Blog__nav__supportBtn'} onClick={() => {
-
-        // }} />,
-        // <PostAddIcon className={'Blog__nav__supportBtn'} onClick={() => {
-
-        // }} />,
-        // <PostAddIcon className={'Blog__nav__supportBtn'} onClick={() => {
-
-        // }} />
+        // <PostAddIcon className={'Blog__nav__supportBtn'} onClick={() => { }} />,
+        // <PostAddIcon className={'Blog__nav__supportBtn'} onClick={() => { }} />,
+        // <PostAddIcon className={'Blog__nav__supportBtn'} onClick={() => { }} />
     ]
 
     return (

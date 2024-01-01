@@ -1,38 +1,50 @@
 import './styles.scss'
 import { useState, useEffect } from 'react'
-import { CloseIcon, DataObjectIcon } from '../../common/icon'
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { PlusIcon, CloseIcon, DataObjectIcon, MoreHorizIcon } from '../../common/icon'
+import newData from '../../_post/tempData/new.json'
 
-const reorder = (list, startIndex, endIndex) => {
-    const result = Array.from(list);
-    const [removed] = result.splice(startIndex, 1);
-    result.splice(endIndex, 0, removed);
 
-    return result;
-};
 
 const MakeJson = ({ onClose }) => {
-    const items = [
-        { title: "타이틀 1", index: 1 },
-        { title: "타이틀 2", index: 2 },
-        { title: "타이틀 3", index: 3 },
-        { title: "타이틀 4", index: 4 },
-        { title: "타이틀 5", index: 5 },
-    ];
-    const [pageList, setPageList] = useState([]);
+    const [postList, setPostList] = useState([])
 
-    useEffect(() => {
-        setPageList(items);
-    }, []);
+    const treeSort = (data) => {
+        console.log('treeSort >> ', data)
+        const include = data.sort((a, b) =>
+            a.type === 'file'
+                ? (b.type === 'file' ? (a._index - b._index) : 1)
+                : (b.type === 'file' ? -1 : (a.title > b.title ? 1 : -1))
+        )
 
-    const onDragEnd = (result) => {
-        if (!result.destination) {
-            return;
-        }
-        setPageList((items) =>
-            reorder(items, result.source.index, result.destination.index)
-        );
-    };
+        return include.map((v) => {
+            return (
+                // id, title, desc, _index, _date, _data
+                <>
+                    <tr className='MakeJson__body__tr'>
+                        {/* <div>{v.title}</div> */}
+                        <td className='MakeJson__body__add'><MoreHorizIcon className='MakeJson__body__icon' /></td>
+                        <td className='MakeJson__body__id'>{v.id}</td>
+                        <td className='MakeJson__body__index'>
+                            {v?._index || ''}
+                        </td>
+                        <td className='MakeJson__body__title'>
+                            {v.title}
+                        </td>
+                        <td className='MakeJson__body__desc'>
+                            {v.desc}
+                        </td>
+                        <td className='MakeJson__body__date'>
+                            {v?._date || ''}
+                        </td>
+                        <td className='MakeJson__body__data'>
+                            {v?._data || ''}
+                        </td>
+                    </tr>
+                    {(!!v?._include && v?._include.length > 0) && treeSort(v._include)}
+                </>
+            )
+        })
+    }
 
     return (
         <div className={'MakeJson'}>
@@ -41,9 +53,22 @@ const MakeJson = ({ onClose }) => {
                 <CloseIcon className={'MakeJson__header__icon'} onClick={onClose} />
             </div>
             <div className='MakeJson__body'>
+                <table>
+                    <tr className='MakeJson__body__th'>
+                        <th className='MakeJson__body__add'></th>
+                        <th className='MakeJson__body__id'>id</th>
+                        <th className='MakeJson__body__index'>_index</th>
+                        <th className='MakeJson__body__title'>title</th>
+                        <th className='MakeJson__body__desc'>desc</th>
+                        <th className='MakeJson__body__date'>_date</th>
+                        <th className='MakeJson__body__data'>_data</th>
+                    </tr>
+                    {/* folder  : title, desc, id, type, _include */}
+                    {/* file    : title, desc, id, type, _index, _date, _data */}
+                    {treeSort(newData)}
+                </table>
 
             </div>
-
         </div>
     )
 }

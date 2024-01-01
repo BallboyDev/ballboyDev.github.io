@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import newData from './tempData/new.json'
+import newData from '../../_post/tempData/new.json'
 import './styles.scss'
 import Root from './root'
 import File from './file'
@@ -8,7 +8,7 @@ const Tree = ({ selectItem, supportBtn }) => {
 
     const roots = newData.sort((a, b) => {
         return (
-            a.type === 'file '
+            a.type === 'file'
                 ? (b.type === 'file' ? (a._index - b._index) : 1)
                 : (b.type === 'file' ? -1 : (a.title > b.title ? 1 : -1))
         )

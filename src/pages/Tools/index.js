@@ -3,8 +3,6 @@ import { Button, ButtonGroup } from "reactstrap"
 import Editor from '@monaco-editor/react'
 import './styles.scss'
 
-
-
 const Default = () => {
 
     // 1 : transform / 2: repeat
