@@ -8,6 +8,7 @@ import { ReactComponent as PostAddIcon } from './PostAddIcon.svg'
 import { ReactComponent as DataObjectIcon } from './DataObjectIcon.svg'
 import { ReactComponent as PlusIcon } from './PlusIcon.svg'
 import { ReactComponent as MoreHorizIcon } from './MoreHorizIcon.svg'
+import { ReactComponent as MoreVertIcon } from './MoreVertIcon.svg'
 
 export {
     CloseIcon,
@@ -19,5 +20,6 @@ export {
     PostAddIcon,
     DataObjectIcon,
     PlusIcon,
-    MoreHorizIcon
+    MoreHorizIcon,
+    MoreVertIcon
 }

@@ -46,6 +46,8 @@
             height: 2rem;
             fill: rgb(160, 160, 160);
 
+            cursor: pointer;
+
             &:hover {
                 fill: white;
             }
@@ -82,40 +84,33 @@
             // position: sticky;
             // left: 0;
             min-width: 2rem;
-            width: max-content;
             padding-right: 1rem;
         }
 
         &__id {
-            width: max-content;
             padding-right: 1rem;
             text-align: right;
         }
 
         &__title {
-            width: max-content;
             padding-right: 1rem;
         }
 
         &__desc {
-            width: max-content;
             padding-right: 1rem;
         }
 
         &__index {
             min-width: 5rem;
-            width: max-content;
             padding-right: 1rem;
             text-align: center;
         }
 
         &__date {
-            width: max-content;
             padding-right: 1rem;
         }
 
         &__data {
-            width: max-content;
             padding-right: 1rem;
         }
     }
