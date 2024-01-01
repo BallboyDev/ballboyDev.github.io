@@ -6,15 +6,22 @@ import newData from '../../_post/tempData/new.json'
 
 
 const MakeJson = ({ onClose }) => {
-    const [postList, setPostList] = useState([])
 
     const treeSort = (data) => {
-        console.log('treeSort >> ', data)
         const include = data.sort((a, b) =>
             a.type === 'file'
                 ? (b.type === 'file' ? (a._index - b._index) : 1)
                 : (b.type === 'file' ? -1 : (a.title > b.title ? 1 : -1))
         )
+
+        // const result = include.map((v) => v.type === 'file' ? v
+        //     : {
+        //         title: v.title || '',
+        //         desc: v.desc || '',
+        //         id: v.id || '',
+        //         type: v.type || ''
+        //     }
+        // )
 
         return include.map((v) => {
             return (
@@ -22,13 +29,17 @@ const MakeJson = ({ onClose }) => {
                 <>
                     <tr className='MakeJson__body__tr'>
                         {/* <div>{v.title}</div> */}
-                        <td className='MakeJson__body__add'><MoreHorizIcon className='MakeJson__body__icon' /></td>
-                        <td className='MakeJson__body__id'>{v.id}</td>
+                        <td className='MakeJson__body__add'>
+                            <MoreHorizIcon className='MakeJson__body__icon' />
+                        </td>
+                        <td className='MakeJson__body__id'>
+                            {v.id}
+                        </td>
                         <td className='MakeJson__body__index'>
                             {v?._index || ''}
                         </td>
                         <td className='MakeJson__body__title'>
-                            {v.title}
+                            ( {v.type} ) {v.title}
                         </td>
                         <td className='MakeJson__body__desc'>
                             {v.desc}
@@ -55,13 +66,27 @@ const MakeJson = ({ onClose }) => {
             <div className='MakeJson__body'>
                 <table>
                     <tr className='MakeJson__body__th'>
-                        <th className='MakeJson__body__add'></th>
-                        <th className='MakeJson__body__id'>id</th>
-                        <th className='MakeJson__body__index'>_index</th>
-                        <th className='MakeJson__body__title'>title</th>
-                        <th className='MakeJson__body__desc'>desc</th>
-                        <th className='MakeJson__body__date'>_date</th>
-                        <th className='MakeJson__body__data'>_data</th>
+                        <th className='MakeJson__body__add'>
+
+                        </th>
+                        <th className='MakeJson__body__id'>
+                            id
+                        </th>
+                        <th className='MakeJson__body__index'>
+                            _index
+                        </th>
+                        <th className='MakeJson__body__title'>
+                            title
+                        </th>
+                        <th className='MakeJson__body__desc'>
+                            desc
+                        </th>
+                        <th className='MakeJson__body__date'>
+                            _date
+                        </th>
+                        <th className='MakeJson__body__data'>
+                            _data
+                        </th>
                     </tr>
                     {/* folder  : title, desc, id, type, _include */}
                     {/* file    : title, desc, id, type, _index, _date, _data */}
