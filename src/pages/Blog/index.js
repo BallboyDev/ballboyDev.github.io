@@ -41,7 +41,7 @@ const Blog = () => {
     const [convert, setConvert] = useState('<></>')
     const [currentPost, setCurrentPost] = useState({})
     const [postList, setPostList] = useState([])
-    const [isOpen, setIsOpen] = useState(true)
+    const [isOpen, setIsOpen] = useState(false)
 
     useEffect(() => {
         const openList = localStorage.getItem('openList')

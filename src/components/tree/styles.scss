@@ -44,6 +44,13 @@
         align-items: center;
         font-weight: bolder;
         height: 1.25rem;
+
+        &:hover {
+            padding-right: 1rem;
+            width: max-content;
+            background-color: grey;
+            border-radius: 0.5rem;
+        }
     }
 }
 
@@ -59,15 +66,31 @@
         align-items: center;
         font-weight: bolder;
         height: 1.25rem;
+
+        &:hover {
+            padding-right: 1rem;
+            width: max-content;
+            background-color: grey;
+            border-radius: 0.5rem;
+        }
     }
 }
 
 .File {
     padding-left: 1rem;
+    padding-right: 1rem;
     margin-top: 0.25rem;
     margin-bottom: 0.25rem;
+    border-radius: 0.5rem;
+
+    width: max-content;
 
     white-space: nowrap;
 
     cursor: pointer;
+
+    &:hover {
+        background-color: grey;
+        border-radius: 0.5rem;
+    }
 }
