@@ -7,6 +7,12 @@ import axios from 'axios'
 import MarkdownIt from 'markdown-it'
 import { CloseIcon, PostAddIcon } from '../../common/icon'
 
+const empty = `
+<div>ballboy의 Blog입니다.</div>
+<div>내용을 정리중에 있습니다.</div>
+<div>곧 업데이트 예정입니다.</div>
+`
+
 const posting = async (url) => {
     try {
         // const baseUrl = process.env.REACT_APP_GITHUB_URL
@@ -137,7 +143,7 @@ const Blog = () => {
                                     <div className='Blog__content__info__label__value'>{currentPost._date.split('/')[1] || currentPost._date.split('/')[0]}</div>
                                 </div>
                             </div>
-                            <article className='markdown-body' dangerouslySetInnerHTML={{ __html: convert || '<h2>Loading...</h2>' }} />
+                            <article className='markdown-body' dangerouslySetInnerHTML={{ __html: convert || empty }} />
                         </>
                     }
                 </div>

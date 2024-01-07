@@ -134,8 +134,10 @@
                 "title": "MySql",
                 "desc": "MySql DB 기초 정리",
                 "id": "F12",
-                "type": "folder",
-                "_include": []
+                "type": "file",
+                "_index": "1",
+                "_date": "",
+                "_data": "empty"
             },
             {
                 "title": "MongoDB",
@@ -306,15 +308,19 @@
                         "title": "Spring",
                         "desc": "",
                         "id": "F212",
-                        "type": "folder",
-                        "_include": []
+                        "type": "file",
+                        "_index": "",
+                        "_date": "",
+                        "_data": "empty"
                     },
                     {
                         "title": "Spring Boot",
                         "desc": "",
                         "id": "F213",
-                        "type": "folder",
-                        "_include": []
+                        "type": "file",
+                        "_index": "",
+                        "_date": "",
+                        "_data": "empty"
                     }
                 ]
             },
@@ -328,15 +334,19 @@
                         "title": "Express",
                         "desc": "",
                         "id": "F221",
-                        "type": "folder",
-                        "_include": []
+                        "type": "file",
+                        "_index": "",
+                        "_date": "",
+                        "_data": "empty"
                     },
                     {
                         "title": "NestJS",
                         "desc": "",
                         "id": "F222",
-                        "type": "folder",
-                        "_include": []
+                        "type": "file",
+                        "_index": "",
+                        "_date": "",
+                        "_data": "empty"
                     }
                 ]
             }
@@ -371,7 +381,9 @@
         "title": "Blog 제작기",
         "desc": "본 블로그 제작 과정 정리",
         "id": "F4",
-        "type": "folder",
-        "_include": []
+        "type": "file",
+        "_index": "",
+        "_date": "",
+        "_data": "empty"
     }
 ]
