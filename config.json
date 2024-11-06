@@ -1,0 +1,20 @@
+{
+    "postPath": [
+        "_markdown",
+        "_posts"
+    ],
+    "buildPath": [
+        "_build",
+        "_posts"
+    ],
+    "layoutInfo": {
+        "layoutPath": [
+            "_layouts"
+        ],
+        "layoutVariable": {
+            "css": "<!--% css %-->",
+            "navigator": "<!--% navigator %-->",
+            "post": "<!--% post %-->"
+        }
+    }
+}

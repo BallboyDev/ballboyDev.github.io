@@ -1,0 +1,16 @@
+{
+  "name": "ballboydev.github.io",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "node index.js",
+    "json": "node ./_utils/makejson.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "markdown-it": "^14.1.0"
+  }
+}
