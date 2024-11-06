@@ -42,7 +42,7 @@ try {
             const post = utils.convertPost(currentPath, v)
 
             // make selected css
-            const selectedCss = `.${v.key} {color: red}`
+            const selectedCss = '' //`.${v.key} {color: red}`
 
             // create page
             const page = utils.createPage(selectedCss, navi, post)

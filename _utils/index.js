@@ -28,7 +28,7 @@ const convertNavi = (list) => {
 
     list.map((v) => {
         if (v.type === 'item') {
-            result.push(`<a href=""><div class="item click ${v.key}">${v.name}</div></a>`)
+            result.push(`<a class="link" href=""><div class="item click ${v.key}">${v.name}</div></a>`)
         } else if (v.type === 'open') {
             result.push(`<div class="folder"><div class="title click">${v.name}</div>`)
         } else if (v.type === 'close') {
@@ -36,7 +36,7 @@ const convertNavi = (list) => {
         }
     })
 
-    return result
+    return result.join('')
 }
 
 const convertPost = (currentPath, data) => {
