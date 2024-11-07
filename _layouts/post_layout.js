@@ -1,4 +1,4 @@
-const config = require('../config.json')[process.env.NODE_ENV]
+const config = require(`${process.env.PWD}/config.json`)[process.env.NODE_ENV]
 
 const layout = (param) => (`
 <!DOCTYPE html>

@@ -5,10 +5,7 @@ const utils = require('./_utils')
 const { buildPath } = require('./config.json')
 
 // init
-if (fs.existsSync(path.join(__dirname, ...buildPath))) {
-    fs.rmSync(path.join(__dirname, ...buildPath), { recursive: true })
-}
-fs.mkdirSync(path.join(__dirname, ...buildPath))
+utils.setInit()
 
 // read json file
 const json = require('./_markdown/index.json')

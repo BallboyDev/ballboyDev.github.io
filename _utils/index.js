@@ -2,18 +2,22 @@ const fs = require('fs')
 const path = require('path')
 const markdownIt = require('markdown-it')
 
-const { postPath, buildPath } = require('../config.json')
-const layouts = require('../_layouts')
+const { postPath, buildPath } = require(`${process.env.PWD}/config.json`)
+const layouts = require(`${process.env.PWD}/_layouts`)
 
 const setInit = () => {
-
+    // _build 파일도 없을 경우 처리 코드 작성 필요
+    if (fs.existsSync(path.join(process.cwd(), ...buildPath))) {
+        fs.rmSync(path.join(process.cwd(), ...buildPath), { recursive: true })
+    }
+    fs.mkdirSync(path.join(process.cwd(), ...buildPath))
 }
 
 const convertPostList = (posts) => {
     const html = []
     Object.keys(posts).map((v, i) => {
         if (typeof posts[v] === 'string') {
-            html.push({ type: 'item', name: v, key: `select-${Math.random().toString(36).substring(2, 16)}` })
+            html.push({ type: 'item', name: v, key: `select - ${Math.random().toString(36).substring(2, 16)}` })
         } else {
             html.push({ type: 'open', name: v, key: -1 })
             html.push(...convertPostList(posts[v]))
@@ -55,6 +59,7 @@ const createJsonFile = () => {
 }
 
 module.exports = {
+    setInit,
     convertPostList,
     convertPost,
     convertNavi,

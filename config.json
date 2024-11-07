@@ -1,4 +1,5 @@
 {
+    "baseUrl": ".",
     "postPath": [
         "_markdown",
         "_posts"
@@ -7,12 +8,17 @@
         "_build",
         "_posts"
     ],
+    "pathAlias": {
+        "_assets": "/Users/ballboy/workspace/project/ballboyDev.github.io/_assets",
+        "_layouts": "/Users/ballboy/workspace/project/ballboyDev.github.io/_layout",
+        "_utils": "/Users/ballboy/workspace/project/ballboyDev.github.io/_utils"
+    },
     "dev": {
         "title": "ballboy's blog - develop version",
-        "style_url": "file:///Users/ballboy/workspace/project/ballboyDev.github.io/_assets/styles.css"
+        "style_url": "/Users/ballboy/workspace/project/ballboyDev.github.io/_assets/styles.css"
     },
     "prd": {
-        "title": "ballboy's dev blog ",
+        "title": "ballboy's dev blog",
         "style_url": "https://cdn.jsdelivr.net/gh/ballboyDev/lazy-developer-is-great-developer/front-template/blog-ver2-template/style.css"
     }
 }
