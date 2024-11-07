@@ -2,20 +2,21 @@ const fs = require('fs')
 const path = require('path')
 const markdownIt = require('markdown-it')
 
-const { postPath, buildPath, layoutInfo } = require('../config.json')
+const { postPath, buildPath } = require('../config.json')
+const layouts = require('../_layouts')
 
-const test = () => { console.log('test') }
+const setInit = () => {
 
-const searchItems = (items) => {
+}
+
+const convertPostList = (posts) => {
     const html = []
-    Object.keys(items).map((v, i) => {
-        if (typeof items[v] === 'string') {
-            // html.push(`i|${v}`)
+    Object.keys(posts).map((v, i) => {
+        if (typeof posts[v] === 'string') {
             html.push({ type: 'item', name: v, key: `select-${Math.random().toString(36).substring(2, 16)}` })
         } else {
             html.push({ type: 'open', name: v, key: -1 })
-            const temp = searchItems(items[v])
-            html.push(...temp)
+            html.push(...convertPostList(posts[v]))
             html.push({ type: 'close', name: v, key: -1 })
         }
     })
@@ -24,19 +25,7 @@ const searchItems = (items) => {
 }
 
 const convertNavi = (list) => {
-    const result = []
-
-    list.map((v) => {
-        if (v.type === 'item') {
-            result.push(`<a class="link" href=""><div class="item click ${v.key}">${v.name}</div></a>`)
-        } else if (v.type === 'open') {
-            result.push(`<div class="folder"><div class="title click">${v.name}</div>`)
-        } else if (v.type === 'close') {
-            result.push('</div>')
-        }
-    })
-
-    return result.join('')
+    return list.map((post) => (layouts.navigator[post.type](post))).join('')
 }
 
 const convertPost = (currentPath, data) => {
@@ -46,20 +35,14 @@ const convertPost = (currentPath, data) => {
     return htmlData
 }
 
-const createPage = (style, navi, post) => {
-    const { layoutPath, layoutVariable } = layoutInfo
-    let postlayout = fs.readFileSync(path.join(process.cwd(), ...layoutPath, 'post.html'), 'utf8')
+const createPage = (style, navigator, post) => {
+    const postPage = layouts.post({
+        style,
+        navigator,
+        post
+    })
 
-    // css
-    postlayout = postlayout.replace(layoutVariable.css, `<style>${style}</style>`)
-
-    // navigator
-    postlayout = postlayout.replace(layoutVariable.navigator, navi)
-
-    // post
-    postlayout = postlayout.replace(layoutVariable.post, post)
-
-    return postlayout
+    return postPage
 }
 
 const makeFileStructure = (currentPath, page, data) => {
@@ -67,9 +50,12 @@ const makeFileStructure = (currentPath, page, data) => {
     console.log(`##### make post >> ${path.join(...currentPath, data.name)} #####`)
 }
 
+const createJsonFile = () => {
+
+}
+
 module.exports = {
-    test,
-    searchItems,
+    convertPostList,
     convertPost,
     convertNavi,
     createPage,

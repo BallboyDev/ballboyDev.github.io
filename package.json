@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "node index.js",
+    "test": "NODE_ENV=dev node app.js",
+    "build:dev": "NODE_ENV=dev node index.js",
+    "build:prd": "NODE_ENV=prd node index.js",
     "json": "node ./_utils/makejson.js"
   },
   "author": "",

@@ -7,14 +7,12 @@
         "_build",
         "_posts"
     ],
-    "layoutInfo": {
-        "layoutPath": [
-            "_layouts"
-        ],
-        "layoutVariable": {
-            "css": "<!--% css %-->",
-            "navigator": "<!--% navigator %-->",
-            "post": "<!--% post %-->"
-        }
+    "dev": {
+        "title": "ballboy's blog - develop version",
+        "style_url": "file:///Users/ballboy/workspace/project/ballboyDev.github.io/_assets/styles.css"
+    },
+    "prd": {
+        "title": "ballboy's dev blog ",
+        "style_url": "https://cdn.jsdelivr.net/gh/ballboyDev/lazy-developer-is-great-developer/front-template/blog-ver2-template/style.css"
     }
 }
