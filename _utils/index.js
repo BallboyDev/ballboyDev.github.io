@@ -13,22 +13,28 @@ const setInit = () => {
     fs.mkdirSync(path.join(process.cwd(), ...buildPath))
 }
 
-const convertPostList = (posts) => {
-    const html = []
+const convertPostList = (posts, currentPath = []) => {
+    const postList = []
     Object.keys(posts).map((v, i) => {
         if (typeof posts[v] === 'string') {
-            html.push({ type: 'item', name: v, key: `select - ${Math.random().toString(36).substring(2, 16)}` })
+            postList.push({
+                type: 'item',
+                name: v,
+                href: currentPath,
+                key: `select-${Math.random().toString(36).substring(2, 16)}`
+            })
         } else {
-            html.push({ type: 'open', name: v, key: -1 })
-            html.push(...convertPostList(posts[v]))
-            html.push({ type: 'close', name: v, key: -1 })
+            postList.push({ type: 'open', name: v, key: -1 })
+            postList.push(...convertPostList(posts[v], [...currentPath, v]))
+            postList.push({ type: 'close', name: v, key: -1 })
         }
     })
 
-    return html
+    return postList
 }
 
 const convertNavi = (list) => {
+    console.log(list)
     return list.map((post) => (layouts.navigator[post.type](post))).join('')
 }
 

@@ -8,6 +8,10 @@
         "_build",
         "_posts"
     ],
+    "mainPath": [
+        "_build",
+        "_pages"
+    ],
     "pathAlias": {
         "_assets": "/Users/ballboy/workspace/project/ballboyDev.github.io/_assets",
         "_layouts": "/Users/ballboy/workspace/project/ballboyDev.github.io/_layout",
