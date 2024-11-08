@@ -14,7 +14,7 @@ const main = {
         // console.log(postList)
 
         // 1-2 info 데이터 생성
-        const infoList = []
+        const infoList = core.createInfoData()
 
         // 2. component 생성
         const pageParamList = core.createPageParamList({ postList, infoList })

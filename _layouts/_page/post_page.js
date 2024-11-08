@@ -1,9 +1,6 @@
 const config = require(`${process.env.PWD}/config.json`)
 
 const postPage = {
-    html: (head, body) => {
-        return `<!DOCTYPE html><html lang="en">${head}${body}</html>`
-    },
     head: (param) => {
         return `
 <head>
@@ -48,10 +45,11 @@ const postPage = {
     },
 
     init: (pageParam) => {
-        return postPage.html(
-            postPage.head(pageParam),
-            postPage.body(pageParam)
-        )
+        return `
+<!DOCTYPE html><html lang="en">
+    ${postPage.head(pageParam)}
+    ${postPage.body(pageParam)}
+</html>`
     }
 }
 
