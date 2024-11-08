@@ -1,8 +1,17 @@
-const config = require(`${process.env.PWD}/config2.json`)
+const fs = require('fs')
+const path = require('path')
+const config = require(`${process.env.PWD}/config.json`)
 
 module.exports = core = {
-    createBaseData: ({ posts, pages } = require(config.postInfo), currentPath = []) => {
-        console.log('ballboy >> createBaseData()')
+    initBuild: () => {
+        if (fs.existsSync(config.buildPath)) {
+            fs.rmSync(config.buildPath, { recursive: true })
+        }
+        fs.mkdirSync(config.buildPath)
+    },
+
+    createPostData: ({ posts } = require(config.postInfo), currentPath = []) => {
+        console.log('ballboy >> createPostData()')
         const postList = []
 
         Object.keys(posts).map((post, i) => {
@@ -10,36 +19,69 @@ module.exports = core = {
                 postList.push({
                     type: 'item',
                     name: post,
-                    href: [...currentPath, `${post}.md`],
-                    key: `select-${Math.random().toString(36).substring(2, 16)}`
+                    href: currentPath,
+                    key: `post-${Math.random().toString(36).substring(2, 16)}`
                 })
             } else {
-                postList.push({ type: 'open', name: post, key: -1 })
-                postList.push(...core.createBaseData({ posts: posts[post] }, [...currentPath, post]))
-                postList.push({ type: 'close', name: post, key: -1 })
+                postList.push({ type: 'open', name: post, key: `folder-${Math.random().toString(36).substring(2, 16)}` })
+                postList.push(...core.createPostData({ posts: posts[post] }, [...currentPath, post]))
+                postList.push({ type: 'close', name: post, key: `folder-${Math.random().toString(36).substring(2, 16)}` })
             }
         })
 
         return postList
     },
 
-    createComponent: (postList) => {
+    createPageParamList: ({ postList, infoList }) => {
         console.log('ballboy >> createComponent()')
         const layouts = require(config.layouts)
-        // 2-1. page style 코드 생성
 
+        const pageParamList = []
 
-        // 2-2. navigator 코드 생성
+        // navigator 코드 생성
         const navigator_html = layouts.navigator.init(postList)
 
-        // 2-3. post page 코드 생성
         postList.map((post) => {
             if (post.type === 'item') {
+                // post page 코드 생성
                 const post_html = layouts.post.init(post)
-            }
 
+                // page style 코드 생성
+                const style_css = layouts.style.init(post)
+
+                pageParamList.push({
+                    ...post,
+                    style: style_css,
+                    navigator: navigator_html,
+                    post: post_html,
+                })
+            }
         })
 
+        // info page 생성
+
+        return pageParamList
+    },
+
+    createPage: (pageParamList) => {
+        console.log('ballboy >> createPage()')
+        const layouts = require(config.layouts)
+
+        pageParamList.map((pageParam) => {
+            const html = layouts.postPage.init(pageParam)
+
+            core.createFile(pageParam, html)
+
+        })
+    },
+
+    createFile: (pageParam, html) => {
+        const buildPathType = [config.buildPath, pageParam.type === 'item' ? '_post' : '_page']
+        if (!fs.existsSync(path.join(...buildPathType, ...pageParam.href))) {
+            fs.mkdirSync(path.join(...buildPathType, ...pageParam.href))
+        }
+
+        fs.writeFileSync(path.join(...buildPathType, ...pageParam.href, `${pageParam.name}.html`), html)
     }
 }
 

@@ -1,5 +1,0 @@
-const configUtil = {
-    initSetup: () => {
-
-    }
-}['initSetup']
