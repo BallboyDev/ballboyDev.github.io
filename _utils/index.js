@@ -60,9 +60,6 @@ const makeFileStructure = (currentPath, page, data) => {
     console.log(`##### make post >> ${path.join(...currentPath, data.name)} #####`)
 }
 
-const createJsonFile = () => {
-
-}
 
 module.exports = {
     setInit,

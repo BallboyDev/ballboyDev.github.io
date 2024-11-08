@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
+    "test": "node index.js",
     "build:dev": "node _utils/config.js && NODE_ENV=dev node main.js",
     "build:prd": "NODE_ENV=prd node main.js"
   },

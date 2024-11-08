@@ -1,0 +1,5 @@
+const configUtil = {
+    initSetup: () => {
+
+    }
+}['initSetup']
