@@ -2,41 +2,40 @@ const fs = require('fs')
 const path = require('path')
 const markdownIt = require('markdown-it')
 
-const { postPath, buildPath, layoutInfo } = require('../config.json')
+const { postPath, buildPath } = require(`${process.env.PWD}/config.json`)
+const layouts = require(`${process.env.PWD}/_layouts`)
 
-const test = () => { console.log('test') }
+const setInit = () => {
+    // _build 파일도 없을 경우 처리 코드 작성 필요
+    if (fs.existsSync(path.join(process.cwd(), ...buildPath))) {
+        fs.rmSync(path.join(process.cwd(), ...buildPath), { recursive: true })
+    }
+    fs.mkdirSync(path.join(process.cwd(), ...buildPath))
+}
 
-const searchItems = (items) => {
-    const html = []
-    Object.keys(items).map((v, i) => {
-        if (typeof items[v] === 'string') {
-            // html.push(`i|${v}`)
-            html.push({ type: 'item', name: v, key: `select-${Math.random().toString(36).substring(2, 16)}` })
+const convertPostList = (posts, currentPath = []) => {
+    const postList = []
+    Object.keys(posts).map((v, i) => {
+        if (typeof posts[v] === 'string') {
+            postList.push({
+                type: 'item',
+                name: v,
+                href: currentPath,
+                key: `select-${Math.random().toString(36).substring(2, 16)}`
+            })
         } else {
-            html.push({ type: 'open', name: v, key: -1 })
-            const temp = searchItems(items[v])
-            html.push(...temp)
-            html.push({ type: 'close', name: v, key: -1 })
+            postList.push({ type: 'open', name: v, key: -1 })
+            postList.push(...convertPostList(posts[v], [...currentPath, v]))
+            postList.push({ type: 'close', name: v, key: -1 })
         }
     })
 
-    return html
+    return postList
 }
 
 const convertNavi = (list) => {
-    const result = []
-
-    list.map((v) => {
-        if (v.type === 'item') {
-            result.push(`<a href=""><div class="item click ${v.key}">${v.name}</div></a>`)
-        } else if (v.type === 'open') {
-            result.push(`<div class="folder"><div class="title click">${v.name}</div>`)
-        } else if (v.type === 'close') {
-            result.push('</div>')
-        }
-    })
-
-    return result
+    console.log(list)
+    return list.map((post) => (layouts.navigator[post.type](post))).join('')
 }
 
 const convertPost = (currentPath, data) => {
@@ -46,20 +45,14 @@ const convertPost = (currentPath, data) => {
     return htmlData
 }
 
-const createPage = (style, navi, post) => {
-    const { layoutPath, layoutVariable } = layoutInfo
-    let postlayout = fs.readFileSync(path.join(process.cwd(), ...layoutPath, 'post.html'), 'utf8')
+const createPage = (style, navigator, post) => {
+    const postPage = layouts.post({
+        style,
+        navigator,
+        post
+    })
 
-    // css
-    postlayout = postlayout.replace(layoutVariable.css, `<style>${style}</style>`)
-
-    // navigator
-    postlayout = postlayout.replace(layoutVariable.navigator, navi)
-
-    // post
-    postlayout = postlayout.replace(layoutVariable.post, post)
-
-    return postlayout
+    return postPage
 }
 
 const makeFileStructure = (currentPath, page, data) => {
@@ -67,9 +60,13 @@ const makeFileStructure = (currentPath, page, data) => {
     console.log(`##### make post >> ${path.join(...currentPath, data.name)} #####`)
 }
 
+const createJsonFile = () => {
+
+}
+
 module.exports = {
-    test,
-    searchItems,
+    setInit,
+    convertPostList,
     convertPost,
     convertNavi,
     createPage,

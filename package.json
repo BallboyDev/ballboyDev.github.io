@@ -1,10 +1,10 @@
 {
   "name": "ballboydev.github.io",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "build": "node index.js",
-    "json": "node ./_utils/makejson.js"
+    "build:dev": "node _utils/config.js && NODE_ENV=dev node main.js",
+    "build:prd": "NODE_ENV=prd node main.js"
   },
   "author": "",
   "license": "ISC",

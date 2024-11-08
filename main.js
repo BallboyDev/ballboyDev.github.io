@@ -5,24 +5,18 @@ const utils = require('./_utils')
 const { buildPath } = require('./config.json')
 
 // init
-if (fs.existsSync(path.join(__dirname, ...buildPath))) {
-    fs.rmSync(path.join(__dirname, ...buildPath), { recursive: true })
-}
-fs.mkdirSync(path.join(__dirname, ...buildPath))
-
-// make json file
+utils.setInit()
 
 // read json file
 const json = require('./_markdown/index.json')
 const { posts, main } = json
 
-const postList = utils.searchItems(posts)
+const postList = utils.convertPostList(posts)
 
 // make navigator
 const navi = utils.convertNavi(postList)
 
 const currentPath = []
-// make html page
 
 try {
     postList.map((v, i, a) => {
