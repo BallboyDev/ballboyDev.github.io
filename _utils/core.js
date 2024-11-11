@@ -32,6 +32,21 @@ module.exports = core = {
         return postList
     },
 
+    createInfoData: () => {
+        const { infos } = require(config.postInfo)
+
+        const infoList = Object.keys(infos).map((info) => {
+            return {
+                type: 'info',
+                name: info,
+                href: [],
+                key: `${info}-page`
+            }
+        })
+
+        return infoList
+    },
+
     createPageParamList: ({ postList, infoList }) => {
         console.log('ballboy >> createComponent()')
         const layouts = require(config.layouts)
@@ -59,7 +74,19 @@ module.exports = core = {
         })
 
         // info page 생성
+        infoList.map((info) => {
+            pageParamList.push({
+                ...info,
+                style: `.${info.name}-page {color: pink}`,
+                navigator: navigator_html,
+                post: '<h1>index page</h1>'
+            })
+        })
 
+        pageParamList.map((v) => {
+            const { type, name, href, key, style } = v
+            console.log({ type, name, href, key, style })
+        })
         return pageParamList
     },
 
