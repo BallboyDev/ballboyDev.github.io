@@ -1,5 +1,4 @@
 const core = require('./_utils/core')
-const config = require('./config.json')
 
 const main = {
     init: () => {
@@ -11,16 +10,16 @@ const main = {
         // 1. 기준 데이터 생성
         // 1-1 post 데이터 생성
         const postList = core.createPostData()
-        // console.log(postList)
+        console.log(postList)
 
         // 1-2 info 데이터 생성
-        const infoList = core.createInfoData()
+        // const infoList = core.createInfoData()
 
         // 2. component 생성
-        const pageParamList = core.createPageParamList({ postList, infoList })
+        // const pageParamList = core.createPageParamList({ postList, infoList })
 
         // 3. 통합 page html 코드 및 파일 생성
-        const temp = core.createPage(pageParamList)
+        // const temp = core.createPage(pageParamList)
 
     }
 }['init']()

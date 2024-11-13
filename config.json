@@ -1,9 +1,1 @@
-{
-    "baseUrl": "/Users/ballboy/workspace/project/ballboyDev.github.io",
-    "postInfo": "/Users/ballboy/workspace/project/ballboyDev.github.io/_markdown/index.json",
-    "layouts": "/Users/ballboy/workspace/project/ballboyDev.github.io/_layouts",
-    "buildPath": "/Users/ballboy/workspace/project/ballboyDev.github.io/_build",
-    "postPath": "/Users/ballboy/workspace/project/ballboyDev.github.io/_markdown/_posts",
-    "title": "ballboy's blog - develop version",
-    "style_url": "/Users/ballboy/workspace/project/ballboyDev.github.io/_assets/styles.css"
-}
+{"baseUrl":"/Users/ballboy/workspace/project/ballboyDev.github.io","postPath":"/Users/ballboy/workspace/project/ballboyDev.github.io/_markdown","buildPath":"/Users/ballboy/workspace/project/ballboyDev.github.io/_build"}

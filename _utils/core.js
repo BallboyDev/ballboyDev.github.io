@@ -10,7 +10,7 @@ module.exports = core = {
         fs.mkdirSync(config.buildPath)
     },
 
-    createPostData: ({ posts } = require(config.postInfo), currentPath = []) => {
+    createPostData: ({ posts } = require(path.join(config.postPath, './index.json')), currentPath = []) => {
         console.log('ballboy >> createPostData()')
         const postList = []
 
@@ -20,6 +20,7 @@ module.exports = core = {
                     type: 'item',
                     name: post,
                     href: currentPath,
+                    link: posts[post].indexOf('https'),
                     key: `post-${Math.random().toString(36).substring(2, 16)}`
                 })
             } else {
