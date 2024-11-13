@@ -34,6 +34,7 @@ module.exports = core = {
     },
 
     createInfoData: () => {
+
         const { infos } = require(path.join(config.postPath, './index.json'))
 
         const infoList = Object.keys(infos).map((info) => {

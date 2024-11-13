@@ -1,0 +1,100 @@
+
+<!DOCTYPE html><html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ballboy's Blog</title>
+    <link rel="stylesheet"
+        href="/_assets/styles.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.0/github-markdown.min.css"
+        integrity="sha512-h/laqMqQKUXxFuu6aLAaSrXYwGYQ7qk4aYCQ+KJwHZMzAGaEoxMM6h8C+haeJTU1V6E9jrSUnjpEzX23OmV/Aw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <style>
+        
+        .post-torxjdzf4tk {color: red}
+    
+    </style>
+</head>
+
+    
+<body>
+    <div class="ballboy">
+        <div class="ballboy-nav">
+            <input class="search" type="text" placeholder="search" />
+            <a class="link"
+                href="./main.html">
+                <div class="click home">home</div>
+            </a>
+            <div class="items">
+                <a class="link" href="/_post/20240101_chapter_1.html"><div class="item click post-rfaah3b6zz">20240101_chapter_1</div></a><a class="link" href="/_post/20240102_chapter_2.html"><div class="item click post-f4zomcx49ck">20240102_chapter_2</div></a><a class="link" href="/_post/20240103_chapter_3.html"><div class="item click post-h2a6vn99uf6">20240103_chapter_3</div></a><a class="link" href="/_post/20240104_chapter_4.html"><div class="item click post-1ufoqhtppwm">20240104_chapter_4</div></a><div class="folder"><div class="title click">folder1</div><a class="link" href="/_post/folder1/20240105_chapter_5.html"><div class="item click post-12yeod9iqzlh">20240105_chapter_5</div></a><a class="link" href="/_post/folder1/20240106_chapter_6.html"><div class="item click post-orvsiaysygc">20240106_chapter_6</div></a><a class="link" href="/_post/folder1/20240107_chapter_7.html"><div class="item click post-torxjdzf4tk">20240107_chapter_7</div></a><a class="link" href="/_post/folder1/20240108_chapter_8.html"><div class="item click post-6epcos4gcd3">20240108_chapter_8</div></a><a class="link" href="/_post/folder1/20240109_chapter_9.html"><div class="item click post-0rbojcz4rf5">20240109_chapter_9</div></a></div><div class="folder"><div class="title click">folder2</div><a class="link" href="/_post/folder2/20240110_chapter_10.html"><div class="item click post-we101id0n9i">20240110_chapter_10</div></a><a class="link" href="/_post/folder2/20240111_chapter_11.html"><div class="item click post-1ve9vkkubz">20240111_chapter_11</div></a><a class="link" href="/_post/folder2/20240112_chapter_12.html"><div class="item click post-u0anjq87q0o">20240112_chapter_12</div></a><a class="link" href="/_post/folder2/20240113_chapter_13.html"><div class="item click post-zgydzmw148">20240113_chapter_13</div></a></div>
+            </div>
+        </div>
+        <div class="ballboy-main">
+            <div class="post markdown-body">
+                <h1>변환함수</h1>
+<h2>변환함수</h2>
+<ul>
+<li>특정 데이터 타입을 다양한 형식으로 출력하고 싶을 경우에 사용되는 함수임</li>
+<li>연산의 대상 데이터가 문자형과 숫자형의 혼합인 경우 어느 한 쪽의 데이터 타입으로 변경해야 연산이 가능함
+<ul>
+<li>오라클의 경우 문자형 데이터를 숫자형으로 바꾸거나 숫자형 데이터를 문자형 데이터로 바꿔 연산을 수행하는데, 이를 암시적(Implicit)형 변환 또는 자동 변환이라함</li>
+</ul>
+</li>
+<li>명시적(Explicit) 데이터 유형 변환은 변환 함수를 사용하여 수행됨</li>
+<li>한 데이터 우형을 다른 데이터 유형으로 변환하여, 함수 이름의 형식은 일반적으로 TO_ 출력 규칙을 따름</li>
+</ul>
+<h2>TO_CHAR</h2>
+<ul>
+<li>TO_CHAR(날짜, 'format') 함수를 이용해 날짜를 format형태의 문자로 변환함</li>
+<li>날짜 Format 요소
+|FORMAT 요소|의미|
+|:--|:--|
+|YYYY, YYY, YY, Y|- 년도를 뒤에서 지정한 만큼 표시함|
+|YEAR|- 년도를 영문으로 표시함|
+|Q|- 해당 날짜의 분기 정보를 1, 2, 3, 4로 표시함|
+|MM|- 01, 02,... 12의 두자리 월 정보를 표시함|
+|MON, MONTH|- JAN, JANUARY 형태로 월을 표시함|
+|W, WW, IW|- 해당 월이나 해당 년도의 몇 번째 주를 표시|
+|D|- 1 ~ 7 일요일 1, 월요일 2, 토요일 7로 표시함|
+|DD, DDD|- 해당 월이나 해당 년도의 몇 번째 날인지 표시함|
+|DY, DAY|- MON, MONDAY 형태로 요일을 표시함|
+|HH, MI, SS|- 시간, 분, 초 정보를 표시함|</li>
+</ul>
+<h2>TO_CHAR(숫자)</h2>
+<ul>
+<li>TO_CHAR(숫자, 'FORMAT) 함수를 이용해 숫자를 FORMAT 형태의 문자로 변환함</li>
+<li>숫자 FORMAT 요소
+|요소|설명|예제|결과|
+|:--|:--|:--|:--|
+|9|- 숫자 위치(9의개수가 표시 폭(width)을 결정)|999999|1234|
+|0|- 선행 제로 표시|000000|001234|
+|$|- 부동 달러 기호 표시|$999999|$1234|
+|L|- 부동 지역 통화 기호 표시|L999999|FF1234|
+|.|- 지정된 위치의 소수점 표시|999999.99|1234.00|
+|,|- 지정된 위치의 쉼표 표시|999,999|1,234|
+|MI|- 빼기 기호를 오른쪽에 표시|999999MI|1234-|
+|PR|- 음수를 &lt;&gt; 괄호루 묶어서 표시|999999PR|&lt;1234&gt;|
+|EEEE|- 과학 표기 (형식에 4개의 E를 지정)|99.999EEEE|1.234E+03|</li>
+</ul>
+<h2>TO_DATE / TO_NUMBER</h2>
+<ul>
+<li>TO_DATE 함수를 사용하여 문자열을 날짜형으로 변환</li>
+<li>TO_DATE(ANSWK, '적용할 날짜 요소')</li>
+<li>TO_DATE 함수 사용시 날짜 정보중 사용자 지저하지 않은 요소는 기본갑으로 적용된
+<ul>
+<li>년월 =&gt; SYSDATE의 년월이 기본값으로(현재날짜)</li>
+<li>일시분조 =&gt; 01일 00시 00분 00초</li>
+</ul>
+</li>
+<li>TO_NUMBER 함수를 사용하여 문자열을 숫자 형식으로 변환</li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    <div class="up">+</div>
+</body>
+        
+</html>

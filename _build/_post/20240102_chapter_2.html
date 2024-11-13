@@ -1,0 +1,162 @@
+
+<!DOCTYPE html><html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ballboy's Blog</title>
+    <link rel="stylesheet"
+        href="/_assets/styles.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.0/github-markdown.min.css"
+        integrity="sha512-h/laqMqQKUXxFuu6aLAaSrXYwGYQ7qk4aYCQ+KJwHZMzAGaEoxMM6h8C+haeJTU1V6E9jrSUnjpEzX23OmV/Aw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <style>
+        
+        .post-f4zomcx49ck {color: red}
+    
+    </style>
+</head>
+
+    
+<body>
+    <div class="ballboy">
+        <div class="ballboy-nav">
+            <input class="search" type="text" placeholder="search" />
+            <a class="link"
+                href="./main.html">
+                <div class="click home">home</div>
+            </a>
+            <div class="items">
+                <a class="link" href="/_post/20240101_chapter_1.html"><div class="item click post-rfaah3b6zz">20240101_chapter_1</div></a><a class="link" href="/_post/20240102_chapter_2.html"><div class="item click post-f4zomcx49ck">20240102_chapter_2</div></a><a class="link" href="/_post/20240103_chapter_3.html"><div class="item click post-h2a6vn99uf6">20240103_chapter_3</div></a><a class="link" href="/_post/20240104_chapter_4.html"><div class="item click post-1ufoqhtppwm">20240104_chapter_4</div></a><div class="folder"><div class="title click">folder1</div><a class="link" href="/_post/folder1/20240105_chapter_5.html"><div class="item click post-12yeod9iqzlh">20240105_chapter_5</div></a><a class="link" href="/_post/folder1/20240106_chapter_6.html"><div class="item click post-orvsiaysygc">20240106_chapter_6</div></a><a class="link" href="/_post/folder1/20240107_chapter_7.html"><div class="item click post-torxjdzf4tk">20240107_chapter_7</div></a><a class="link" href="/_post/folder1/20240108_chapter_8.html"><div class="item click post-6epcos4gcd3">20240108_chapter_8</div></a><a class="link" href="/_post/folder1/20240109_chapter_9.html"><div class="item click post-0rbojcz4rf5">20240109_chapter_9</div></a></div><div class="folder"><div class="title click">folder2</div><a class="link" href="/_post/folder2/20240110_chapter_10.html"><div class="item click post-we101id0n9i">20240110_chapter_10</div></a><a class="link" href="/_post/folder2/20240111_chapter_11.html"><div class="item click post-1ve9vkkubz">20240111_chapter_11</div></a><a class="link" href="/_post/folder2/20240112_chapter_12.html"><div class="item click post-u0anjq87q0o">20240112_chapter_12</div></a><a class="link" href="/_post/folder2/20240113_chapter_13.html"><div class="item click post-zgydzmw148">20240113_chapter_13</div></a></div>
+            </div>
+        </div>
+        <div class="ballboy-main">
+            <div class="post markdown-body">
+                <h1>데이터 유형</h1>
+<h2>테이블 생성 조건</h2>
+<ol>
+<li>테이블 생성시 컬럼을 정의할 떄 선언한 데이터 유형은 그 컬럼이 받아들일 수 있는 자료형의 유형을 규정함
+<ul>
+<li>선언한 유형이 아닌 다른 종류의 데이터가 들어오려고 하면 데이터베이스는 에러를 발생기킴</li>
+</ul>
+</li>
+<li>오라클에서 제공하고 있는 기본 데이터 타입의 종류는 크게 문자형, 숫자형, 날짜형으로 구분함</li>
+<li>데이터 유형과 더불어 지정한 크기도 중요한 기능을 제공함
+<ul>
+<li>선언 당시에 지정한 데이터의 크기를 넘어선 자료가 입력되는 상황은 에러를 발생시킴</li>
+</ul>
+</li>
+</ol>
+<h2>문자형 데이터 타입</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">데이터 유형</th>
+<th style="text-align:left">설명</th>
+<th style="text-align:left">길이</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">CHAR(SIZE)</td>
+<td style="text-align:left">- 고정 길이의 문자 데이터</td>
+<td style="text-align:left">- 최대 크기 2000바이트&lt;br/&gt;- size값 생략시 기본 값 1</td>
+</tr>
+<tr>
+<td style="text-align:left">varchar2(size)</td>
+<td style="text-align:left">- 가변 길이의 문자데이터</td>
+<td style="text-align:left">- 최대 4000바이트&lt;br /&gt;- size 값 생략 안됨</td>
+</tr>
+<tr>
+<td style="text-align:left">CLOB</td>
+<td style="text-align:left">- long 타입 확장된 형태&lt;br /&gt;- 가변길이 문자 데이터 저장</td>
+<td style="text-align:left">- 최대 4GB</td>
+</tr>
+<tr>
+<td style="text-align:left">LONG</td>
+<td style="text-align:left">- 가변 길이의 문자 데이터</td>
+<td style="text-align:left">- 최대 크기는 2GB</td>
+</tr>
+</tbody>
+</table>
+<h2>char VS varchar</h2>
+<ul>
+<li>char(10)
+<ul>
+<li>'happy^^^^^'</li>
+</ul>
+</li>
+<li>varchar(10)
+<ul>
+<li>'happy'</li>
+</ul>
+</li>
+</ul>
+<h2>숫자형 데이터 타입</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">데이터 유형</th>
+<th style="text-align:left">설명</th>
+<th style="text-align:left">길이</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">number[(prec, scale)]</td>
+<td style="text-align:left">- 정수를 포함한 무돈 실수를 표현하고 저장하는데 사용&lt;br/&gt;- 38자리의 양수 및 음수&lt;br/&gt;precision: 전체 자리수 -&gt; 생략한 경우 적용할 수 있는 최대값 38&lt;br /&gt;- Scale: 소수점 이하 자리수 -&gt; 생략한 경우 적용할 수 있는 값 0</td>
+<td style="text-align:left">- 최대 21Byte</td>
+</tr>
+<tr>
+<td style="text-align:left">BINAYR_FLOAT</td>
+<td style="text-align:left">- 32bit 부동 소수</td>
+<td style="text-align:left">- 4byte</td>
+</tr>
+<tr>
+<td style="text-align:left">BINARY_DOUBLE</td>
+<td style="text-align:left">- 64bit 부동 소수</td>
+<td style="text-align:left">- 8BYTE</td>
+</tr>
+</tbody>
+</table>
+<h2>날짜 데이터 타입</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">데이터 유형</th>
+<th style="text-align:left">설명</th>
+<th style="text-align:left">길이</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">DATE</td>
+<td style="text-align:left">- 고정길이 날짜와 시간 데이터&lt;br /&gt;- BC 4712년 1월 1일 부터 9999년 12월 31일까지 표현</td>
+<td style="text-align:left">- 7BYTE&lt;br /&gt;- NLS_DATE_FORMAT</td>
+</tr>
+<tr>
+<td style="text-align:left">TIMESTAMP</td>
+<td style="text-align:left">- Millisecond 까지 표현 가능한 데이터 타입&lt;br /&gt;- 0 ~ 9까지 가능 &lt;br /&gt;- 기본값 6</td>
+<td style="text-align:left">7 ~ 11 BYTE&lt;br /&gt;NLS_TIMESTAMP_FORMAT</td>
+</tr>
+<tr>
+<td style="text-align:left">TIMESTAMP WITH TIME ZONE</td>
+<td style="text-align:left">- 시간대와 함꼐 날짜와 시간 표현</td>
+<td style="text-align:left">- 13BYTE&lt;br/&gt;- NLS_TIMESTAMP_TZ_FORMAT</td>
+</tr>
+<tr>
+<td style="text-align:left">TIMESTAMP WITH LOCAL TIME ZONE</td>
+<td style="text-align:left">- 저장시 DB 시간대 준수&lt;br /&gt;- 조회시 클라이언트 시간대로 표현됨</td>
+<td style="text-align:left">- 7~11BYTE&lt;br /&gt;- NLS_TIMESTAMP_FORMAT</td>
+</tr>
+</tbody>
+</table>
+
+            </div>
+        </div>
+    </div>
+    <div class="up">+</div>
+</body>
+        
+</html>

@@ -1,0 +1,176 @@
+
+<!DOCTYPE html><html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ballboy's Blog</title>
+    <link rel="stylesheet"
+        href="/_assets/styles.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.0/github-markdown.min.css"
+        integrity="sha512-h/laqMqQKUXxFuu6aLAaSrXYwGYQ7qk4aYCQ+KJwHZMzAGaEoxMM6h8C+haeJTU1V6E9jrSUnjpEzX23OmV/Aw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <style>
+        
+        .post-we101id0n9i {color: red}
+    
+    </style>
+</head>
+
+    
+<body>
+    <div class="ballboy">
+        <div class="ballboy-nav">
+            <input class="search" type="text" placeholder="search" />
+            <a class="link"
+                href="./main.html">
+                <div class="click home">home</div>
+            </a>
+            <div class="items">
+                <a class="link" href="/_post/20240101_chapter_1.html"><div class="item click post-rfaah3b6zz">20240101_chapter_1</div></a><a class="link" href="/_post/20240102_chapter_2.html"><div class="item click post-f4zomcx49ck">20240102_chapter_2</div></a><a class="link" href="/_post/20240103_chapter_3.html"><div class="item click post-h2a6vn99uf6">20240103_chapter_3</div></a><a class="link" href="/_post/20240104_chapter_4.html"><div class="item click post-1ufoqhtppwm">20240104_chapter_4</div></a><div class="folder"><div class="title click">folder1</div><a class="link" href="/_post/folder1/20240105_chapter_5.html"><div class="item click post-12yeod9iqzlh">20240105_chapter_5</div></a><a class="link" href="/_post/folder1/20240106_chapter_6.html"><div class="item click post-orvsiaysygc">20240106_chapter_6</div></a><a class="link" href="/_post/folder1/20240107_chapter_7.html"><div class="item click post-torxjdzf4tk">20240107_chapter_7</div></a><a class="link" href="/_post/folder1/20240108_chapter_8.html"><div class="item click post-6epcos4gcd3">20240108_chapter_8</div></a><a class="link" href="/_post/folder1/20240109_chapter_9.html"><div class="item click post-0rbojcz4rf5">20240109_chapter_9</div></a></div><div class="folder"><div class="title click">folder2</div><a class="link" href="/_post/folder2/20240110_chapter_10.html"><div class="item click post-we101id0n9i">20240110_chapter_10</div></a><a class="link" href="/_post/folder2/20240111_chapter_11.html"><div class="item click post-1ve9vkkubz">20240111_chapter_11</div></a><a class="link" href="/_post/folder2/20240112_chapter_12.html"><div class="item click post-u0anjq87q0o">20240112_chapter_12</div></a><a class="link" href="/_post/folder2/20240113_chapter_13.html"><div class="item click post-zgydzmw148">20240113_chapter_13</div></a></div>
+            </div>
+        </div>
+        <div class="ballboy-main">
+            <div class="post markdown-body">
+                <h1>윈도우 함수</h1>
+<h2>윈도우 함수 구문</h2>
+<pre><code class="language-sql">SELECT ANALYTIC_FUNCTION(arguments) OVER([PARTITION BY 컬럼], [ORDER BY 컬럼], [WINDOWING 절 (ROWS | RANGE BETWEEN)])
+    FROM TABLENAME;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">함수</th>
+<th style="text-align:left">설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">ANALYTIC FUNCTION</td>
+<td style="text-align:left">분석함수명 (입력인자)</td>
+</tr>
+<tr>
+<td style="text-align:right">OVER</td>
+<td style="text-align:left">분석 함수임을 나태내는 키워드</td>
+</tr>
+<tr>
+<td style="text-align:right">PARTITION BY</td>
+<td style="text-align:left">계산 대상 그룹 결정</td>
+</tr>
+<tr>
+<td style="text-align:right">ORDER BY</td>
+<td style="text-align:left">대상 그룹에 대한 정렬 수행</td>
+</tr>
+<tr>
+<td style="text-align:right">WINDOWING 절</td>
+<td style="text-align:left">분석 함수의 계산 대상 범위 지정</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>ORDER BY 절에 종속적임</li>
+<li>기본 생략 구분 : 정렬된 결과의 처음부터 현재행 까지[RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW]</li>
+</ul>
+<h2>윈도우 함수</h2>
+<ul>
+<li>BUSINESS 분야에서 자중 행하여지는 여러 가지 형태의 분석에 유용하게 활용될 수 있는 함수</li>
+<li>각 WINDOW 별 집합 연산을 수행한 결과를 RETURN 하는 함수</li>
+<li>JOIN 이나 프로그램의 OVER HEAD를 줄임</li>
+<li>간결한 SQL로 복잡한 분석작업 수행 가능</li>
+<li>이해 및 활용이 용이함</li>
+<li>기존에 사용하던 집계 함수와 WINDOW 함수 전용으로 만들어진 기능도 있음</li>
+<li>다른 함수와는 달리 중첩(NEST)해서 사용할 수 없지만, 서브쿼리에서 사용이 가능함</li>
+</ul>
+<h2>윈도우 함수 처리 단계</h2>
+<ul>
+<li>대상 집함을 ANALYTIC FUNCTION이 적용되어야 할 각 GROUP으로 나눔(PARTITION BY절 지정된 항목으로 PARTITIONING)</li>
+<li>윈도우 함수에 지정한 ORDER BY절에 ㅈ기준 자료를 정렬함</li>
+<li>POINTER와 OFF-SET 개념을 적용하여 ROW간에 필요한 계산을 수행함</li>
+</ul>
+<h2>윈도우 함수 종류</h2>
+<ol>
+<li>
+<p>RANK</p>
+<ul>
+<li>각 로우(ROW)마다 순위를 매겨주는 함수</li>
+<li>RATITION 내에서 ORDER BY 절에 명시된 대로 정렬한 후 순위 부여</li>
+<li>1부터 시작하여 동일한 값은 동일한 순위를 가지며, 동일한 순위의 수만큼 다음 순위는 건너뜀</li>
+</ul>
+</li>
+<li>
+<p>DENSE_RANK</p>
+<ul>
+<li>DENSE_RANK()는 RANK()와 유사한 함수임</li>
+<li>ORDER BY 절에 사용된 컬럼이나 표현식에 대하여 순위를 부여하는데 RANK()와 달리 동일 순위 다음의 순위는 동일 수와 상관없이 1 증가된 값을 돌려줌</li>
+</ul>
+</li>
+<li>
+<p>ROW_NUMBER</p>
+<ul>
+<li>ROW_NUMBER()는 각 PARTITION내에서 ORDER BY절에 의해 정렬된 순서로 유일한 값을 돌려주는 함수</li>
+<li>ROWNUM과 혼돈하지 않도록 함</li>
+</ul>
+</li>
+<li>
+<p>NTILE</p>
+<ul>
+<li>PARTITION을 BUCKET 이라 불리는 그룹별로 나누고 PARTITION내의 각 ROW등을 BUCKET에 배치하는 함수</li>
+<li>각 BUCKET에는 동일한 수의 ROW가 배치됨</li>
+<li>예를 들어 PARTITION내에 100개의 ROW를 가지고 있고 4개의 BUCKET으로 나누는 NTILE(4)를 사용하면 1개의 BUCKET당 25개의 ROW가 배정됨</li>
+<li>AKSDIR 103개의 ROW에 대하여 NTILE(5)를 적용하면 첫번째 BUCKET부터 세번째 까지는 21개의 ROW가, 나머지는 20개의 ROW가 배치됨</li>
+</ul>
+</li>
+<li>
+<p>WINDOW AGGREGATE FAMILY</p>
+<ul>
+<li>윈도우를 근간으로 하여 각각의 로우들에 대한 집계 값을 반환함</li>
+</ul>
+</li>
+<li>
+<p>WINDOW 절 사용</p>
+<ul>
+<li>ROWS옵션을 사용해 윈도우 함수 계산 범위를 지정함</li>
+</ul>
+</li>
+<li>
+<p>LAG</p>
+<ul>
+<li>파티션 내에에서 OFFSET에 지정된 값(DEFAULT = 1)만큼 상대적으로 상위에 위치한 로우(ROW)를 참조하기 위해 사용됨
+(오름차순의 경우 기준 로우의 정렬 컬럼 값보다 작은 값을 갖는 로우,
+내림차순의 경우 기준 로우의 정렬 컬럼 값보다 큰 값을 갖는 로우)</li>
+</ul>
+</li>
+<li>
+<p>LEAD</p>
+<ul>
+<li>LEAD()는 LAG() 유사한 함수임</li>
+<li>OFFSET에 지정된 값(DEFAULT = 1)만큼 상대적으로 하위에 위치한 로우(ROW)를 참조하기 위해 사용됨</li>
+</ul>
+</li>
+</ol>
+<h3>정렬된 데이터 누계 구하기</h3>
+<pre><code class="language-SQL">SELECT ENAME, SAL, SUM(SAL) OVER(ORDER BY ENAME ROWS UNBOUNDED PRECEDING)
+    FROM EMP;
+</code></pre>
+<h2>윈도우 함수 정리</h2>
+<h3>윈도우 함수 동작 원리</h3>
+<ul>
+<li>SELECT 문 수행 결과를 대상으로 윈도우 함수가 적용된다</li>
+<li>PARTITION BY절을 사용해 윈도우 함수 적용 대상을 나누어서 처리할 수 있다.</li>
+<li>WINDOW 절(ROWS 옵션)을 사용하여 계산 범위를 제한할 수 있다.</li>
+</ul>
+<h3>윈도우 함수 종류</h3>
+<ul>
+<li>순위를 부여하기 위해 RANK, DENSE_RANK함수를 사용한다.</li>
+<li>SUM, AVG, MIN, MAX, COUNT도 윈도우 함수로 사용할 수 있다.</li>
+<li>앞줄 자료를 가져오기 위해 LAG함수를, 뒷줄 자료를 가져오기 위해 LEAD함수를 사용한다.</li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    <div class="up">+</div>
+</body>
+        
+</html>

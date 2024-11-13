@@ -1,0 +1,143 @@
+/***** set color *****/
+:root {
+    --nav-back: #020409;
+
+    --nav-color: #c5c5c5;
+}
+
+/***** css style *****/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.ballboy {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+    display: flex;
+
+}
+
+/***** navigator *****/
+
+.ballboy-nav {
+    width: 18rem;
+    height: 100%;
+    border-right: 1px solid grey !important;
+
+    background-color: var(--nav-back);
+}
+
+.ballboy-nav>* {
+    border-bottom: 1px solid grey !important;
+    color: var(--nav-color);
+}
+
+.ballboy-nav>.search {
+    width: 100%;
+    height: 3rem;
+
+    padding: 0.5rem 1rem;
+
+    border-width: 0;
+
+    background-color: var(--nav-back);
+    color: var(--nav-color);
+
+    outline: none;
+}
+
+.home {
+    width: 100%;
+    height: 3rem;
+
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid grey !important;
+    line-height: 2rem;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.link:link {
+    color: var(--nav-color);
+}
+
+.link:visited {
+    color: var(--nav-color);
+}
+
+.ballboy-nav>.items {
+    padding: 0.5rem 0;
+}
+
+.folder {
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.folder>.arrow {
+    height: 2rem;
+    padding: 0.5rem 0;
+    position: absolute;
+    left: 0.5rem;
+}
+
+.folder>.title {
+    height: 2rem;
+    padding: 0.5rem 0;
+
+    cursor: pointer;
+}
+
+.title+.folder,
+.folder>a>.item {
+    border-left: 1px solid white;
+}
+
+
+.item {
+    height: 2rem;
+    padding: 0.5rem 1.5rem;
+
+    cursor: pointer;
+}
+
+.click:hover {
+    color: skyblue;
+}
+
+/***** main page *****/
+
+.ballboy-main {
+    width: calc(100% - 18rem);
+    /* height: 100%; */
+    background-color: #0e1116;
+
+    overflow: scroll;
+
+}
+
+.ballboy-main>.post {
+    max-width: 50rem;
+
+    margin: 2rem auto;
+    /* height: 2rem; */
+    /* border: 1px solid white; */
+
+    color: white;
+}
+
+.up {
+    position: fixed;
+
+    right: 0;
+    bottom: 0;
+
+    color: white;
+}

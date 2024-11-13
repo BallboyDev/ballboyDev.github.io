@@ -13,7 +13,7 @@ const main = {
         const postList = core.createPostData()
 
         // 1-2 info 데이터 생성
-        const infoList = core.createInfoData()
+        const infoList = [] //core.createInfoData()
 
         // console.log([...postList, ...infoList].map((v) => { return { link: v.link, href: v.href } }))
 
