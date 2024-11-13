@@ -15,8 +15,6 @@ const main = {
         // 1-2 info 데이터 생성
         const infoList = [] //core.createInfoData()
 
-        // console.log([...postList, ...infoList].map((v) => { return { link: v.link, href: v.href } }))
-
         // 2. component 생성
         const pageParamList = core.createPageParamList({ postList, infoList })
         pageParamList.map((v) => {

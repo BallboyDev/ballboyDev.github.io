@@ -9,7 +9,7 @@ const postPage = {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${config.title}</title>
     <link rel="stylesheet"
-        href="${path.join(config.projectUrl, 'static/styles.css')}">
+        href="${path.join(config.styleUrl, 'styles.css')}">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.0/github-markdown.min.css"
         integrity="sha512-h/laqMqQKUXxFuu6aLAaSrXYwGYQ7qk4aYCQ+KJwHZMzAGaEoxMM6h8C+haeJTU1V6E9jrSUnjpEzX23OmV/Aw=="
@@ -27,8 +27,8 @@ const postPage = {
         <div class="ballboy-nav">
             <input class="search" type="text" placeholder="search" />
             <a class="link"
-                href="./main.html">
-                <div class="click home">home</div>
+                href="/">
+                <div class="click home">BallboyDev</div>
             </a>
             <div class="items">
                 ${param.navigator}
