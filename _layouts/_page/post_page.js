@@ -1,3 +1,4 @@
+const path = require('path')
 const config = require(`${process.env.PWD}/config.json`)
 
 const postPage = {
@@ -8,7 +9,7 @@ const postPage = {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${config.title}</title>
     <link rel="stylesheet"
-        href="${config.style_url}">
+        href="${path.join(config.projectUrl, '_assets/styles.css')}">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.0/github-markdown.min.css"
         integrity="sha512-h/laqMqQKUXxFuu6aLAaSrXYwGYQ7qk4aYCQ+KJwHZMzAGaEoxMM6h8C+haeJTU1V6E9jrSUnjpEzX23OmV/Aw=="

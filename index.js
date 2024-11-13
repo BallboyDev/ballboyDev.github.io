@@ -1,4 +1,5 @@
 const core = require('./_utils/core')
+const test = require('./_utils/test')
 
 const main = {
     init: () => {
@@ -10,16 +11,27 @@ const main = {
         // 1. 기준 데이터 생성
         // 1-1 post 데이터 생성
         const postList = core.createPostData()
-        console.log(postList)
 
         // 1-2 info 데이터 생성
-        // const infoList = core.createInfoData()
+        const infoList = core.createInfoData()
+
+        // console.log([...postList, ...infoList].map((v) => { return { link: v.link, href: v.href } }))
 
         // 2. component 생성
-        // const pageParamList = core.createPageParamList({ postList, infoList })
+        const pageParamList = core.createPageParamList({ postList, infoList })
+        pageParamList.map((v) => {
+            console.log({ name: v.name, href: v.href })
+        })
+
 
         // 3. 통합 page html 코드 및 파일 생성
-        // const temp = core.createPage(pageParamList)
+        const temp1 = core.createPage(pageParamList)
 
+        // 4. 기타 파일 이동 및 생성
+        const temp2 = core.createOthers()
+
+    },
+    test: () => {
+        test.init()
     }
 }['init']()
