@@ -102,7 +102,7 @@ module.exports = core = {
     },
 
     createFile: (pageParam, html) => {
-        const buildPathType = [config.buildPath, pageParam.type === 'item' ? '_post' : '_page']
+        const buildPathType = [config.buildPath, pageParam.type === 'item' ? 'post' : '_page']
         if (!fs.existsSync(path.join(...buildPathType, ...pageParam.href))) {
             fs.mkdirSync(path.join(...buildPathType, ...pageParam.href))
         }
@@ -113,12 +113,12 @@ module.exports = core = {
     createOthers: () => {
         console.log('ballboy >> createOthers()')
 
-        if (!fs.existsSync(path.join(config.buildPath, '_assets'))) {
-            fs.mkdirSync(path.join(config.buildPath, '_assets'))
+        if (!fs.existsSync(path.join(config.buildPath, 'static'))) {
+            fs.mkdirSync(path.join(config.buildPath, 'static'))
         }
 
         // css 파일
-        fs.copyFileSync(`${config.assetsPath}/styles.css`, `${config.buildPath}/_assets/styles.css`, fs.constants.COPYFILE_FICLONE)
+        fs.copyFileSync(`${config.assetsPath}/styles.css`, `${config.buildPath}/static/styles.css`, fs.constants.COPYFILE_FICLONE)
     },
 }
 
