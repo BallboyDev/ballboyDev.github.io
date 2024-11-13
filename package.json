@@ -3,15 +3,17 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js",
-    "build:dev": "node _utils/config.js && NODE_ENV=dev node index.js",
-    "build:prd": "NODE_ENV=prd node index.js"
+    "test": "NODE_ENV=dev node _utils/config.js",
+    "build:dev": "NODE_ENV=dev node _utils/config.js && node index.js",
+    "build:prd": "NODE_ENV=prd node _utils/config.js && node index.js",
+    "deploy": "NODE_ENV=prd node _utils/config.js && node index.js && gh-pages -d _build"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
     "fs": "^0.0.1-security",
+    "gh-pages": "^6.2.0",
     "markdown-it": "^14.1.0"
   }
 }

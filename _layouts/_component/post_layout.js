@@ -8,7 +8,7 @@ const post = {
 
     init: (post) => {
         try {
-            const markdown = fs.readFileSync(path.join(config.postPath, ...post.href, `${post.name}.md`), 'utf8')
+            const markdown = fs.readFileSync(post.link, 'utf8')
             const html = markdownIt().render(markdown)
 
             return html

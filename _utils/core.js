@@ -10,7 +10,7 @@ module.exports = core = {
         fs.mkdirSync(config.buildPath)
     },
 
-    createPostData: ({ posts } = require(config.postInfo), currentPath = []) => {
+    createPostData: ({ posts } = require(path.join(config.postPath, './index.json')), currentPath = []) => {
         console.log('ballboy >> createPostData()')
         const postList = []
 
@@ -20,6 +20,7 @@ module.exports = core = {
                     type: 'item',
                     name: post,
                     href: currentPath,
+                    link: !(posts[post].includes('https://') || posts[post].includes('http://')) ? path.join(config.baseUrl, posts[post]) : posts[post],
                     key: `post-${Math.random().toString(36).substring(2, 16)}`
                 })
             } else {
@@ -33,12 +34,14 @@ module.exports = core = {
     },
 
     createInfoData: () => {
-        const { infos } = require(config.postInfo)
+
+        const { infos } = require(path.join(config.postPath, './index.json'))
 
         const infoList = Object.keys(infos).map((info) => {
             return {
                 type: 'info',
                 name: info,
+                link: !(infos[info].includes('https://') || infos[info].includes('http://')) ? path.join(config.baseUrl, infos[info]) : infos[info],
                 href: [],
                 key: `${info}-page`
             }
@@ -49,13 +52,14 @@ module.exports = core = {
 
     createPageParamList: ({ postList, infoList }) => {
         console.log('ballboy >> createComponent()')
-        const layouts = require(config.layouts)
+        const layouts = require(config.layoutsPath)
 
         const pageParamList = []
 
         // navigator 코드 생성
         const navigator_html = layouts.navigator.init(postList)
 
+        // post page 생성
         postList.map((post) => {
             if (post.type === 'item') {
                 // post page 코드 생성
@@ -83,32 +87,38 @@ module.exports = core = {
             })
         })
 
-        pageParamList.map((v) => {
-            const { type, name, href, key, style } = v
-            console.log({ type, name, href, key, style })
-        })
         return pageParamList
     },
 
     createPage: (pageParamList) => {
         console.log('ballboy >> createPage()')
-        const layouts = require(config.layouts)
+        const layouts = require(config.layoutsPath)
 
         pageParamList.map((pageParam) => {
             const html = layouts.postPage.init(pageParam)
 
             core.createFile(pageParam, html)
-
         })
     },
 
     createFile: (pageParam, html) => {
-        const buildPathType = [config.buildPath, pageParam.type === 'item' ? '_post' : '_page']
+        const buildPathType = [config.buildPath, pageParam.type === 'item' ? 'post' : '_page']
         if (!fs.existsSync(path.join(...buildPathType, ...pageParam.href))) {
             fs.mkdirSync(path.join(...buildPathType, ...pageParam.href))
         }
 
         fs.writeFileSync(path.join(...buildPathType, ...pageParam.href, `${pageParam.name}.html`), html)
-    }
+    },
+
+    createOthers: () => {
+        console.log('ballboy >> createOthers()')
+
+        if (!fs.existsSync(path.join(config.buildPath, 'static'))) {
+            fs.mkdirSync(path.join(config.buildPath, 'static'))
+        }
+
+        // css 파일
+        fs.copyFileSync(`${config.assetsPath}/styles.css`, `${config.buildPath}/static/styles.css`, fs.constants.COPYFILE_FICLONE)
+    },
 }
 

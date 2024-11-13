@@ -1,24 +1,24 @@
 {
     "posts": {
-        "20240101_chapter_1": "",
-        "20240102_chapter_2": "",
-        "20240103_chapter_3": "",
-        "20240104_chapter_4": "",
+        "20240101_chapter_1": "/_markdown/_posts/20240101_chapter_1.md",
+        "20240102_chapter_2": "/_markdown/_posts/20240102_chapter_2.md",
+        "20240103_chapter_3": "/_markdown/_posts/20240103_chapter_3.md",
+        "20240104_chapter_4": "/_markdown/_posts/20240104_chapter_4.md",
         "folder1": {
-            "20240105_chapter_5": "",
-            "20240106_chapter_6": "",
-            "20240107_chapter_7": "",
-            "20240108_chapter_8": "",
-            "20240109_chapter_9": ""
+            "20240105_chapter_5": "/_markdown/_posts/folder1/20240105_chapter_5.md",
+            "20240106_chapter_6": "/_markdown/_posts/folder1/20240106_chapter_6.md",
+            "20240107_chapter_7": "/_markdown/_posts/folder1/20240107_chapter_7.md",
+            "20240108_chapter_8": "/_markdown/_posts/folder1/20240108_chapter_8.md",
+            "20240109_chapter_9": "/_markdown/_posts/folder1/20240109_chapter_9.md"
         },
         "folder2": {
-            "20240110_chapter_10": "",
-            "20240111_chapter_11": "",
-            "20240112_chapter_12": "",
-            "20240113_chapter_13": ""
+            "20240110_chapter_10": "/_markdown/_posts/folder2/20240110_chapter_10.md",
+            "20240111_chapter_11": "/_markdown/_posts/folder2/20240111_chapter_11.md",
+            "20240112_chapter_12": "/_markdown/_posts/folder2/20240112_chapter_12.md",
+            "20240113_chapter_13": "/_markdown/_posts/folder2/20240113_chapter_13.md"
         }
     },
     "infos": {
-        "index": ""
+        "index": "https://cdn.jsdelivr.net/gh/ballboyDev/ballboyDev/README.md"
     }
 }
