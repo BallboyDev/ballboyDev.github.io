@@ -19,6 +19,7 @@
         }
     },
     "infos": {
-        "index": "https://cdn.jsdelivr.net/gh/ballboyDev/ballboyDev/README.md"
-    }
+        "index": "/_markdown/_pages/index.md"
+    },
+    "index": "https://cdn.jsdelivr.net/gh/ballboyDev/ballboyDev/README.md"
 }

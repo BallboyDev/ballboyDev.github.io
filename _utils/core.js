@@ -83,7 +83,7 @@ module.exports = core = {
                 ...info,
                 style: `.${info.name}-page {color: pink}`,
                 navigator: navigator_html,
-                post: '<h1>index page</h1>'
+                post: layouts.post.init(info)
             })
         })
 
@@ -102,7 +102,7 @@ module.exports = core = {
     },
 
     createFile: (pageParam, html) => {
-        const buildPathType = [config.buildPath, pageParam.type === 'item' ? 'post' : '_page']
+        const buildPathType = [config.buildPath, pageParam.type === 'item' ? 'post' : '.']
         if (!fs.existsSync(path.join(...buildPathType, ...pageParam.href))) {
             fs.mkdirSync(path.join(...buildPathType, ...pageParam.href))
         }
@@ -114,11 +114,17 @@ module.exports = core = {
         console.log('ballboy >> createOthers()')
 
         if (!fs.existsSync(path.join(config.buildPath, 'static'))) {
-            fs.mkdirSync(path.join(config.buildPath, 'static'))
+            fs.mkdirSync(path.join(config.buildPath, 'static/css'), { recursive: true })
+            fs.mkdirSync(path.join(config.buildPath, 'static/js'), { recursive: true })
+            fs.mkdirSync(path.join(config.buildPath, 'static/img'), { recursive: true })
         }
 
         // css 파일
-        fs.copyFileSync(`${config.assetsPath}/styles.css`, `${config.buildPath}/static/styles.css`, fs.constants.COPYFILE_FICLONE)
+        fs.copyFileSync(`${config.assetsPath}/css/styles.css`, `${config.buildPath}/static/css/styles.css`, fs.constants.COPYFILE_FICLONE)
+
+        // js 파일
+
+        // image 파일
+
     },
 }
-

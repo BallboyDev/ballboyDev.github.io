@@ -22,7 +22,7 @@ const config = {
             assetsPath: path.join(baseUrl, '_assets'),
 
             projectUrl: path.join(baseUrl, '_build'),
-            styleUrl: path.join(baseUrl, '_assets')
+            styleUrl: path.join(baseUrl, '_assets', 'css')
         }
 
         return json
@@ -40,7 +40,7 @@ const config = {
             assetsPath: path.join(baseUrl, '_assets'),
 
             projectUrl: '/',
-            styleUrl: '/static'
+            styleUrl: '/static/css'
         }
 
         return json

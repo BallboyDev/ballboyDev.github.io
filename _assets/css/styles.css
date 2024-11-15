@@ -51,7 +51,7 @@
     outline: none;
 }
 
-.home {
+.index-page {
     width: 100%;
     height: 3rem;
 
@@ -95,7 +95,7 @@
     cursor: pointer;
 }
 
-.title+.folder,
+.title~.folder,
 .folder>a>.item {
     border-left: 1px solid white;
 }
