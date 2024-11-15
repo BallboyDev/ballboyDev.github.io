@@ -9,7 +9,7 @@ const post = {
             const markdown = fs.readFileSync(post.link, 'utf8')
             // const { data } = await axios.get(post.link)
 
-            html = markdownIt().render(markdown)
+            const html = markdownIt().render(markdown)
             return html
         } catch (ex) {
             console.log(ex)
