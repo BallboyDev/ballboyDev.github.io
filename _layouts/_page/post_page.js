@@ -27,7 +27,7 @@ const postPage = {
         <div class="ballboy-nav">
             <input class="search" type="text" placeholder="search" />
             <a class="link"
-                href="${config.projectUrl}/index.html">
+                href="${config.projectUrl}">
                 <div class="click index-page">BallboyDev</div>
             </a>
             <div class="items">

@@ -21,5 +21,12 @@
     "infos": {
         "index": "/_markdown/_pages/index.md"
     },
-    "index": "https://cdn.jsdelivr.net/gh/ballboyDev/ballboyDev/README.md"
+    "temp": {
+        "index": {
+            "path": "",
+            "date": "",
+            "next": "",
+            "privous": ""
+        }
+    }
 }
