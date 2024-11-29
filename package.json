@@ -4,8 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=dev node _utils/config.js",
-    "build:dev": "NODE_ENV=dev node _utils/config.js && node index.js && open _build/index.html",
-    "build:prd": "NODE_ENV=prd node _utils/config.js && node index.js ",
+    "build:dev": "NODE_ENV=dev node _utils/config.js && node index.js",
+    "build:prd": "NODE_ENV=prd node _utils/config.js && node index.js",
     "deploy": "NODE_ENV=prd node _utils/config.js && node index.js && gh-pages -d _build"
   },
   "author": "",

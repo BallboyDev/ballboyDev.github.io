@@ -14,8 +14,10 @@
         "Blog 제작기": {
             "20240110_chapter_10": "/_markdown/_posts/Blog 제작기/20240110_chapter_10.md",
             "20240111_chapter_11": "/_markdown/_posts/Blog 제작기/20240111_chapter_11.md",
-            "20240112_chapter_12": "/_markdown/_posts/Blog 제작기/20240112_chapter_12.md",
-            "20240113_chapter_13": "/_markdown/_posts/Blog 제작기/20240113_chapter_13.md"
+            "test": {
+                "20240112_chapter_12": "/_markdown/_posts/Blog 제작기/20240112_chapter_12.md",
+                "20240113_chapter_13": "/_markdown/_posts/Blog 제작기/20240113_chapter_13.md"
+            }
         }
     },
     "infos": {
