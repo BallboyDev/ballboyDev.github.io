@@ -1,0 +1,1 @@
+export const env={"PUBLIC_API_URL":"http://192.168.123.116:3000"}
