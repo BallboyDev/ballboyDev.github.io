@@ -1,0 +1,37 @@
+{
+    "init": "init",
+    "pjt": {
+        "init": "init",
+        "module1": "module1",
+        "module2": "module2",
+        "module3": "module3",
+        "module4": "module4",
+        "module5": "module5",
+        "sub": {
+            "init": "init",
+            "module1": "module1",
+            "module2": "module2",
+            "module3": "module3",
+            "module4": "module4",
+            "module5": "module5"
+        }
+    },
+    "reactPjt": {
+        "init": "init",
+        "link": {
+            "init": "init",
+            "module2": "module2"
+        },
+        "__init": "__init",
+        "__link": {
+            "init": "init",
+            "module2": "module2"
+        }
+    },
+    "tf": {
+        "init": "init",
+        "open": "open",
+        "py": "py",
+        "js": "js"
+    }
+}
