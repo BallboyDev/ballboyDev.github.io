@@ -69,19 +69,20 @@ const app = {
         console.log('\n##### [ app.mkJson ] #####')
 
         const recursion = (root, fold = []) => {
-            const temp = {}
+            const temp1 = {}
+            const temp2 = {}
 
             // ballboy / index 파일과 공통 파일들의 관리 방안에 대하여 고민해보기
             const post = fs.readdirSync(root).filter((v) => { return ['_Common', 'index.md', 'docsImg'].indexOf(v) < 0 })
 
-            post.map((v) => {
+            post.sort().map((v) => {
                 const isDir = fs.statSync(`${root}/${v}`).isDirectory();
 
                 if (isDir) {
                     const [title, index] = path.basename(v, path.extname(v)).split('_');
 
                     if (parseInt(index) !== 0) {
-                        const child = recursion(`${root}/${v}`, [...fold, index]);
+                        const [child, json] = recursion(`${root}/${v}`, [...fold, index]);
                         const count = Object.keys(child).reduce((a, b) => {
                             const [type, index] = b.split('_');
                             return a + (type === 'dir' ? child[b].count : (parseInt(index) === 0 ? 0 : 1));
@@ -95,7 +96,8 @@ const app = {
                             children: { ...child }
                         };
 
-                        temp[`dir_${index}`] = item;
+                        temp1[`dir_${index}`] = item;
+                        temp2[title] = { ...json }
                     }
                 } else {
                     const mdFile = matter(fs.readFileSync(`${root}/${v}`, 'utf8').trim());
@@ -114,7 +116,10 @@ const app = {
                             content: mdFile.content.replace(/<.*?docsImg\/([^>]+)>/g, `<${utils.path[env]}/assets/img/$1>`)
                         };
 
-                        temp[`post_${index}`] = item;
+                        temp1[`post_${index}`] = item;
+                        if (parseInt(index) !== 0) {
+                            temp2[`${title || path.basename(v, path.extname(v))}`] = `${utils.path.build}/post/${parseInt(index)}`
+                        }
                         utils.contents.push(item);
                     }
                 }
@@ -122,12 +127,15 @@ const app = {
 
             })
 
-            return temp
+            return [temp1, temp2]
         }
 
-        utils.post = { ...recursion(utils.path.post) }
-        console.log(utils.post)
-        fs.writeFileSync(`test.json`, JSON.stringify(utils.post))
+        [utils.post, utils.json] = [...recursion(utils.path.post)]
+
+        console.log(utils.json)
+
+        fs.writeFileSync(`${utils.path.dist}/post.json`, JSON.stringify(utils.json))
+        // fs.writeFileSync(`test.json`, JSON.stringify(utils.post))
 
     },
     mkNavi: () => {
