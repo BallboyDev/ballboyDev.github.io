@@ -37,6 +37,13 @@ const utils = {
         `## Posting List (${dayjs().format("YYYY.MM.DD")})`,
         '||title|date|',
         '|:-:|:--|:-:|'
+    ],
+    commonFile: [       // 적용 예외 공통 파일
+        '_Common', // 공통 사용 폴더
+        'docsImg', // 포스팅 글에 첨부되는 이미지 모음 폴더
+        'index.md', // index 페이지 마크다운 파일
+        'postList.md', // 포스팅 글 리스트 정리 파일
+        'deploy.sh' // 원격 배포 파일
     ]
 }
 
@@ -97,7 +104,7 @@ const app = {
                 const temp2 = {}
 
                 // ballboy / index 파일과 공통 파일들의 관리 방안에 대하여 고민해보기
-                const post = fs.readdirSync(root).filter((v) => { return ['_Common', 'index.md', 'docsImg', 'deploy.sh'].indexOf(v) < 0 })
+                const post = fs.readdirSync(root).filter((v) => { return utils.commonFile.indexOf(v) < 0 })
 
                 post.sort().map((v) => {
                     const isDir = fs.statSync(`${root}/${v}`).isDirectory();
@@ -317,7 +324,7 @@ const app = {
                 console.log(`[ ${item.index} ] ${item?.title || item?.file}`)
             }
 
-            fs.writeFileSync(`readme.md`, posting.join('\n'))
+            fs.writeFileSync(`${utils.path.post}/postList.md`, posting.join('\n'))
         } catch (err) {
             console.log(err)
         } finally {
