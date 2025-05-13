@@ -52,235 +52,280 @@ const app = {
         await app.mkMainPage();
     },
     init: () => {
-        console.log('\n##### [ app.init ] #####')
+        console.group('\n##### [ app.init ] #####')
 
-        if (fs.existsSync(utils.path.dist)) {
-            fs.rmSync(utils.path.dist, { recursive: true })
+        try {
+            if (fs.existsSync(utils.path.dist)) {
+                fs.rmSync(utils.path.dist, { recursive: true })
+            }
+            fs.mkdirSync(`${utils.path.dist}`)
+            fs.mkdirSync(`${utils.path.dist}/post`)
+            fs.mkdirSync(`${utils.path.dist}/assets`)
+            fs.mkdirSync(`${utils.path.dist}/assets/img`)
+
+            fs.copyFileSync(`${utils.path.assets}/skin.css`, `${utils.path.dist}/assets/skin.css`)
+            fs.copyFileSync(`${utils.path.assets}/markdown.css`, `${utils.path.dist}/assets/markdown.css`)
+            fs.copyFileSync(`${utils.path.assets}/skin.js`, `${utils.path.dist}/assets/skin.js`)
+            fs.cpSync(`${utils.path.assets}/img/`, `${utils.path.dist}/assets/img/`, { recursive: true })
+            fs.cpSync(`${utils.path.post}/docsImg/`, `${utils.path.dist}/assets/img/`, { recursive: true })
+
+
+            console.log('>> set Environment <<')
+            console.group('set Path')
+            console.log(`index: ${utils.path.index}`)
+            console.log(`post: ${utils.path.post}`)
+            console.log(`${env}: ${utils.path[env]}`)
+            console.groupEnd()
+
+            console.group('set Image')
+            console.groupEnd()
+        } catch (err) {
+            console.log(err)
+        } finally {
+            console.groupEnd()
+            console.log('Done!!!')
         }
-        fs.mkdirSync(`${utils.path.dist}`)
-        fs.mkdirSync(`${utils.path.dist}/post`)
-        fs.mkdirSync(`${utils.path.dist}/assets`)
-        fs.mkdirSync(`${utils.path.dist}/assets/img`)
 
-        fs.copyFileSync(`${utils.path.assets}/skin.css`, `${utils.path.dist}/assets/skin.css`)
-        fs.copyFileSync(`${utils.path.assets}/markdown.css`, `${utils.path.dist}/assets/markdown.css`)
-        fs.copyFileSync(`${utils.path.assets}/skin.js`, `${utils.path.dist}/assets/skin.js`)
-        fs.cpSync(`${utils.path.assets}/img/`, `${utils.path.dist}/assets/img/`, { recursive: true })
-        fs.cpSync(`${utils.path.post}/docsImg/`, `${utils.path.dist}/assets/img/`, { recursive: true })
-
-
-        console.log('>> set Environment <<')
-        console.group('set Path')
-        console.log(`index: ${utils.path.index}`)
-        console.log(`post: ${utils.path.post}`)
-        console.log(`${env}: ${utils.path[env]}`)
-        console.groupEnd()
-
-        console.group('set Image')
-        console.groupEnd()
 
     },
     mkJson: () => {
-        console.log('\n##### [ app.mkJson ] #####')
+        console.group('\n##### [ app.mkJson ] #####')
 
-        const recursion = (root, fold = []) => {
-            const temp1 = {}
-            const temp2 = {}
+        try {
+            const recursion = (root, fold = []) => {
+                const temp1 = {}
+                const temp2 = {}
 
-            // ballboy / index 파일과 공통 파일들의 관리 방안에 대하여 고민해보기
-            const post = fs.readdirSync(root).filter((v) => { return ['_Common', 'index.md', 'docsImg', 'deploy.sh'].indexOf(v) < 0 })
+                // ballboy / index 파일과 공통 파일들의 관리 방안에 대하여 고민해보기
+                const post = fs.readdirSync(root).filter((v) => { return ['_Common', 'index.md', 'docsImg', 'deploy.sh'].indexOf(v) < 0 })
 
-            post.sort().map((v) => {
-                const isDir = fs.statSync(`${root}/${v}`).isDirectory();
+                post.sort().map((v) => {
+                    const isDir = fs.statSync(`${root}/${v}`).isDirectory();
 
-                if (isDir) {
-                    const [title, index] = path.basename(v, path.extname(v)).split('_');
+                    if (isDir) {
+                        const [title, index] = path.basename(v, path.extname(v)).split('_');
 
-                    if (parseInt(index) !== 0) {
-                        const [child, json] = recursion(`${root}/${v}`, [...fold, index]);
-                        const count = Object.keys(child).reduce((a, b) => {
-                            const [type, index] = b.split('_');
-                            return a + (type === 'dir' ? child[b].count : (parseInt(index) === 0 ? 0 : 1));
-                        }, 0);
-
-                        const item = {
-                            title,
-                            file: '',
-                            index: parseInt(index),
-                            count,
-                            children: { ...child }
-                        };
-
-                        temp1[`dir_${index}`] = item;
-                        temp2[title] = { ...json }
-                    }
-                } else {
-                    const mdFile = matter(fs.readFileSync(`${root}/${v}`, 'utf8').trim());
-                    const title = mdFile.data?.title;
-                    const index = mdFile.data?.index || 0;
-
-                    if (v !== '.DS_Store') {
-                        const item = {
-                            title,
-                            file: path.basename(v, path.extname(v)),
-                            index: parseInt(index),
-                            path: `${root}/${v}`,
-                            fold,
-                            date: mdFile.data?.date || '99999999',
-                            ...mdFile.data,
-                            content: mdFile.content.replace(/<.*?docsImg\/([^>]+)>/g, `<${utils.path[env]}/assets/img/$1>`)
-                        };
-
-                        temp1[`post_${index}`] = item;
                         if (parseInt(index) !== 0) {
-                            temp2[`${title || path.basename(v, path.extname(v))}`] = `${utils.path.build}/post/${parseInt(index)}`
+                            const [child, json] = recursion(`${root}/${v}`, [...fold, index]);
+                            const count = Object.keys(child).reduce((a, b) => {
+                                const [type, index] = b.split('_');
+                                return a + (type === 'dir' ? child[b].count : (parseInt(index) === 0 ? 0 : 1));
+                            }, 0);
+
+                            const item = {
+                                title,
+                                file: '',
+                                index: parseInt(index),
+                                count,
+                                children: { ...child }
+                            };
+
+                            temp1[`dir_${index}`] = item;
+                            temp2[title] = { ...json }
                         }
-                        utils.contents.push(item);
+                    } else {
+                        const mdFile = matter(fs.readFileSync(`${root}/${v}`, 'utf8').trim());
+                        const title = mdFile.data?.title;
+                        const index = mdFile.data?.index || 0;
+
+                        if (v !== '.DS_Store') {
+                            const item = {
+                                title,
+                                file: path.basename(v, path.extname(v)),
+                                index: parseInt(index),
+                                path: `${root}/${v}`,
+                                fold,
+                                date: mdFile.data?.date || '99999999',
+                                ...mdFile.data,
+                                content: mdFile.content.replace(/<.*?docsImg\/([^>]+)>/g, `<${utils.path[env]}/assets/img/$1>`)
+                            };
+
+                            temp1[`post_${index}`] = item;
+                            if (parseInt(index) !== 0) {
+                                temp2[`${title || path.basename(v, path.extname(v))}`] = `${utils.path.build}/post/${parseInt(index)}`
+                            }
+                            utils.contents.push(item);
+                        }
                     }
-                }
 
 
-            })
+                })
 
-            return [temp1, temp2]
+                return [temp1, temp2]
+            }
+
+            [utils.post, utils.json] = [...recursion(utils.path.post)]
+
+            console.log('ballboy >> utils.json')
+
+            fs.writeFileSync(`${utils.path.dist}/post.json`, JSON.stringify(utils.json))
+        } catch (err) {
+            console.log(err)
+        } finally {
+            console.groupEnd()
+            console.log('Done!!!')
         }
-
-        [utils.post, utils.json] = [...recursion(utils.path.post)]
-
-        console.log(utils.json)
-
-        fs.writeFileSync(`${utils.path.dist}/post.json`, JSON.stringify(utils.json))
 
     },
     mkNavi: () => {
-        console.log('\n##### [ app.mkNavi ] #####')
+        console.group('\n##### [ app.mkNavi ] #####')
 
-        const tagList = []
+        try {
+            const tagList = []
 
-        const recursion = (root) => {
-            const item = Object.keys(root)
+            const recursion = (root) => {
+                const item = Object.keys(root)
 
-            item.sort((a, b) => {
-                const [aType, aIndex] = a.split('_')
-                const [bType, bIndex] = b.split('_')
+                item.sort((a, b) => {
+                    const [aType, aIndex] = a.split('_')
+                    const [bType, bIndex] = b.split('_')
 
-                if (aType === bType) {
-                    return parseInt(aIndex) - parseInt(bIndex)
-                } else {
-                    if (aType === 'post') {
-                        return -1
+                    if (aType === bType) {
+                        return parseInt(aIndex) - parseInt(bIndex)
                     } else {
-                        return 1
+                        if (aType === 'post') {
+                            return -1
+                        } else {
+                            return 1
+                        }
                     }
-                }
-            }).map((v) => {
-                const [type, num] = v.split('_')
+                }).map((v) => {
+                    const [type, num] = v.split('_')
 
-                if (type === 'dir') {
-                    tagList.push(`<li id="dt-${num}" onclick="foldNavi(${num})">${root[v].title} (${root[v].count})</li>`)
-                    tagList.push(`<ul id="dc-${num}" style="display: none;">`)
-                    tagList.push(recursion(root[v].children))
-                    tagList.push('</ul>')
-                } else {
-                    if (parseInt(root[v].index) !== 0) {
-                        // tagList.push(`<a href="${utils.path[env]}/post/${root[v].index}.html">`)
-                        tagList.push(`<a href="${utils.path[env]}/post/${root[v].index}${env === 'dev' ? '.html' : ''}">`)
-                        tagList.push(`<li id="p-${root[v].index}">${root[v]?.title || root[v]?.file}</li>`)
-                        tagList.push(`</a>`)
+                    if (type === 'dir') {
+                        tagList.push(`<li id="dt-${num}" onclick="foldNavi(${num})">${root[v].title} (${root[v].count})</li>`)
+                        tagList.push(`<ul id="dc-${num}" style="display: none;">`)
+                        tagList.push(recursion(root[v].children))
+                        tagList.push('</ul>')
+                    } else {
+                        if (parseInt(root[v].index) !== 0) {
+                            // tagList.push(`<a href="${utils.path[env]}/post/${root[v].index}.html">`)
+                            tagList.push(`<a href="${utils.path[env]}/post/${root[v].index}${env === 'dev' ? '.html' : ''}">`)
+                            tagList.push(`<li id="p-${root[v].index}">${root[v]?.title || root[v]?.file}</li>`)
+                            tagList.push(`</a>`)
+                        }
                     }
-                }
-            })
+                })
 
-            return tagList
+                return tagList
+            }
+
+            recursion(utils.post)
+            utils.navi = tagList
+        } catch (err) {
+            console.log(err)
+        } finally {
+            console.groupEnd()
+            console.log('Done!!!')
         }
-
-        recursion(utils.post)
-        utils.navi = tagList
     },
     mkMainPage: () => {
-        console.log('\n##### [ app.mkMainPage ] #####')
+        console.group('\n##### [ app.mkMainPage ] #####')
 
-        const mdFile = matter(fs.readFileSync(`${utils.path.index}`, 'utf8').trim())
-        const htmlFile = marked.parse(`${mdFile.content}\n\n\n${utils.postingList.join('\n')}`)
-
-        const metaData = {
-            env: env,
-            url: utils.path[env],
-            index: 0,
-            fold: [],
-            prev: 0,
-            next: 0,
-            navi: utils.navi,
-            contents: htmlFile
-        }
-
-        const result = post.output(metaData)
-
-        fs.writeFileSync(`${utils.path.dist}/index.html`, result)
-
-    },
-    mkPostPage: () => {
-        console.log('\n##### [ app.mkPostPage ] #####')
-
-        utils.contents.sort((a, b) => {
-            return a.index - b.index
-        }).filter((v) => {
-            return parseInt(v.index) !== 0
-        }).map((v) => {
-
-            // ballboy / 포스팅 파일이 많아졌을때 성능/용량 이슈 발생 하지 않을지...?
-            // const mdFile = matter(fs.readFileSync(v.path, 'utf8').trim())
-
-            const htmlFile = marked.parse(v.content)
+        try {
+            const mdFile = matter(fs.readFileSync(`${utils.path.index}`, 'utf8').trim())
+            const htmlFile = marked.parse(`${mdFile.content}\n\n\n${utils.postingList.join('\n')}`)
 
             const metaData = {
                 env: env,
                 url: utils.path[env],
-                index: v.index,
-                fold: v.fold,
-                prev: v.prev || 0,
-                next: v.next || 0,
+                index: 0,
+                fold: [],
+                prev: 0,
+                next: 0,
                 navi: utils.navi,
                 contents: htmlFile
             }
 
             const result = post.output(metaData)
 
-            fs.writeFileSync(`${utils.path.dist}/post/${v.index}.html`, result)
-        })
-    },
-    finalWork: async () => {
-        console.log('\n##### [ app.finalWork ] #####')
-
-        const posting = [`# Posting List (${dayjs().format("YYYY.MM.DD")})\n`, '||title|date|prev|next|url|', '|:-:|:--|:-:|:-:|:-:|:--|']
-
-        for (let i = 0; i < utils.contents.length; i++) {
-            const item = utils.contents[i]
-            let status = false
-            try {
-                let temp = await axios.get(`${utils.path.build}/post/${item.index}.html`)
-                status = temp.status === 200
-            } catch (err) {
-                // console.log(err)
-                if (err.status !== 404) {
-                    console.log(`ERROR >> ${item?.title || item?.file || 'no file'}`)
-                }
-            }
-
-            // create posting.md
-            const text1 = `|[ ${item.index} ]|${item?.title || item?.file}|${item.date}|${item?.prev || ''}|${item?.next || ''}|${status ? `${utils.path.build}/post/${item.index}${env === 'dev' ? '.html' : ''}` : 'not yet'}|`
-            posting.push(text1)
-
-            // ballboy / create index.md / 포스팅 리스트 레이아웃을 따로 제작하는 방향으로 개선
-            if (item?.index && parseInt(item.index) !== 0) {
-                const text2 = `|[ ${item.index} ]|[${item?.title || item?.file}](${utils.path[env]}/post/${item.index}${env === 'dev' ? '.html' : ''})|${item.date}|`
-                utils.postingList.push(text2)
-            }
-
-            console.log(`[ ${item.index} ] ${item?.title || item?.file}`)
+            fs.writeFileSync(`${utils.path.dist}/index.html`, result)
+        } catch (err) {
+            console.log(err)
+        } finally {
+            console.groupEnd()
+            console.log('Done!!!')
         }
 
-        fs.writeFileSync(`readme.md`, posting.join('\n'))
+    },
+    mkPostPage: () => {
+        console.group('\n##### [ app.mkPostPage ] #####')
+
+        try {
+            utils.contents.sort((a, b) => {
+                return a.index - b.index
+            }).filter((v) => {
+                return parseInt(v.index) !== 0
+            }).map((v) => {
+
+                // ballboy / 포스팅 파일이 많아졌을때 성능/용량 이슈 발생 하지 않을지...?
+                // const mdFile = matter(fs.readFileSync(v.path, 'utf8').trim())
+
+                const htmlFile = marked.parse(v.content)
+
+                const metaData = {
+                    env: env,
+                    url: utils.path[env],
+                    index: v.index,
+                    fold: v.fold,
+                    prev: v.prev || 0,
+                    next: v.next || 0,
+                    navi: utils.navi,
+                    contents: htmlFile
+                }
+
+                const result = post.output(metaData)
+
+                fs.writeFileSync(`${utils.path.dist}/post/${v.index}.html`, result)
+            })
+        } catch (err) {
+            console.log(err)
+        } finally {
+            console.groupEnd()
+            console.log('Done!!!')
+        }
+    },
+    finalWork: async () => {
+        console.group('\n##### [ app.finalWork ] #####')
+
+        try {
+            const posting = [`# Posting List (${dayjs().format("YYYY.MM.DD")})\n`, '||title|date|prev|next|url|', '|:-:|:--|:-:|:-:|:-:|:--|']
+
+            for (let i = 0; i < utils.contents.length; i++) {
+                const item = utils.contents[i]
+                let status = false
+                try {
+                    let temp = await axios.get(`${utils.path.build}/post/${item.index}.html`)
+                    status = temp.status === 200
+                } catch (err) {
+                    // console.log(err)
+                    if (err.status !== 404) {
+                        console.log(`ERROR >> ${item?.title || item?.file || 'no file'}`)
+                    }
+                }
+
+                // create posting.md
+                const text1 = `|[ ${item.index} ]|${item?.title || item?.file}|${item.date}|${item?.prev || ''}|${item?.next || ''}|${status ? `${utils.path.build}/post/${item.index}${env === 'dev' ? '.html' : ''}` : 'not yet'}|`
+                posting.push(text1)
+
+                // ballboy / create index.md / 포스팅 리스트 레이아웃을 따로 제작하는 방향으로 개선
+                if (item?.index && parseInt(item.index) !== 0) {
+                    const text2 = `|[ ${item.index} ]|[${item?.title || item?.file}](${utils.path[env]}/post/${item.index}${env === 'dev' ? '.html' : ''})|${item.date}|`
+                    utils.postingList.push(text2)
+                }
+
+                console.log(`[ ${item.index} ] ${item?.title || item?.file}`)
+            }
+
+            fs.writeFileSync(`readme.md`, posting.join('\n'))
+        } catch (err) {
+            console.log(err)
+        } finally {
+            console.groupEnd()
+            console.log('Done!!!')
+        }
+
+
     }
 }
 
