@@ -41,3 +41,5 @@
 |[ 31 ]|json객체와 Map()의 비교|20250430|||https://ballboyDev.github.io/post/31.html|
 |[ 32 ]|배열 생성 성능 비교|20250430|||https://ballboyDev.github.io/post/32.html|
 |[ 33 ]|전자레인지로 밥 짓기|20250501|||https://ballboyDev.github.io/post/33.html|
+|[ 34 ]|1. 블로그 만들기 외전 - 애플 단축어 활용|20250513||35|https://ballboyDev.github.io/post/34.html|
+|[ 35 ]|2. 블로그 만들기 외전 - 외부 빌드 스크립트 만들기|20250513|34||https://ballboyDev.github.io/post/35.html|

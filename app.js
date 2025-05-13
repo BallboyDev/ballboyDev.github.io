@@ -11,18 +11,33 @@ const env = process.env.NODE_ENV
 
 const utils = {
     path: {
+        // index.md 파일 위치
         index: '/Users/ballboy/Documents/blog/index.md', // _post/index.md
+
+        // 포스팅 글 저장 위치
         post: '/Users/ballboy/Documents/blog', // _post
+
+        // 배포 위치
         dist: '_dist',
+
+        // 이미지, css, js 파일 등 구성 요소 저장 공간 위치
         assets: '_assets',
+
+        // 테스트 환경 배포 경로
         dev: `file://${__dirname}/_dist`,
+
+        // 운영 환경 배포 경로
         build: 'https://ballboyDev.github.io',
     },
-    img: {},
-    post: {},
-    json: {},
-    navi: [],
-    contents: [],
+    post: {},           // 블로그 생성을 위한 기초 json 데이터
+    json: {},           // 단축어 등 외부 기능 활용을 위한 포스팅 글 URL 제공 json 데이터
+    navi: [],           // 네비게이션 HTML 베이스 코드
+    contents: [],       // 포스팅 글 관련 정보 리스트
+    postingList: [      // 정규화된 포스팅 글 리스트
+        `## Posting List (${dayjs().format("YYYY.MM.DD")})`,
+        '||title|date|',
+        '|:-:|:--|:-:|'
+    ]
 }
 
 const app = {
@@ -73,7 +88,7 @@ const app = {
             const temp2 = {}
 
             // ballboy / index 파일과 공통 파일들의 관리 방안에 대하여 고민해보기
-            const post = fs.readdirSync(root).filter((v) => { return ['_Common', 'index.md', 'docsImg'].indexOf(v) < 0 })
+            const post = fs.readdirSync(root).filter((v) => { return ['_Common', 'index.md', 'docsImg', 'deploy.sh'].indexOf(v) < 0 })
 
             post.sort().map((v) => {
                 const isDir = fs.statSync(`${root}/${v}`).isDirectory();
@@ -135,7 +150,6 @@ const app = {
         console.log(utils.json)
 
         fs.writeFileSync(`${utils.path.dist}/post.json`, JSON.stringify(utils.json))
-        // fs.writeFileSync(`test.json`, JSON.stringify(utils.post))
 
     },
     mkNavi: () => {
@@ -187,7 +201,7 @@ const app = {
         console.log('\n##### [ app.mkMainPage ] #####')
 
         const mdFile = matter(fs.readFileSync(`${utils.path.index}`, 'utf8').trim())
-        const htmlFile = marked.parse(mdFile.content)
+        const htmlFile = marked.parse(`${mdFile.content}\n\n\n${utils.postingList.join('\n')}`)
 
         const metaData = {
             env: env,
@@ -239,16 +253,6 @@ const app = {
         console.log('\n##### [ app.finalWork ] #####')
 
         const posting = [`# Posting List (${dayjs().format("YYYY.MM.DD")})\n`, '||title|date|prev|next|url|', '|:-:|:--|:-:|:-:|:-:|:--|']
-        const index = [
-            '# 심심한 개발자의 심심한 블로그',
-            '[![Static Badge](https://img.shields.io/badge/yswgood0329%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=EA4335&label=gmail&labelColor=FFFFFF)](https://mail.google.com/) [![Static Badge](https://img.shields.io/badge/%40ballboy.329-FFFFFF?style=for-the-badge&logo=instagram&logoColor=FFFFFF&label=INSTA&labelColor=E4405F)](https://www.instagram.com/ballboy.329)',
-            '- 심심한 개발자가 심심해서 만들었고 심심할때 끄적여 보는 심심한 개발자의 심심한 블로그 입니다.',
-            '- 꾸준한 기능 개발과 개발과 일상 생활과 관련된 다양한 글을 작성하기 위해 노력하고 있습니다.',
-            '',
-            `## Posting List (${dayjs().format("YYYY.MM.DD")})`,
-            '||title|date|',
-            '|:-:|:--|:-:|'
-        ]
 
         for (let i = 0; i < utils.contents.length; i++) {
             const item = utils.contents[i]
@@ -270,14 +274,13 @@ const app = {
             // ballboy / create index.md / 포스팅 리스트 레이아웃을 따로 제작하는 방향으로 개선
             if (item?.index && parseInt(item.index) !== 0) {
                 const text2 = `|[ ${item.index} ]|[${item?.title || item?.file}](${utils.path[env]}/post/${item.index}${env === 'dev' ? '.html' : ''})|${item.date}|`
-                index.push(text2)
+                utils.postingList.push(text2)
             }
 
             console.log(`[ ${item.index} ] ${item?.title || item?.file}`)
         }
 
         fs.writeFileSync(`readme.md`, posting.join('\n'))
-        fs.writeFileSync(utils.path.index, index.join('\n'))
     }
 }
 
