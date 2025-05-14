@@ -49,7 +49,7 @@ const utils = {
 
 const app = {
     run: async () => {
-        console.log(`##### [ app.run < ${env} > ] #####`)
+        console.log('\x1b[43m\x1b[30m%s\x1b[0m', `##### [ app.run < ${env} > ] #####`)
 
         await app.init()
         await app.mkJson();
@@ -59,7 +59,7 @@ const app = {
         await app.mkMainPage();
     },
     init: () => {
-        console.group('\n##### [ app.init ] #####')
+        console.group('\x1b[43m\x1b[30m%s\x1b[0m', '\n##### [ app.init ] #####')
 
         try {
             if (fs.existsSync(utils.path.dist)) {
@@ -96,7 +96,7 @@ const app = {
 
     },
     mkJson: () => {
-        console.group('\n##### [ app.mkJson ] #####')
+        console.group('\x1b[43m\x1b[30m%s\x1b[0m', '\n##### [ app.mkJson ] #####')
 
         try {
             const recursion = (root, fold = []) => {
@@ -116,7 +116,7 @@ const app = {
                             const [child, json] = recursion(`${root}/${v}`, [...fold, index]);
                             const count = Object.keys(child).reduce((a, b) => {
                                 const [type, index] = b.split('_');
-                                return a + (type === 'dir' ? child[b].count : (parseInt(index) === 0 || !child[b].upload ? 0 : 1));
+                                return a + (type === 'dir' ? child[b].count : (!child[b].upload ? 0 : 1));
                             }, 0);
 
                             const item = {
@@ -150,7 +150,7 @@ const app = {
                             };
 
                             temp1[`post_${index}`] = item;
-                            if (parseInt(index) !== 0 && upload) {
+                            if (upload) {
                                 temp2[`${title || path.basename(v, path.extname(v))}`] = `${utils.path.build}/post/${parseInt(index)}`
                             }
                             utils.contents.push(item);
@@ -178,7 +178,7 @@ const app = {
 
     },
     mkNavi: () => {
-        console.group('\n##### [ app.mkNavi ] #####')
+        console.group('\x1b[43m\x1b[30m%s\x1b[0m', '\n##### [ app.mkNavi ] #####')
 
         try {
             const tagList = []
@@ -208,7 +208,7 @@ const app = {
                         tagList.push(recursion(root[v].children))
                         tagList.push('</ul>')
                     } else {
-                        if (parseInt(root[v].index) !== 0 && root[v].upload) {
+                        if (root[v].upload) {
                             // tagList.push(`<a href="${utils.path[env]}/post/${root[v].index}.html">`)
                             tagList.push(`<a href="${utils.path[env]}/post/${root[v].index}${env === 'dev' ? '.html' : ''}">`)
                             tagList.push(`<li id="p-${root[v].index}">${root[v]?.title || root[v]?.file}</li>`)
@@ -230,7 +230,7 @@ const app = {
         }
     },
     mkMainPage: () => {
-        console.group('\n##### [ app.mkMainPage ] #####')
+        console.group('\x1b[43m\x1b[30m%s\x1b[0m', '\n##### [ app.mkMainPage ] #####')
 
         try {
             const mdFile = matter(fs.readFileSync(`${utils.path.index}`, 'utf8').trim())
@@ -259,13 +259,13 @@ const app = {
 
     },
     mkPostPage: () => {
-        console.group('\n##### [ app.mkPostPage ] #####')
+        console.group('\x1b[43m\x1b[30m%s\x1b[0m', '\n##### [ app.mkPostPage ] #####')
 
         try {
             utils.contents.sort((a, b) => {
                 return a.index - b.index
             }).filter((v) => {
-                return parseInt(v.index) !== 0 && v.upload
+                return v.upload
             }).map((v) => {
 
                 // ballboy / 포스팅 파일이 많아졌을때 성능/용량 이슈 발생 하지 않을지...?
@@ -296,7 +296,7 @@ const app = {
         }
     },
     finalWork: async () => {
-        console.group('\n##### [ app.finalWork ] #####')
+        console.group('\x1b[43m\x1b[30m%s\x1b[0m', '\n##### [ app.finalWork ] #####')
 
         try {
             const posting = [`# Posting List (${dayjs().format("YYYY.MM.DD")})\n`, '||title|date|prev|next|url|', '|:-:|:--|:-:|:-:|:-:|:--|']
@@ -319,12 +319,18 @@ const app = {
                 posting.push(text1)
 
                 // ballboy / create index.md / 포스팅 리스트 레이아웃을 따로 제작하는 방향으로 개선
-                if (item?.index && parseInt(item.index) !== 0 && item.upload) {
+                if (item.upload) {
                     const text2 = `|[ ${item.index} ]|[${item?.title || item?.file}](${utils.path[env]}/post/${item.index}${env === 'dev' ? '.html' : ''})|${item.date}|`
                     utils.postingList.push(text2)
                 }
 
-                console.log(`[ ${item.index}${item.upload ? '*' : ''} ] ${item?.title || item?.file}`)
+                if (status) {
+                    console.log('\x1b[36m%s\x1b[0m', `[ ${item.index} ] ${item?.title || item?.file}`); // cyan
+                } else if (item.upload) {
+                    console.log('\x1b[33m%s\x1b[0m', `[ ${item.index} ] ${item?.title || item?.file}`); // yellow
+                } else {
+                    console.log('\x1b[31m%s\x1b[0m', `[ ${item.index} ] ${item?.title || item?.file}`); // red
+                }
             }
 
             fs.writeFileSync(`${utils.path.post}/postList.md`, posting.join('\n'))
