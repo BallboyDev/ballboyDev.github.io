@@ -116,7 +116,15 @@ const app = {
                             const [child, json] = recursion(`${root}/${v}`, [...fold, index]);
                             const count = Object.keys(child).reduce((a, b) => {
                                 const [type, index] = b.split('_');
-                                return a + (type === 'dir' ? child[b].count : (!child[b].upload ? 0 : 1));
+                                return a + (
+                                    type === 'dir' ?
+                                        child[b].count :
+                                        (
+                                            parseInt(child[b].index) !== 0 && (env === 'dev' || (env === 'build' && child[b].upload)) ? 1 : 0
+                                            // !child[b].upload ? 0 : 1
+                                        )
+                                );
+                                // if (parseInt(root[v].index) !== 0 && (env === 'dev' || (env === 'build' && root[v].upload))) {
                             }, 0);
 
                             const item = {
@@ -208,7 +216,7 @@ const app = {
                         tagList.push(recursion(root[v].children))
                         tagList.push('</ul>')
                     } else {
-                        if (root[v].upload) {
+                        if (parseInt(root[v].index) !== 0 && (env === 'dev' || (env === 'build' && root[v].upload))) {
                             // tagList.push(`<a href="${utils.path[env]}/post/${root[v].index}.html">`)
                             tagList.push(`<a href="${utils.path[env]}/post/${root[v].index}${env === 'dev' ? '.html' : ''}">`)
                             tagList.push(`<li id="p-${root[v].index}">${root[v]?.title || root[v]?.file}</li>`)
@@ -265,7 +273,7 @@ const app = {
             utils.contents.sort((a, b) => {
                 return a.index - b.index
             }).filter((v) => {
-                return v.upload
+                return parseInt(v.index) !== 0 && (env === 'dev' || (env === 'build' && v.upload))
             }).map((v) => {
 
                 // ballboy / 포스팅 파일이 많아졌을때 성능/용량 이슈 발생 하지 않을지...?
@@ -298,6 +306,8 @@ const app = {
     finalWork: async () => {
         console.group('\x1b[43m\x1b[30m%s\x1b[0m', '\n##### [ app.finalWork ] #####')
 
+        console.log('\x1b[36m[ 배포* ]  \x1b[36m[ 배포대기 ]  \x1b[33m[ 테스트 ]  \x1b[31m[ 작성중 ]\x1b[0m\n')
+
         try {
             const posting = [`# Posting List (${dayjs().format("YYYY.MM.DD")})\n`, '||title|date|prev|next|url|', '|:-:|:--|:-:|:-:|:-:|:--|']
 
@@ -324,13 +334,16 @@ const app = {
                     utils.postingList.push(text2)
                 }
 
-                if (status) {
-                    console.log('\x1b[36m%s\x1b[0m', `[ ${item.index} ] ${item?.title || item?.file}`); // cyan
-                } else if (item.upload) {
-                    console.log('\x1b[33m%s\x1b[0m', `[ ${item.index} ] ${item?.title || item?.file}`); // yellow
+                let font = ''
+                if (item.upload && parseInt(item.index) !== 0) {
+                    font = '\x1b[36m%s\x1b[0m'
+                } else if (!item.upload && parseInt(item.index) !== 0) {
+                    font = '\x1b[33m%s\x1b[0m'
                 } else {
-                    console.log('\x1b[31m%s\x1b[0m', `[ ${item.index} ] ${item?.title || item?.file}`); // red
+                    font = '\x1b[31m%s\x1b[0m'
                 }
+
+                console.log(font, `[ ${item.index}${status ? '*' : ''} ] ${item?.title || item?.file}`); // yellow
             }
 
             fs.writeFileSync(`${utils.path.post}/postList.md`, posting.join('\n'))

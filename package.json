@@ -6,7 +6,8 @@
   "scripts": {
     "test": "node test.js",
     "app:dev": "NODE_ENV=dev node app.js",
-    "app:build": "NODE_ENV=build node app.js && gh-pages -d _dist"
+    "app:build": "NODE_ENV=build node app.js",
+    "deploy": "gh-pages -d _dist"
   },
   "author": "",
   "license": "ISC",
