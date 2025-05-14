@@ -116,7 +116,7 @@ const app = {
                             const [child, json] = recursion(`${root}/${v}`, [...fold, index]);
                             const count = Object.keys(child).reduce((a, b) => {
                                 const [type, index] = b.split('_');
-                                return a + (type === 'dir' ? child[b].count : (parseInt(index) === 0 ? 0 : 1));
+                                return a + (type === 'dir' ? child[b].count : (parseInt(index) === 0 || !child[b].upload ? 0 : 1));
                             }, 0);
 
                             const item = {
@@ -134,12 +134,14 @@ const app = {
                         const mdFile = matter(fs.readFileSync(`${root}/${v}`, 'utf8').trim());
                         const title = mdFile.data?.title;
                         const index = mdFile.data?.index || 0;
+                        const upload = mdFile.data?.upload || false;
 
                         if (v !== '.DS_Store') {
                             const item = {
                                 title,
                                 file: path.basename(v, path.extname(v)),
                                 index: parseInt(index),
+                                upload: upload,
                                 path: `${root}/${v}`,
                                 fold,
                                 date: mdFile.data?.date || '99999999',
@@ -148,7 +150,7 @@ const app = {
                             };
 
                             temp1[`post_${index}`] = item;
-                            if (parseInt(index) !== 0) {
+                            if (parseInt(index) !== 0 && upload) {
                                 temp2[`${title || path.basename(v, path.extname(v))}`] = `${utils.path.build}/post/${parseInt(index)}`
                             }
                             utils.contents.push(item);
@@ -163,7 +165,8 @@ const app = {
 
             [utils.post, utils.json] = [...recursion(utils.path.post)]
 
-            console.log('ballboy >> utils.json')
+            console.log('ballboy >> utils.json, utils.post')
+            // fs.writeFileSync(`test.json`, JSON.stringify(utils.post))
 
             fs.writeFileSync(`${utils.path.dist}/post.json`, JSON.stringify(utils.json))
         } catch (err) {
@@ -205,7 +208,7 @@ const app = {
                         tagList.push(recursion(root[v].children))
                         tagList.push('</ul>')
                     } else {
-                        if (parseInt(root[v].index) !== 0) {
+                        if (parseInt(root[v].index) !== 0 && root[v].upload) {
                             // tagList.push(`<a href="${utils.path[env]}/post/${root[v].index}.html">`)
                             tagList.push(`<a href="${utils.path[env]}/post/${root[v].index}${env === 'dev' ? '.html' : ''}">`)
                             tagList.push(`<li id="p-${root[v].index}">${root[v]?.title || root[v]?.file}</li>`)
@@ -262,7 +265,7 @@ const app = {
             utils.contents.sort((a, b) => {
                 return a.index - b.index
             }).filter((v) => {
-                return parseInt(v.index) !== 0
+                return parseInt(v.index) !== 0 && v.upload
             }).map((v) => {
 
                 // ballboy / 포스팅 파일이 많아졌을때 성능/용량 이슈 발생 하지 않을지...?
@@ -316,12 +319,12 @@ const app = {
                 posting.push(text1)
 
                 // ballboy / create index.md / 포스팅 리스트 레이아웃을 따로 제작하는 방향으로 개선
-                if (item?.index && parseInt(item.index) !== 0) {
+                if (item?.index && parseInt(item.index) !== 0 && item.upload) {
                     const text2 = `|[ ${item.index} ]|[${item?.title || item?.file}](${utils.path[env]}/post/${item.index}${env === 'dev' ? '.html' : ''})|${item.date}|`
                     utils.postingList.push(text2)
                 }
 
-                console.log(`[ ${item.index} ] ${item?.title || item?.file}`)
+                console.log(`[ ${item.index}${item.upload ? '*' : ''} ] ${item?.title || item?.file}`)
             }
 
             fs.writeFileSync(`${utils.path.post}/postList.md`, posting.join('\n'))
