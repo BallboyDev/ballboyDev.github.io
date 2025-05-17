@@ -45,6 +45,39 @@ const next = (param) => {
     return html
 }
 
+const bookmark = (param) => {
+    const html = `
+<div class="bookmark">
+    <div class="title t1">
+        <div><a href="http://ballboydev.github.io">아름다운 이 강산을</a></div>
+        <p>•</p>
+    </div>
+    <div class="title t2">
+        <div><a href="http://ballboydev.github.io">지키는 우리 사나이 기백으로</a></div>
+        <p>•</p>
+    </div>
+    <div class="title t3">
+        <div><a href="http://ballboydev.github.io">오늘을 산다 포탄의 불바다를</a></div>
+        <p>•</p>
+    </div>
+    <div class="title t1">
+        <div><a href="http://ballboydev.github.io">무릅쓰고서 고향 땅</a></div>
+        <p>•</p>
+    </div>
+    <div class="title t2">
+        <div><a href="http://ballboydev.github.io">부모 형제 평화를</a></div>
+        <p>•</p>
+    </div>
+    <div class="title t3">
+        <div><a href="http://ballboydev.github.io">위해</a></div>
+        <p>•</p>
+    </div>
+</div>
+    `
+
+    return html
+}
+
 const page = (param) => {
     const { data, tag } = param
 
@@ -84,7 +117,7 @@ const page = (param) => {
             <hr />
             
             <h3 class="category">카테고리</h3>
-            <div class="navi2">
+            <div class="navi">
                 <ul class="root">
 
                     ${tag.navi}
@@ -96,6 +129,8 @@ const page = (param) => {
 
         <!-- contents component -->
         <div id="contents">
+
+            ${tag.bookmark}
             
             ${tag.prev}
             
@@ -134,6 +169,7 @@ const output = (param) => {
             prev: (param.prev !== 0) ? prev({ url: param.url, prev: param.prev }) : '',
             next: (param.next !== 0) ? next({ url: param.url, next: param.next }) : '',
             navi: param.navi.join('\n'),
+            // bookmark: bookmark({}),
             contents: param.contents,
         }
     }
