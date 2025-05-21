@@ -169,7 +169,7 @@ const output = (param) => {
             prev: (param.prev !== 0) ? prev({ url: param.url, prev: param.prev }) : '',
             next: (param.next !== 0) ? next({ url: param.url, next: param.next }) : '',
             navi: param.navi.join('\n'),
-            // bookmark: bookmark({}),
+            bookmark: '', // bookmark({}),
             contents: param.contents,
         }
     }

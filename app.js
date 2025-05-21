@@ -106,7 +106,20 @@ const app = {
                 // ballboy / index 파일과 공통 파일들의 관리 방안에 대하여 고민해보기
                 const post = fs.readdirSync(root).filter((v) => { return utils.commonFile.indexOf(v) < 0 })
 
-                post.sort().map((v) => {
+                post.sort((a, b) => {
+                    const aType = path.extname(a)
+                    const bType = path.extname(b)
+
+                    if (aType === bType) {
+                        return a.length - b.length
+                    } else {
+                        if (aType === '') {
+                            return 1
+                        } else {
+                            return -1
+                        }
+                    }
+                }).map((v) => {
                     const isDir = fs.statSync(`${root}/${v}`).isDirectory();
 
                     if (isDir) {
@@ -154,7 +167,8 @@ const app = {
                                 fold,
                                 date: mdFile.data?.date || '99999999',
                                 ...mdFile.data,
-                                content: mdFile.content.replace(/<.*?docsImg\/([^>]+)>/g, `<${utils.path[env]}/assets/img/$1>`)
+                                content: mdFile.content.replace(/<.*?docsImg\/([^>]+)>/g, `<${utils.path[env]}/assets/img/$1>`),
+                                // bookmark: []
                             };
 
                             temp1[`post_${index}`] = item;
@@ -242,6 +256,13 @@ const app = {
 
         try {
             const mdFile = matter(fs.readFileSync(`${utils.path.index}`, 'utf8').trim())
+
+            // const renderer = new marked.Renderer()
+            // renderer.heading = function (text, level) {
+            //     return `<h${level} class='test'>${text}</h${level}>`
+            // }
+            // marked.setOptions({ renderer: renderer })
+
             const htmlFile = marked.parse(`${mdFile.content}\n\n\n${utils.postingList.join('\n')}`)
 
             const metaData = {
