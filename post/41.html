@@ -13,13 +13,13 @@
 <link rel="stylesheet" href="https://ballboyDev.github.io/assets/skin.css">
 
 <style>
-    #p-32 {
+    #p-41 {
         color: rgb(76, 193, 237) !important;
     }
 </style>
 <script id="data" type="application/json">
 {
-    "fold": ["2","22"]
+    "fold": ["2","23","231"]
 }
 </script>
 
@@ -301,104 +301,196 @@
             
             <div class="main markdown-body">
 
-                <h1>배열 생성 방법별 성능 비교</h1>
-<pre><code class="language-js">// 코드 A - spread + map
-const arr1 = [...new Array(100)].map((v, i) =&gt; {return i + 1})
+                <h1>Document Query(조회) - find()</h1>
+<h2>Document 조회 : db.COLLECTION_NAME.find(query, projection)</h2>
+<ul>
+<li>option<ul>
+<li>query : document<ul>
+<li>Optional. 도큐먼트를 조회할 때 기준을 정합니다. 기준이 없이 컬렉션에 있는 모든 도큐먼트를 조회 할 때는 이 매개변수를 비우거나 {}를 전달하세요</li>
+</ul>
+</li>
+<li>projection : document<ul>
+<li>Optional, 도큐먼를 조회 할 때 보여질 field를 지정합니다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3>반환값(return)</h3>
+<ul>
+<li>criteria에 해당하는 Document들을 선택하여 cursor를 반환합니다. cursor는 query 요청의 결과값을 가르키는 pointer 입니다. cursor 객체를 통하여 보이는 데이터의 수를 제한할 수 있고, 데이터를 sort할 수 도 있습니다.</li>
+<li>이는 10분동안 사용되지 않으면 만료 됩니다.</li>
+</ul>
+<pre><code>&gt; collection tempCol 생성
 
-// 코드 B - Array.from
-const arr2 = Array.from({length: 100}, (v, i) =&gt; {return i + 1})
+// 모든 도큐먼트 조회
+&gt; db.tempCol.find()
 
-// 코드 C - 순수 for 루프
-const arr3 = []
-for(let i = 1; i &lt;= 100; i++) {
-    arr.push(i)
-}
+// 도큐먼를 깔끔하게? 조회
+&gt; db.tempCol.find().pretty()
+
+// writer 값이 &quot;ballboy&quot; 인 document 조회
+&gt; db.tempCol.find({&quot;writer&quot;:&quot;ballboy&quot;}).pretty()
+
+// likes 값이 30이하인 Document 조회
+&gt; db.tempCol.find({&quot;likes&quot;: {$lte: 30}}).pretty()
+
+// likes 값이 10보다 크고 30보다 작은 document
+&gt; db.tempCol.find({&quot;like&quot;: {$gt: 10, $lt: 30}})
+
+// writer 값이 배열 [&quot;Alpha&quot;, &quot;Bravo&quot;]안에 속하는 Document
+&gt; db.tempCol.find({&quot;writer&quot;:{$in: [&quot;Alpha&quot;, &quot;Bravo&quot;]}})
+
+// title 값이 article01이거나, writer 값이 Alpha
+&gt; db.tempCol.find($or:[{&quot;title&quot;: &quot;article01&quot;}, {&quot;writer&quot;: &quot;Alpha&quot;}])
+
+// writer 값이 &quot;ballboy&quot;이고 likes 값이 10 미만
+&gt; db.tempCol.find({$and: [{&quot;writer&quot;: &quot;ballboy&quot;}, {&quot;like&quot;: {$lt: 10}}]})
+&gt; db.tempCol.find({&quot;writer&quot;: &quot;ballboy&quot;, &quot;like&quot;: {$lt: 10}})
 </code></pre>
+<h3>연산자</h3>
 <table>
 <thead>
 <tr>
-<th align="left">항목</th>
-<th align="left">코드 A (spread + map)</th>
-<th align="left">코드 B (Array.from())</th>
-<th align="left">코드 C (for loop)</th>
+<th align="left">operator</th>
+<th align="left">desc</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="left">성능 순위</td>
-<td align="left">최하</td>
-<td align="left">중간</td>
-<td align="left">상위</td>
+<td align="left">비교 연산자</td>
+<td align="left"></td>
 </tr>
 <tr>
-<td align="left">메모리 할당</td>
-<td align="left">빈배열 할당 -&gt; map 시 새 배열 할당(이중할당)</td>
-<td align="left">배열 크기 한번에 할당, 생성</td>
-<td align="left">push 마다 내부 버퍼 관리</td>
+<td align="left">$eq</td>
+<td align="left">(equals)주어진 값과 일치</td>
 </tr>
 <tr>
-<td align="left">호환성</td>
-<td align="left">ES6+</td>
-<td align="left">ES6+</td>
-<td align="left">상관 없음</td>
+<td align="left">$gt</td>
+<td align="left">(greater than)주어진 값 초과</td>
 </tr>
 <tr>
-<td align="left">사용 예시</td>
-<td align="left">단순 상수 값 채우기 등 특수한 경우(내용이 모두 같은 경우 등)</td>
-<td align="left">가독성, 타입 안정성 중시와 적당한 성능 확보시</td>
-<td align="left">성능이 최우선인 대용량 처리 영역</td>
+<td align="left">$gte</td>
+<td align="left">(greater than or equals)주어진 값 이상</td>
+</tr>
+<tr>
+<td align="left">$lt</td>
+<td align="left">(less then)주어진 값 미만</td>
+</tr>
+<tr>
+<td align="left">$lte</td>
+<td align="left">(less then or equals)주어진 값 이하</td>
+</tr>
+<tr>
+<td align="left">$ne</td>
+<td align="left">(not equals)주어진 값과 불일치</td>
+</tr>
+<tr>
+<td align="left">$in</td>
+<td align="left">(in)주어진 배열 안에 속함</td>
+</tr>
+<tr>
+<td align="left">$nin</td>
+<td align="left">(not in)주어진 배열에 속하지 않음</td>
+</tr>
+<tr>
+<td align="left">논리 연산자</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">$or</td>
+<td align="left">주어진 조건중 하나라도 true 일 때 false</td>
+</tr>
+<tr>
+<td align="left">$and</td>
+<td align="left">주어진 모든 조건이 true 일 때 true</td>
+</tr>
+<tr>
+<td align="left">$not</td>
+<td align="left">주어진 조건이 false 일 때 true</td>
+</tr>
+<tr>
+<td align="left">$nor</td>
+<td align="left">주어진 모든 조건이 false 일 때 true</td>
 </tr>
 </tbody></table>
-<h2>성능 비교</h2>
-<h3>코드 A - spread + map</h3>
+<h3>$regex 연산자</h3>
 <ul>
-<li>new Array(100)으로 빈 슬롯만 있는 배열을 만든 뒤, spread로 실제 undefined 요소가 있는 배열로 복사한 다음 map을 또 한 번 순회 하므로 가장 느립니다.</li>
-<li>요소 개수가 많을 때 성능 저하기 뚜렷해집니다.</li>
+<li>$regex 연산자를 통하여 Document를 정규식을 통해 찾을 수 있습니다.</li>
+<li>사용법</li>
 </ul>
-<h3>코드 B - Array.from</h3>
+<pre><code>{ &lt;field&gt;: {$regex: /pattern/, $options: &#39;&lt;options&gt;&#39;} }
+{ &lt;field&gt;: {$regex: &#39;pattern&#39;, $options: &#39;&lt;options&gt;&#39;} }
+{ &lt;field&gt;: {$regex: /pattern/&lt;options&gt;} }
+{ &lt;field&gt;: /pattern/&lt;options&gt; }
+</code></pre>
 <ul>
-<li>내부에서 배열 생성과 동시에 매핑 콜백을 실행하므로, new Array + map 처럼 &quot;배열 생성 -&gt; map 순회&quot;의 두 단계가 아니라 한번에 처리합니다.</li>
-<li>map보다는 빠르고, 순수 루프 보다는 약간 느린 중간 수준 성능을 보입니다.</li>
+<li>4번째 라인처럼 $regex를 작성하지 않고 바로 정규식을 쓸 수도 있습니다.</li>
+<li>$options<ul>
+<li>i : 대소문자 무시</li>
+<li>m : 정규식에서 anchor(^)를 사용할 때 값에 \n이 있다면 무력화</li>
+<li>x : 정규식 않에 있는 whitespace를 모두 무시</li>
+<li>s : dot(.) 사용 할 때 \n을 포함해서 매치</li>
 </ul>
-<h3>코드 C - 순수 for 루프</h3>
+</li>
+</ul>
+<pre><code>// 정규식 article0[1-2]에 일치하는 값이 title에 있는 Document 조회
+&gt; db.tempCol.find({&quot;title&quot;: /article0[1-2/})
+</code></pre>
+<h3>$where 연산자</h3>
 <ul>
-<li>콜백 호출 오버헤드가 전혀 없으므로 세 가지 중 가장 빠릅니다.</li>
-<li>요소 개수가 많아 질수록 map-계열보다 더 우수한 성능을 보입니다.</li>
+<li>$where 연산자를 통하여 javascript expression을 사용할 수 있습니다.</li>
 </ul>
-<h2>메모리 할당</h2>
-<h3>코드 A - spread + map</h3>
+<pre><code>// comments field 가 비어 있는 document 조회
+&gt; db.tempCol.find({ $where: &quot;this.comments.length == 0&quot; })
+</code></pre>
+<h3>$elemMatch 연산자</h3>
 <ul>
-<li>빈 배열 -&gt; spread 복사로 실제 요소 배열 할당 -&gt; map 결과 배열 또 할당 -&gt; 총 두번 배열을 만듦</li>
+<li>$elemMatch 연산자는 Embedded Documents 배열을 쿼리 할 때 사용됩니다.</li>
 </ul>
-<h3>코드 B - Array.from</h3>
+<pre><code>// comments 중 &quot;Charlie&quot; 가 작성한 덧글이 있는 Document 조회
+&gt; db.tempCol.find({&quot;domments&quot;: {$elemMatch: {&quot;name&quot;:&quot;Charlie&quot;}}})
+
+// Embedded Document 배열이 아니라 한개의 Embedded document 일 시에는 다음과 같이 쿼리를 작성합니다.
+&gt; db.users.find({&quot;name.first&quot;: &quot;M.J.K&quot;})
+
+// Document의 배열이 아니라 그냥 배열일 시에는 다음과 같이 query를 작성합니다.
+&gt; db.users.find({&quot;language&quot;: &quot;korean&quot;})
+</code></pre>
+<h2>projection</h2>
 <ul>
-<li>length 기반으로 한 번만 배열 크기로 잡고, 콜백으로 바로 값을 채워 넣음</li>
+<li>projection은 쿼리의 결과값에서 보여질 field를 정의 합니다.</li>
 </ul>
-<h3>코드 C - 순수 for 루프</h3>
+<pre><code>// tempCol 의 title과 content만 조회
+&gt; db.tempCol.find({}, {&quot;_id&quot;:false, &quot;title&quot;:true, &quot;content&quot;: true})
+</code></pre>
+<h3>$slice 연산자</h3>
 <ul>
-<li>push 호출 시 내부 버퍼 재할당이 일어날 수 있지만, V8등 최신 엔진은 적절히 예측 및 최적화하여 큰 문제가 되지 않습니다.</li>
+<li>projection 연산자 중 $slice 연산자는 Embedded Document 배열을 읽을 때 limit 설정을 합니다.</li>
 </ul>
-<h2>가독성 &amp; 유연성</h2>
-<h3>코드 A - spread + map</h3>
+<pre><code>// title 값이 article03 인 Document에서 comments은 하나만 보이게 출력
+&gt; db.tempCol.find({&quot;title&quot;:&quot;article03&quot;}, {comments: {$slice: 1}})
+</code></pre>
+<h3>$elemMatch 연산자</h3>
 <ul>
-<li>매우 간결하지만, &quot;새 Array -&gt; spread -&gt; map&quot; 조합이 직관적이지 않아 협업시 오해 가능</li>
+<li>query 연산자 중 $elemMatch와 사용법은 같습니다. 단 역할이 다릅니다.</li>
 </ul>
-<h3>코드 B - Array.from</h3>
-<ul>
-<li>length 명시와 동시에 값 채움이라는 의도가 분명해 유지보수성과 가독성이 좋습니다.</li>
-</ul>
-<h3>코드 C - 순수 for 루프</h3>
-<ul>
-<li>가장 직관적이고 &quot;무슨 일이 일어나는지&quot; 설명이 따로 필요 없지만, 반복문 + push가 장황하게 느껴질 수 있습니다.</li>
-</ul>
-<h2>호환성</h2>
-<h3>코드 A, 코드 B</h3>
-<ul>
-<li>ES6 이상 가능 (..., Array.from 등)이 필요합니다</li>
-</ul>
-<h3>코드 C</h3>
-<ul>
-<li>아주 구형 환경에서도 운영 가능</li>
-</ul>
+<pre><code>// comments중 &quot;Charlie&quot;가 작성한 덧글이 있는 Document중 제목, 그리고 Charlie의 덧글만 조회
+&gt; db.tempCol.find(
+    {
+        &quot;comments&quot;: {
+            $elemMatch: {&quot;name&quot;:&quot;Charlie&quot;}
+        }
+    }, 
+    {
+        &quot;title&quot;: true,
+        &quot;comments&quot;: {
+            $elemMatch :{&quot;name&quot;:&quot;Charlie&quot;}
+        },
+        &quot;comments.name&quot;:true,
+        &quot;comments.message&quot;:true
+    }
+)
+</code></pre>
 
 
             </div>

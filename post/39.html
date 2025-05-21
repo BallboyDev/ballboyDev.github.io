@@ -13,13 +13,13 @@
 <link rel="stylesheet" href="https://ballboyDev.github.io/assets/skin.css">
 
 <style>
-    #p-32 {
+    #p-39 {
         color: rgb(76, 193, 237) !important;
     }
 </style>
 <script id="data" type="application/json">
 {
-    "fold": ["2","22"]
+    "fold": ["2","23","231"]
 }
 </script>
 
@@ -301,104 +301,120 @@
             
             <div class="main markdown-body">
 
-                <h1>배열 생성 방법별 성능 비교</h1>
-<pre><code class="language-js">// 코드 A - spread + map
-const arr1 = [...new Array(100)].map((v, i) =&gt; {return i + 1})
-
-// 코드 B - Array.from
-const arr2 = Array.from({length: 100}, (v, i) =&gt; {return i + 1})
-
-// 코드 C - 순수 for 루프
-const arr3 = []
-for(let i = 1; i &lt;= 100; i++) {
-    arr.push(i)
+                <h1>MongoDB 소개 및 데이터 모델링</h1>
+<h2>참고 사이트</h2>
+<p><a href="https://velopert.com/category/dev-log/tech-log/mongodb">https://velopert.com/category/dev-log/tech-log/mongodb</a></p>
+<h2>소개</h2>
+<p>MongoDB는 C++로 작성된 오픈소스 문서 지향적 Cross-platform 데이터 베이스이며, 뛰어난 확장성과 성능을 자랑합니다.</p>
+<h3>Document</h3>
+<ul>
+<li>Document는 RDMS의 recode와 비슷한 개념으로, 이의 데이터 구조는 한개이상의 key-value 쌍으로 이루어져 있습니다.</li>
+</ul>
+<pre><code class="language-json">{
+    &quot;_id&quot;: OjbectId(&quot;60608c7833d0ccdc15a53007&quot;),
+    &quot;username&quot;:&quot;ballboy&quot;,
+    &quot;name&quot;: {
+        &quot;first&quot;:&quot;SeungWoo&quot;, 
+        &quot;last&quot;:&quot;Yang&quot;
+    }
 }
 </code></pre>
+<ul>
+<li>여기서 _id, username, name은 key이고 그 오른쪽의 있는 값들은 value입니다.
+_id는 12bytes의 hexadecimal 값으로, 각 document의 유일함(uniqueness)을 제공합니다.
+이 값의 첫 4bytes는 현재 timestamp, 다음 3bytes는 machine id, 다음 2bytes는 MongoDB 서버의 프로세스id, 마지막 3bytes는 순차번호 입니다.</li>
+<li>Document는 동적의 schema를 가지고 있습니다. 같은 Collectino안에 있는 Document끼리 다른 Schema를 가지고 있을 수 있습니다.</li>
+</ul>
+<h3>Collection</h3>
+<ul>
+<li>Collection은 MongoDB Document의 그룹입니다. Document들이 Collection내부에 위치하고 있습니다. RDMS의 table과 비슷한 개념입니다. 하지만 RDMS와 달리 schema를 따로 가지고 있지 않습니다.</li>
+</ul>
+<h3>Database</h3>
+<ul>
+<li>Database는 Collection들의 물리적인 컨테이너 입니다.
+각 Database는 파일시스템에 여러 파일들로 저장됩니다.</li>
+</ul>
+<h2>RDMS와의 비교</h2>
 <table>
 <thead>
 <tr>
-<th align="left">항목</th>
-<th align="left">코드 A (spread + map)</th>
-<th align="left">코드 B (Array.from())</th>
-<th align="left">코드 C (for loop)</th>
+<th align="left">RDBMS</th>
+<th align="left">MongoDB</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="left">성능 순위</td>
-<td align="left">최하</td>
-<td align="left">중간</td>
-<td align="left">상위</td>
+<td align="left">Database</td>
+<td align="left">Database</td>
 </tr>
 <tr>
-<td align="left">메모리 할당</td>
-<td align="left">빈배열 할당 -&gt; map 시 새 배열 할당(이중할당)</td>
-<td align="left">배열 크기 한번에 할당, 생성</td>
-<td align="left">push 마다 내부 버퍼 관리</td>
+<td align="left">Table</td>
+<td align="left">Collection</td>
 </tr>
 <tr>
-<td align="left">호환성</td>
-<td align="left">ES6+</td>
-<td align="left">ES6+</td>
-<td align="left">상관 없음</td>
+<td align="left">Tuple/Row</td>
+<td align="left">Document</td>
 </tr>
 <tr>
-<td align="left">사용 예시</td>
-<td align="left">단순 상수 값 채우기 등 특수한 경우(내용이 모두 같은 경우 등)</td>
-<td align="left">가독성, 타입 안정성 중시와 적당한 성능 확보시</td>
-<td align="left">성능이 최우선인 대용량 처리 영역</td>
+<td align="left">Column</td>
+<td align="left">Key/Field</td>
+</tr>
+<tr>
+<td align="left">Table Join</td>
+<td align="left">Embedded Documents</td>
+</tr>
+<tr>
+<td align="left">Primary Key</td>
+<td align="left">Primary Key(_id)</td>
 </tr>
 </tbody></table>
-<h2>성능 비교</h2>
-<h3>코드 A - spread + map</h3>
+<h3>장점</h3>
 <ul>
-<li>new Array(100)으로 빈 슬롯만 있는 배열을 만든 뒤, spread로 실제 undefined 요소가 있는 배열로 복사한 다음 map을 또 한 번 순회 하므로 가장 느립니다.</li>
-<li>요소 개수가 많을 때 성능 저하기 뚜렷해집니다.</li>
+<li>Schema-less</li>
+<li>각 객체의 구조가 뚜렷하다.</li>
+<li>복잡한 JOIN이 없다. </li>
+<li>Deep Query Ability (문서지향적 Query Language를 사용하여 SQL 만큼 강력한 Query 성능을 제공한다.)</li>
+<li>어플리케이션에서 사용되는 객체를 데이터베이스에 추가 할 떄 Conversion / Mapping 이 불필요하다</li>
 </ul>
-<h3>코드 B - Array.from</h3>
+<h2>Data Modelling</h2>
+<h3>schema 디자인 할 때 고려 사항</h3>
 <ul>
-<li>내부에서 배열 생성과 동시에 매핑 콜백을 실행하므로, new Array + map 처럼 &quot;배열 생성 -&gt; map 순회&quot;의 두 단계가 아니라 한번에 처리합니다.</li>
-<li>map보다는 빠르고, 순수 루프 보다는 약간 느린 중간 수준 성능을 보입니다.</li>
+<li>사용자 요구에 따라 schema를 디자인한다.</li>
+<li>객체들을 함께 사용하게 된다면 한 Document에 합쳐서 사용한다.<ul>
+<li>ex) 게시물 - 덧글 관계</li>
 </ul>
-<h3>코드 C - 순수 for 루프</h3>
+</li>
+<li>읽을 떄 Join 하는게 아니라 데이터를 작성 할 떄 Join한다.</li>
+</ul>
+<h3>예제</h3>
 <ul>
-<li>콜백 호출 오버헤드가 전혀 없으므로 세 가지 중 가장 빠릅니다.</li>
-<li>요소 개수가 많아 질수록 map-계열보다 더 우수한 성능을 보입니다.</li>
+<li>간단한 게시글 저장 데이터 베이스 디자인<ul>
+<li>게시글에는 작성자 이름, 제목, 내용이 담겨져 있다.</li>
+<li>각 게시글은 0ㅐ 이상의 태그를 가지고 있을 수 있따.</li>
+<li>게시글엔 덧글을 달 수 있다. 덧글은 작성자 이름, 내용, 작성시간을 담고 있다.</li>
 </ul>
-<h2>메모리 할당</h2>
-<h3>코드 A - spread + map</h3>
-<ul>
-<li>빈 배열 -&gt; spread 복사로 실제 요소 배열 할당 -&gt; map 결과 배열 또 할당 -&gt; 총 두번 배열을 만듦</li>
+</li>
+<li>MongoDB 구조</li>
 </ul>
-<h3>코드 B - Array.from</h3>
-<ul>
-<li>length 기반으로 한 번만 배열 크기로 잡고, 콜백으로 바로 값을 채워 넣음</li>
-</ul>
-<h3>코드 C - 순수 for 루프</h3>
-<ul>
-<li>push 호출 시 내부 버퍼 재할당이 일어날 수 있지만, V8등 최신 엔진은 적절히 예측 및 최적화하여 큰 문제가 되지 않습니다.</li>
-</ul>
-<h2>가독성 &amp; 유연성</h2>
-<h3>코드 A - spread + map</h3>
-<ul>
-<li>매우 간결하지만, &quot;새 Array -&gt; spread -&gt; map&quot; 조합이 직관적이지 않아 협업시 오해 가능</li>
-</ul>
-<h3>코드 B - Array.from</h3>
-<ul>
-<li>length 명시와 동시에 값 채움이라는 의도가 분명해 유지보수성과 가독성이 좋습니다.</li>
-</ul>
-<h3>코드 C - 순수 for 루프</h3>
-<ul>
-<li>가장 직관적이고 &quot;무슨 일이 일어나는지&quot; 설명이 따로 필요 없지만, 반복문 + push가 장황하게 느껴질 수 있습니다.</li>
-</ul>
-<h2>호환성</h2>
-<h3>코드 A, 코드 B</h3>
-<ul>
-<li>ES6 이상 가능 (..., Array.from 등)이 필요합니다</li>
-</ul>
-<h3>코드 C</h3>
-<ul>
-<li>아주 구형 환경에서도 운영 가능</li>
-</ul>
+<pre><code class="language-josn">{
+    _id: POST_ID,
+    title: POST_TITLE,
+    content: POST_CONTENT,
+    username: POST_WRITER,
+    tags: [ TAG1, TAG2, TAG3 ],
+    time: POST_TIME,
+    comments: [
+        {
+            username: COMMENT1_WRITER,
+            message: COMMENT1_MESSAGE,
+            time: COMMENT1_TIME
+        }, {
+            username: COMMENT2_WRITER,
+            message: COMMENT2_MESSAGE,
+            time: COMMENT2_TIME
+        }
+    ]
+}
+</code></pre>
 
 
             </div>

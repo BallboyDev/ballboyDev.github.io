@@ -13,13 +13,13 @@
 <link rel="stylesheet" href="https://ballboyDev.github.io/assets/skin.css">
 
 <style>
-    #p-32 {
+    #p-50 {
         color: rgb(76, 193, 237) !important;
     }
 </style>
 <script id="data" type="application/json">
 {
-    "fold": ["2","22"]
+    "fold": ["2","23","232"]
 }
 </script>
 
@@ -301,103 +301,88 @@
             
             <div class="main markdown-body">
 
-                <h1>배열 생성 방법별 성능 비교</h1>
-<pre><code class="language-js">// 코드 A - spread + map
-const arr1 = [...new Array(100)].map((v, i) =&gt; {return i + 1})
-
-// 코드 B - Array.from
-const arr2 = Array.from({length: 100}, (v, i) =&gt; {return i + 1})
-
-// 코드 C - 순수 for 루프
-const arr3 = []
-for(let i = 1; i &lt;= 100; i++) {
-    arr.push(i)
-}
-</code></pre>
+                <h1>날짜 연산 및 날짜 함수</h1>
+<h2>기본 날짜 계산</h2>
+<ul>
+<li>오라클 데이터 베이스는 세기, 연도, 월, 일 시, 분, 초 형태의 내부 숫자 형식으로 날짜를 저장함</li>
+<li>기본 Date Format 설정에 따라 화면에 표시됨</li>
+<li>날짜 표시 Format을 변경하고 싶은 경우 다음 명령을 사용한다.<ul>
+<li>alter session set nls_date_format = &#39;yyyy-mm-dd:hh24:mi:ss&#39;;</li>
+</ul>
+</li>
+<li>날짜에 숫자를 더하거나 빼서 날짜 값을 계산할 수 있음</li>
+<li>날짜형 데이터 간 뺄셈을 수항 할 수 있음</li>
+</ul>
 <table>
 <thead>
 <tr>
-<th align="left">항목</th>
-<th align="left">코드 A (spread + map)</th>
-<th align="left">코드 B (Array.from())</th>
-<th align="left">코드 C (for loop)</th>
+<th align="left">함수</th>
+<th align="left">내용</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="left">성능 순위</td>
-<td align="left">최하</td>
-<td align="left">중간</td>
-<td align="left">상위</td>
+<td align="left">DATE + NUMBER</td>
+<td align="left">- 날짜에 해당 일수를 더한 날짜를 리턴</td>
 </tr>
 <tr>
-<td align="left">메모리 할당</td>
-<td align="left">빈배열 할당 -&gt; map 시 새 배열 할당(이중할당)</td>
-<td align="left">배열 크기 한번에 할당, 생성</td>
-<td align="left">push 마다 내부 버퍼 관리</td>
+<td align="left">DATE - NUMBER</td>
+<td align="left">- 날짜에 해당 일수를 뺀 날짜를 리턴</td>
 </tr>
 <tr>
-<td align="left">호환성</td>
-<td align="left">ES6+</td>
-<td align="left">ES6+</td>
-<td align="left">상관 없음</td>
-</tr>
-<tr>
-<td align="left">사용 예시</td>
-<td align="left">단순 상수 값 채우기 등 특수한 경우(내용이 모두 같은 경우 등)</td>
-<td align="left">가독성, 타입 안정성 중시와 적당한 성능 확보시</td>
-<td align="left">성능이 최우선인 대용량 처리 영역</td>
+<td align="left">DATE1 - DATE2</td>
+<td align="left">- 두 날짜 사이의 경과 일수를 숫자로 리턴</td>
 </tr>
 </tbody></table>
-<h2>성능 비교</h2>
-<h3>코드 A - spread + map</h3>
+<pre><code class="language-SQL">-- 현재 날짜/시간
+SELECT SYSDATE FROM DUAL;
+</code></pre>
+<h2>날짜 함수 사용하기</h2>
+<table>
+<thead>
+<tr>
+<th align="left">함수</th>
+<th align="left">내용</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">ADD_MONTHS(D1, N)</td>
+<td align="left">- D1날짜에 N개월을 더함</td>
+</tr>
+<tr>
+<td align="left">MONTHS_BETWEEN(D1, D2)</td>
+<td align="left">- D1, D2 두 날짜 간의 경과 개월 수</td>
+</tr>
+<tr>
+<td align="left">LAST_DAY</td>
+<td align="left">- 해당 월의 마지막 날짜를 리턴</td>
+</tr>
+<tr>
+<td align="left">ROUND</td>
+<td align="left">- 날짜를 년, 월 단위로 반올림</td>
+</tr>
+<tr>
+<td align="left">TRUNC</td>
+<td align="left">- 날짜를 년, 월 단위로 버림</td>
+</tr>
+</tbody></table>
+<h2>EXTRACT</h2>
 <ul>
-<li>new Array(100)으로 빈 슬롯만 있는 배열을 만든 뒤, spread로 실제 undefined 요소가 있는 배열로 복사한 다음 map을 또 한 번 순회 하므로 가장 느립니다.</li>
-<li>요소 개수가 많을 때 성능 저하기 뚜렷해집니다.</li>
+<li>날짜에서 지정한 날짜 필드 값을 추출하여 반환함</li>
 </ul>
-<h3>코드 B - Array.from</h3>
+<h2>INTERVAL</h2>
 <ul>
-<li>내부에서 배열 생성과 동시에 매핑 콜백을 실행하므로, new Array + map 처럼 &quot;배열 생성 -&gt; map 순회&quot;의 두 단계가 아니라 한번에 처리합니다.</li>
-<li>map보다는 빠르고, 순수 루프 보다는 약간 느린 중간 수준 성능을 보입니다.</li>
+<li>날짜에서 지정한 날짜 필드 값을 더하거나 뺄 수 있음</li>
+<li>사용 예시<ul>
+<li>날짜 + (INTERVAL &#39;1&#39; YEAR) -&gt; 1년 더하기</li>
+<li>날짜 + (INTERVAL &#39;1&#39; MONTH) -&gt; 1개월 더하기</li>
+<li>날짜 + (INTERVAL &#39;1&#39; DAY) -&gt; 1일 더하기</li>
+<li>날짜 + (INTERVAL &#39;1&#39; HOUR) -&gt; 1시간 더하기</li>
+<li>날짜 + (INTERVAL &#39;1&#39; MINUTE) -&gt; 1분 더하기</li>
+<li>날짜 + (INTERVAL &#39;1&#39; SECONT) -&gt; 1초 더하기</li>
+<li>날짜 + (INTERVAL &#39;1&#39; &#39;02:10&#39; HOUR TO MINUTE) -&gt; 2시간 10분 더하기</li>
+<li>날짜 + (INTERVAL &#39;1&#39; &#39;01:30&#39; MINUTE TO SECOND) -&gt; 1분 30초 더하기</li>
 </ul>
-<h3>코드 C - 순수 for 루프</h3>
-<ul>
-<li>콜백 호출 오버헤드가 전혀 없으므로 세 가지 중 가장 빠릅니다.</li>
-<li>요소 개수가 많아 질수록 map-계열보다 더 우수한 성능을 보입니다.</li>
-</ul>
-<h2>메모리 할당</h2>
-<h3>코드 A - spread + map</h3>
-<ul>
-<li>빈 배열 -&gt; spread 복사로 실제 요소 배열 할당 -&gt; map 결과 배열 또 할당 -&gt; 총 두번 배열을 만듦</li>
-</ul>
-<h3>코드 B - Array.from</h3>
-<ul>
-<li>length 기반으로 한 번만 배열 크기로 잡고, 콜백으로 바로 값을 채워 넣음</li>
-</ul>
-<h3>코드 C - 순수 for 루프</h3>
-<ul>
-<li>push 호출 시 내부 버퍼 재할당이 일어날 수 있지만, V8등 최신 엔진은 적절히 예측 및 최적화하여 큰 문제가 되지 않습니다.</li>
-</ul>
-<h2>가독성 &amp; 유연성</h2>
-<h3>코드 A - spread + map</h3>
-<ul>
-<li>매우 간결하지만, &quot;새 Array -&gt; spread -&gt; map&quot; 조합이 직관적이지 않아 협업시 오해 가능</li>
-</ul>
-<h3>코드 B - Array.from</h3>
-<ul>
-<li>length 명시와 동시에 값 채움이라는 의도가 분명해 유지보수성과 가독성이 좋습니다.</li>
-</ul>
-<h3>코드 C - 순수 for 루프</h3>
-<ul>
-<li>가장 직관적이고 &quot;무슨 일이 일어나는지&quot; 설명이 따로 필요 없지만, 반복문 + push가 장황하게 느껴질 수 있습니다.</li>
-</ul>
-<h2>호환성</h2>
-<h3>코드 A, 코드 B</h3>
-<ul>
-<li>ES6 이상 가능 (..., Array.from 등)이 필요합니다</li>
-</ul>
-<h3>코드 C</h3>
-<ul>
-<li>아주 구형 환경에서도 운영 가능</li>
+</li>
 </ul>
 
 

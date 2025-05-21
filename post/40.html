@@ -13,13 +13,13 @@
 <link rel="stylesheet" href="https://ballboyDev.github.io/assets/skin.css">
 
 <style>
-    #p-32 {
+    #p-40 {
         color: rgb(76, 193, 237) !important;
     }
 </style>
 <script id="data" type="application/json">
 {
-    "fold": ["2","22"]
+    "fold": ["2","23","231"]
 }
 </script>
 
@@ -301,104 +301,138 @@
             
             <div class="main markdown-body">
 
-                <h1>배열 생성 방법별 성능 비교</h1>
-<pre><code class="language-js">// 코드 A - spread + map
-const arr1 = [...new Array(100)].map((v, i) =&gt; {return i + 1})
+                <h1>Database/Collection/Document 의 생성, 제거</h1>
+<h2>DataBase 생성 : use</h2>
+<ul>
+<li>use DATABASE_NAME 명령어를 사용하여 Database를 생성 할 수 있습니다.</li>
+<li>생성 후, 생성된 사용된 데이터 베이스를 사용하거나, 데이터베이스가 이미 존재하는 경우에는 현존하는 데이터 베이스를 사용합니다.</li>
+</ul>
+<pre><code class="language-json">// mongodb_study라는 데이터베이스를 생성
+&gt; use mongodb_study
+switched to db mongodb_study
 
-// 코드 B - Array.from
-const arr2 = Array.from({length: 100}, (v, i) =&gt; {return i + 1})
+// 현재 사용중인 데이터베이스를 확인
+&gt; db
+mongodb_study
 
-// 코드 C - 순수 for 루프
-const arr3 = []
-for(let i = 1; i &lt;= 100; i++) {
-    arr.push(i)
-}
+// 현재 생성되어 있는 데이터베이스 리스트를 확인
+&gt; show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+nodejs  0.000GB
+
+// 내부에 데이터가 없는 DB는 리스트에 출력되지 않음
+// 최소 한개 이상의 Document를 추가해야 출력이 됨
 </code></pre>
-<table>
-<thead>
-<tr>
-<th align="left">항목</th>
-<th align="left">코드 A (spread + map)</th>
-<th align="left">코드 B (Array.from())</th>
-<th align="left">코드 C (for loop)</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">성능 순위</td>
-<td align="left">최하</td>
-<td align="left">중간</td>
-<td align="left">상위</td>
-</tr>
-<tr>
-<td align="left">메모리 할당</td>
-<td align="left">빈배열 할당 -&gt; map 시 새 배열 할당(이중할당)</td>
-<td align="left">배열 크기 한번에 할당, 생성</td>
-<td align="left">push 마다 내부 버퍼 관리</td>
-</tr>
-<tr>
-<td align="left">호환성</td>
-<td align="left">ES6+</td>
-<td align="left">ES6+</td>
-<td align="left">상관 없음</td>
-</tr>
-<tr>
-<td align="left">사용 예시</td>
-<td align="left">단순 상수 값 채우기 등 특수한 경우(내용이 모두 같은 경우 등)</td>
-<td align="left">가독성, 타입 안정성 중시와 적당한 성능 확보시</td>
-<td align="left">성능이 최우선인 대용량 처리 영역</td>
-</tr>
-</tbody></table>
-<h2>성능 비교</h2>
-<h3>코드 A - spread + map</h3>
+<h2>Database 제거 : db.dropDatabase()</h2>
 <ul>
-<li>new Array(100)으로 빈 슬롯만 있는 배열을 만든 뒤, spread로 실제 undefined 요소가 있는 배열로 복사한 다음 map을 또 한 번 순회 하므로 가장 느립니다.</li>
-<li>요소 개수가 많을 때 성능 저하기 뚜렷해집니다.</li>
+<li>Database를 제거할 땐 db.dropDatabase() 명령어를 사용합니다.</li>
+<li>이 명령어를 사용하기 전, use DATABASE_NAME명령어로 삭제하고자 하는 데이터베이스를 선택해줘야 합니다.</li>
 </ul>
-<h3>코드 B - Array.from</h3>
+<pre><code class="language-json">// 제거할 DB 선택
+&gt; use mongodb_study
+switched to db mongodb_study
+
+// DB 삭제
+&gt; db.dropDatabase()
+{ &quot;dropped&quot; : &quot;mongodb_study&quot;, &quot;ok&quot;: 1 }
+</code></pre>
+<h2>Collection 생성 : db.createCollection()</h2>
 <ul>
-<li>내부에서 배열 생성과 동시에 매핑 콜백을 실행하므로, new Array + map 처럼 &quot;배열 생성 -&gt; map 순회&quot;의 두 단계가 아니라 한번에 처리합니다.</li>
-<li>map보다는 빠르고, 순수 루프 보다는 약간 느린 중간 수준 성능을 보입니다.</li>
+<li>Collection을 생성할 때는 db.createCollection(name, [option])명령어를 사용합니다.</li>
+<li>name은 생성하려는 Collection의 이름입니다.</li>
+<li>option은 document타입으로 구성된 해당 컬렉션의 설정값입니다.<ul>
+<li>capped : Boolean<ul>
+<li>이 값을 true로 설정하면 capped collection을 활성화 시킵니다. Capped collection이란, 고정된 크기(fixed size)를 가진 컬렉션으로서, size가 초과되면 가장 오래된 데이터를 덮어씁니다.
+  이 값을 true로 설정하면 size 값을 반드시 설정해야 합니다.</li>
 </ul>
-<h3>코드 C - 순수 for 루프</h3>
+</li>
+<li>autoIndex : Boolean<ul>
+<li>이 값을 true로 설정하면, _id 필드에 Index를 자동으로 생성합니다.</li>
+<li>기본값은 false입니다.</li>
+</ul>
+</li>
+<li>size : Number<ul>
+<li>Capped collection을 위해 해당 컬렉션의 최대 사이즈(maximum size)를 ~bytes로 지정합니다.</li>
+</ul>
+</li>
+<li>max : Number<ul>
+<li>해당 컬렉션에 추가 할 수 있는 최대 갯수를 설정합니다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-json">// text 데이터베이스에 books 컬렉션을 옵션 없이 생성합니다.
+&gt; use test
+switched to db test
+&gt; db.createCollection(&quot;books&quot;)
+{ &quot;ok&quot; : 1 }
+
+// test 데이터 베이스에 articles 컬렉션을 옵션과 함께 생성합니다.
+&gt; db.createCollection(&quot;articles&quot;, {
+... capped: true,
+... autoIndex: true,
+... size: 6142800,
+... max: 10000
+})
+{ &quot;ok&quot; : 1 }
+
+// 따로 createCollection() 메소드를 사용하지 않아도 document를 추가하면 자동으로 컬렉션이 생성됩니다.
+&gt; db.people.insert({ &quot;name&quot;: &quot;ballboy&quot; })
+WriteResult({ &quot;nInserted&quot; : 1 })
+
+// 내가 만든 collection 리스트를 확인하려면 show collections 명령어
+&gt; show collections
+articles
+books
+people
+</code></pre>
+<h2>Collection 제거 : db.COLLECTION_NAME.drop()</h2>
 <ul>
-<li>콜백 호출 오버헤드가 전혀 없으므로 세 가지 중 가장 빠릅니다.</li>
-<li>요소 개수가 많아 질수록 map-계열보다 더 우수한 성능을 보입니다.</li>
+<li>Collection을 제거 할 때느 drop() 메소드를 사용합니다.</li>
 </ul>
-<h2>메모리 할당</h2>
-<h3>코드 A - spread + map</h3>
+<pre><code class="language-json">// test 데이터베이스의 people 컬렉션을 제거
+&gt; use test
+&gt; db.people.drop()
+true
+</code></pre>
+<h2>Document 추가 : db.COLLECTION_NAME.insert(document)</h2>
 <ul>
-<li>빈 배열 -&gt; spread 복사로 실제 요소 배열 할당 -&gt; map 결과 배열 또 할당 -&gt; 총 두번 배열을 만듦</li>
+<li>insert() 메소드를 사용하여 Document를 추가 할 수 있습니다.</li>
+<li>배열 형식의 인자를 전달해주면 여러 다큐먼트를 동시에 추가 할 수 있습니다.</li>
 </ul>
-<h3>코드 B - Array.from</h3>
+<pre><code class="language-json">// 한 개의 document books 컬렉션에 추가합니다.
+&gt; db.books.insert({ &quot;name&quot;: &quot;mongoDB&quot;, &quot;author&quot;: &quot;Ballboy&quot; })
+WriteResult({ &quot;nInsert&quot; : 1 })
+
+// 두개의 document를 books 컬렉션에 추가합니다.
+&gt; db.books.insert([
+    { &quot;name&quot;: &quot;Book1&quot;, &quot;author&quot;: &quot;Ballboy&quot; },
+    { &quot;name&quot;: &quot;Book2&quot;, &quot;author&quot;: &quot;Ballboy&quot; }
+])
+</code></pre>
+<h2>Document 제거 : db.COLLECTION_NAME.remove(criteria[, justOne])</h2>
 <ul>
-<li>length 기반으로 한 번만 배열 크기로 잡고, 콜백으로 바로 값을 채워 넣음</li>
+<li>document는 remove(criteria, justOne) 메소드를 사용하여 Document를 제거 할 수 있습니다.</li>
+<li>메소드의 두 개의 변수<ul>
+<li>criteria : document<ul>
+<li>삭제 할 데이터의 기준값입니다. 이 값이 {}이면 컬렉션의 모든 데이터를 제거합니다.</li>
 </ul>
-<h3>코드 C - 순수 for 루프</h3>
-<ul>
-<li>push 호출 시 내부 버퍼 재할당이 일어날 수 있지만, V8등 최신 엔진은 적절히 예측 및 최적화하여 큰 문제가 되지 않습니다.</li>
+</li>
+<li>justOne : boolean<ul>
+<li>선택적 매개변수이며 이 값이 trueaus 1개의 document만 제거합니다.
+  이 매개변수가 생략되면 기본값은 false로, criteria에 해당하는 모든 document를 제거합니다.</li>
 </ul>
-<h2>가독성 &amp; 유연성</h2>
-<h3>코드 A - spread + map</h3>
-<ul>
-<li>매우 간결하지만, &quot;새 Array -&gt; spread -&gt; map&quot; 조합이 직관적이지 않아 협업시 오해 가능</li>
+</li>
 </ul>
-<h3>코드 B - Array.from</h3>
-<ul>
-<li>length 명시와 동시에 값 채움이라는 의도가 분명해 유지보수성과 가독성이 좋습니다.</li>
+</li>
 </ul>
-<h3>코드 C - 순수 for 루프</h3>
-<ul>
-<li>가장 직관적이고 &quot;무슨 일이 일어나는지&quot; 설명이 따로 필요 없지만, 반복문 + push가 장황하게 느껴질 수 있습니다.</li>
-</ul>
-<h2>호환성</h2>
-<h3>코드 A, 코드 B</h3>
-<ul>
-<li>ES6 이상 가능 (..., Array.from 등)이 필요합니다</li>
-</ul>
-<h3>코드 C</h3>
-<ul>
-<li>아주 구형 환경에서도 운영 가능</li>
-</ul>
+<pre><code class="language-json">// books컬렉션에서 name이 Book1인 document를 제거
+&gt; db.books.remove({&quot;name&quot;:&quot;Book1&quot;})
+WriteResult({ &quot;nRemoved&quot;: 1 })
+</code></pre>
 
 
             </div>

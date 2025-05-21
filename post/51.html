@@ -13,13 +13,13 @@
 <link rel="stylesheet" href="https://ballboyDev.github.io/assets/skin.css">
 
 <style>
-    #p-32 {
+    #p-51 {
         color: rgb(76, 193, 237) !important;
     }
 </style>
 <script id="data" type="application/json">
 {
-    "fold": ["2","22"]
+    "fold": ["2","23","232"]
 }
 </script>
 
@@ -301,103 +301,149 @@
             
             <div class="main markdown-body">
 
-                <h1>배열 생성 방법별 성능 비교</h1>
-<pre><code class="language-js">// 코드 A - spread + map
-const arr1 = [...new Array(100)].map((v, i) =&gt; {return i + 1})
-
-// 코드 B - Array.from
-const arr2 = Array.from({length: 100}, (v, i) =&gt; {return i + 1})
-
-// 코드 C - 순수 for 루프
-const arr3 = []
-for(let i = 1; i &lt;= 100; i++) {
-    arr.push(i)
-}
-</code></pre>
-<table>
+                <h1>변환함수</h1>
+<h2>변환함수</h2>
+<ul>
+<li>특정 데이터 타입을 다양한 형식으로 출력하고 싶을 경우에 사용되는 함수임</li>
+<li>연산의 대상 데이터가 문자형과 숫자형의 혼합인 경우 어느 한 쪽의 데이터 타입으로 변경해야 연산이 가능함<ul>
+<li>오라클의 경우 문자형 데이터를 숫자형으로 바꾸거나 숫자형 데이터를 문자형 데이터로 바꿔 연산을 수행하는데, 이를 암시적(Implicit)형 변환 또는 자동 변환이라함</li>
+</ul>
+</li>
+<li>명시적(Explicit) 데이터 유형 변환은 변환 함수를 사용하여 수행됨</li>
+<li>한 데이터 우형을 다른 데이터 유형으로 변환하여, 함수 이름의 형식은 일반적으로 TO_ 출력 규칙을 따름</li>
+</ul>
+<h2>TO_CHAR</h2>
+<ul>
+<li>TO_CHAR(날짜, &#39;format&#39;) 함수를 이용해 날짜를 format형태의 문자로 변환함</li>
+<li>날짜 Format 요소<table>
 <thead>
 <tr>
-<th align="left">항목</th>
-<th align="left">코드 A (spread + map)</th>
-<th align="left">코드 B (Array.from())</th>
-<th align="left">코드 C (for loop)</th>
+<th align="left">FORMAT 요소</th>
+<th align="left">의미</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="left">성능 순위</td>
-<td align="left">최하</td>
-<td align="left">중간</td>
-<td align="left">상위</td>
+<td align="left">YYYY, YYY, YY, Y</td>
+<td align="left">- 년도를 뒤에서 지정한 만큼 표시함</td>
 </tr>
 <tr>
-<td align="left">메모리 할당</td>
-<td align="left">빈배열 할당 -&gt; map 시 새 배열 할당(이중할당)</td>
-<td align="left">배열 크기 한번에 할당, 생성</td>
-<td align="left">push 마다 내부 버퍼 관리</td>
+<td align="left">YEAR</td>
+<td align="left">- 년도를 영문으로 표시함</td>
 </tr>
 <tr>
-<td align="left">호환성</td>
-<td align="left">ES6+</td>
-<td align="left">ES6+</td>
-<td align="left">상관 없음</td>
+<td align="left">Q</td>
+<td align="left">- 해당 날짜의 분기 정보를 1, 2, 3, 4로 표시함</td>
 </tr>
 <tr>
-<td align="left">사용 예시</td>
-<td align="left">단순 상수 값 채우기 등 특수한 경우(내용이 모두 같은 경우 등)</td>
-<td align="left">가독성, 타입 안정성 중시와 적당한 성능 확보시</td>
-<td align="left">성능이 최우선인 대용량 처리 영역</td>
+<td align="left">MM</td>
+<td align="left">- 01, 02,... 12의 두자리 월 정보를 표시함</td>
+</tr>
+<tr>
+<td align="left">MON, MONTH</td>
+<td align="left">- JAN, JANUARY 형태로 월을 표시함</td>
+</tr>
+<tr>
+<td align="left">W, WW, IW</td>
+<td align="left">- 해당 월이나 해당 년도의 몇 번째 주를 표시</td>
+</tr>
+<tr>
+<td align="left">D</td>
+<td align="left">- 1 ~ 7 일요일 1, 월요일 2, 토요일 7로 표시함</td>
+</tr>
+<tr>
+<td align="left">DD, DDD</td>
+<td align="left">- 해당 월이나 해당 년도의 몇 번째 날인지 표시함</td>
+</tr>
+<tr>
+<td align="left">DY, DAY</td>
+<td align="left">- MON, MONDAY 형태로 요일을 표시함</td>
+</tr>
+<tr>
+<td align="left">HH, MI, SS</td>
+<td align="left">- 시간, 분, 초 정보를 표시함</td>
 </tr>
 </tbody></table>
-<h2>성능 비교</h2>
-<h3>코드 A - spread + map</h3>
-<ul>
-<li>new Array(100)으로 빈 슬롯만 있는 배열을 만든 뒤, spread로 실제 undefined 요소가 있는 배열로 복사한 다음 map을 또 한 번 순회 하므로 가장 느립니다.</li>
-<li>요소 개수가 많을 때 성능 저하기 뚜렷해집니다.</li>
+</li>
 </ul>
-<h3>코드 B - Array.from</h3>
+<h2>TO_CHAR(숫자)</h2>
 <ul>
-<li>내부에서 배열 생성과 동시에 매핑 콜백을 실행하므로, new Array + map 처럼 &quot;배열 생성 -&gt; map 순회&quot;의 두 단계가 아니라 한번에 처리합니다.</li>
-<li>map보다는 빠르고, 순수 루프 보다는 약간 느린 중간 수준 성능을 보입니다.</li>
+<li>TO_CHAR(숫자, &#39;FORMAT) 함수를 이용해 숫자를 FORMAT 형태의 문자로 변환함</li>
+<li>숫자 FORMAT 요소<table>
+<thead>
+<tr>
+<th align="left">요소</th>
+<th align="left">설명</th>
+<th align="left">예제</th>
+<th align="left">결과</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">9</td>
+<td align="left">- 숫자 위치(9의개수가 표시 폭(width)을 결정)</td>
+<td align="left">999999</td>
+<td align="left">1234</td>
+</tr>
+<tr>
+<td align="left">0</td>
+<td align="left">- 선행 제로 표시</td>
+<td align="left">000000</td>
+<td align="left">001234</td>
+</tr>
+<tr>
+<td align="left">$</td>
+<td align="left">- 부동 달러 기호 표시</td>
+<td align="left">$999999</td>
+<td align="left">$1234</td>
+</tr>
+<tr>
+<td align="left">L</td>
+<td align="left">- 부동 지역 통화 기호 표시</td>
+<td align="left">L999999</td>
+<td align="left">FF1234</td>
+</tr>
+<tr>
+<td align="left">.</td>
+<td align="left">- 지정된 위치의 소수점 표시</td>
+<td align="left">999999.99</td>
+<td align="left">1234.00</td>
+</tr>
+<tr>
+<td align="left">,</td>
+<td align="left">- 지정된 위치의 쉼표 표시</td>
+<td align="left">999,999</td>
+<td align="left">1,234</td>
+</tr>
+<tr>
+<td align="left">MI</td>
+<td align="left">- 빼기 기호를 오른쪽에 표시</td>
+<td align="left">999999MI</td>
+<td align="left">1234-</td>
+</tr>
+<tr>
+<td align="left">PR</td>
+<td align="left">- 음수를 &lt;&gt; 괄호루 묶어서 표시</td>
+<td align="left">999999PR</td>
+<td align="left">&lt;1234&gt;</td>
+</tr>
+<tr>
+<td align="left">EEEE</td>
+<td align="left">- 과학 표기 (형식에 4개의 E를 지정)</td>
+<td align="left">99.999EEEE</td>
+<td align="left">1.234E+03</td>
+</tr>
+</tbody></table>
+</li>
 </ul>
-<h3>코드 C - 순수 for 루프</h3>
+<h2>TO_DATE / TO_NUMBER</h2>
 <ul>
-<li>콜백 호출 오버헤드가 전혀 없으므로 세 가지 중 가장 빠릅니다.</li>
-<li>요소 개수가 많아 질수록 map-계열보다 더 우수한 성능을 보입니다.</li>
+<li>TO_DATE 함수를 사용하여 문자열을 날짜형으로 변환</li>
+<li>TO_DATE(ANSWK, &#39;적용할 날짜 요소&#39;)</li>
+<li>TO_DATE 함수 사용시 날짜 정보중 사용자 지저하지 않은 요소는 기본갑으로 적용된<ul>
+<li>년월 =&gt; SYSDATE의 년월이 기본값으로(현재날짜)</li>
+<li>일시분조 =&gt; 01일 00시 00분 00초</li>
 </ul>
-<h2>메모리 할당</h2>
-<h3>코드 A - spread + map</h3>
-<ul>
-<li>빈 배열 -&gt; spread 복사로 실제 요소 배열 할당 -&gt; map 결과 배열 또 할당 -&gt; 총 두번 배열을 만듦</li>
-</ul>
-<h3>코드 B - Array.from</h3>
-<ul>
-<li>length 기반으로 한 번만 배열 크기로 잡고, 콜백으로 바로 값을 채워 넣음</li>
-</ul>
-<h3>코드 C - 순수 for 루프</h3>
-<ul>
-<li>push 호출 시 내부 버퍼 재할당이 일어날 수 있지만, V8등 최신 엔진은 적절히 예측 및 최적화하여 큰 문제가 되지 않습니다.</li>
-</ul>
-<h2>가독성 &amp; 유연성</h2>
-<h3>코드 A - spread + map</h3>
-<ul>
-<li>매우 간결하지만, &quot;새 Array -&gt; spread -&gt; map&quot; 조합이 직관적이지 않아 협업시 오해 가능</li>
-</ul>
-<h3>코드 B - Array.from</h3>
-<ul>
-<li>length 명시와 동시에 값 채움이라는 의도가 분명해 유지보수성과 가독성이 좋습니다.</li>
-</ul>
-<h3>코드 C - 순수 for 루프</h3>
-<ul>
-<li>가장 직관적이고 &quot;무슨 일이 일어나는지&quot; 설명이 따로 필요 없지만, 반복문 + push가 장황하게 느껴질 수 있습니다.</li>
-</ul>
-<h2>호환성</h2>
-<h3>코드 A, 코드 B</h3>
-<ul>
-<li>ES6 이상 가능 (..., Array.from 등)이 필요합니다</li>
-</ul>
-<h3>코드 C</h3>
-<ul>
-<li>아주 구형 환경에서도 운영 가능</li>
+</li>
+<li>TO_NUMBER 함수를 사용하여 문자열을 숫자 형식으로 변환</li>
 </ul>
 
 
