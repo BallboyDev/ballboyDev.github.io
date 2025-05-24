@@ -6,6 +6,7 @@ const dayjs = require('dayjs')
 const { default: axios } = require('axios')
 
 const post = require('./_layout/post')
+const custom = require('./_layout/custom')
 
 const env = process.env.NODE_ENV
 
@@ -52,6 +53,7 @@ const app = {
         console.log('\x1b[43m\x1b[30m%s\x1b[0m', `##### [ app.run < ${env} > ] #####`)
 
         await app.init()
+        await custom.markdown()
         await app.mkJson();
         await app.mkNavi();
         await app.mkPostPage();
@@ -168,8 +170,10 @@ const app = {
                                 date: mdFile.data?.date || '99999999',
                                 ...mdFile.data,
                                 content: mdFile.content.replace(/<.*?docsImg\/([^>]+)>/g, `<${utils.path[env]}/assets/img/$1>`),
-                                // bookmark: []
+                                bookmark: mdFile.content.match(/\n#{1,3}[^\n]*\n/g)
                             };
+
+                            console.log(item.content.match(/\n#{1,3}[^\n]*\n/g))
 
                             temp1[`post_${index}`] = item;
                             if (upload) {
@@ -256,12 +260,6 @@ const app = {
 
         try {
             const mdFile = matter(fs.readFileSync(`${utils.path.index}`, 'utf8').trim())
-
-            // const renderer = new marked.Renderer()
-            // renderer.heading = function (text, level) {
-            //     return `<h${level} class='test'>${text}</h${level}>`
-            // }
-            // marked.setOptions({ renderer: renderer })
 
             const htmlFile = marked.parse(`${mdFile.content}\n\n\n${utils.postingList.join('\n')}`)
 

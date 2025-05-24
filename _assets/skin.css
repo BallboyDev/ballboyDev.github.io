@@ -143,6 +143,7 @@ body {
 
 #side-bar>.navi ul {
     margin-left: 1rem;
+    margin-right: 0.5rem;
 }
 
 #side-bar>.navi ul>li {
