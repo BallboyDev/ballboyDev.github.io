@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="jrh7qB1kgowvnvE0P3KqlhI-iNmw9CvGJF4dQsaCTAk" />
-    <title>심심한 개발자의 취미 생활에 오신걸 환영합니다.</title>
+    <title>1. 데이터 베이스 개념 및 기본 용어</title>
 
     
 <link rel="stylesheet" href="https://ballboyDev.github.io/assets/markdown.css">
@@ -85,14 +85,14 @@
 <a href="https://ballboyDev.github.io/post/3">
 <li id="p-3">vim 에디터 정리</li>
 </a>
-<a href="https://ballboyDev.github.io/post/15">
-<li id="p-15">docker 기본 정리</li>
+<a href="https://ballboyDev.github.io/post/58">
+<li id="p-58">자주쓰는 git/git-flow 명령어</li>
 </a>
 
 </ul>
 
 </ul>
-<li id="dt-2" onclick="foldNavi(2)">공부 (29)</li>
+<li id="dt-2" onclick="foldNavi(2)">공부 (30)</li>
 <ul id="dc-2" style="display: none;">
 <li id="dt-21" onclick="foldNavi(21)">Svelte (7)</li>
 <ul id="dc-21" style="display: none;">
@@ -201,6 +201,13 @@
 </ul>
 
 </ul>
+<li id="dt-24" onclick="foldNavi(24)">Docker (1)</li>
+<ul id="dc-24" style="display: none;">
+<a href="https://ballboyDev.github.io/post/15">
+<li id="p-15">docker 기본 명령어 및 run 옵션 정리</li>
+</a>
+
+</ul>
 
 </ul>
 <li id="dt-3" onclick="foldNavi(3)">자취생 밥 만들어 먹기 (19)</li>
@@ -221,7 +228,7 @@
 </a>
 
 </ul>
-<li id="dt-32" onclick="foldNavi(32)">기본중의 기본 밥과 국 (7)</li>
+<li id="dt-32" onclick="foldNavi(32)">밥의 영혼의 단짝 국, 소스 (5)</li>
 <ul id="dc-32" style="display: none;">
 <a href="https://ballboyDev.github.io/post/2">
 <li id="p-2">미역국</li>
@@ -238,15 +245,9 @@
 <a href="https://ballboyDev.github.io/post/14">
 <li id="p-14">짜장소스</li>
 </a>
-<a href="https://ballboyDev.github.io/post/26">
-<li id="p-26">전자레인지로 솥밥 만들기 - 대패삼겹살 버전</li>
-</a>
-<a href="https://ballboyDev.github.io/post/33">
-<li id="p-33">전자레인지로 밥 짓기</li>
-</a>
 
 </ul>
-<li id="dt-33" onclick="foldNavi(33)">고기는 항상 옳다 (4)</li>
+<li id="dt-33" onclick="foldNavi(33)">밥상의 기본 밥과 고기 (6)</li>
 <ul id="dc-33" style="display: none;">
 <a href="https://ballboyDev.github.io/post/8">
 <li id="p-8">국물 두루치기</li>
@@ -254,8 +255,14 @@
 <a href="https://ballboyDev.github.io/post/12">
 <li id="p-12">삼겹살 덮밥</li>
 </a>
+<a href="https://ballboyDev.github.io/post/26">
+<li id="p-26">전자레인지로 솥밥 만들기 - 대패삼겹살 버전</li>
+</a>
 <a href="https://ballboyDev.github.io/post/30">
 <li id="p-30">멍게 비빔밥 만들기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/33">
+<li id="p-33">전자레인지로 밥 짓기</li>
 </a>
 <a href="https://ballboyDev.github.io/post/37">
 <li id="p-37">제육볶음</li>
@@ -293,7 +300,67 @@
         <!-- contents component -->
         <div id="contents">
 
-            
+            <div class="bookmark">
+
+            <div class="title t1">
+                <div><a href="#bm-1"># 데이터 베이스 개념 및 기본 용어</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-2">## 데이터 베이스</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-5">## 데이터 베이스 특징</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-8">## DBMS 장점</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-11">## DBMS 제품</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-12">### BIG3</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-15">### 기타</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-18">## 관계형 데이터 베이스의 특증</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-21">## 테이블</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-24">## SQL 이란?</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-27">## SQL 작업 종류</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-30">## SQL문</a></div>
+                <p>•</p>
+            </div></div>
             
             
             
@@ -301,9 +368,7 @@
             
             <div class="main markdown-body">
 
-                <h1>데이터 베이스 개념 및 기본 용어</h1>
-<h2>데이터 베이스</h2>
-<ul>
+                <h1 id="bm-1">데이터 베이스 개념 및 기본 용어</h1><h2 id="bm-2">데이터 베이스</h2><ul>
 <li><p>Database(DB)</p>
 <ul>
 <li>특정 기업이나 조직 또는 개인이 필요에 의해 논리적으로 연관된 데이터를 모아 일정한 형태로 저장해 놓은것</li>
@@ -317,8 +382,7 @@
 </ul>
 </li>
 </ul>
-<h2>데이터 베이스 특징</h2>
-<ul>
+<h2 id="bm-5">데이터 베이스 특징</h2><ul>
 <li>통합된 데이터(Integrated Data)<ul>
 <li>데이터를 통합하는 개념</li>
 <li>각자 사용하던 데이터의 중복을 최소화하여 중복으로 인한 데이터 불일치 현상 제거</li>
@@ -338,8 +402,7 @@
 </ul>
 </li>
 </ul>
-<h2>DBMS 장점</h2>
-<ul>
+<h2 id="bm-8">DBMS 장점</h2><ul>
 <li>데이터 중복(Redundancy)의 최소화</li>
 <li>데이터 공용(Sharing)</li>
 <li>일관성(Consistency)유지</li>
@@ -348,34 +411,28 @@
 <li>표준화(Standardization)용이</li>
 <li>전체 데이터 요구의 조정</li>
 </ul>
-<h2>DBMS 제품</h2>
-<h3>BIG3</h3>
-<ul>
+<h2 id="bm-11">DBMS 제품</h2><h3 id="bm-12">BIG3</h3><ul>
 <li>Oracle : RDBMS 최초 사용황, RDBMS 시장 점유율 높음</li>
 <li>IBM DB2 :RDBMS 최초 개발, 메인 프레임 등에서 점유율 높음</li>
 <li>MS-SQL Server: Sybase 코드에 기반</li>
 </ul>
-<h3>기타</h3>
-<ul>
+<h3 id="bm-15">기타</h3><ul>
 <li>Teradata, Informix, Sybase</li>
 <li>MySql, PostgreSQL, Firebird, cubrid</li>
 </ul>
-<h2>관계형 데이터 베이스의 특증</h2>
-<ul>
+<h2 id="bm-18">관계형 데이터 베이스의 특증</h2><ul>
 <li>2차원 테이블로 표현</li>
 <li>데이터 무결성(Data Integrity)</li>
 <li>데이터 처리를 위해 SQL 사용</li>
 <li>한 번에 레코드를 처리하는 것이 아니라 집합을 처리함</li>
 </ul>
-<h2>테이블</h2>
-<ul>
+<h2 id="bm-21">테이블</h2><ul>
 <li>실질적으로 자료가 저장되는 곳 </li>
 <li>행(Row)와 컬럼(Column)으로 구성된 2차원 구조를 가진 데이터의 저장 장소 </li>
 <li>특정 목적과 성격에 의해 생성되는 집합체</li>
 <li>사용자의 접근이 가능한 모든 데이터 보유</li>
 </ul>
-<h2>SQL 이란?</h2>
-<ul>
+<h2 id="bm-24">SQL 이란?</h2><ul>
 <li>SQL (Structured Query Language)<ul>
 <li>관계형 데이터 베이스에서 데이터 조작과 데이터 정의를 하기 위해 사용하는 언어</li>
 <li>사용자는 데이터 베이스에 자료를 입력/조회/수정/삭제 하기 위하여 SQL 사용</li>
@@ -388,16 +445,14 @@
 </ul>
 </li>
 </ul>
-<h2>SQL 작업 종류</h2>
-<ul>
+<h2 id="bm-27">SQL 작업 종류</h2><ul>
 <li>데이터 조회</li>
 <li>테이블에서 행 삽입, 갱신 및 삭제</li>
 <li>객체 생성, 변경 및 삭제</li>
 <li>데이터 베이스 및 해당 객체에 대한 엑세스 제어</li>
 <li>데이터 베이스 일관성 및 무결성 보장</li>
 </ul>
-<h2>SQL문</h2>
-<table>
+<h2 id="bm-30">SQL문</h2><table>
 <thead>
 <tr>
 <th align="left">구분</th>

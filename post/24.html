@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="jrh7qB1kgowvnvE0P3KqlhI-iNmw9CvGJF4dQsaCTAk" />
-    <title>심심한 개발자의 취미 생활에 오신걸 환영합니다.</title>
+    <title>Runtime</title>
 
     
 <link rel="stylesheet" href="https://ballboyDev.github.io/assets/markdown.css">
@@ -85,14 +85,14 @@
 <a href="https://ballboyDev.github.io/post/3">
 <li id="p-3">vim 에디터 정리</li>
 </a>
-<a href="https://ballboyDev.github.io/post/15">
-<li id="p-15">docker 기본 정리</li>
+<a href="https://ballboyDev.github.io/post/58">
+<li id="p-58">자주쓰는 git/git-flow 명령어</li>
 </a>
 
 </ul>
 
 </ul>
-<li id="dt-2" onclick="foldNavi(2)">공부 (29)</li>
+<li id="dt-2" onclick="foldNavi(2)">공부 (30)</li>
 <ul id="dc-2" style="display: none;">
 <li id="dt-21" onclick="foldNavi(21)">Svelte (7)</li>
 <ul id="dc-21" style="display: none;">
@@ -201,6 +201,13 @@
 </ul>
 
 </ul>
+<li id="dt-24" onclick="foldNavi(24)">Docker (1)</li>
+<ul id="dc-24" style="display: none;">
+<a href="https://ballboyDev.github.io/post/15">
+<li id="p-15">docker 기본 명령어 및 run 옵션 정리</li>
+</a>
+
+</ul>
 
 </ul>
 <li id="dt-3" onclick="foldNavi(3)">자취생 밥 만들어 먹기 (19)</li>
@@ -221,7 +228,7 @@
 </a>
 
 </ul>
-<li id="dt-32" onclick="foldNavi(32)">기본중의 기본 밥과 국 (7)</li>
+<li id="dt-32" onclick="foldNavi(32)">밥의 영혼의 단짝 국, 소스 (5)</li>
 <ul id="dc-32" style="display: none;">
 <a href="https://ballboyDev.github.io/post/2">
 <li id="p-2">미역국</li>
@@ -238,15 +245,9 @@
 <a href="https://ballboyDev.github.io/post/14">
 <li id="p-14">짜장소스</li>
 </a>
-<a href="https://ballboyDev.github.io/post/26">
-<li id="p-26">전자레인지로 솥밥 만들기 - 대패삼겹살 버전</li>
-</a>
-<a href="https://ballboyDev.github.io/post/33">
-<li id="p-33">전자레인지로 밥 짓기</li>
-</a>
 
 </ul>
-<li id="dt-33" onclick="foldNavi(33)">고기는 항상 옳다 (4)</li>
+<li id="dt-33" onclick="foldNavi(33)">밥상의 기본 밥과 고기 (6)</li>
 <ul id="dc-33" style="display: none;">
 <a href="https://ballboyDev.github.io/post/8">
 <li id="p-8">국물 두루치기</li>
@@ -254,8 +255,14 @@
 <a href="https://ballboyDev.github.io/post/12">
 <li id="p-12">삼겹살 덮밥</li>
 </a>
+<a href="https://ballboyDev.github.io/post/26">
+<li id="p-26">전자레인지로 솥밥 만들기 - 대패삼겹살 버전</li>
+</a>
 <a href="https://ballboyDev.github.io/post/30">
 <li id="p-30">멍게 비빔밥 만들기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/33">
+<li id="p-33">전자레인지로 밥 짓기</li>
 </a>
 <a href="https://ballboyDev.github.io/post/37">
 <li id="p-37">제육볶음</li>
@@ -293,7 +300,23 @@
         <!-- contents component -->
         <div id="contents">
 
-            
+            <div class="bookmark">
+
+            <div class="title t1">
+                <div><a href="#bm-1"># Runtime
+</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-2">## Store</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-7">### svelte/store</a></div>
+                <p>•</p>
+            </div></div>
             
             
 <a href="https://ballboyDev.github.io/post/23.html" class="prev post">
@@ -305,9 +328,7 @@
             
             <div class="main markdown-body">
 
-                <h1>Runtime</h1>
-<h2>Store</h2>
-<ul>
+                <h1 id="bm-1">Runtime</h1><h2 id="bm-2">Store</h2><ul>
 <li>스벨트에는 여러 컴포넌트의 상태를 공유하기 위해 store 라는 구조를 제공한다.</li>
 <li>스토어에 대한 참조가 있을 때마다 구성 요소 내부의 해당 값에 <code>$</code> 문자로 접두사를 붙이면 액세스 할 수 있습니다.</li>
 <li>스토어 변수에 값을 할당하기 위해서는 쓰기 가능한 저장소여야 하며, 이는 저장소의 .set 메서드로 호출됩니다.</li>
@@ -325,8 +346,7 @@
     console.log($count)
 &lt;/script&gt;
 </code></pre>
-<h3>svelte/store</h3>
-<ul>
+<h3 id="bm-7">svelte/store</h3><ul>
 <li><p>writable</p>
 <ul>
 <li>외부 구성 요소에서 설정할 수 있는 값을 가진 저장소를 생성하는 기능입니다. 추가 설정 및 업데이트 방법을 통해 객체로 생성됩니다</li>

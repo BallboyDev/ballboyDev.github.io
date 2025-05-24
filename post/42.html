@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="jrh7qB1kgowvnvE0P3KqlhI-iNmw9CvGJF4dQsaCTAk" />
-    <title>심심한 개발자의 취미 생활에 오신걸 환영합니다.</title>
+    <title>4. find()메소드 활용-sort, limit, skip</title>
 
     
 <link rel="stylesheet" href="https://ballboyDev.github.io/assets/markdown.css">
@@ -85,14 +85,14 @@
 <a href="https://ballboyDev.github.io/post/3">
 <li id="p-3">vim 에디터 정리</li>
 </a>
-<a href="https://ballboyDev.github.io/post/15">
-<li id="p-15">docker 기본 정리</li>
+<a href="https://ballboyDev.github.io/post/58">
+<li id="p-58">자주쓰는 git/git-flow 명령어</li>
 </a>
 
 </ul>
 
 </ul>
-<li id="dt-2" onclick="foldNavi(2)">공부 (29)</li>
+<li id="dt-2" onclick="foldNavi(2)">공부 (30)</li>
 <ul id="dc-2" style="display: none;">
 <li id="dt-21" onclick="foldNavi(21)">Svelte (7)</li>
 <ul id="dc-21" style="display: none;">
@@ -201,6 +201,13 @@
 </ul>
 
 </ul>
+<li id="dt-24" onclick="foldNavi(24)">Docker (1)</li>
+<ul id="dc-24" style="display: none;">
+<a href="https://ballboyDev.github.io/post/15">
+<li id="p-15">docker 기본 명령어 및 run 옵션 정리</li>
+</a>
+
+</ul>
 
 </ul>
 <li id="dt-3" onclick="foldNavi(3)">자취생 밥 만들어 먹기 (19)</li>
@@ -221,7 +228,7 @@
 </a>
 
 </ul>
-<li id="dt-32" onclick="foldNavi(32)">기본중의 기본 밥과 국 (7)</li>
+<li id="dt-32" onclick="foldNavi(32)">밥의 영혼의 단짝 국, 소스 (5)</li>
 <ul id="dc-32" style="display: none;">
 <a href="https://ballboyDev.github.io/post/2">
 <li id="p-2">미역국</li>
@@ -238,15 +245,9 @@
 <a href="https://ballboyDev.github.io/post/14">
 <li id="p-14">짜장소스</li>
 </a>
-<a href="https://ballboyDev.github.io/post/26">
-<li id="p-26">전자레인지로 솥밥 만들기 - 대패삼겹살 버전</li>
-</a>
-<a href="https://ballboyDev.github.io/post/33">
-<li id="p-33">전자레인지로 밥 짓기</li>
-</a>
 
 </ul>
-<li id="dt-33" onclick="foldNavi(33)">고기는 항상 옳다 (4)</li>
+<li id="dt-33" onclick="foldNavi(33)">밥상의 기본 밥과 고기 (6)</li>
 <ul id="dc-33" style="display: none;">
 <a href="https://ballboyDev.github.io/post/8">
 <li id="p-8">국물 두루치기</li>
@@ -254,8 +255,14 @@
 <a href="https://ballboyDev.github.io/post/12">
 <li id="p-12">삼겹살 덮밥</li>
 </a>
+<a href="https://ballboyDev.github.io/post/26">
+<li id="p-26">전자레인지로 솥밥 만들기 - 대패삼겹살 버전</li>
+</a>
 <a href="https://ballboyDev.github.io/post/30">
 <li id="p-30">멍게 비빔밥 만들기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/33">
+<li id="p-33">전자레인지로 밥 짓기</li>
 </a>
 <a href="https://ballboyDev.github.io/post/37">
 <li id="p-37">제육볶음</li>
@@ -293,7 +300,32 @@
         <!-- contents component -->
         <div id="contents">
 
-            
+            <div class="bookmark">
+
+            <div class="title t1">
+                <div><a href="#bm-1"># find()메소드 활용 - sort(), limit(), skip()</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-4">## sort(Document)</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-8">## limit(value)</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-12">## skip(value)</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-16">## 응용</a></div>
+                <p>•</p>
+            </div></div>
             
             
             
@@ -301,12 +333,10 @@
             
             <div class="main markdown-body">
 
-                <h1>find()메소드 활용 - sort(), limit(), skip()</h1>
-<ul>
+                <h1 id="bm-1">find()메소드 활용 - sort(), limit(), skip()</h1><ul>
 <li>find() 메소드를 사용 했을시 cursor 형태의 결과값을 반환합니다. 이 객체가 가지고 있는 limit()메소드와 skip() 메소드를 통하여 보이는 출력물의 갯수를 제한 할 수 있고, sort() 메소드를 사용하여 데이터를 순서대로 나열할 수 있습니다.</li>
 </ul>
-<h2>sort(Document)</h2>
-<ul>
+<h2 id="bm-4">sort(Document)</h2><ul>
 <li>이 메소드는 데이터를 정렬 할 때 사용됩니다. 매개변수로는 어떤 key를 사용하여 정렬 할 지 알려주는 document를 전달합니다.</li>
 <li>key는 데이터의 field 이름이고, value의 값은 1 혹은 -1 입니다.
 1로 설정하면 오름차순으로, -1로 설정하면 내림차순으로 정렬합니다.</li>
@@ -318,24 +348,21 @@
 // amount 값을 사용하여 오름차순으로 정렬하고, 정렬한 값에서 id값은 내림차순으로 정렬하기
 &gt; db.tempCol.find().sort({&quot;amount&quot;:1, &quot;_id&quot;:-1})
 </code></pre>
-<h2>limit(value)</h2>
-<ul>
+<h2 id="bm-8">limit(value)</h2><ul>
 <li>limit()메소드는 출력할 데이터 갯수를 제한할 때 사용됩니다.</li>
 <li>value 파라미터는 출력 할 갯수 값 입니다.</li>
 </ul>
 <pre><code>// 출력 할 갯수를 3개로 제한하기
 &gt; db.tempCol.find().limit(3)
 </code></pre>
-<h2>skip(value)</h2>
-<ul>
+<h2 id="bm-12">skip(value)</h2><ul>
 <li>skip()메소드는 출력 할 데이터의 시작부분을 설정 할 떄 사용됩니다.</li>
 <li>value 값 갯수의 데이터를 생략하고 그 다음부터 출력합니다.</li>
 </ul>
 <pre><code>// 2개의 데이터를 생략하고 그 다음부터 출력
 &gt; db.tempCol.find().skip(2)
 </code></pre>
-<h2>응용</h2>
-<pre><code>// order를 최신순으로 한 페이지당 2개씩 나타냅니다.
+<h2 id="bm-16">응용</h2><pre><code>// order를 최신순으로 한 페이지당 2개씩 나타냅니다.
 &gt; let showPage = (page) =&gt; {
     return db.tempCol.find().sort({_id:-1}).skip((page - 1) * 2).limit(2);
 }

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="jrh7qB1kgowvnvE0P3KqlhI-iNmw9CvGJF4dQsaCTAk" />
-    <title>심심한 개발자의 취미 생활에 오신걸 환영합니다.</title>
+    <title>고추다대기</title>
 
     
 <link rel="stylesheet" href="https://ballboyDev.github.io/assets/markdown.css">
@@ -85,14 +85,14 @@
 <a href="https://ballboyDev.github.io/post/3">
 <li id="p-3">vim 에디터 정리</li>
 </a>
-<a href="https://ballboyDev.github.io/post/15">
-<li id="p-15">docker 기본 정리</li>
+<a href="https://ballboyDev.github.io/post/58">
+<li id="p-58">자주쓰는 git/git-flow 명령어</li>
 </a>
 
 </ul>
 
 </ul>
-<li id="dt-2" onclick="foldNavi(2)">공부 (29)</li>
+<li id="dt-2" onclick="foldNavi(2)">공부 (30)</li>
 <ul id="dc-2" style="display: none;">
 <li id="dt-21" onclick="foldNavi(21)">Svelte (7)</li>
 <ul id="dc-21" style="display: none;">
@@ -201,6 +201,13 @@
 </ul>
 
 </ul>
+<li id="dt-24" onclick="foldNavi(24)">Docker (1)</li>
+<ul id="dc-24" style="display: none;">
+<a href="https://ballboyDev.github.io/post/15">
+<li id="p-15">docker 기본 명령어 및 run 옵션 정리</li>
+</a>
+
+</ul>
 
 </ul>
 <li id="dt-3" onclick="foldNavi(3)">자취생 밥 만들어 먹기 (19)</li>
@@ -221,7 +228,7 @@
 </a>
 
 </ul>
-<li id="dt-32" onclick="foldNavi(32)">기본중의 기본 밥과 국 (7)</li>
+<li id="dt-32" onclick="foldNavi(32)">밥의 영혼의 단짝 국, 소스 (5)</li>
 <ul id="dc-32" style="display: none;">
 <a href="https://ballboyDev.github.io/post/2">
 <li id="p-2">미역국</li>
@@ -238,15 +245,9 @@
 <a href="https://ballboyDev.github.io/post/14">
 <li id="p-14">짜장소스</li>
 </a>
-<a href="https://ballboyDev.github.io/post/26">
-<li id="p-26">전자레인지로 솥밥 만들기 - 대패삼겹살 버전</li>
-</a>
-<a href="https://ballboyDev.github.io/post/33">
-<li id="p-33">전자레인지로 밥 짓기</li>
-</a>
 
 </ul>
-<li id="dt-33" onclick="foldNavi(33)">고기는 항상 옳다 (4)</li>
+<li id="dt-33" onclick="foldNavi(33)">밥상의 기본 밥과 고기 (6)</li>
 <ul id="dc-33" style="display: none;">
 <a href="https://ballboyDev.github.io/post/8">
 <li id="p-8">국물 두루치기</li>
@@ -254,8 +255,14 @@
 <a href="https://ballboyDev.github.io/post/12">
 <li id="p-12">삼겹살 덮밥</li>
 </a>
+<a href="https://ballboyDev.github.io/post/26">
+<li id="p-26">전자레인지로 솥밥 만들기 - 대패삼겹살 버전</li>
+</a>
 <a href="https://ballboyDev.github.io/post/30">
 <li id="p-30">멍게 비빔밥 만들기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/33">
+<li id="p-33">전자레인지로 밥 짓기</li>
 </a>
 <a href="https://ballboyDev.github.io/post/37">
 <li id="p-37">제육볶음</li>
@@ -293,7 +300,38 @@
         <!-- contents component -->
         <div id="contents">
 
-            
+            <div class="bookmark">
+
+            <div class="title t1">
+                <div><a href="#bm-1"># 고추 다대기 만들기
+</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-6">### 난이도 ✭ ✭ ✭</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-9">## 재료 (재료 및 조미료)</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-11">## 레시피</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-16">## 참고 자료/영상</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-19">## 추가 내용</a></div>
+                <p>•</p>
+            </div></div>
             
             
             
@@ -301,19 +339,16 @@
             
             <div class="main markdown-body">
 
-                <h1>고추 다대기 만들기</h1>
-<pre><code>가끔은 요리하기가 너무 귀찮을 때가 있다.
+                <h1 id="bm-1">고추 다대기 만들기</h1><pre><code>가끔은 요리하기가 너무 귀찮을 때가 있다.
 그렇다고 맨밥에 간장만 찍어 먹어도 맛있지만 쫌 그렇지 않은가...
 그래서 밑반찬에서도 가장 밑반찬이지만 임팩트는 어마어마한 매콤한 고추다대기를 만들어 보았다.
 무려 소고기가 들어 가지만 심심하면 마트 구경을 가다보니 가끔 50~60%를 할인하는걸 만날 수 있었다.
 </code></pre>
 <p><img src="https://ballboyDev.github.io/assets/img/7_1.jpeg" alt="이미지 준비중"></p>
-<h3>난이도 ✭ ✭ ✭</h3>
-<blockquote>
+<h3 id="bm-6">난이도 ✭ ✭ ✭</h3><blockquote>
 <p>흰밥에 쓱~ 쓱~ 고추 다대기</p>
 </blockquote>
-<h2>재료 (재료 및 조미료)</h2>
-<table>
+<h2 id="bm-9">재료 (재료 및 조미료)</h2><table>
 <thead>
 <tr>
 <th align="center"></th>
@@ -380,8 +415,7 @@
 <td align="left"></td>
 </tr>
 </tbody></table>
-<h2>레시피</h2>
-<ol>
+<h2 id="bm-11">레시피</h2><ol>
 <li><p>청양고추, 풋고추, 양파를 모두 다져서 준비한다.</p>
 </li>
 <li><p>식용유를 뿌린 펜에 다진 양파와 다진 마늘을 중불에서 볶아 준다.</p>
@@ -409,12 +443,10 @@
 만드는 과정이 쫌 귀찮지만 만들어 두면 듬직하다.
 라면에 한 숫가락 넣으면 스트레스 풀이용으로 제격이다.
 </code></pre>
-<h2>참고 자료/영상</h2>
-<ul>
+<h2 id="bm-16">참고 자료/영상</h2><ul>
 <li><a href=""></a></li>
 </ul>
-<h2>추가 내용</h2>
-<ul>
+<h2 id="bm-19">추가 내용</h2><ul>
 <li>2025-03-20<ul>
 <li>오래 볶아서 고추가 물러진게 더 맛있었던거 같다.</li>
 </ul>

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="jrh7qB1kgowvnvE0P3KqlhI-iNmw9CvGJF4dQsaCTAk" />
-    <title>심심한 개발자의 취미 생활에 오신걸 환영합니다.</title>
+    <title>runes</title>
 
     
 <link rel="stylesheet" href="https://ballboyDev.github.io/assets/markdown.css">
@@ -85,14 +85,14 @@
 <a href="https://ballboyDev.github.io/post/3">
 <li id="p-3">vim 에디터 정리</li>
 </a>
-<a href="https://ballboyDev.github.io/post/15">
-<li id="p-15">docker 기본 정리</li>
+<a href="https://ballboyDev.github.io/post/58">
+<li id="p-58">자주쓰는 git/git-flow 명령어</li>
 </a>
 
 </ul>
 
 </ul>
-<li id="dt-2" onclick="foldNavi(2)">공부 (29)</li>
+<li id="dt-2" onclick="foldNavi(2)">공부 (30)</li>
 <ul id="dc-2" style="display: none;">
 <li id="dt-21" onclick="foldNavi(21)">Svelte (7)</li>
 <ul id="dc-21" style="display: none;">
@@ -201,6 +201,13 @@
 </ul>
 
 </ul>
+<li id="dt-24" onclick="foldNavi(24)">Docker (1)</li>
+<ul id="dc-24" style="display: none;">
+<a href="https://ballboyDev.github.io/post/15">
+<li id="p-15">docker 기본 명령어 및 run 옵션 정리</li>
+</a>
+
+</ul>
 
 </ul>
 <li id="dt-3" onclick="foldNavi(3)">자취생 밥 만들어 먹기 (19)</li>
@@ -221,7 +228,7 @@
 </a>
 
 </ul>
-<li id="dt-32" onclick="foldNavi(32)">기본중의 기본 밥과 국 (7)</li>
+<li id="dt-32" onclick="foldNavi(32)">밥의 영혼의 단짝 국, 소스 (5)</li>
 <ul id="dc-32" style="display: none;">
 <a href="https://ballboyDev.github.io/post/2">
 <li id="p-2">미역국</li>
@@ -238,15 +245,9 @@
 <a href="https://ballboyDev.github.io/post/14">
 <li id="p-14">짜장소스</li>
 </a>
-<a href="https://ballboyDev.github.io/post/26">
-<li id="p-26">전자레인지로 솥밥 만들기 - 대패삼겹살 버전</li>
-</a>
-<a href="https://ballboyDev.github.io/post/33">
-<li id="p-33">전자레인지로 밥 짓기</li>
-</a>
 
 </ul>
-<li id="dt-33" onclick="foldNavi(33)">고기는 항상 옳다 (4)</li>
+<li id="dt-33" onclick="foldNavi(33)">밥상의 기본 밥과 고기 (6)</li>
 <ul id="dc-33" style="display: none;">
 <a href="https://ballboyDev.github.io/post/8">
 <li id="p-8">국물 두루치기</li>
@@ -254,8 +255,14 @@
 <a href="https://ballboyDev.github.io/post/12">
 <li id="p-12">삼겹살 덮밥</li>
 </a>
+<a href="https://ballboyDev.github.io/post/26">
+<li id="p-26">전자레인지로 솥밥 만들기 - 대패삼겹살 버전</li>
+</a>
 <a href="https://ballboyDev.github.io/post/30">
 <li id="p-30">멍게 비빔밥 만들기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/33">
+<li id="p-33">전자레인지로 밥 짓기</li>
 </a>
 <a href="https://ballboyDev.github.io/post/37">
 <li id="p-37">제육볶음</li>
@@ -293,7 +300,58 @@
         <!-- contents component -->
         <div id="contents">
 
-            
+            <div class="bookmark">
+
+            <div class="title t2">
+                <div><a href="#bm-1">## Runes</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-4">### 특징</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-7">### $state</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-12">### $derived / $derived.by</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-17">### $effect
+</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-22">### $props</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-25">### $bindable</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-28">### $inspect</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-31">### $host</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-34">### 기타 룬 (Runes)</a></div>
+                <p>•</p>
+            </div></div>
             
             
 <a href="https://ballboyDev.github.io/post/20.html" class="prev post">
@@ -309,12 +367,10 @@
             
             <div class="main markdown-body">
 
-                <h2>Runes</h2>
-<ul>
+                <h2 id="bm-1">Runes</h2><ul>
 <li>룬은 svelte 컴파일러를 제어하기 위해 <code>.svelte</code> 및 <code>.svelte.ts</code> 파일에서 사용하는 기호 입니다. Svelte를 하나의 언어로 생각한다면, 룬은 그 문법의 일부로, 키워드에 해당합니다.</li>
 </ul>
-<h3>특징</h3>
-<ol>
+<h3 id="bm-4">특징</h3><ol>
 <li>컴파일러 지시문<ul>
 <li>룬은 svelte 컴파일러가 코드를 분석하고 변환하는 방식을 제어합니다.</li>
 </ul>
@@ -332,8 +388,7 @@
 </ul>
 </li>
 </ol>
-<h3>$state</h3>
-<ul>
+<h3 id="bm-7">$state</h3><ul>
 <li><p>$state 룬을 사용하면 반응 상태를 만들수 있습니다.</p>
 </li>
 <li><p>다른 프레임워크와 달리 상태를 변경하기 위한 API가 존재하지 않습니다. 일반적인 변수를 업데이트 하는 것과 같이 값을 변경할 수 있습니다.</p>
@@ -349,8 +404,7 @@
     clicks : {count}
 &lt;/button&gt;
 </code></pre>
-<h3>$derived / $derived.by</h3>
-<ul>
+<h3 id="bm-12">$derived / $derived.by</h3><ul>
 <li>$derived 룬은 state에서 파생된 state를 만들 수 있습니다. derived state는 직접적인 값의 변경이 불가능 합니다.</li>
 <li><code>$derived(...)</code> 내부의 표현에서는 내부의 상태 변경 문법을 허용하지 않습니다. (ex. count++)</li>
 <li><code>$derived(...)</code>의 표현식으로는 작성하기 부족한 복잡한 식을 작성해야 할 경우 <code>$derived.by(...)</code>를 사용한다.</li>
@@ -370,8 +424,7 @@
 &lt;p&gt;{doubled}&lt;/p&gt;
 &lt;p&gt;{doubledouble}&lt;/p&gt;
 </code></pre>
-<h3>$effect</h3>
-<pre><code class="language-html">&lt;script&gt;
+<h3 id="bm-17">$effect</h3><pre><code class="language-html">&lt;script&gt;
     let state = $state(0);
 
     console.log(&quot;in component setup : &quot;, $effect.tracking());
@@ -425,8 +478,7 @@
 </ul>
 </li>
 </ol>
-<h3>$props</h3>
-<ul>
+<h3 id="bm-22">$props</h3><ul>
 <li><p>$props룬은 컴포넌트에 전달된 props를 선언적이고 간단하게 관리할 수 있도록 제공되는 룬입니다.</p>
 </li>
 <li><p>$props의 특징</p>
@@ -454,22 +506,18 @@
 </ol>
 </li>
 </ul>
-<h3>$bindable</h3>
-<ul>
+<h3 id="bm-25">$bindable</h3><ul>
 <li>일반적으로 props는 부모 컴포넌트에서 자식 컴포넌트로 흐릅니다. $bindable 룬을 사용하면 자식 컴포넌트에서 바인딩된 상태값을 변경할 수 있습니다.</li>
 <li>하지만 데이터의 흐름과 구조를 복잡하기에 주의해서 사용해야 합니다.</li>
 </ul>
-<h3>$inspect</h3>
-<ul>
+<h3 id="bm-28">$inspect</h3><ul>
 <li>$inspect rune은 상태 인수가 변경될 때마다 내부 프로세스가 실행됩니다.</li>
 <li>$inspect rune은 콜백과 함께 호출할 수 있는 속성을 반환하며, 이 속성은 conols.log 대신 호출됩니다. 콜백에 대한 첫번째 인수는 &quot;init&quot; 또는 &quot;update&quot;이며, 이후 인수는 $inspect에 전달된 값입니다.</li>
 </ul>
-<h3>$host</h3>
-<ul>
+<h3 id="bm-31">$host</h3><ul>
 <li>구성 요소를 사용자 지정 요소로 컴파일 할 때 $host rune은 호스트 요소에 대한 액세스를 제공하므로 사용자 지정 이벤트를 디스패치할 수 있습니다. -&gt; ?</li>
 </ul>
-<h3>기타 룬 (Runes)</h3>
-<ol>
+<h3 id="bm-34">기타 룬 (Runes)</h3><ol>
 <li>$memo</li>
 <li>$store</li>
 <li>$action</li>

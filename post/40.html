@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="jrh7qB1kgowvnvE0P3KqlhI-iNmw9CvGJF4dQsaCTAk" />
-    <title>심심한 개발자의 취미 생활에 오신걸 환영합니다.</title>
+    <title>2. Database, Collection, Document 생성, 제거</title>
 
     
 <link rel="stylesheet" href="https://ballboyDev.github.io/assets/markdown.css">
@@ -85,14 +85,14 @@
 <a href="https://ballboyDev.github.io/post/3">
 <li id="p-3">vim 에디터 정리</li>
 </a>
-<a href="https://ballboyDev.github.io/post/15">
-<li id="p-15">docker 기본 정리</li>
+<a href="https://ballboyDev.github.io/post/58">
+<li id="p-58">자주쓰는 git/git-flow 명령어</li>
 </a>
 
 </ul>
 
 </ul>
-<li id="dt-2" onclick="foldNavi(2)">공부 (29)</li>
+<li id="dt-2" onclick="foldNavi(2)">공부 (30)</li>
 <ul id="dc-2" style="display: none;">
 <li id="dt-21" onclick="foldNavi(21)">Svelte (7)</li>
 <ul id="dc-21" style="display: none;">
@@ -201,6 +201,13 @@
 </ul>
 
 </ul>
+<li id="dt-24" onclick="foldNavi(24)">Docker (1)</li>
+<ul id="dc-24" style="display: none;">
+<a href="https://ballboyDev.github.io/post/15">
+<li id="p-15">docker 기본 명령어 및 run 옵션 정리</li>
+</a>
+
+</ul>
 
 </ul>
 <li id="dt-3" onclick="foldNavi(3)">자취생 밥 만들어 먹기 (19)</li>
@@ -221,7 +228,7 @@
 </a>
 
 </ul>
-<li id="dt-32" onclick="foldNavi(32)">기본중의 기본 밥과 국 (7)</li>
+<li id="dt-32" onclick="foldNavi(32)">밥의 영혼의 단짝 국, 소스 (5)</li>
 <ul id="dc-32" style="display: none;">
 <a href="https://ballboyDev.github.io/post/2">
 <li id="p-2">미역국</li>
@@ -238,15 +245,9 @@
 <a href="https://ballboyDev.github.io/post/14">
 <li id="p-14">짜장소스</li>
 </a>
-<a href="https://ballboyDev.github.io/post/26">
-<li id="p-26">전자레인지로 솥밥 만들기 - 대패삼겹살 버전</li>
-</a>
-<a href="https://ballboyDev.github.io/post/33">
-<li id="p-33">전자레인지로 밥 짓기</li>
-</a>
 
 </ul>
-<li id="dt-33" onclick="foldNavi(33)">고기는 항상 옳다 (4)</li>
+<li id="dt-33" onclick="foldNavi(33)">밥상의 기본 밥과 고기 (6)</li>
 <ul id="dc-33" style="display: none;">
 <a href="https://ballboyDev.github.io/post/8">
 <li id="p-8">국물 두루치기</li>
@@ -254,8 +255,14 @@
 <a href="https://ballboyDev.github.io/post/12">
 <li id="p-12">삼겹살 덮밥</li>
 </a>
+<a href="https://ballboyDev.github.io/post/26">
+<li id="p-26">전자레인지로 솥밥 만들기 - 대패삼겹살 버전</li>
+</a>
 <a href="https://ballboyDev.github.io/post/30">
 <li id="p-30">멍게 비빔밥 만들기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/33">
+<li id="p-33">전자레인지로 밥 짓기</li>
 </a>
 <a href="https://ballboyDev.github.io/post/37">
 <li id="p-37">제육볶음</li>
@@ -293,7 +300,42 @@
         <!-- contents component -->
         <div id="contents">
 
-            
+            <div class="bookmark">
+
+            <div class="title t1">
+                <div><a href="#bm-1"># Database/Collection/Document 의 생성, 제거</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-2">## DataBase 생성 : use</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-6">## Database 제거 : db.dropDatabase()</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-10">## Collection 생성 : db.createCollection()</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-14">## Collection 제거 : db.COLLECTION_NAME.drop()</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-18">## Document 추가 : db.COLLECTION_NAME.insert(document)</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-22">## Document 제거 : db.COLLECTION_NAME.remove(criteria[, justOne])</a></div>
+                <p>•</p>
+            </div></div>
             
             
             
@@ -301,9 +343,7 @@
             
             <div class="main markdown-body">
 
-                <h1>Database/Collection/Document 의 생성, 제거</h1>
-<h2>DataBase 생성 : use</h2>
-<ul>
+                <h1 id="bm-1">Database/Collection/Document 의 생성, 제거</h1><h2 id="bm-2">DataBase 생성 : use</h2><ul>
 <li>use DATABASE_NAME 명령어를 사용하여 Database를 생성 할 수 있습니다.</li>
 <li>생성 후, 생성된 사용된 데이터 베이스를 사용하거나, 데이터베이스가 이미 존재하는 경우에는 현존하는 데이터 베이스를 사용합니다.</li>
 </ul>
@@ -325,8 +365,7 @@ nodejs  0.000GB
 // 내부에 데이터가 없는 DB는 리스트에 출력되지 않음
 // 최소 한개 이상의 Document를 추가해야 출력이 됨
 </code></pre>
-<h2>Database 제거 : db.dropDatabase()</h2>
-<ul>
+<h2 id="bm-6">Database 제거 : db.dropDatabase()</h2><ul>
 <li>Database를 제거할 땐 db.dropDatabase() 명령어를 사용합니다.</li>
 <li>이 명령어를 사용하기 전, use DATABASE_NAME명령어로 삭제하고자 하는 데이터베이스를 선택해줘야 합니다.</li>
 </ul>
@@ -338,8 +377,7 @@ switched to db mongodb_study
 &gt; db.dropDatabase()
 { &quot;dropped&quot; : &quot;mongodb_study&quot;, &quot;ok&quot;: 1 }
 </code></pre>
-<h2>Collection 생성 : db.createCollection()</h2>
-<ul>
+<h2 id="bm-10">Collection 생성 : db.createCollection()</h2><ul>
 <li>Collection을 생성할 때는 db.createCollection(name, [option])명령어를 사용합니다.</li>
 <li>name은 생성하려는 Collection의 이름입니다.</li>
 <li>option은 document타입으로 구성된 해당 컬렉션의 설정값입니다.<ul>
@@ -389,8 +427,7 @@ articles
 books
 people
 </code></pre>
-<h2>Collection 제거 : db.COLLECTION_NAME.drop()</h2>
-<ul>
+<h2 id="bm-14">Collection 제거 : db.COLLECTION_NAME.drop()</h2><ul>
 <li>Collection을 제거 할 때느 drop() 메소드를 사용합니다.</li>
 </ul>
 <pre><code class="language-json">// test 데이터베이스의 people 컬렉션을 제거
@@ -398,8 +435,7 @@ people
 &gt; db.people.drop()
 true
 </code></pre>
-<h2>Document 추가 : db.COLLECTION_NAME.insert(document)</h2>
-<ul>
+<h2 id="bm-18">Document 추가 : db.COLLECTION_NAME.insert(document)</h2><ul>
 <li>insert() 메소드를 사용하여 Document를 추가 할 수 있습니다.</li>
 <li>배열 형식의 인자를 전달해주면 여러 다큐먼트를 동시에 추가 할 수 있습니다.</li>
 </ul>
@@ -413,8 +449,7 @@ WriteResult({ &quot;nInsert&quot; : 1 })
     { &quot;name&quot;: &quot;Book2&quot;, &quot;author&quot;: &quot;Ballboy&quot; }
 ])
 </code></pre>
-<h2>Document 제거 : db.COLLECTION_NAME.remove(criteria[, justOne])</h2>
-<ul>
+<h2 id="bm-22">Document 제거 : db.COLLECTION_NAME.remove(criteria[, justOne])</h2><ul>
 <li>document는 remove(criteria, justOne) 메소드를 사용하여 Document를 제거 할 수 있습니다.</li>
 <li>메소드의 두 개의 변수<ul>
 <li>criteria : document<ul>

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="jrh7qB1kgowvnvE0P3KqlhI-iNmw9CvGJF4dQsaCTAk" />
-    <title>심심한 개발자의 취미 생활에 오신걸 환영합니다.</title>
+    <title>6. Index설정</title>
 
     
 <link rel="stylesheet" href="https://ballboyDev.github.io/assets/markdown.css">
@@ -85,14 +85,14 @@
 <a href="https://ballboyDev.github.io/post/3">
 <li id="p-3">vim 에디터 정리</li>
 </a>
-<a href="https://ballboyDev.github.io/post/15">
-<li id="p-15">docker 기본 정리</li>
+<a href="https://ballboyDev.github.io/post/58">
+<li id="p-58">자주쓰는 git/git-flow 명령어</li>
 </a>
 
 </ul>
 
 </ul>
-<li id="dt-2" onclick="foldNavi(2)">공부 (29)</li>
+<li id="dt-2" onclick="foldNavi(2)">공부 (30)</li>
 <ul id="dc-2" style="display: none;">
 <li id="dt-21" onclick="foldNavi(21)">Svelte (7)</li>
 <ul id="dc-21" style="display: none;">
@@ -201,6 +201,13 @@
 </ul>
 
 </ul>
+<li id="dt-24" onclick="foldNavi(24)">Docker (1)</li>
+<ul id="dc-24" style="display: none;">
+<a href="https://ballboyDev.github.io/post/15">
+<li id="p-15">docker 기본 명령어 및 run 옵션 정리</li>
+</a>
+
+</ul>
 
 </ul>
 <li id="dt-3" onclick="foldNavi(3)">자취생 밥 만들어 먹기 (19)</li>
@@ -221,7 +228,7 @@
 </a>
 
 </ul>
-<li id="dt-32" onclick="foldNavi(32)">기본중의 기본 밥과 국 (7)</li>
+<li id="dt-32" onclick="foldNavi(32)">밥의 영혼의 단짝 국, 소스 (5)</li>
 <ul id="dc-32" style="display: none;">
 <a href="https://ballboyDev.github.io/post/2">
 <li id="p-2">미역국</li>
@@ -238,15 +245,9 @@
 <a href="https://ballboyDev.github.io/post/14">
 <li id="p-14">짜장소스</li>
 </a>
-<a href="https://ballboyDev.github.io/post/26">
-<li id="p-26">전자레인지로 솥밥 만들기 - 대패삼겹살 버전</li>
-</a>
-<a href="https://ballboyDev.github.io/post/33">
-<li id="p-33">전자레인지로 밥 짓기</li>
-</a>
 
 </ul>
-<li id="dt-33" onclick="foldNavi(33)">고기는 항상 옳다 (4)</li>
+<li id="dt-33" onclick="foldNavi(33)">밥상의 기본 밥과 고기 (6)</li>
 <ul id="dc-33" style="display: none;">
 <a href="https://ballboyDev.github.io/post/8">
 <li id="p-8">국물 두루치기</li>
@@ -254,8 +255,14 @@
 <a href="https://ballboyDev.github.io/post/12">
 <li id="p-12">삼겹살 덮밥</li>
 </a>
+<a href="https://ballboyDev.github.io/post/26">
+<li id="p-26">전자레인지로 솥밥 만들기 - 대패삼겹살 버전</li>
+</a>
 <a href="https://ballboyDev.github.io/post/30">
 <li id="p-30">멍게 비빔밥 만들기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/33">
+<li id="p-33">전자레인지로 밥 짓기</li>
 </a>
 <a href="https://ballboyDev.github.io/post/37">
 <li id="p-37">제육볶음</li>
@@ -293,7 +300,52 @@
         <!-- contents component -->
         <div id="contents">
 
-            
+            <div class="bookmark">
+
+            <div class="title t1">
+                <div><a href="#bm-1"># Index 설정</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-2">## Index란?</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-5">## Index의 종류</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-8">## 인덱스 생성</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-12">## 인덱스 속성</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-16">### Unique 속성</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-20">### Partial(부분적) 속성</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-24">### TLL 속성</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-29">## 인덱스 조회 및 제거</a></div>
+                <p>•</p>
+            </div></div>
             
             
             
@@ -301,13 +353,10 @@
             
             <div class="main markdown-body">
 
-                <h1>Index 설정</h1>
-<h2>Index란?</h2>
-<ul>
+                <h1 id="bm-1">Index 설정</h1><h2 id="bm-2">Index란?</h2><ul>
 <li>index가 설정된 도큐먼트의 필드의 데이터 키값을 가지고 document들을 가르키는 포인터값으로 이뤄진 B-Tree 를 만듭니다. 그리고 데이터 조회시 B-Tree의 Binary Search를 통하여 쿼리 속도를 매우 빠르게 향상 시킬수 있습니다.</li>
 </ul>
-<h2>Index의 종류</h2>
-<ul>
+<h2 id="bm-5">Index의 종류</h2><ul>
 <li><p>_<em>기본 인덱스 <em>id</em></em></p>
 <ul>
 <li>모든 MongoDB의 컬렛견은 기본적으로 _id필드에 인덱스가 존재합니다.
@@ -347,8 +396,7 @@
 </ul>
 </li>
 </ul>
-<h2>인덱스 생성</h2>
-<ul>
+<h2 id="bm-8">인덱스 생성</h2><ul>
 <li>인덱스를 생성 할 땐, 다음과 같은 createIndex()메소드를 사용합니다. 파라미터는 인덱스를 적용할 필드를 전달합니다. 값을 1로 하면 오름차순으로, -1로 하면 내림차순으로 정렬합니다.</li>
 </ul>
 <pre><code>&gt; db.COLLENCTION.createIndex({key: 1})
@@ -362,13 +410,11 @@
 &gt; db.report.createIndex({age:1, score: -1})
 // 이렇게 여러 필드를 넣어 인덱스를 생성하면 age를 오름차순으로 정렬한 상태에서 score는 내림찬순으로 정렬합니다.
 </code></pre>
-<h2>인덱스 속성</h2>
-<ul>
+<h2 id="bm-12">인덱스 속성</h2><ul>
 <li>인덱스에 속성을 추가 할 땐 creatIndex() 메소드의 두번째 인자에 속성값을 document 타입으로 전달해주면 됩니다.</li>
 </ul>
 <p><code>&gt; db.COLLECTION.createIndex({key: 1}, {PROPERTY: true})</code></p>
-<h3>Unique 속성</h3>
-<p>_id 필드처럼 컬렉션에 단 한개의 값만 존재 할 수 있는 속성입니다.</p>
+<h3 id="bm-16">Unique 속성</h3><p>_id 필드처럼 컬렉션에 단 한개의 값만 존재 할 수 있는 속성입니다.</p>
 <pre><code>// email 인덱스에 unique 속성 적요
 &gt; db.userinfo.createIndex({email: 1}, {unique: true})
 
@@ -376,8 +422,7 @@
 // firstName과 lastName 복합 인덱스에 unique 속성 적용
 &gt; db.userinfo.createIndex({firstName: 1, lastName: 1}, {unique: true})
 </code></pre>
-<h3>Partial(부분적) 속성</h3>
-<ul>
+<h3 id="bm-20">Partial(부분적) 속성</h3><ul>
 <li>partial속성은 document의 조건을 정하여 일부 document에만 인덱스를 적용 할 때 사용됩니다.
 partial속성을 사용하면, 필요한 부분에만 인덱싱을 사용하여 저장공간도 아끼고 속도를 더 높일 수 있습니다.</li>
 </ul>
@@ -387,8 +432,7 @@ partial속성을 사용하면, 필요한 부분에만 인덱싱을 사용하여 
     {partialFilterExpression: {visitors: {&amp;gt: 1000}}}
 )
 </code></pre>
-<h3>TLL 속성</h3>
-<ul>
+<h3 id="bm-24">TLL 속성</h3><ul>
 <li>이 인덱스 속성은 Date 타입, 혹은 Date 배열 타입의 필드에 적용 할 수 있는 속성입니다.
 이 속성을 사용하여 document를 expire(만료)시킬 수 있습니다.
 즉, 추가하고 특정 시간이 지나면 document를 컬렉션에서 제거합니다.</li>
@@ -399,8 +443,7 @@ partial속성을 사용하면, 필요한 부분에만 인덱싱을 사용하여 
 <ul>
 <li>document가 만료되어 제거 될 때, 시간이 아주 정확하지는 않습니다. 만료 되는 document를 제거하는 thread는 매 60초 마다 실행 됩니다.</li>
 </ul>
-<h2>인덱스 조회 및 제거</h2>
-<ul>
+<h2 id="bm-29">인덱스 조회 및 제거</h2><ul>
 <li>생성된 인덱스를 조회 할 땐 getIndexs()메서드를 사용합니다.</li>
 </ul>
 <p><code>db.COLLECTION.getIndexs()</code></p>

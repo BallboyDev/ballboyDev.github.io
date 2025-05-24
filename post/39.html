@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="jrh7qB1kgowvnvE0P3KqlhI-iNmw9CvGJF4dQsaCTAk" />
-    <title>심심한 개발자의 취미 생활에 오신걸 환영합니다.</title>
+    <title>1. 소개 및 데이터 모델링</title>
 
     
 <link rel="stylesheet" href="https://ballboyDev.github.io/assets/markdown.css">
@@ -85,14 +85,14 @@
 <a href="https://ballboyDev.github.io/post/3">
 <li id="p-3">vim 에디터 정리</li>
 </a>
-<a href="https://ballboyDev.github.io/post/15">
-<li id="p-15">docker 기본 정리</li>
+<a href="https://ballboyDev.github.io/post/58">
+<li id="p-58">자주쓰는 git/git-flow 명령어</li>
 </a>
 
 </ul>
 
 </ul>
-<li id="dt-2" onclick="foldNavi(2)">공부 (29)</li>
+<li id="dt-2" onclick="foldNavi(2)">공부 (30)</li>
 <ul id="dc-2" style="display: none;">
 <li id="dt-21" onclick="foldNavi(21)">Svelte (7)</li>
 <ul id="dc-21" style="display: none;">
@@ -201,6 +201,13 @@
 </ul>
 
 </ul>
+<li id="dt-24" onclick="foldNavi(24)">Docker (1)</li>
+<ul id="dc-24" style="display: none;">
+<a href="https://ballboyDev.github.io/post/15">
+<li id="p-15">docker 기본 명령어 및 run 옵션 정리</li>
+</a>
+
+</ul>
 
 </ul>
 <li id="dt-3" onclick="foldNavi(3)">자취생 밥 만들어 먹기 (19)</li>
@@ -221,7 +228,7 @@
 </a>
 
 </ul>
-<li id="dt-32" onclick="foldNavi(32)">기본중의 기본 밥과 국 (7)</li>
+<li id="dt-32" onclick="foldNavi(32)">밥의 영혼의 단짝 국, 소스 (5)</li>
 <ul id="dc-32" style="display: none;">
 <a href="https://ballboyDev.github.io/post/2">
 <li id="p-2">미역국</li>
@@ -238,15 +245,9 @@
 <a href="https://ballboyDev.github.io/post/14">
 <li id="p-14">짜장소스</li>
 </a>
-<a href="https://ballboyDev.github.io/post/26">
-<li id="p-26">전자레인지로 솥밥 만들기 - 대패삼겹살 버전</li>
-</a>
-<a href="https://ballboyDev.github.io/post/33">
-<li id="p-33">전자레인지로 밥 짓기</li>
-</a>
 
 </ul>
-<li id="dt-33" onclick="foldNavi(33)">고기는 항상 옳다 (4)</li>
+<li id="dt-33" onclick="foldNavi(33)">밥상의 기본 밥과 고기 (6)</li>
 <ul id="dc-33" style="display: none;">
 <a href="https://ballboyDev.github.io/post/8">
 <li id="p-8">국물 두루치기</li>
@@ -254,8 +255,14 @@
 <a href="https://ballboyDev.github.io/post/12">
 <li id="p-12">삼겹살 덮밥</li>
 </a>
+<a href="https://ballboyDev.github.io/post/26">
+<li id="p-26">전자레인지로 솥밥 만들기 - 대패삼겹살 버전</li>
+</a>
 <a href="https://ballboyDev.github.io/post/30">
 <li id="p-30">멍게 비빔밥 만들기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/33">
+<li id="p-33">전자레인지로 밥 짓기</li>
 </a>
 <a href="https://ballboyDev.github.io/post/37">
 <li id="p-37">제육볶음</li>
@@ -293,7 +300,62 @@
         <!-- contents component -->
         <div id="contents">
 
-            
+            <div class="bookmark">
+
+            <div class="title t1">
+                <div><a href="#bm-1"># MongoDB 소개 및 데이터 모델링</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-2">## 참고 사이트</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-5">## 소개</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-8">### Document</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-13">### Collection</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-16">### Database</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-19">## RDMS와의 비교</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-21">### 장점</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-24">## Data Modelling</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-25">### schema 디자인 할 때 고려 사항</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-28">### 예제</a></div>
+                <p>•</p>
+            </div></div>
             
             
             
@@ -301,13 +363,9 @@
             
             <div class="main markdown-body">
 
-                <h1>MongoDB 소개 및 데이터 모델링</h1>
-<h2>참고 사이트</h2>
-<p><a href="https://velopert.com/category/dev-log/tech-log/mongodb">https://velopert.com/category/dev-log/tech-log/mongodb</a></p>
-<h2>소개</h2>
-<p>MongoDB는 C++로 작성된 오픈소스 문서 지향적 Cross-platform 데이터 베이스이며, 뛰어난 확장성과 성능을 자랑합니다.</p>
-<h3>Document</h3>
-<ul>
+                <h1 id="bm-1">MongoDB 소개 및 데이터 모델링</h1><h2 id="bm-2">참고 사이트</h2><p><a href="https://velopert.com/category/dev-log/tech-log/mongodb">https://velopert.com/category/dev-log/tech-log/mongodb</a></p>
+<h2 id="bm-5">소개</h2><p>MongoDB는 C++로 작성된 오픈소스 문서 지향적 Cross-platform 데이터 베이스이며, 뛰어난 확장성과 성능을 자랑합니다.</p>
+<h3 id="bm-8">Document</h3><ul>
 <li>Document는 RDMS의 recode와 비슷한 개념으로, 이의 데이터 구조는 한개이상의 key-value 쌍으로 이루어져 있습니다.</li>
 </ul>
 <pre><code class="language-json">{
@@ -325,17 +383,14 @@ _id는 12bytes의 hexadecimal 값으로, 각 document의 유일함(uniqueness)�
 이 값의 첫 4bytes는 현재 timestamp, 다음 3bytes는 machine id, 다음 2bytes는 MongoDB 서버의 프로세스id, 마지막 3bytes는 순차번호 입니다.</li>
 <li>Document는 동적의 schema를 가지고 있습니다. 같은 Collectino안에 있는 Document끼리 다른 Schema를 가지고 있을 수 있습니다.</li>
 </ul>
-<h3>Collection</h3>
-<ul>
+<h3 id="bm-13">Collection</h3><ul>
 <li>Collection은 MongoDB Document의 그룹입니다. Document들이 Collection내부에 위치하고 있습니다. RDMS의 table과 비슷한 개념입니다. 하지만 RDMS와 달리 schema를 따로 가지고 있지 않습니다.</li>
 </ul>
-<h3>Database</h3>
-<ul>
+<h3 id="bm-16">Database</h3><ul>
 <li>Database는 Collection들의 물리적인 컨테이너 입니다.
 각 Database는 파일시스템에 여러 파일들로 저장됩니다.</li>
 </ul>
-<h2>RDMS와의 비교</h2>
-<table>
+<h2 id="bm-19">RDMS와의 비교</h2><table>
 <thead>
 <tr>
 <th align="left">RDBMS</th>
@@ -367,17 +422,14 @@ _id는 12bytes의 hexadecimal 값으로, 각 document의 유일함(uniqueness)�
 <td align="left">Primary Key(_id)</td>
 </tr>
 </tbody></table>
-<h3>장점</h3>
-<ul>
+<h3 id="bm-21">장점</h3><ul>
 <li>Schema-less</li>
 <li>각 객체의 구조가 뚜렷하다.</li>
 <li>복잡한 JOIN이 없다. </li>
 <li>Deep Query Ability (문서지향적 Query Language를 사용하여 SQL 만큼 강력한 Query 성능을 제공한다.)</li>
 <li>어플리케이션에서 사용되는 객체를 데이터베이스에 추가 할 떄 Conversion / Mapping 이 불필요하다</li>
 </ul>
-<h2>Data Modelling</h2>
-<h3>schema 디자인 할 때 고려 사항</h3>
-<ul>
+<h2 id="bm-24">Data Modelling</h2><h3 id="bm-25">schema 디자인 할 때 고려 사항</h3><ul>
 <li>사용자 요구에 따라 schema를 디자인한다.</li>
 <li>객체들을 함께 사용하게 된다면 한 Document에 합쳐서 사용한다.<ul>
 <li>ex) 게시물 - 덧글 관계</li>
@@ -385,8 +437,7 @@ _id는 12bytes의 hexadecimal 값으로, 각 document의 유일함(uniqueness)�
 </li>
 <li>읽을 떄 Join 하는게 아니라 데이터를 작성 할 떄 Join한다.</li>
 </ul>
-<h3>예제</h3>
-<ul>
+<h3 id="bm-28">예제</h3><ul>
 <li>간단한 게시글 저장 데이터 베이스 디자인<ul>
 <li>게시글에는 작성자 이름, 제목, 내용이 담겨져 있다.</li>
 <li>각 게시글은 0ㅐ 이상의 태그를 가지고 있을 수 있따.</li>

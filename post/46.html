@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="jrh7qB1kgowvnvE0P3KqlhI-iNmw9CvGJF4dQsaCTAk" />
-    <title>심심한 개발자의 취미 생활에 오신걸 환영합니다.</title>
+    <title>2. 데이터 유형</title>
 
     
 <link rel="stylesheet" href="https://ballboyDev.github.io/assets/markdown.css">
@@ -85,14 +85,14 @@
 <a href="https://ballboyDev.github.io/post/3">
 <li id="p-3">vim 에디터 정리</li>
 </a>
-<a href="https://ballboyDev.github.io/post/15">
-<li id="p-15">docker 기본 정리</li>
+<a href="https://ballboyDev.github.io/post/58">
+<li id="p-58">자주쓰는 git/git-flow 명령어</li>
 </a>
 
 </ul>
 
 </ul>
-<li id="dt-2" onclick="foldNavi(2)">공부 (29)</li>
+<li id="dt-2" onclick="foldNavi(2)">공부 (30)</li>
 <ul id="dc-2" style="display: none;">
 <li id="dt-21" onclick="foldNavi(21)">Svelte (7)</li>
 <ul id="dc-21" style="display: none;">
@@ -201,6 +201,13 @@
 </ul>
 
 </ul>
+<li id="dt-24" onclick="foldNavi(24)">Docker (1)</li>
+<ul id="dc-24" style="display: none;">
+<a href="https://ballboyDev.github.io/post/15">
+<li id="p-15">docker 기본 명령어 및 run 옵션 정리</li>
+</a>
+
+</ul>
 
 </ul>
 <li id="dt-3" onclick="foldNavi(3)">자취생 밥 만들어 먹기 (19)</li>
@@ -221,7 +228,7 @@
 </a>
 
 </ul>
-<li id="dt-32" onclick="foldNavi(32)">기본중의 기본 밥과 국 (7)</li>
+<li id="dt-32" onclick="foldNavi(32)">밥의 영혼의 단짝 국, 소스 (5)</li>
 <ul id="dc-32" style="display: none;">
 <a href="https://ballboyDev.github.io/post/2">
 <li id="p-2">미역국</li>
@@ -238,15 +245,9 @@
 <a href="https://ballboyDev.github.io/post/14">
 <li id="p-14">짜장소스</li>
 </a>
-<a href="https://ballboyDev.github.io/post/26">
-<li id="p-26">전자레인지로 솥밥 만들기 - 대패삼겹살 버전</li>
-</a>
-<a href="https://ballboyDev.github.io/post/33">
-<li id="p-33">전자레인지로 밥 짓기</li>
-</a>
 
 </ul>
-<li id="dt-33" onclick="foldNavi(33)">고기는 항상 옳다 (4)</li>
+<li id="dt-33" onclick="foldNavi(33)">밥상의 기본 밥과 고기 (6)</li>
 <ul id="dc-33" style="display: none;">
 <a href="https://ballboyDev.github.io/post/8">
 <li id="p-8">국물 두루치기</li>
@@ -254,8 +255,14 @@
 <a href="https://ballboyDev.github.io/post/12">
 <li id="p-12">삼겹살 덮밥</li>
 </a>
+<a href="https://ballboyDev.github.io/post/26">
+<li id="p-26">전자레인지로 솥밥 만들기 - 대패삼겹살 버전</li>
+</a>
 <a href="https://ballboyDev.github.io/post/30">
 <li id="p-30">멍게 비빔밥 만들기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/33">
+<li id="p-33">전자레인지로 밥 짓기</li>
 </a>
 <a href="https://ballboyDev.github.io/post/37">
 <li id="p-37">제육볶음</li>
@@ -293,7 +300,37 @@
         <!-- contents component -->
         <div id="contents">
 
-            
+            <div class="bookmark">
+
+            <div class="title t1">
+                <div><a href="#bm-1"># 데이터 유형</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-2">## 테이블 생성 조건</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-5">## 문자형 데이터 타입</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-7">## char VS varchar</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-10">## 숫자형 데이터 타입</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-12">## 날짜 데이터 타입</a></div>
+                <p>•</p>
+            </div></div>
             
             
             
@@ -301,9 +338,7 @@
             
             <div class="main markdown-body">
 
-                <h1>데이터 유형</h1>
-<h2>테이블 생성 조건</h2>
-<ol>
+                <h1 id="bm-1">데이터 유형</h1><h2 id="bm-2">테이블 생성 조건</h2><ol>
 <li>테이블 생성시 컬럼을 정의할 떄 선언한 데이터 유형은 그 컬럼이 받아들일 수 있는 자료형의 유형을 규정함<ul>
 <li>선언한 유형이 아닌 다른 종류의 데이터가 들어오려고 하면 데이터베이스는 에러를 발생기킴</li>
 </ul>
@@ -314,8 +349,7 @@
 </ul>
 </li>
 </ol>
-<h2>문자형 데이터 타입</h2>
-<table>
+<h2 id="bm-5">문자형 데이터 타입</h2><table>
 <thead>
 <tr>
 <th align="left">데이터 유형</th>
@@ -344,8 +378,7 @@
 <td align="left">- 최대 크기는 2GB</td>
 </tr>
 </tbody></table>
-<h2>char VS varchar</h2>
-<ul>
+<h2 id="bm-7">char VS varchar</h2><ul>
 <li>char(10)<ul>
 <li>&#39;happy^^^^^&#39;</li>
 </ul>
@@ -355,8 +388,7 @@
 </ul>
 </li>
 </ul>
-<h2>숫자형 데이터 타입</h2>
-<table>
+<h2 id="bm-10">숫자형 데이터 타입</h2><table>
 <thead>
 <tr>
 <th align="left">데이터 유형</th>
@@ -380,8 +412,7 @@
 <td align="left">- 8BYTE</td>
 </tr>
 </tbody></table>
-<h2>날짜 데이터 타입</h2>
-<table>
+<h2 id="bm-12">날짜 데이터 타입</h2><table>
 <thead>
 <tr>
 <th align="left">데이터 유형</th>

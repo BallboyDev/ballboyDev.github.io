@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="jrh7qB1kgowvnvE0P3KqlhI-iNmw9CvGJF4dQsaCTAk" />
-    <title>심심한 개발자의 취미 생활에 오신걸 환영합니다.</title>
+    <title>template Syntax</title>
 
     
 <link rel="stylesheet" href="https://ballboyDev.github.io/assets/markdown.css">
@@ -85,14 +85,14 @@
 <a href="https://ballboyDev.github.io/post/3">
 <li id="p-3">vim 에디터 정리</li>
 </a>
-<a href="https://ballboyDev.github.io/post/15">
-<li id="p-15">docker 기본 정리</li>
+<a href="https://ballboyDev.github.io/post/58">
+<li id="p-58">자주쓰는 git/git-flow 명령어</li>
 </a>
 
 </ul>
 
 </ul>
-<li id="dt-2" onclick="foldNavi(2)">공부 (29)</li>
+<li id="dt-2" onclick="foldNavi(2)">공부 (30)</li>
 <ul id="dc-2" style="display: none;">
 <li id="dt-21" onclick="foldNavi(21)">Svelte (7)</li>
 <ul id="dc-21" style="display: none;">
@@ -201,6 +201,13 @@
 </ul>
 
 </ul>
+<li id="dt-24" onclick="foldNavi(24)">Docker (1)</li>
+<ul id="dc-24" style="display: none;">
+<a href="https://ballboyDev.github.io/post/15">
+<li id="p-15">docker 기본 명령어 및 run 옵션 정리</li>
+</a>
+
+</ul>
 
 </ul>
 <li id="dt-3" onclick="foldNavi(3)">자취생 밥 만들어 먹기 (19)</li>
@@ -221,7 +228,7 @@
 </a>
 
 </ul>
-<li id="dt-32" onclick="foldNavi(32)">기본중의 기본 밥과 국 (7)</li>
+<li id="dt-32" onclick="foldNavi(32)">밥의 영혼의 단짝 국, 소스 (5)</li>
 <ul id="dc-32" style="display: none;">
 <a href="https://ballboyDev.github.io/post/2">
 <li id="p-2">미역국</li>
@@ -238,15 +245,9 @@
 <a href="https://ballboyDev.github.io/post/14">
 <li id="p-14">짜장소스</li>
 </a>
-<a href="https://ballboyDev.github.io/post/26">
-<li id="p-26">전자레인지로 솥밥 만들기 - 대패삼겹살 버전</li>
-</a>
-<a href="https://ballboyDev.github.io/post/33">
-<li id="p-33">전자레인지로 밥 짓기</li>
-</a>
 
 </ul>
-<li id="dt-33" onclick="foldNavi(33)">고기는 항상 옳다 (4)</li>
+<li id="dt-33" onclick="foldNavi(33)">밥상의 기본 밥과 고기 (6)</li>
 <ul id="dc-33" style="display: none;">
 <a href="https://ballboyDev.github.io/post/8">
 <li id="p-8">국물 두루치기</li>
@@ -254,8 +255,14 @@
 <a href="https://ballboyDev.github.io/post/12">
 <li id="p-12">삼겹살 덮밥</li>
 </a>
+<a href="https://ballboyDev.github.io/post/26">
+<li id="p-26">전자레인지로 솥밥 만들기 - 대패삼겹살 버전</li>
+</a>
 <a href="https://ballboyDev.github.io/post/30">
 <li id="p-30">멍게 비빔밥 만들기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/33">
+<li id="p-33">전자레인지로 밥 짓기</li>
 </a>
 <a href="https://ballboyDev.github.io/post/37">
 <li id="p-37">제육볶음</li>
@@ -293,7 +300,42 @@
         <!-- contents component -->
         <div id="contents">
 
-            
+            <div class="bookmark">
+
+            <div class="title t2">
+                <div><a href="#bm-1">## Template Syntax</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-4">### {#if expression}</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-9">### {#each expression}</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-14">### {#key expression}</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-19">### {#await expression}</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-24">### {#snippet expression}</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-29">### 기타 블럭 문법 </a></div>
+                <p>•</p>
+            </div></div>
             
             
 <a href="https://ballboyDev.github.io/post/21.html" class="prev post">
@@ -309,16 +351,14 @@
             
             <div class="main markdown-body">
 
-                <h2>Template Syntax</h2>
-<ul>
+                <h2 id="bm-1">Template Syntax</h2><ul>
 <li><strong>Block</strong><ul>
 <li>스벨트의 템플릿에서는 조건 분기나 반복문과 같은 문법을 제공한다.</li>
 <li>블록 문법은 모두 <code>{#...}</code> 에서 <code>{/...}</code>으로 끝나는 구조를 가진다.</li>
 </ul>
 </li>
 </ul>
-<h3>{#if expression}</h3>
-<ul>
+<h3 id="bm-4">{#if expression}</h3><ul>
 <li>조건부로 렌더링 되는 콘텐츠는 <code>{#if}</code> 블록으로 감쌀 수 있습니다. </li>
 <li>추가 조건은 <code>{:else if}</code>으로 추가할 수 있으며, 선택적으로 <code>{:else}</code> 절로 끝납니다.</li>
 </ul>
@@ -330,8 +370,7 @@
     &lt;!-- Code3 --&gt;
 {/if}
 </code></pre>
-<h3>{#each expression}</h3>
-<ul>
+<h3 id="bm-9">{#each expression}</h3><ul>
 <li><code>#each</code> 에서 배열과 같은 값에 대한 반복 작업을 수행할 수 있습니다. </li>
 <li>각 목록 항목을 고유하게 식별해야 하는 키 식을 제공하면 Svelte는 마지막에 항목을 추가하거나 제거하는 대신 이를 사용하여 데이터가 변경될 때 목록을 확신합니다.</li>
 <li><code>#each</code> 에는 목록이 비어 있는 경우 렌더링이 되는 <code>{:else}</code> 절을 사용할 수 있다.</li>
@@ -354,8 +393,7 @@
     &lt;!-- empty Code --&gt;
 {/each}
 </code></pre>
-<h3>{#key expression}</h3>
-<ul>
+<h3 id="bm-14">{#key expression}</h3><ul>
 <li><code>#key</code> 블록은 식의 값이 변경되면 내용을 파괴하고 다시 생성합니다. </li>
 <li>구성 요소 주변에 사용하면 구성 요소가 다시 복원되고 다시 초기화 됩니다.</li>
 </ul>
@@ -363,8 +401,7 @@
     &lt;!-- Code --&gt;
 {/key}
 </code></pre>
-<h3>{#await expression}</h3>
-<ul>
+<h3 id="bm-19">{#await expression}</h3><ul>
 <li><code>#await</code> 블록을 사용하면 대기 중, 완료, 거부 세 가지 상태를 분기할 수 있습니다.</li>
 <li><code>:then</code> 블록과 <code>:catch</code> 블록은 생략 가능합니다.</li>
 </ul>
@@ -390,8 +427,7 @@
     &lt;!-- reject Code --&gt;
 {/await}
 </code></pre>
-<h3>{#snippet expression}</h3>
-<ul>
+<h3 id="bm-24">{#snippet expression}</h3><ul>
 <li><code>#snippet</code> 블록과 렌더링 태그는 컴포넌트 내부에 재사용 가능한 마크업 코드를 만드는 방법입니다.</li>
 <li><code>#snippet</code> 블록과 렌더링 태그는 기본 스코프 문법을 따릅니다.</li>
 <li><code>#snippet</code> 블록은 템플릿 내에서 객체로 다루어 지기에 컴포넌트에 속성 값이나 props 값으로 전달이 가능합니다.</li>
@@ -415,8 +451,7 @@
 
 &lt;Component header={name1} row={name2}/&gt;
 </code></pre>
-<h3>기타 블럭 문법</h3>
-<ul>
+<h3 id="bm-29">기타 블럭 문법</h3><ul>
 <li>{@render ...}<ul>
 <li>snippet 문법을 렌더링 하기 위해 사용됩니다.</li>
 </ul>

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="jrh7qB1kgowvnvE0P3KqlhI-iNmw9CvGJF4dQsaCTAk" />
-    <title>심심한 개발자의 취미 생활에 오신걸 환영합니다.</title>
+    <title>console 객체 활용하기</title>
 
     
 <link rel="stylesheet" href="https://ballboyDev.github.io/assets/markdown.css">
@@ -85,14 +85,14 @@
 <a href="https://ballboyDev.github.io/post/3">
 <li id="p-3">vim 에디터 정리</li>
 </a>
-<a href="https://ballboyDev.github.io/post/15">
-<li id="p-15">docker 기본 정리</li>
+<a href="https://ballboyDev.github.io/post/58">
+<li id="p-58">자주쓰는 git/git-flow 명령어</li>
 </a>
 
 </ul>
 
 </ul>
-<li id="dt-2" onclick="foldNavi(2)">공부 (29)</li>
+<li id="dt-2" onclick="foldNavi(2)">공부 (30)</li>
 <ul id="dc-2" style="display: none;">
 <li id="dt-21" onclick="foldNavi(21)">Svelte (7)</li>
 <ul id="dc-21" style="display: none;">
@@ -201,6 +201,13 @@
 </ul>
 
 </ul>
+<li id="dt-24" onclick="foldNavi(24)">Docker (1)</li>
+<ul id="dc-24" style="display: none;">
+<a href="https://ballboyDev.github.io/post/15">
+<li id="p-15">docker 기본 명령어 및 run 옵션 정리</li>
+</a>
+
+</ul>
 
 </ul>
 <li id="dt-3" onclick="foldNavi(3)">자취생 밥 만들어 먹기 (19)</li>
@@ -221,7 +228,7 @@
 </a>
 
 </ul>
-<li id="dt-32" onclick="foldNavi(32)">기본중의 기본 밥과 국 (7)</li>
+<li id="dt-32" onclick="foldNavi(32)">밥의 영혼의 단짝 국, 소스 (5)</li>
 <ul id="dc-32" style="display: none;">
 <a href="https://ballboyDev.github.io/post/2">
 <li id="p-2">미역국</li>
@@ -238,15 +245,9 @@
 <a href="https://ballboyDev.github.io/post/14">
 <li id="p-14">짜장소스</li>
 </a>
-<a href="https://ballboyDev.github.io/post/26">
-<li id="p-26">전자레인지로 솥밥 만들기 - 대패삼겹살 버전</li>
-</a>
-<a href="https://ballboyDev.github.io/post/33">
-<li id="p-33">전자레인지로 밥 짓기</li>
-</a>
 
 </ul>
-<li id="dt-33" onclick="foldNavi(33)">고기는 항상 옳다 (4)</li>
+<li id="dt-33" onclick="foldNavi(33)">밥상의 기본 밥과 고기 (6)</li>
 <ul id="dc-33" style="display: none;">
 <a href="https://ballboyDev.github.io/post/8">
 <li id="p-8">국물 두루치기</li>
@@ -254,8 +255,14 @@
 <a href="https://ballboyDev.github.io/post/12">
 <li id="p-12">삼겹살 덮밥</li>
 </a>
+<a href="https://ballboyDev.github.io/post/26">
+<li id="p-26">전자레인지로 솥밥 만들기 - 대패삼겹살 버전</li>
+</a>
 <a href="https://ballboyDev.github.io/post/30">
 <li id="p-30">멍게 비빔밥 만들기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/33">
+<li id="p-33">전자레인지로 밥 짓기</li>
 </a>
 <a href="https://ballboyDev.github.io/post/37">
 <li id="p-37">제육볶음</li>
@@ -293,7 +300,57 @@
         <!-- contents component -->
         <div id="contents">
 
-            
+            <div class="bookmark">
+
+            <div class="title t1">
+                <div><a href="#bm-1"># Javascript console 객체 활용하기</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-4">## console 객체가 제공하는 유용한 함수</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-7">### log()</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-12">### warn(), error()</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-17">### group(), groupCollapsed(), groupEnd()</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-22">### time(), timeLog(), timeEnd()</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-27">## 텍스트 꾸미기</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-30">### ANSI escape code</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-33">### 사용 예시</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-40">### `\x1b[<코드>m`의 구조와 의미</a></div>
+                <p>•</p>
+            </div></div>
             
             
             
@@ -301,43 +358,35 @@
             
             <div class="main markdown-body">
 
-                <h1>Javascript console 객체 활용하기</h1>
-<p>node 환경에서 개발을 하다보면 <code>console.log</code>를 활용하여 값을 찍어 보거나 플로우를 확인하는 경우가 종종 있다.
+                <h1 id="bm-1">Javascript console 객체 활용하기</h1><p>node 환경에서 개발을 하다보면 <code>console.log</code>를 활용하여 값을 찍어 보거나 플로우를 확인하는 경우가 종종 있다.
 디버깅 기능을 활용하여도 되지만 지원하지 않는 환경이거나 로그 자체를 찍고 싶은 경우에는 유용하게 활용이 가능하다.
 그런데 단순히 텍스트를 찍고 값을 확인하는데 사용하는 console 객체는 생각보다 다양하고 유용한 기능을 다수 지원한다.
 개발할때 사용하면 편리한 내가 자주 사용하는 내용을 정리 해본다.</p>
-<h2>console 객체가 제공하는 유용한 함수</h2>
-<p>정리 내용 말고도 다양한 함수가 존재 하니 알아보고 상황에 맞춰 사용하면 좋다.</p>
-<h3>log()</h3>
-<ul>
+<h2 id="bm-4">console 객체가 제공하는 유용한 함수</h2><p>정리 내용 말고도 다양한 함수가 존재 하니 알아보고 상황에 맞춰 사용하면 좋다.</p>
+<h3 id="bm-7">log()</h3><ul>
 <li>가장 기본적이며 일반 메시지를 출력하는 메서드</li>
 <li>추가 매개변수와 함께 Object 출력 가능</li>
 </ul>
 <p><img src="https://ballboyDev.github.io/assets/img/36_1.png" alt="alt text"></p>
-<h3>warn(), error()</h3>
-<ul>
+<h3 id="bm-12">warn(), error()</h3><ul>
 <li>오류 및 경고 메시지 출력</li>
 </ul>
 <p><img src="https://ballboyDev.github.io/assets/img/36_2.png" alt="alt text"></p>
-<h3>group(), groupCollapsed(), groupEnd()</h3>
-<ul>
+<h3 id="bm-17">group(), groupCollapsed(), groupEnd()</h3><ul>
 <li>출력 메시지의 그룹을 생성해 이후 출력을 모두 한단계 들여쓰기 한다.</li>
 <li>group()과 groupCollapsed()는 동일한 기능을 지원하지만 group()과 달리 groupCollapsed()는 출력시 텍스트가 접혀 있다.</li>
 <li>그룹을 종료하기 위해서는 groupEnd()를 사용한다.</li>
 </ul>
 <p><img src="https://ballboyDev.github.io/assets/img/36_3.png" alt="alt text"></p>
-<h3>time(), timeLog(), timeEnd()</h3>
-<ul>
+<h3 id="bm-22">time(), timeLog(), timeEnd()</h3><ul>
 <li>시간 측정을 위한 타이머를 생성한다. 타이머는 동시에 최대 10000개 까지 생성이 가능하다.</li>
 <li>측정 중간 시간 기록을 찍기위해서는 timeLog()를 사용한다.</li>
 </ul>
 <p><img src="https://ballboyDev.github.io/assets/img/36_4.png" alt="alt text"></p>
-<h2>텍스트 꾸미기</h2>
-<p>node 환경에서 console 객체 메서드로 출력되는 문자열의 생상을 바꿀 수 있다.
+<h2 id="bm-27">텍스트 꾸미기</h2><p>node 환경에서 console 객체 메서드로 출력되는 문자열의 생상을 바꿀 수 있다.
 ANSI escape code를 사용하거나 이를 지원하는 라이브러리를 사용하면 된다.
 이를 통해 좀 더 명확한 로그를 남길 수 있다.</p>
-<h3>ANSI escape code</h3>
-<ul>
+<h3 id="bm-30">ANSI escape code</h3><ul>
 <li>ANSI escape code는 터미널을 제어하는데 사용되는 표준 코드로 현재는 드물에 터미널 출력 스타일을 변경하는데 사용되고 있다.</li>
 <li>대표 색상 및 스타일 코드 표<table>
 <thead>
@@ -417,8 +466,7 @@ ANSI escape code를 사용하거나 이를 지원하는 라이브러리를 사�
 </tbody></table>
 </li>
 </ul>
-<h3>사용 예시</h3>
-<ul>
+<h3 id="bm-33">사용 예시</h3><ul>
 <li><code>\x1b[&lt;코드&gt;m</code>: &lt;코드&gt;에 원하는 스타일의 코드를 넣어 사용한다.</li>
 </ul>
 <pre><code class="language-js">console.log(&#39;\x1b[32m%s\x1b[0m&#39;, &#39;이 텍스트는 초록색입니다!&#39;);
@@ -428,8 +476,7 @@ console.log(&#39;\x1b[1m\x1b[31m%s\x1b[0m&#39;, &#39;굵은 빨간 텍스트&#39
 console.log(&#39;\x1b[36m[시안]  \x1b[33m[노랑]  \x1b[31m[빨강]  \x1b[0m[초기화]&#39;);
 </code></pre>
 <p><img src="https://ballboyDev.github.io/assets/img/36_5.png" alt="alt text"></p>
-<h3><code>\x1b[&lt;코드&gt;m</code>의 구조와 의미</h3>
-<ul>
+<h3 id="bm-40">`\x1b[<코드>m`의 구조와 의미</h3><ul>
 <li><code>\x1b[&lt;코드&gt;m</code> 이 문자열은 3부분으로 구성되어 있다.</li>
 </ul>
 <ol>

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="jrh7qB1kgowvnvE0P3KqlhI-iNmw9CvGJF4dQsaCTAk" />
-    <title>심심한 개발자의 취미 생활에 오신걸 환영합니다.</title>
+    <title>12. 조인 문장 및 집합 연산자</title>
 
     
 <link rel="stylesheet" href="https://ballboyDev.github.io/assets/markdown.css">
@@ -85,14 +85,14 @@
 <a href="https://ballboyDev.github.io/post/3">
 <li id="p-3">vim 에디터 정리</li>
 </a>
-<a href="https://ballboyDev.github.io/post/15">
-<li id="p-15">docker 기본 정리</li>
+<a href="https://ballboyDev.github.io/post/58">
+<li id="p-58">자주쓰는 git/git-flow 명령어</li>
 </a>
 
 </ul>
 
 </ul>
-<li id="dt-2" onclick="foldNavi(2)">공부 (29)</li>
+<li id="dt-2" onclick="foldNavi(2)">공부 (30)</li>
 <ul id="dc-2" style="display: none;">
 <li id="dt-21" onclick="foldNavi(21)">Svelte (7)</li>
 <ul id="dc-21" style="display: none;">
@@ -201,6 +201,13 @@
 </ul>
 
 </ul>
+<li id="dt-24" onclick="foldNavi(24)">Docker (1)</li>
+<ul id="dc-24" style="display: none;">
+<a href="https://ballboyDev.github.io/post/15">
+<li id="p-15">docker 기본 명령어 및 run 옵션 정리</li>
+</a>
+
+</ul>
 
 </ul>
 <li id="dt-3" onclick="foldNavi(3)">자취생 밥 만들어 먹기 (19)</li>
@@ -221,7 +228,7 @@
 </a>
 
 </ul>
-<li id="dt-32" onclick="foldNavi(32)">기본중의 기본 밥과 국 (7)</li>
+<li id="dt-32" onclick="foldNavi(32)">밥의 영혼의 단짝 국, 소스 (5)</li>
 <ul id="dc-32" style="display: none;">
 <a href="https://ballboyDev.github.io/post/2">
 <li id="p-2">미역국</li>
@@ -238,15 +245,9 @@
 <a href="https://ballboyDev.github.io/post/14">
 <li id="p-14">짜장소스</li>
 </a>
-<a href="https://ballboyDev.github.io/post/26">
-<li id="p-26">전자레인지로 솥밥 만들기 - 대패삼겹살 버전</li>
-</a>
-<a href="https://ballboyDev.github.io/post/33">
-<li id="p-33">전자레인지로 밥 짓기</li>
-</a>
 
 </ul>
-<li id="dt-33" onclick="foldNavi(33)">고기는 항상 옳다 (4)</li>
+<li id="dt-33" onclick="foldNavi(33)">밥상의 기본 밥과 고기 (6)</li>
 <ul id="dc-33" style="display: none;">
 <a href="https://ballboyDev.github.io/post/8">
 <li id="p-8">국물 두루치기</li>
@@ -254,8 +255,14 @@
 <a href="https://ballboyDev.github.io/post/12">
 <li id="p-12">삼겹살 덮밥</li>
 </a>
+<a href="https://ballboyDev.github.io/post/26">
+<li id="p-26">전자레인지로 솥밥 만들기 - 대패삼겹살 버전</li>
+</a>
 <a href="https://ballboyDev.github.io/post/30">
 <li id="p-30">멍게 비빔밥 만들기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/33">
+<li id="p-33">전자레인지로 밥 짓기</li>
 </a>
 <a href="https://ballboyDev.github.io/post/37">
 <li id="p-37">제육볶음</li>
@@ -293,7 +300,82 @@
         <!-- contents component -->
         <div id="contents">
 
-            
+            <div class="bookmark">
+
+            <div class="title t1">
+                <div><a href="#bm-1"># 조인 문장 및 집합 연산자</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-2">## ANSI SQL 조인 문장</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-5">## CROSS JOIN</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-8">## NATURAL JOIN</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-11">## JOIN-USING</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-14">## JOIN - ON</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-17">## OUTER JOIN</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-19">## SET 연산자</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-23">### UINON 과 UNION ALL의 다른점</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-26">## SET 연산자 동작</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-29">## UNION</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-32">## UNION ALL</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-35">## INTERSECT</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-38">## MINUS</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-41">## SET 연산자 지침</a></div>
+                <p>•</p>
+            </div></div>
             
             
             
@@ -301,9 +383,7 @@
             
             <div class="main markdown-body">
 
-                <h1>조인 문장 및 집합 연산자</h1>
-<h2>ANSI SQL 조인 문장</h2>
-<pre><code class="language-SQL">SELECT TABLE1.COLUMN, TABLE2.COLUMN
+                <h1 id="bm-1">조인 문장 및 집합 연산자</h1><h2 id="bm-2">ANSI SQL 조인 문장</h2><pre><code class="language-SQL">SELECT TABLE1.COLUMN, TABLE2.COLUMN
     FROM TABLE1
     [CROSS JOIN TABLE2] |
     [NATURAL JOIN TABLE2] |
@@ -313,32 +393,27 @@
     [LEFT | RIGHT | FULL OUTER JOIN TABLE2
         ON (TABLE1.COLUMN_NAME = TABLE2.COLUMN_NAME)];
 </code></pre>
-<h2>CROSS JOIN</h2>
-<ul>
+<h2 id="bm-5">CROSS JOIN</h2><ul>
 <li>두 테이블  상호간의 조합을 생성함</li>
 <li>두 테이블 사이의 카티시안 곱과 결과가 같음</li>
 </ul>
-<h2>NATURAL JOIN</h2>
-<ul>
+<h2 id="bm-8">NATURAL JOIN</h2><ul>
 <li>두 테이블에서 동일한 이름을 가진 모든 컬럼을 기준으로 조인함</li>
 <li>두 테이블의 일치하는 모든 컬럼을 대상으로 같은 값을 가진 행을 선택함</li>
 <li>조인 조건으로 사용한 컬럼 앞에는 테이블 이름이나 테이블 별칭을 명시할 수 없음</li>
 <li>WHERE절을 사용하여 조건을 추가할 수 있음</li>
 </ul>
-<h2>JOIN-USING</h2>
-<ul>
+<h2 id="bm-11">JOIN-USING</h2><ul>
 <li>NATURAL JOIN은 이름과 데이터 유형이 일치하는 모든 컬럼을 사용하여 테이블을 조인하지만 USING 절을 사용하면 특정 컬럼을 지정할 수 있음</li>
 <li>USING 절에 참조되는 컬럼은 SQL문 어디에서도 테이블 이름이나 별칭을 가질 수 없음</li>
 <li>NATURAL JOIN 과 USING절은 서로 배타적으로 사용함</li>
 </ul>
-<h2>JOIN - ON</h2>
-<ul>
+<h2 id="bm-14">JOIN - ON</h2><ul>
 <li>NATURAL JOIN의 조건은 기본적으로 같은 이름을 가진 모든 컬럼의 등가(=) 조인임</li>
 <li>컬럼 이름이 다르거나 조인 조건이 &quot;=&quot;이 아닌 경우 ON절을 사용함</li>
 <li>조인 조건이 다른 검색 조건과 분리됨</li>
 </ul>
-<h2>OUTER JOIN</h2>
-<table>
+<h2 id="bm-17">OUTER JOIN</h2><table>
 <thead>
 <tr>
 <th align="left">구문</th>
@@ -358,8 +433,7 @@
 <td align="left">- 두 테이블을 조인해서 내부 조인의 결과와 함께 외쪽, 오른쪽 조인의 결과를 모두 반환하는 조인</td>
 </tr>
 </tbody></table>
-<h2>SET 연산자</h2>
-<ul>
+<h2 id="bm-19">SET 연산자</h2><ul>
 <li>두 개 이상의 질의 결과를 하나의 결과로 통합</li>
 </ul>
 <table>
@@ -391,40 +465,33 @@
 <td align="left">- 각 쿼리 결과의 차집합</td>
 </tr>
 </tbody></table>
-<h3>UINON 과 UNION ALL의 다른점</h3>
-<ul>
+<h3 id="bm-23">UINON 과 UNION ALL의 다른점</h3><ul>
 <li>여러 개의 쿼리 결과를 UNION으로 연결하면 두 쿼리 결과에 중복되는 부분이 한 번만 검색 되고, UNION ALL 로 연결하면 모든 쿼리 결과가 중복되어 검색됨</li>
 </ul>
-<h2>SET 연산자 동작</h2>
-<ul>
+<h2 id="bm-26">SET 연산자 동작</h2><ul>
 <li>SET 연산자를 포함하는 질의를 복합 질의라고 함</li>
 <li>SET 연산자는 두 개 이상의 질의 결과를 하나의 결과로 통합함</li>
 <li>모든 SET 연산자는 같은 우선순위를 가짐</li>
 <li>SQL문장이 여러개의 SET연산자를 포함할 때 다른 순서를 명시하는 괄호가 없을 경우 데이터베이스는 왼쪽(위)에서 오른쪽(아래)로 실행함</li>
 <li>사용하는 질의의 평가 순서를 명싲거으로 표현하기 위해서 괄호를 사용함</li>
 </ul>
-<h2>UNION</h2>
-<ul>
+<h2 id="bm-29">UNION</h2><ul>
 <li>열(컬럼)의 수와 데이터 타입은 두 개의 SELECT 문장에서 일치해야 함</li>
 <li>열(컬럼)이름은 같을 필요 없음</li>
 <li>선택되는 모든 열에 대한 연산을 하여 중복 값은 한 번만 결과에 나타남</li>
 </ul>
-<h2>UNION ALL</h2>
-<ul>
+<h2 id="bm-32">UNION ALL</h2><ul>
 <li>UNION ALL 집합 연산자 사용시 중복되는 행은 제거 되지 않음</li>
 </ul>
-<h2>INTERSECT</h2>
-<ul>
+<h2 id="bm-35">INTERSECT</h2><ul>
 <li>두 질의에서 공통행을 리턴하기 위해 사용함</li>
 <li>INTERSECT 연산자 사용시 두 문장의 순서를 바꾸어도 결과는 바뀌지 않음</li>
 </ul>
-<h2>MINUS</h2>
-<ul>
+<h2 id="bm-38">MINUS</h2><ul>
 <li>두 번째 질의에 의해 리턴되는 행을 제외하고 첫 번째 질의에 의해서만 리턴되는 행을 조회하기 위해 사용</li>
 <li>두 문자의 순서에 따라 결과가 달라짐</li>
 </ul>
-<h2>SET 연산자 지침</h2>
-<ul>
+<h2 id="bm-41">SET 연산자 지침</h2><ul>
 <li>SELECT 목록에 있는 표현식의 개수와 데이터 유형이 서로 일치해야함</li>
 <li>첫째 질의의 열 이름이 결과에 표시됨</li>
 <li>UNION ALL을 제외한 다른 연산자 사용 시 중복 행이 자동으로 제거됨</li>

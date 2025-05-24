@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="jrh7qB1kgowvnvE0P3KqlhI-iNmw9CvGJF4dQsaCTAk" />
-    <title>심심한 개발자의 취미 생활에 오신걸 환영합니다.</title>
+    <title>vim 에디터 정리</title>
 
     
 <link rel="stylesheet" href="https://ballboyDev.github.io/assets/markdown.css">
@@ -85,14 +85,14 @@
 <a href="https://ballboyDev.github.io/post/3">
 <li id="p-3">vim 에디터 정리</li>
 </a>
-<a href="https://ballboyDev.github.io/post/15">
-<li id="p-15">docker 기본 정리</li>
+<a href="https://ballboyDev.github.io/post/58">
+<li id="p-58">자주쓰는 git/git-flow 명령어</li>
 </a>
 
 </ul>
 
 </ul>
-<li id="dt-2" onclick="foldNavi(2)">공부 (29)</li>
+<li id="dt-2" onclick="foldNavi(2)">공부 (30)</li>
 <ul id="dc-2" style="display: none;">
 <li id="dt-21" onclick="foldNavi(21)">Svelte (7)</li>
 <ul id="dc-21" style="display: none;">
@@ -201,6 +201,13 @@
 </ul>
 
 </ul>
+<li id="dt-24" onclick="foldNavi(24)">Docker (1)</li>
+<ul id="dc-24" style="display: none;">
+<a href="https://ballboyDev.github.io/post/15">
+<li id="p-15">docker 기본 명령어 및 run 옵션 정리</li>
+</a>
+
+</ul>
 
 </ul>
 <li id="dt-3" onclick="foldNavi(3)">자취생 밥 만들어 먹기 (19)</li>
@@ -221,7 +228,7 @@
 </a>
 
 </ul>
-<li id="dt-32" onclick="foldNavi(32)">기본중의 기본 밥과 국 (7)</li>
+<li id="dt-32" onclick="foldNavi(32)">밥의 영혼의 단짝 국, 소스 (5)</li>
 <ul id="dc-32" style="display: none;">
 <a href="https://ballboyDev.github.io/post/2">
 <li id="p-2">미역국</li>
@@ -238,15 +245,9 @@
 <a href="https://ballboyDev.github.io/post/14">
 <li id="p-14">짜장소스</li>
 </a>
-<a href="https://ballboyDev.github.io/post/26">
-<li id="p-26">전자레인지로 솥밥 만들기 - 대패삼겹살 버전</li>
-</a>
-<a href="https://ballboyDev.github.io/post/33">
-<li id="p-33">전자레인지로 밥 짓기</li>
-</a>
 
 </ul>
-<li id="dt-33" onclick="foldNavi(33)">고기는 항상 옳다 (4)</li>
+<li id="dt-33" onclick="foldNavi(33)">밥상의 기본 밥과 고기 (6)</li>
 <ul id="dc-33" style="display: none;">
 <a href="https://ballboyDev.github.io/post/8">
 <li id="p-8">국물 두루치기</li>
@@ -254,8 +255,14 @@
 <a href="https://ballboyDev.github.io/post/12">
 <li id="p-12">삼겹살 덮밥</li>
 </a>
+<a href="https://ballboyDev.github.io/post/26">
+<li id="p-26">전자레인지로 솥밥 만들기 - 대패삼겹살 버전</li>
+</a>
 <a href="https://ballboyDev.github.io/post/30">
 <li id="p-30">멍게 비빔밥 만들기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/33">
+<li id="p-33">전자레인지로 밥 짓기</li>
 </a>
 <a href="https://ballboyDev.github.io/post/37">
 <li id="p-37">제육볶음</li>
@@ -293,7 +300,42 @@
         <!-- contents component -->
         <div id="contents">
 
-            
+            <div class="bookmark">
+
+            <div class="title t1">
+                <div><a href="#bm-0"># vi/vim 에디터 사용법/단축키 정리</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-3">## vi/vim</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-6">## 사용법</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-13">## 모드별 명령어 (※ 대소문자 구분)</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-14">### 명령 모드</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-17">### 입력 모드</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-20">### 실행 / EX 모드</a></div>
+                <p>•</p>
+            </div></div>
             
             
             
@@ -301,17 +343,14 @@
             
             <div class="main markdown-body">
 
-                <h1>vi/vim 에디터 사용법/단축키 정리</h1>
-<p>요즘은 개발 업무를 진행하다 보면 정말 다양한 취향에 맞는 수많은 에디터 들이 많다
+                <h1 id="bm-0">vi/vim 에디터 사용법/단축키 정리</h1><p>요즘은 개발 업무를 진행하다 보면 정말 다양한 취향에 맞는 수많은 에디터 들이 많다
 node.js를 베이스로 개발을 진행하는 필자는 당연하게도 vscode를 메인으로 사용하고 있다.
 하지만 docker 환경과 서버단의 작업이 늘어나면서 터미널에서의 작업이 늘어나고 당연하게도 vi 에디터를 사용하는 경우가 늘어나고 있다.
 vi를 사용하는데는 큰 어려움은 없지만 이번 기회에 학부때 정리해두었던 내용을 다시 한번 정리해 보고자 한다.</p>
-<h2>vi/vim</h2>
-<p>vi/vim 에디터는 unix 계열의 운영체제에서 주로 쓰이는 매우 유서가 깊은 에디터이다. 태생이 CLI 환경이다 보니 마우스와 키보드 방향키가 없어도 아주 강력한 문서 편집 기능을 제공한다.
+<h2 id="bm-3">vi/vim</h2><p>vi/vim 에디터는 unix 계열의 운영체제에서 주로 쓰이는 매우 유서가 깊은 에디터이다. 태생이 CLI 환경이다 보니 마우스와 키보드 방향키가 없어도 아주 강력한 문서 편집 기능을 제공한다.
 vim은 이러한 vi를 기반으로 GUI 환경과 다양한 기능들이 추가되어 개량된 버전으로 대부분의 터미널에서 &#39;vi&#39;를 실행시키더라도 &#39;vim&#39;이 실행된다.
 이하부터는 vi와 vim을 구분하지 않고 vi라 지칭한다.</p>
-<h2>사용법</h2>
-<p>vi에는 3가지의 모드가 존재한다.</p>
+<h2 id="bm-6">사용법</h2><p>vi에는 3가지의 모드가 존재한다.</p>
 <ul>
 <li>명령 / 이동 / 편집 모드<ul>
 <li>입력 커서의 이동과 내용의 수정, 삭제, 복사 등 문서 작업을 위한 모드</li>
@@ -330,9 +369,7 @@ vim은 이러한 vi를 기반으로 GUI 환경과 다양한 기능들이 추가�
 기본은 명령모드로 시작하며 특별한 표시는 없다
 명령모드에서 &#39;a&#39;, &#39;i&#39;, &#39;o&#39; 등의 키를 입력하면 입력모드로 변경이 이루어지며 터미널 하단에 &#39;-- INSERT --&#39; 표시가 나타난다.
 다시 ESC 키를 누르면 명령모드로 변경되고 실행 모드 명령어의 시작 문자인 &#39;:&#39; 또는 &#39;/&#39;를 입력하면 실행 모드로 변경된다.</p>
-<h2>모드별 명령어 (※ 대소문자 구분)</h2>
-<h3>명령 모드</h3>
-<ul>
+<h2 id="bm-13">모드별 명령어 (※ 대소문자 구분)</h2><h3 id="bm-14">명령 모드</h3><ul>
 <li><p>단어 단위로 이동</p>
 <ul>
 <li>W, w : 다음 단어의 처음으로 이동</li>
@@ -381,8 +418,7 @@ vim은 이러한 vi를 기반으로 GUI 환경과 다양한 기능들이 추가�
 </ul>
 </li>
 </ul>
-<h3>입력 모드</h3>
-<ul>
+<h3 id="bm-17">입력 모드</h3><ul>
 <li><em>i</em> : 현재 위치에서 입력 모드로 전환</li>
 <li>I : 행의 제일 처음에서 입력 모드로 전환 (0 + i)</li>
 <li><em>a</em> : 현재 위치에서 우측으로 한 칸 이동 후 입력 모드로 변경</li>
@@ -392,8 +428,7 @@ vim은 이러한 vi를 기반으로 GUI 환경과 다양한 기능들이 추가�
 <li>s : 현재 문자를 지우고 입력 모드로 변경</li>
 <li>S : 현재 행의 모든 문자를 지우고 입력 모드로 변경 (dd + i)</li>
 </ul>
-<h3>실행 / EX 모드</h3>
-<ul>
+<h3 id="bm-20">실행 / EX 모드</h3><ul>
 <li><p><em>:se nu</em> : 라인 번호 활성 (:set number)</p>
 </li>
 <li><p>:se nonu : 라인 번호 비활성 (:set nonumber)</p>

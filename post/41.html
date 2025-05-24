@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="jrh7qB1kgowvnvE0P3KqlhI-iNmw9CvGJF4dQsaCTAk" />
-    <title>심심한 개발자의 취미 생활에 오신걸 환영합니다.</title>
+    <title>3. Document Query(조회) - find()</title>
 
     
 <link rel="stylesheet" href="https://ballboyDev.github.io/assets/markdown.css">
@@ -85,14 +85,14 @@
 <a href="https://ballboyDev.github.io/post/3">
 <li id="p-3">vim 에디터 정리</li>
 </a>
-<a href="https://ballboyDev.github.io/post/15">
-<li id="p-15">docker 기본 정리</li>
+<a href="https://ballboyDev.github.io/post/58">
+<li id="p-58">자주쓰는 git/git-flow 명령어</li>
 </a>
 
 </ul>
 
 </ul>
-<li id="dt-2" onclick="foldNavi(2)">공부 (29)</li>
+<li id="dt-2" onclick="foldNavi(2)">공부 (30)</li>
 <ul id="dc-2" style="display: none;">
 <li id="dt-21" onclick="foldNavi(21)">Svelte (7)</li>
 <ul id="dc-21" style="display: none;">
@@ -201,6 +201,13 @@
 </ul>
 
 </ul>
+<li id="dt-24" onclick="foldNavi(24)">Docker (1)</li>
+<ul id="dc-24" style="display: none;">
+<a href="https://ballboyDev.github.io/post/15">
+<li id="p-15">docker 기본 명령어 및 run 옵션 정리</li>
+</a>
+
+</ul>
 
 </ul>
 <li id="dt-3" onclick="foldNavi(3)">자취생 밥 만들어 먹기 (19)</li>
@@ -221,7 +228,7 @@
 </a>
 
 </ul>
-<li id="dt-32" onclick="foldNavi(32)">기본중의 기본 밥과 국 (7)</li>
+<li id="dt-32" onclick="foldNavi(32)">밥의 영혼의 단짝 국, 소스 (5)</li>
 <ul id="dc-32" style="display: none;">
 <a href="https://ballboyDev.github.io/post/2">
 <li id="p-2">미역국</li>
@@ -238,15 +245,9 @@
 <a href="https://ballboyDev.github.io/post/14">
 <li id="p-14">짜장소스</li>
 </a>
-<a href="https://ballboyDev.github.io/post/26">
-<li id="p-26">전자레인지로 솥밥 만들기 - 대패삼겹살 버전</li>
-</a>
-<a href="https://ballboyDev.github.io/post/33">
-<li id="p-33">전자레인지로 밥 짓기</li>
-</a>
 
 </ul>
-<li id="dt-33" onclick="foldNavi(33)">고기는 항상 옳다 (4)</li>
+<li id="dt-33" onclick="foldNavi(33)">밥상의 기본 밥과 고기 (6)</li>
 <ul id="dc-33" style="display: none;">
 <a href="https://ballboyDev.github.io/post/8">
 <li id="p-8">국물 두루치기</li>
@@ -254,8 +255,14 @@
 <a href="https://ballboyDev.github.io/post/12">
 <li id="p-12">삼겹살 덮밥</li>
 </a>
+<a href="https://ballboyDev.github.io/post/26">
+<li id="p-26">전자레인지로 솥밥 만들기 - 대패삼겹살 버전</li>
+</a>
 <a href="https://ballboyDev.github.io/post/30">
 <li id="p-30">멍게 비빔밥 만들기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/33">
+<li id="p-33">전자레인지로 밥 짓기</li>
 </a>
 <a href="https://ballboyDev.github.io/post/37">
 <li id="p-37">제육볶음</li>
@@ -293,7 +300,57 @@
         <!-- contents component -->
         <div id="contents">
 
-            
+            <div class="bookmark">
+
+            <div class="title t1">
+                <div><a href="#bm-1"># Document Query(조회) - find()</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-2">## Document 조회 : db.COLLECTION_NAME.find(query, projection)</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-5">### 반환값(return)</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-10">### 연산자</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-12">### $regex 연산자</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-19">### $where 연산자</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-23">### $elemMatch 연산자</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-27">## projection</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-31">### $slice 연산자</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-35">### $elemMatch 연산자</a></div>
+                <p>•</p>
+            </div></div>
             
             
             
@@ -301,9 +358,7 @@
             
             <div class="main markdown-body">
 
-                <h1>Document Query(조회) - find()</h1>
-<h2>Document 조회 : db.COLLECTION_NAME.find(query, projection)</h2>
-<ul>
+                <h1 id="bm-1">Document Query(조회) - find()</h1><h2 id="bm-2">Document 조회 : db.COLLECTION_NAME.find(query, projection)</h2><ul>
 <li>option<ul>
 <li>query : document<ul>
 <li>Optional. 도큐먼트를 조회할 때 기준을 정합니다. 기준이 없이 컬렉션에 있는 모든 도큐먼트를 조회 할 때는 이 매개변수를 비우거나 {}를 전달하세요</li>
@@ -316,8 +371,7 @@
 </ul>
 </li>
 </ul>
-<h3>반환값(return)</h3>
-<ul>
+<h3 id="bm-5">반환값(return)</h3><ul>
 <li>criteria에 해당하는 Document들을 선택하여 cursor를 반환합니다. cursor는 query 요청의 결과값을 가르키는 pointer 입니다. cursor 객체를 통하여 보이는 데이터의 수를 제한할 수 있고, 데이터를 sort할 수 도 있습니다.</li>
 <li>이는 10분동안 사용되지 않으면 만료 됩니다.</li>
 </ul>
@@ -348,8 +402,7 @@
 &gt; db.tempCol.find({$and: [{&quot;writer&quot;: &quot;ballboy&quot;}, {&quot;like&quot;: {$lt: 10}}]})
 &gt; db.tempCol.find({&quot;writer&quot;: &quot;ballboy&quot;, &quot;like&quot;: {$lt: 10}})
 </code></pre>
-<h3>연산자</h3>
-<table>
+<h3 id="bm-10">연산자</h3><table>
 <thead>
 <tr>
 <th align="left">operator</th>
@@ -413,8 +466,7 @@
 <td align="left">주어진 모든 조건이 false 일 때 true</td>
 </tr>
 </tbody></table>
-<h3>$regex 연산자</h3>
-<ul>
+<h3 id="bm-12">$regex 연산자</h3><ul>
 <li>$regex 연산자를 통하여 Document를 정규식을 통해 찾을 수 있습니다.</li>
 <li>사용법</li>
 </ul>
@@ -436,15 +488,13 @@
 <pre><code>// 정규식 article0[1-2]에 일치하는 값이 title에 있는 Document 조회
 &gt; db.tempCol.find({&quot;title&quot;: /article0[1-2/})
 </code></pre>
-<h3>$where 연산자</h3>
-<ul>
+<h3 id="bm-19">$where 연산자</h3><ul>
 <li>$where 연산자를 통하여 javascript expression을 사용할 수 있습니다.</li>
 </ul>
 <pre><code>// comments field 가 비어 있는 document 조회
 &gt; db.tempCol.find({ $where: &quot;this.comments.length == 0&quot; })
 </code></pre>
-<h3>$elemMatch 연산자</h3>
-<ul>
+<h3 id="bm-23">$elemMatch 연산자</h3><ul>
 <li>$elemMatch 연산자는 Embedded Documents 배열을 쿼리 할 때 사용됩니다.</li>
 </ul>
 <pre><code>// comments 중 &quot;Charlie&quot; 가 작성한 덧글이 있는 Document 조회
@@ -456,22 +506,19 @@
 // Document의 배열이 아니라 그냥 배열일 시에는 다음과 같이 query를 작성합니다.
 &gt; db.users.find({&quot;language&quot;: &quot;korean&quot;})
 </code></pre>
-<h2>projection</h2>
-<ul>
+<h2 id="bm-27">projection</h2><ul>
 <li>projection은 쿼리의 결과값에서 보여질 field를 정의 합니다.</li>
 </ul>
 <pre><code>// tempCol 의 title과 content만 조회
 &gt; db.tempCol.find({}, {&quot;_id&quot;:false, &quot;title&quot;:true, &quot;content&quot;: true})
 </code></pre>
-<h3>$slice 연산자</h3>
-<ul>
+<h3 id="bm-31">$slice 연산자</h3><ul>
 <li>projection 연산자 중 $slice 연산자는 Embedded Document 배열을 읽을 때 limit 설정을 합니다.</li>
 </ul>
 <pre><code>// title 값이 article03 인 Document에서 comments은 하나만 보이게 출력
 &gt; db.tempCol.find({&quot;title&quot;:&quot;article03&quot;}, {comments: {$slice: 1}})
 </code></pre>
-<h3>$elemMatch 연산자</h3>
-<ul>
+<h3 id="bm-35">$elemMatch 연산자</h3><ul>
 <li>query 연산자 중 $elemMatch와 사용법은 같습니다. 단 역할이 다릅니다.</li>
 </ul>
 <pre><code>// comments중 &quot;Charlie&quot;가 작성한 덧글이 있는 Document중 제목, 그리고 Charlie의 덧글만 조회

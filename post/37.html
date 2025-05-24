@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="jrh7qB1kgowvnvE0P3KqlhI-iNmw9CvGJF4dQsaCTAk" />
-    <title>심심한 개발자의 취미 생활에 오신걸 환영합니다.</title>
+    <title>제육볶음</title>
 
     
 <link rel="stylesheet" href="https://ballboyDev.github.io/assets/markdown.css">
@@ -85,14 +85,14 @@
 <a href="https://ballboyDev.github.io/post/3">
 <li id="p-3">vim 에디터 정리</li>
 </a>
-<a href="https://ballboyDev.github.io/post/15">
-<li id="p-15">docker 기본 정리</li>
+<a href="https://ballboyDev.github.io/post/58">
+<li id="p-58">자주쓰는 git/git-flow 명령어</li>
 </a>
 
 </ul>
 
 </ul>
-<li id="dt-2" onclick="foldNavi(2)">공부 (29)</li>
+<li id="dt-2" onclick="foldNavi(2)">공부 (30)</li>
 <ul id="dc-2" style="display: none;">
 <li id="dt-21" onclick="foldNavi(21)">Svelte (7)</li>
 <ul id="dc-21" style="display: none;">
@@ -201,6 +201,13 @@
 </ul>
 
 </ul>
+<li id="dt-24" onclick="foldNavi(24)">Docker (1)</li>
+<ul id="dc-24" style="display: none;">
+<a href="https://ballboyDev.github.io/post/15">
+<li id="p-15">docker 기본 명령어 및 run 옵션 정리</li>
+</a>
+
+</ul>
 
 </ul>
 <li id="dt-3" onclick="foldNavi(3)">자취생 밥 만들어 먹기 (19)</li>
@@ -221,7 +228,7 @@
 </a>
 
 </ul>
-<li id="dt-32" onclick="foldNavi(32)">기본중의 기본 밥과 국 (7)</li>
+<li id="dt-32" onclick="foldNavi(32)">밥의 영혼의 단짝 국, 소스 (5)</li>
 <ul id="dc-32" style="display: none;">
 <a href="https://ballboyDev.github.io/post/2">
 <li id="p-2">미역국</li>
@@ -238,15 +245,9 @@
 <a href="https://ballboyDev.github.io/post/14">
 <li id="p-14">짜장소스</li>
 </a>
-<a href="https://ballboyDev.github.io/post/26">
-<li id="p-26">전자레인지로 솥밥 만들기 - 대패삼겹살 버전</li>
-</a>
-<a href="https://ballboyDev.github.io/post/33">
-<li id="p-33">전자레인지로 밥 짓기</li>
-</a>
 
 </ul>
-<li id="dt-33" onclick="foldNavi(33)">고기는 항상 옳다 (4)</li>
+<li id="dt-33" onclick="foldNavi(33)">밥상의 기본 밥과 고기 (6)</li>
 <ul id="dc-33" style="display: none;">
 <a href="https://ballboyDev.github.io/post/8">
 <li id="p-8">국물 두루치기</li>
@@ -254,8 +255,14 @@
 <a href="https://ballboyDev.github.io/post/12">
 <li id="p-12">삼겹살 덮밥</li>
 </a>
+<a href="https://ballboyDev.github.io/post/26">
+<li id="p-26">전자레인지로 솥밥 만들기 - 대패삼겹살 버전</li>
+</a>
 <a href="https://ballboyDev.github.io/post/30">
 <li id="p-30">멍게 비빔밥 만들기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/33">
+<li id="p-33">전자레인지로 밥 짓기</li>
 </a>
 <a href="https://ballboyDev.github.io/post/37">
 <li id="p-37">제육볶음</li>
@@ -293,7 +300,44 @@
         <!-- contents component -->
         <div id="contents">
 
-            
+            <div class="bookmark">
+
+            <div class="title t1">
+                <div><a href="#bm-1"># 제육 볶음 만들기
+</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-6">### 난이도 ✭✭✭</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-9">## 재료
+</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-10">### 재료</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-13">### 양념/조미료</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-16">## 레시피</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-21">## 참고 자료/영상</a></div>
+                <p>•</p>
+            </div></div>
             
             
             
@@ -301,18 +345,14 @@
             
             <div class="main markdown-body">
 
-                <h1>제육 볶음 만들기</h1>
-<pre><code>한국의 사나이에게는 세상에 단 3개의 요리만 존재한다.
+                <h1 id="bm-1">제육 볶음 만들기</h1><pre><code>한국의 사나이에게는 세상에 단 3개의 요리만 존재한다.
 든든한 국밥, 바삭한 돈까스 그리고 매콤한 재육볶음 그 중에서 사나이의 요리 제육볶음을 만들어 보겠다.
 </code></pre>
 <p><img src="https://ballboyDev.github.io/assets/img/37_1.jpeg" alt="이미지 준비중"></p>
-<h3>난이도 ✭✭✭</h3>
-<blockquote>
+<h3 id="bm-6">난이도 ✭✭✭</h3><blockquote>
 <p>부산 사나이인 나는 제육볶음 보다는 든든한 국밥을 선호한다.</p>
 </blockquote>
-<h2>재료</h2>
-<h3>재료</h3>
-<ol>
+<h2 id="bm-9">재료</h2><h3 id="bm-10">재료</h3><ol>
 <li>삼겹살 / 1<del>2줄 (100</del>200g)<ul>
 <li>대패 삼겹살 등 어떠한 고기도 사용 가능하지만 기름기가 많을수록 맛있다.</li>
 </ul>
@@ -325,8 +365,7 @@
 </ul>
 </li>
 </ol>
-<h3>양념/조미료</h3>
-<ol>
+<h3 id="bm-13">양념/조미료</h3><ol>
 <li>양조간장 / 3sp</li>
 <li>물엿 / 1sp<ul>
 <li>설탕도 가능</li>
@@ -337,8 +376,7 @@
 <li>고추장 / 1sp</li>
 <li>참기름, 통깨, 후추</li>
 </ol>
-<h2>레시피</h2>
-<ol>
+<h2 id="bm-16">레시피</h2><ol>
 <li><p>양파는 채썰어 놓고, 대파는 3cm 정도로 썰고 청양 고추는 다져 준다.</p>
 <ul>
 <li>야채는 취향껏 썰어도 괜찮다.</li>
@@ -369,8 +407,7 @@
 
 매콤하게 스트레스를 풀고 싶다면 페퍼론치노를 5개 정도 넣고 함께 볶아 버리자
 </code></pre>
-<h2>참고 자료/영상</h2>
-<ul>
+<h2 id="bm-21">참고 자료/영상</h2><ul>
 <li><a href="https://www.youtube.com/shorts/vaAobp_Q4Vo">https://www.youtube.com/shorts/vaAobp_Q4Vo</a></li>
 </ul>
 

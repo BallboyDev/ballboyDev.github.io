@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="jrh7qB1kgowvnvE0P3KqlhI-iNmw9CvGJF4dQsaCTAk" />
-    <title>심심한 개발자의 취미 생활에 오신걸 환영합니다.</title>
+    <title>배열 생성 성능 비교</title>
 
     
 <link rel="stylesheet" href="https://ballboyDev.github.io/assets/markdown.css">
@@ -85,14 +85,14 @@
 <a href="https://ballboyDev.github.io/post/3">
 <li id="p-3">vim 에디터 정리</li>
 </a>
-<a href="https://ballboyDev.github.io/post/15">
-<li id="p-15">docker 기본 정리</li>
+<a href="https://ballboyDev.github.io/post/58">
+<li id="p-58">자주쓰는 git/git-flow 명령어</li>
 </a>
 
 </ul>
 
 </ul>
-<li id="dt-2" onclick="foldNavi(2)">공부 (29)</li>
+<li id="dt-2" onclick="foldNavi(2)">공부 (30)</li>
 <ul id="dc-2" style="display: none;">
 <li id="dt-21" onclick="foldNavi(21)">Svelte (7)</li>
 <ul id="dc-21" style="display: none;">
@@ -201,6 +201,13 @@
 </ul>
 
 </ul>
+<li id="dt-24" onclick="foldNavi(24)">Docker (1)</li>
+<ul id="dc-24" style="display: none;">
+<a href="https://ballboyDev.github.io/post/15">
+<li id="p-15">docker 기본 명령어 및 run 옵션 정리</li>
+</a>
+
+</ul>
 
 </ul>
 <li id="dt-3" onclick="foldNavi(3)">자취생 밥 만들어 먹기 (19)</li>
@@ -221,7 +228,7 @@
 </a>
 
 </ul>
-<li id="dt-32" onclick="foldNavi(32)">기본중의 기본 밥과 국 (7)</li>
+<li id="dt-32" onclick="foldNavi(32)">밥의 영혼의 단짝 국, 소스 (5)</li>
 <ul id="dc-32" style="display: none;">
 <a href="https://ballboyDev.github.io/post/2">
 <li id="p-2">미역국</li>
@@ -238,15 +245,9 @@
 <a href="https://ballboyDev.github.io/post/14">
 <li id="p-14">짜장소스</li>
 </a>
-<a href="https://ballboyDev.github.io/post/26">
-<li id="p-26">전자레인지로 솥밥 만들기 - 대패삼겹살 버전</li>
-</a>
-<a href="https://ballboyDev.github.io/post/33">
-<li id="p-33">전자레인지로 밥 짓기</li>
-</a>
 
 </ul>
-<li id="dt-33" onclick="foldNavi(33)">고기는 항상 옳다 (4)</li>
+<li id="dt-33" onclick="foldNavi(33)">밥상의 기본 밥과 고기 (6)</li>
 <ul id="dc-33" style="display: none;">
 <a href="https://ballboyDev.github.io/post/8">
 <li id="p-8">국물 두루치기</li>
@@ -254,8 +255,14 @@
 <a href="https://ballboyDev.github.io/post/12">
 <li id="p-12">삼겹살 덮밥</li>
 </a>
+<a href="https://ballboyDev.github.io/post/26">
+<li id="p-26">전자레인지로 솥밥 만들기 - 대패삼겹살 버전</li>
+</a>
 <a href="https://ballboyDev.github.io/post/30">
 <li id="p-30">멍게 비빔밥 만들기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/33">
+<li id="p-33">전자레인지로 밥 짓기</li>
 </a>
 <a href="https://ballboyDev.github.io/post/37">
 <li id="p-37">제육볶음</li>
@@ -293,7 +300,88 @@
         <!-- contents component -->
         <div id="contents">
 
-            
+            <div class="bookmark">
+
+            <div class="title t1">
+                <div><a href="#bm-1"># 배열 생성 방법별 성능 비교
+</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-5">## 성능 비교</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-6">### 코드 A - spread + map</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-9">### 코드 B - Array.from</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-12">### 코드 C - 순수 for 루프</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-15">## 메모리 할당</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-16">### 코드 A - spread + map</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-19">### 코드 B - Array.from</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-22">### 코드 C - 순수 for 루프</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-25">## 가독성 & 유연성</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-26">### 코드 A - spread + map</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-29">### 코드 B - Array.from</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-32">### 코드 C - 순수 for 루프</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-35">## 호환성</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-36">### 코드 A, 코드 B</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-39">### 코드 C</a></div>
+                <p>•</p>
+            </div></div>
             
             
             
@@ -301,8 +389,7 @@
             
             <div class="main markdown-body">
 
-                <h1>배열 생성 방법별 성능 비교</h1>
-<pre><code class="language-js">// 코드 A - spread + map
+                <h1 id="bm-1">배열 생성 방법별 성능 비교</h1><pre><code class="language-js">// 코드 A - spread + map
 const arr1 = [...new Array(100)].map((v, i) =&gt; {return i + 1})
 
 // 코드 B - Array.from
@@ -348,55 +435,40 @@ for(let i = 1; i &lt;= 100; i++) {
 <td align="left">성능이 최우선인 대용량 처리 영역</td>
 </tr>
 </tbody></table>
-<h2>성능 비교</h2>
-<h3>코드 A - spread + map</h3>
-<ul>
+<h2 id="bm-5">성능 비교</h2><h3 id="bm-6">코드 A - spread + map</h3><ul>
 <li>new Array(100)으로 빈 슬롯만 있는 배열을 만든 뒤, spread로 실제 undefined 요소가 있는 배열로 복사한 다음 map을 또 한 번 순회 하므로 가장 느립니다.</li>
 <li>요소 개수가 많을 때 성능 저하기 뚜렷해집니다.</li>
 </ul>
-<h3>코드 B - Array.from</h3>
-<ul>
+<h3 id="bm-9">코드 B - Array.from</h3><ul>
 <li>내부에서 배열 생성과 동시에 매핑 콜백을 실행하므로, new Array + map 처럼 &quot;배열 생성 -&gt; map 순회&quot;의 두 단계가 아니라 한번에 처리합니다.</li>
 <li>map보다는 빠르고, 순수 루프 보다는 약간 느린 중간 수준 성능을 보입니다.</li>
 </ul>
-<h3>코드 C - 순수 for 루프</h3>
-<ul>
+<h3 id="bm-12">코드 C - 순수 for 루프</h3><ul>
 <li>콜백 호출 오버헤드가 전혀 없으므로 세 가지 중 가장 빠릅니다.</li>
 <li>요소 개수가 많아 질수록 map-계열보다 더 우수한 성능을 보입니다.</li>
 </ul>
-<h2>메모리 할당</h2>
-<h3>코드 A - spread + map</h3>
-<ul>
+<h2 id="bm-15">메모리 할당</h2><h3 id="bm-16">코드 A - spread + map</h3><ul>
 <li>빈 배열 -&gt; spread 복사로 실제 요소 배열 할당 -&gt; map 결과 배열 또 할당 -&gt; 총 두번 배열을 만듦</li>
 </ul>
-<h3>코드 B - Array.from</h3>
-<ul>
+<h3 id="bm-19">코드 B - Array.from</h3><ul>
 <li>length 기반으로 한 번만 배열 크기로 잡고, 콜백으로 바로 값을 채워 넣음</li>
 </ul>
-<h3>코드 C - 순수 for 루프</h3>
-<ul>
+<h3 id="bm-22">코드 C - 순수 for 루프</h3><ul>
 <li>push 호출 시 내부 버퍼 재할당이 일어날 수 있지만, V8등 최신 엔진은 적절히 예측 및 최적화하여 큰 문제가 되지 않습니다.</li>
 </ul>
-<h2>가독성 &amp; 유연성</h2>
-<h3>코드 A - spread + map</h3>
-<ul>
+<h2 id="bm-25">가독성 & 유연성</h2><h3 id="bm-26">코드 A - spread + map</h3><ul>
 <li>매우 간결하지만, &quot;새 Array -&gt; spread -&gt; map&quot; 조합이 직관적이지 않아 협업시 오해 가능</li>
 </ul>
-<h3>코드 B - Array.from</h3>
-<ul>
+<h3 id="bm-29">코드 B - Array.from</h3><ul>
 <li>length 명시와 동시에 값 채움이라는 의도가 분명해 유지보수성과 가독성이 좋습니다.</li>
 </ul>
-<h3>코드 C - 순수 for 루프</h3>
-<ul>
+<h3 id="bm-32">코드 C - 순수 for 루프</h3><ul>
 <li>가장 직관적이고 &quot;무슨 일이 일어나는지&quot; 설명이 따로 필요 없지만, 반복문 + push가 장황하게 느껴질 수 있습니다.</li>
 </ul>
-<h2>호환성</h2>
-<h3>코드 A, 코드 B</h3>
-<ul>
+<h2 id="bm-35">호환성</h2><h3 id="bm-36">코드 A, 코드 B</h3><ul>
 <li>ES6 이상 가능 (..., Array.from 등)이 필요합니다</li>
 </ul>
-<h3>코드 C</h3>
-<ul>
+<h3 id="bm-39">코드 C</h3><ul>
 <li>아주 구형 환경에서도 운영 가능</li>
 </ul>
 

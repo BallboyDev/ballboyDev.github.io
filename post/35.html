@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="jrh7qB1kgowvnvE0P3KqlhI-iNmw9CvGJF4dQsaCTAk" />
-    <title>심심한 개발자의 취미 생활에 오신걸 환영합니다.</title>
+    <title>2. 블로그 만들기 외전 - 외부 빌드 스크립트 만들기</title>
 
     
 <link rel="stylesheet" href="https://ballboyDev.github.io/assets/markdown.css">
@@ -85,14 +85,14 @@
 <a href="https://ballboyDev.github.io/post/3">
 <li id="p-3">vim 에디터 정리</li>
 </a>
-<a href="https://ballboyDev.github.io/post/15">
-<li id="p-15">docker 기본 정리</li>
+<a href="https://ballboyDev.github.io/post/58">
+<li id="p-58">자주쓰는 git/git-flow 명령어</li>
 </a>
 
 </ul>
 
 </ul>
-<li id="dt-2" onclick="foldNavi(2)">공부 (29)</li>
+<li id="dt-2" onclick="foldNavi(2)">공부 (30)</li>
 <ul id="dc-2" style="display: none;">
 <li id="dt-21" onclick="foldNavi(21)">Svelte (7)</li>
 <ul id="dc-21" style="display: none;">
@@ -201,6 +201,13 @@
 </ul>
 
 </ul>
+<li id="dt-24" onclick="foldNavi(24)">Docker (1)</li>
+<ul id="dc-24" style="display: none;">
+<a href="https://ballboyDev.github.io/post/15">
+<li id="p-15">docker 기본 명령어 및 run 옵션 정리</li>
+</a>
+
+</ul>
 
 </ul>
 <li id="dt-3" onclick="foldNavi(3)">자취생 밥 만들어 먹기 (19)</li>
@@ -221,7 +228,7 @@
 </a>
 
 </ul>
-<li id="dt-32" onclick="foldNavi(32)">기본중의 기본 밥과 국 (7)</li>
+<li id="dt-32" onclick="foldNavi(32)">밥의 영혼의 단짝 국, 소스 (5)</li>
 <ul id="dc-32" style="display: none;">
 <a href="https://ballboyDev.github.io/post/2">
 <li id="p-2">미역국</li>
@@ -238,15 +245,9 @@
 <a href="https://ballboyDev.github.io/post/14">
 <li id="p-14">짜장소스</li>
 </a>
-<a href="https://ballboyDev.github.io/post/26">
-<li id="p-26">전자레인지로 솥밥 만들기 - 대패삼겹살 버전</li>
-</a>
-<a href="https://ballboyDev.github.io/post/33">
-<li id="p-33">전자레인지로 밥 짓기</li>
-</a>
 
 </ul>
-<li id="dt-33" onclick="foldNavi(33)">고기는 항상 옳다 (4)</li>
+<li id="dt-33" onclick="foldNavi(33)">밥상의 기본 밥과 고기 (6)</li>
 <ul id="dc-33" style="display: none;">
 <a href="https://ballboyDev.github.io/post/8">
 <li id="p-8">국물 두루치기</li>
@@ -254,8 +255,14 @@
 <a href="https://ballboyDev.github.io/post/12">
 <li id="p-12">삼겹살 덮밥</li>
 </a>
+<a href="https://ballboyDev.github.io/post/26">
+<li id="p-26">전자레인지로 솥밥 만들기 - 대패삼겹살 버전</li>
+</a>
 <a href="https://ballboyDev.github.io/post/30">
 <li id="p-30">멍게 비빔밥 만들기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/33">
+<li id="p-33">전자레인지로 밥 짓기</li>
 </a>
 <a href="https://ballboyDev.github.io/post/37">
 <li id="p-37">제육볶음</li>
@@ -293,7 +300,17 @@
         <!-- contents component -->
         <div id="contents">
 
-            
+            <div class="bookmark">
+
+            <div class="title t1">
+                <div><a href="#bm-1"># 2. 블로그 만들기 외전 - 외부 빌드 스크립트 만들기</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-4">## 스크립트</a></div>
+                <p>•</p>
+            </div></div>
             
             
 <a href="https://ballboyDev.github.io/post/34.html" class="prev post">
@@ -305,16 +322,14 @@
             
             <div class="main markdown-body">
 
-                <h1>2. 블로그 만들기 외전 - 외부 빌드 스크립트 만들기</h1>
-<p>포스팅 글과 블로그 제작 프로젝트를 분리 했다. 처음부터 분리가 가능하도록 기획을 했었기에 어렵지 않게 작업이 진행되었다.
+                <h1 id="bm-1">2. 블로그 만들기 외전 - 외부 빌드 스크립트 만들기</h1><p>포스팅 글과 블로그 제작 프로젝트를 분리 했다. 처음부터 분리가 가능하도록 기획을 했었기에 어렵지 않게 작업이 진행되었다.
 분리한 이유는 크게 2가지 이다.
 첫번째는 프로젝트의 규모가 커지고 포스팅 파일도 많아 지다보니 원활한 관리 차원에서 분리하는 것이 적절하다고 생각했다.
 두번째는 아이패드와 맥북, 아이폰 어디서든 포스팅 글을 작성 할 수 있도록 iCloud 공유 공간으로의 이동이다.
 프로젝트는 git으로 관리를 하지만 포스팅 글은 iCloud로 관리하여 언제 어디서든 실시간으로 아이디어와 생각을 정리 할 수 있기 위해 분리를 진행했다.
 하지만 문제는 포스팅 글을 빌드 하고 배포하는 과정은 어짜피 맥북 환경이지만 포스팅 글 위치에서 빌드/배포 하기 위해서는 결국 프로젝트 경로로 이동을 해야 한다는 점이다.
 그래서 포스팅 글 공간에서 빌드가 가능하도록 스크립트를 작성했다.</p>
-<h2>스크립트</h2>
-<ul>
+<h2 id="bm-4">스크립트</h2><ul>
 <li>사실 어려운 스크립트는 아니다. 스크립트를 실행하며 넘긴 파라미터와 npm의 --prefix 옵션을 활용하여 경로 이동없이 명령어를 실행한다는 점만 이해하면 된다.</li>
 </ul>
 <pre><code class="language-sh">&gt;&gt; ./deploy.sh build
