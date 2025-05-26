@@ -49,14 +49,14 @@
             <h3 class="home"><a href="https://ballboyDev.github.io">HOME</a></h3>
             <hr />
             
-            <h3 class="category">카테고리</h3>
+            <h3 class="category" onclick="foldNavi()">카테고리</h3>
             <div class="navi">
                 <ul class="root">
 
                     <li id="dt-1" onclick="foldNavi(1)">심심한 개발자의 취미 개발 (9)</li>
-<ul id="dc-1" style="display: none;">
+<ul id="dc-1" class='dc-all' style="display: none;">
 <li id="dt-11" onclick="foldNavi(11)">간단 블로그 만들기 (7)</li>
-<ul id="dc-11" style="display: none;">
+<ul id="dc-11" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/1">
 <li id="p-1">블로그 개발, 배포 일지</li>
 </a>
@@ -81,7 +81,7 @@
 
 </ul>
 <li id="dt-12" onclick="foldNavi(12)">개발 팁 (2)</li>
-<ul id="dc-12" style="display: none;">
+<ul id="dc-12" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/3">
 <li id="p-3">vim 에디터 정리</li>
 </a>
@@ -93,9 +93,9 @@
 
 </ul>
 <li id="dt-2" onclick="foldNavi(2)">공부 (30)</li>
-<ul id="dc-2" style="display: none;">
+<ul id="dc-2" class='dc-all' style="display: none;">
 <li id="dt-21" onclick="foldNavi(21)">Svelte (7)</li>
-<ul id="dc-21" style="display: none;">
+<ul id="dc-21" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/18">
 <li id="p-18">svelte Basic</li>
 </a>
@@ -120,7 +120,7 @@
 
 </ul>
 <li id="dt-22" onclick="foldNavi(22)">Javascript (3)</li>
-<ul id="dc-22" style="display: none;">
+<ul id="dc-22" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/31">
 <li id="p-31">json객체와 Map()의 비교</li>
 </a>
@@ -133,31 +133,31 @@
 
 </ul>
 <li id="dt-23" onclick="foldNavi(23)">Database (19)</li>
-<ul id="dc-23" style="display: none;">
+<ul id="dc-23" class='dc-all' style="display: none;">
 <li id="dt-231" onclick="foldNavi(231)">MongoDB (6)</li>
-<ul id="dc-231" style="display: none;">
+<ul id="dc-231" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/39">
-<li id="p-39">1. 소개 및 데이터 모델링</li>
+<li id="p-39">MongoDB 소개 및 데이터 모델링</li>
 </a>
 <a href="https://ballboyDev.github.io/post/40">
-<li id="p-40">2. Database, Collection, Document 생성, 제거</li>
+<li id="p-40">Database, Collection, Document 생성, 제거</li>
 </a>
 <a href="https://ballboyDev.github.io/post/41">
-<li id="p-41">3. Document Query(조회) - find()</li>
+<li id="p-41">Document Query(조회) - find()</li>
 </a>
 <a href="https://ballboyDev.github.io/post/42">
-<li id="p-42">4. find()메소드 활용-sort, limit, skip</li>
+<li id="p-42">find() 메소드의 활용 - sort, limit, skip</li>
 </a>
 <a href="https://ballboyDev.github.io/post/43">
-<li id="p-43">5. Document 수정-update()</li>
+<li id="p-43">Document 수정 - update()</li>
 </a>
 <a href="https://ballboyDev.github.io/post/44">
-<li id="p-44">6. Index설정</li>
+<li id="p-44">index 설정</li>
 </a>
 
 </ul>
 <li id="dt-232" onclick="foldNavi(232)">Oracle (13)</li>
-<ul id="dc-232" style="display: none;">
+<ul id="dc-232" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/45">
 <li id="p-45">1. 데이터 베이스 개념 및 기본 용어</li>
 </a>
@@ -202,7 +202,7 @@
 
 </ul>
 <li id="dt-24" onclick="foldNavi(24)">Docker (1)</li>
-<ul id="dc-24" style="display: none;">
+<ul id="dc-24" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/15">
 <li id="p-15">docker 기본 명령어 및 run 옵션 정리</li>
 </a>
@@ -211,12 +211,12 @@
 
 </ul>
 <li id="dt-3" onclick="foldNavi(3)">자취생 밥 만들어 먹기 (19)</li>
-<ul id="dc-3" style="display: none;">
+<ul id="dc-3" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/27">
 <li id="p-27">내돈 내산 양념/조미료 사용 후기</li>
 </a>
 <li id="dt-31" onclick="foldNavi(31)">5첩 반상을 위한 밑반찬 (3)</li>
-<ul id="dc-31" style="display: none;">
+<ul id="dc-31" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/5">
 <li id="p-5">겉절이 김치</li>
 </a>
@@ -229,7 +229,7 @@
 
 </ul>
 <li id="dt-32" onclick="foldNavi(32)">밥의 영혼의 단짝 국, 소스 (5)</li>
-<ul id="dc-32" style="display: none;">
+<ul id="dc-32" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/2">
 <li id="p-2">미역국</li>
 </a>
@@ -248,7 +248,7 @@
 
 </ul>
 <li id="dt-33" onclick="foldNavi(33)">밥상의 기본 밥과 고기 (6)</li>
-<ul id="dc-33" style="display: none;">
+<ul id="dc-33" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/8">
 <li id="p-8">국물 두루치기</li>
 </a>
@@ -270,7 +270,7 @@
 
 </ul>
 <li id="dt-34" onclick="foldNavi(34)">면 러버의 면 사랑 요리 (4)</li>
-<ul id="dc-34" style="display: none;">
+<ul id="dc-34" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/25">
 <li id="p-25">내 멋대로 알리오 올리오</li>
 </a>
@@ -288,11 +288,18 @@
 
 </ul>
 <li id="dt-4" onclick="foldNavi(4)">의식의 흐름대로 (0)</li>
-<ul id="dc-4" style="display: none;">
+<ul id="dc-4" class='dc-all' style="display: none;">
 
 </ul>
 
                 </ul>
+            </div>
+
+            <div class="copyright">
+                <img class="img"
+                    src="https://ballboyDev.github.io/assets/img/github-mark-white.svg"
+                    alt="" srcset="">
+                <a href="https://github.com/BallboyDev/ballboyDev.github.io">Copyright 2025. ballboyDev</a>
             </div>
 
         </div>
@@ -333,8 +340,16 @@
             </div></div>
             
             
+<a href="https://ballboyDev.github.io/post/52.html" class="prev post">
+    <img src="https://ballboyDev.github.io/assets/img/prev.svg" alt="" srcset="">
+</a>
+    
             
             
+<a href="https://ballboyDev.github.io/post/54.html" class="next post">
+    <img src="https://ballboyDev.github.io/assets/img/next.svg" alt="" srcset="">
+</a>
+    
             
             <div class="main markdown-body">
 
