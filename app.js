@@ -53,7 +53,7 @@ const app = {
         console.log('\x1b[43m\x1b[30m%s\x1b[0m', `##### [ app.run < ${env} > ] #####`)
 
         await app.init()
-        await custom.markdown()
+        await custom.markdown(utils.path)
         await app.mkJson();
         await app.mkNavi();
         await app.mkPostPage();
@@ -139,7 +139,6 @@ const app = {
                                             // !child[b].upload ? 0 : 1
                                         )
                                 );
-                                // if (parseInt(root[v].index) !== 0 && (env === 'dev' || (env === 'build' && root[v].upload))) {
                             }, 0);
 
                             const item = {
@@ -160,6 +159,10 @@ const app = {
                         const upload = mdFile.data?.upload || false;
 
                         if (v !== '.DS_Store') {
+
+                            // const token = marked.lexer(mdFile.content.replace(/<.*?docsImg\/([^>]+)>/g, `<${utils.path[env]}/assets/img/$1>`)).map((v, i) => { return { index: i, ...v } })
+                            const token = marked.lexer(mdFile.content).map((v, i) => { return { index: i, ...v } })
+
                             const item = {
                                 title,
                                 file: path.basename(v, path.extname(v)),
@@ -169,11 +172,9 @@ const app = {
                                 fold,
                                 date: mdFile.data?.date || '99999999',
                                 ...mdFile.data,
-                                content: mdFile.content.replace(/<.*?docsImg\/([^>]+)>/g, `<${utils.path[env]}/assets/img/$1>`),
-                                bookmark: mdFile.content.match(/\n#{1,3}[^\n]*\n/g)
+                                token: token,
+                                bookmark: token.filter((v) => { return v.type === 'heading' })
                             };
-
-                            console.log(item.content.match(/\n#{1,3}[^\n]*\n/g))
 
                             temp1[`post_${index}`] = item;
                             if (upload) {
@@ -192,7 +193,7 @@ const app = {
             [utils.post, utils.json] = [...recursion(utils.path.post)]
 
             console.log('ballboy >> utils.json, utils.post')
-            // fs.writeFileSync(`test.json`, JSON.stringify(utils.post))
+            fs.writeFileSync(`test.json`, JSON.stringify(utils.post))
 
             fs.writeFileSync(`${utils.path.dist}/post.json`, JSON.stringify(utils.json))
         } catch (err) {
@@ -295,12 +296,15 @@ const app = {
                 return parseInt(v.index) !== 0 && (env === 'dev' || (env === 'build' && v.upload))
             }).map((v) => {
 
+                // console.log(v.bookmark)
+
                 // ballboy / 포스팅 파일이 많아졌을때 성능/용량 이슈 발생 하지 않을지...?
                 // const mdFile = matter(fs.readFileSync(v.path, 'utf8').trim())
 
-                const htmlFile = marked.parse(v.content)
+                const htmlFile = marked.parser(v.token)
 
                 const metaData = {
+                    title: v?.title || v.file,
                     env: env,
                     url: utils.path[env],
                     index: v.index,
@@ -308,7 +312,8 @@ const app = {
                     prev: v.prev || 0,
                     next: v.next || 0,
                     navi: utils.navi,
-                    contents: htmlFile
+                    contents: htmlFile,
+                    bookmark: v.bookmark
                 }
 
                 const result = post.output(metaData)
@@ -372,7 +377,6 @@ const app = {
             console.groupEnd()
             console.log('Done!!!')
         }
-
 
     }
 }

@@ -46,36 +46,18 @@ const next = (param) => {
 }
 
 const bookmark = (param) => {
-    const html = `
-<div class="bookmark">
-    <div class="title t1">
-        <div><a href="http://ballboydev.github.io">아름다운 이 강산을</a></div>
-        <p>•</p>
-    </div>
-    <div class="title t2">
-        <div><a href="http://ballboydev.github.io">지키는 우리 사나이 기백으로</a></div>
-        <p>•</p>
-    </div>
-    <div class="title t3">
-        <div><a href="http://ballboydev.github.io">오늘을 산다 포탄의 불바다를</a></div>
-        <p>•</p>
-    </div>
-    <div class="title t1">
-        <div><a href="http://ballboydev.github.io">무릅쓰고서 고향 땅</a></div>
-        <p>•</p>
-    </div>
-    <div class="title t2">
-        <div><a href="http://ballboydev.github.io">부모 형제 평화를</a></div>
-        <p>•</p>
-    </div>
-    <div class="title t3">
-        <div><a href="http://ballboydev.github.io">위해</a></div>
-        <p>•</p>
-    </div>
-</div>
-    `
 
-    return html
+    const html = param.reduce((a, b) => {
+        return `${a}\n${`
+            <div class="title t${b.depth}">
+                <div><a href="#bm-${b.index}">${b.raw.replace('\n', '')}</a></div>
+                <p>•</p>
+            </div>`}`
+    }, '')
+
+    return `<div class="bookmark">${html}</div>`
+
+
 }
 
 const page = (param) => {
@@ -89,7 +71,7 @@ const page = (param) => {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="jrh7qB1kgowvnvE0P3KqlhI-iNmw9CvGJF4dQsaCTAk" />
-    <title>심심한 개발자의 취미 생활에 오신걸 환영합니다.</title>
+    <title>${data?.title || '심심한 개발자의 취미 생활에 오신걸 환영합니다.'}</title>
 
     ${tag.assets}
 </head>
@@ -156,6 +138,7 @@ const output = (param) => {
 
     const temp = {
         data: {
+            title: param.title,
             url: param.url,
             index: param.index,
             env: param.env
@@ -169,7 +152,7 @@ const output = (param) => {
             prev: (param.prev !== 0) ? prev({ url: param.url, prev: param.prev }) : '',
             next: (param.next !== 0) ? next({ url: param.url, next: param.next }) : '',
             navi: param.navi.join('\n'),
-            bookmark: bookmark({}),
+            bookmark: !!param?.bookmark ? bookmark(param.bookmark) : '',
             contents: param.contents,
         }
     }
