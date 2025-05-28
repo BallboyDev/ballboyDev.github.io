@@ -1,0 +1,534 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="jrh7qB1kgowvnvE0P3KqlhI-iNmw9CvGJF4dQsaCTAk" />
+    <title>3. Model1 (JSP Controller)</title>
+
+    
+<link rel="stylesheet" href="https://ballboyDev.github.io/assets/markdown.css">
+<link rel="stylesheet" href="https://ballboyDev.github.io/assets/skin.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+
+<style>
+    #p-61 {
+        color: rgb(76, 193, 237) !important;
+    }
+</style>
+<script id="data" type="application/json">
+{
+    "fold": ["2","21"]
+}
+</script>
+
+<script src="https://ballboyDev.github.io/assets/skin.js"></script>
+    
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- side bar component -->
+        <div id="head-bar">
+            <img id="openNavi" class="img"
+                src="https://ballboyDev.github.io/assets/img/profile.jpeg"
+                alt="" srcset="">
+            <div class="title">심심한 개발자의 취미생활</div>
+        </div>
+        <div id="side-bar">
+            <img id="closeNavi" class="close"
+                src="https://ballboyDev.github.io/assets/img/close.svg"
+                alt="" srcset="">
+            <div class="profile">
+                <img class="img" src="https://ballboyDev.github.io/assets/img/profile.jpeg" alt="" srcset="">
+                <p>심심한 개발자의 취미생활</p>
+                <p>환영합니다.</p>
+            </div>
+            <hr />
+            <h3 class="home"><a href="https://ballboyDev.github.io">HOME</a></h3>
+            <hr />
+            
+            <h3 class="category" onclick="foldNavi()">카테고리</h3>
+            <div class="navi">
+                <ul class="root">
+
+                    <li id="dt-1" onclick="foldNavi(1)">----- Javascript ----- (10)</li>
+<ul id="dc-1" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/31">
+<li id="p-31">• json객체와 Map()의 비교</li>
+</a>
+<a href="https://ballboyDev.github.io/post/32">
+<li id="p-32">• 배열 생성 성능 비교</li>
+</a>
+<a href="https://ballboyDev.github.io/post/36">
+<li id="p-36">• console 객체 활용하기</li>
+</a>
+<li id="dt-11" onclick="foldNavi(11)">Svelte (7)</li>
+<ul id="dc-11" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/18">
+<li id="p-18">• svelte Basic</li>
+</a>
+<a href="https://ballboyDev.github.io/post/19">
+<li id="p-19">• svelte 속성</li>
+</a>
+<a href="https://ballboyDev.github.io/post/20">
+<li id="p-20">• life cycle</li>
+</a>
+<a href="https://ballboyDev.github.io/post/21">
+<li id="p-21">• runes</li>
+</a>
+<a href="https://ballboyDev.github.io/post/22">
+<li id="p-22">• template Syntax</li>
+</a>
+<a href="https://ballboyDev.github.io/post/23">
+<li id="p-23">• Directive</li>
+</a>
+<a href="https://ballboyDev.github.io/post/24">
+<li id="p-24">• Runtime</li>
+</a>
+
+</ul>
+<li id="dt-12" onclick="foldNavi(12)">expressJS (0)</li>
+<ul id="dc-12" class='dc-all' style="display: none;">
+
+</ul>
+<li id="dt-13" onclick="foldNavi(13)">Nest (0)</li>
+<ul id="dc-13" class='dc-all' style="display: none;">
+
+</ul>
+
+</ul>
+<li id="dt-2" onclick="foldNavi(2)">----- Java ----- (9)</li>
+<ul id="dc-2" class='dc-all' style="display: none;">
+<li id="dt-21" onclick="foldNavi(21)">Servlet (9)</li>
+<ul id="dc-21" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/59">
+<li id="p-59">• 1. Servlet 기초</li>
+</a>
+<a href="https://ballboyDev.github.io/post/60">
+<li id="p-60">• 2. Servlet, Dao, Vo</li>
+</a>
+<a href="https://ballboyDev.github.io/post/61">
+<li id="p-61">• 3. Model1 (JSP Controller)</li>
+</a>
+<a href="https://ballboyDev.github.io/post/62">
+<li id="p-62">• 4. Model2 (Servlet Controller)</li>
+</a>
+<a href="https://ballboyDev.github.io/post/63">
+<li id="p-63">• 5. servlet 생명주기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/64">
+<li id="p-64">• 6. 객체 범위 (Scope)</li>
+</a>
+<a href="https://ballboyDev.github.io/post/65">
+<li id="p-65">• 7. JSTL & EL</li>
+</a>
+<a href="https://ballboyDev.github.io/post/66">
+<li id="p-66">• 내장 객체 메소드 정리</li>
+</a>
+<a href="https://ballboyDev.github.io/post/67">
+<li id="p-67">• JDBC</li>
+</a>
+
+</ul>
+<li id="dt-22" onclick="foldNavi(22)">Spring (0)</li>
+<ul id="dc-22" class='dc-all' style="display: none;">
+
+</ul>
+
+</ul>
+<li id="dt-3" onclick="foldNavi(3)">----- Infra ----- (1)</li>
+<ul id="dc-3" class='dc-all' style="display: none;">
+<li id="dt-31" onclick="foldNavi(31)">Docker (1)</li>
+<ul id="dc-31" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/15">
+<li id="p-15">• docker 기본 명령어 및 run 옵션 정리</li>
+</a>
+
+</ul>
+
+</ul>
+<li id="dt-4" onclick="foldNavi(4)">----- Database ----- (19)</li>
+<ul id="dc-4" class='dc-all' style="display: none;">
+<li id="dt-41" onclick="foldNavi(41)">MongoDB (6)</li>
+<ul id="dc-41" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/39">
+<li id="p-39">• MongoDB 소개 및 데이터 모델링</li>
+</a>
+<a href="https://ballboyDev.github.io/post/40">
+<li id="p-40">• Database, Collection, Document 생성, 제거</li>
+</a>
+<a href="https://ballboyDev.github.io/post/41">
+<li id="p-41">• Document Query(조회) - find()</li>
+</a>
+<a href="https://ballboyDev.github.io/post/42">
+<li id="p-42">• find() 메소드의 활용 - sort, limit, skip</li>
+</a>
+<a href="https://ballboyDev.github.io/post/43">
+<li id="p-43">• Document 수정 - update()</li>
+</a>
+<a href="https://ballboyDev.github.io/post/44">
+<li id="p-44">• index 설정</li>
+</a>
+
+</ul>
+<li id="dt-42" onclick="foldNavi(42)">Oracle (13)</li>
+<ul id="dc-42" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/45">
+<li id="p-45">• 1. 데이터 베이스 개념 및 기본 용어</li>
+</a>
+<a href="https://ballboyDev.github.io/post/46">
+<li id="p-46">• 2. 데이터 유형</li>
+</a>
+<a href="https://ballboyDev.github.io/post/47">
+<li id="p-47">• 3. 컬럼 및 로우의 선택</li>
+</a>
+<a href="https://ballboyDev.github.io/post/48">
+<li id="p-48">• 4. 복합 조건 지정 및 데이터 정렬</li>
+</a>
+<a href="https://ballboyDev.github.io/post/49">
+<li id="p-49">• 5. 문자, 숫자 함수</li>
+</a>
+<a href="https://ballboyDev.github.io/post/50">
+<li id="p-50">• 6. 날짜 연산 및 날짜 함수</li>
+</a>
+<a href="https://ballboyDev.github.io/post/51">
+<li id="p-51">• 7. 변환함수</li>
+</a>
+<a href="https://ballboyDev.github.io/post/52">
+<li id="p-52">• 8. 일반함수</li>
+</a>
+<a href="https://ballboyDev.github.io/post/53">
+<li id="p-53">• 9. 그룹 함수</li>
+</a>
+<a href="https://ballboyDev.github.io/post/54">
+<li id="p-54">• 10. 윈도우 함수</li>
+</a>
+<a href="https://ballboyDev.github.io/post/55">
+<li id="p-55">• 11. 조인 처리 과정 이해 및 기본 조인 문장</li>
+</a>
+<a href="https://ballboyDev.github.io/post/56">
+<li id="p-56">• 12. 조인 문장 및 집합 연산자</li>
+</a>
+<a href="https://ballboyDev.github.io/post/57">
+<li id="p-57">• 13. 서브쿼리</li>
+</a>
+
+</ul>
+
+</ul>
+<li id="dt-5" onclick="foldNavi(5)">심심한 개발자의 취미 개발 (9)</li>
+<ul id="dc-5" class='dc-all' style="display: none;">
+<li id="dt-51" onclick="foldNavi(51)">간단 블로그 만들기 (7)</li>
+<ul id="dc-51" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/1">
+<li id="p-1">• 블로그 개발, 배포 일지</li>
+</a>
+<a href="https://ballboyDev.github.io/post/10">
+<li id="p-10">• 0. 블로그 만들기 - 시작하며</li>
+</a>
+<a href="https://ballboyDev.github.io/post/13">
+<li id="p-13">• 1. 블로그 만들기 - 폴더 탐색</li>
+</a>
+<a href="https://ballboyDev.github.io/post/16">
+<li id="p-16">• 2. 블로그 만들기 - 마크다운 변환</li>
+</a>
+<a href="https://ballboyDev.github.io/post/17">
+<li id="p-17">• 3. 블로그 만들기 - 리펙토링</li>
+</a>
+<a href="https://ballboyDev.github.io/post/34">
+<li id="p-34">• 1. 블로그 만들기 외전 - 애플 단축어 활용</li>
+</a>
+<a href="https://ballboyDev.github.io/post/35">
+<li id="p-35">• 2. 블로그 만들기 외전 - 외부 빌드 스크립트 만들기</li>
+</a>
+
+</ul>
+<li id="dt-52" onclick="foldNavi(52)">개발 팁 (2)</li>
+<ul id="dc-52" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/3">
+<li id="p-3">• vim 에디터 정리</li>
+</a>
+<a href="https://ballboyDev.github.io/post/58">
+<li id="p-58">• 자주쓰는 git/git-flow 명령어</li>
+</a>
+
+</ul>
+
+</ul>
+<li id="dt-6" onclick="foldNavi(6)">자취생 밥 만들어 먹기 (19)</li>
+<ul id="dc-6" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/27">
+<li id="p-27">• 내돈 내산 양념/조미료 사용 후기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/33">
+<li id="p-33">• 전자레인지로 밥 짓기</li>
+</a>
+<li id="dt-61" onclick="foldNavi(61)">5첩 반상을 위한 밑반찬 (3)</li>
+<ul id="dc-61" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/5">
+<li id="p-5">• 겉절이 김치</li>
+</a>
+<a href="https://ballboyDev.github.io/post/7">
+<li id="p-7">• 고추다대기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/11">
+<li id="p-11">• 김짱아치</li>
+</a>
+
+</ul>
+<li id="dt-62" onclick="foldNavi(62)">밥의 영혼의 단짝 국, 소스 (5)</li>
+<ul id="dc-62" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/2">
+<li id="p-2">• 미역국</li>
+</a>
+<a href="https://ballboyDev.github.io/post/4">
+<li id="p-4">• 양배추 강된장</li>
+</a>
+<a href="https://ballboyDev.github.io/post/6">
+<li id="p-6">• 진한 카레</li>
+</a>
+<a href="https://ballboyDev.github.io/post/9">
+<li id="p-9">• 계란국</li>
+</a>
+<a href="https://ballboyDev.github.io/post/14">
+<li id="p-14">• 짜장소스</li>
+</a>
+
+</ul>
+<li id="dt-63" onclick="foldNavi(63)">밥상의 기본 밥과 고기 (5)</li>
+<ul id="dc-63" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/8">
+<li id="p-8">• 국물 두루치기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/12">
+<li id="p-12">• 삼겹살 덮밥</li>
+</a>
+<a href="https://ballboyDev.github.io/post/26">
+<li id="p-26">• 전자레인지로 대패 삼겹살 솥밥 만들기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/30">
+<li id="p-30">• 멍게 비빔밥 만들기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/37">
+<li id="p-37">• 제육볶음</li>
+</a>
+
+</ul>
+<li id="dt-64" onclick="foldNavi(64)">면 러버의 면 사랑 요리 (4)</li>
+<ul id="dc-64" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/25">
+<li id="p-25">• 내 멋대로 알리오 올리오</li>
+</a>
+<a href="https://ballboyDev.github.io/post/28">
+<li id="p-28">• 마요네즈 비빔 라면</li>
+</a>
+<a href="https://ballboyDev.github.io/post/29">
+<li id="p-29">• 들기름 막국수</li>
+</a>
+<a href="https://ballboyDev.github.io/post/38">
+<li id="p-38">• 고추 기름 비빔면</li>
+</a>
+
+</ul>
+
+</ul>
+
+                </ul>
+            </div>
+
+            <div class="copyright">
+                <img class="img"
+                    src="https://ballboyDev.github.io/assets/img/github-mark-white.svg"
+                    alt="" srcset="">
+                <a href="https://github.com/BallboyDev/ballboyDev.github.io" target="_blank">Designed by ballboyDev</a>
+            </div>
+
+        </div>
+
+        <!-- contents component -->
+        <div id="contents">
+
+            <div class="bookmark">
+
+            <div class="title t1">
+                <div><a href="#bm-3"># Model1 - JSP Controller</a></div>
+                <p>•</p>
+            </div></div>
+            
+            
+<a href="https://ballboyDev.github.io/post/60.html" class="prev post">
+    <img src="https://ballboyDev.github.io/assets/img/prev.svg" alt="" srcset="">
+</a>
+    
+            
+            
+<a href="https://ballboyDev.github.io/post/62.html" class="next post">
+    <img src="https://ballboyDev.github.io/assets/img/next.svg" alt="" srcset="">
+</a>
+    
+            
+            <div class="main markdown-body">
+
+                <blockquote>
+<p>본 글은 <a href="https://victorydntmd.tistory.com/category/%EC%9B%B9%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/JSP%20%26%20Servlet">victolee</a>님의 포스팅을 보고 따라 학습하며 내용을 정리한 포스팅 입니다.</p>
+</blockquote>
+<h1 id="bm-3">Model1 - JSP Controller</h1><blockquote>
+<p>방명록 페이지 개요</p>
+</blockquote>
+<ul>
+<li>방명록을 작성하는 입력 form 페이지</li>
+<li>게시글 리스트 페잊</li>
+<li>삭제하기 위해 비밀번호를 입력하는 페이지</li>
+</ul>
+<pre class="theme-atom-one-dark"><code class="language-sql"><span class="hljs-keyword">CREATE TABLE</span> GUESTBOOK (
+    <span class="hljs-keyword">NO</span> <span class="hljs-type">INT</span> <span class="hljs-keyword">PRIMARY KEY</span> AUTO_INCREMENT,
+    NAME <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">50</span>),
+    PWD <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">60</span>),
+    CONTENT <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">9999</span>),
+    REG_DATE DATETIME
+)</code></pre><ul>
+<li>Dao, Vo 작성 과정 생략</li>
+</ul>
+<blockquote>
+<p>Controller - JSP 작성</p>
+</blockquote>
+<ul>
+<li>index.jsp</li>
+</ul>
+<pre class="theme-atom-one-dark"><code class="language-html">&lt;%@page import=&quot;guestbook_Model1.GuestBookVo&quot; %&gt;
+&lt;%@page import=&quot;guestbook_Model1.GuestBookDao&quot; %&gt;
+&lt;%@page import=&quot;java.util.List&quot; %&gt;
+&lt;%@page import=&quot;java.util.ArrayList&quot; %&gt;
+&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot; pageEncoding=&quot;UTF-8&quot;%&gt;
+
+&lt;%
+List<span class="hljs-tag">&lt;<span class="hljs-name">GuestBookVo</span>&gt;</span> list = new ArrayList<span class="hljs-tag">&lt;<span class="hljs-name">GuestBookVo</span>&gt;</span>();
+GuestBookDao dao = new GuestBookDao();
+
+list = dao.getList();
+%&gt;
+<span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;Content-Type&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;text/html; charset=UTF-8&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>GuestBook<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;/guestbook_Model1/add.jsp&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">border</span>=<span class="hljs-string">&#x27;1&#x27;</span> <span class="hljs-attr">width</span>=<span class="hljs-string">&#x27;500&#x27;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>이름<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&#x27;text&#x27;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&#x27;name&#x27;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>비밀번호<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&#x27;password&#x27;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&#x27;pwd&#x27;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">colspan</span>=<span class="hljs-string">4</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&#x27;content&#x27;</span> <span class="hljs-attr">cols</span>=<span class="hljs-string">60</span> <span class="hljs-attr">rows</span>=<span class="hljs-string">5</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">colspan</span>=<span class="hljs-string">4</span> <span class="hljs-attr">align</span>=<span class="hljs-string">right</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&#x27;submit&#x27;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&#x27;check&#x27;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+&lt;%   
+	if(list != null){
+        for(GuestBookVo vo : list){
+%&gt;
+            <span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">width</span>=<span class="hljs-string">&#x27;510&#x27;</span> <span class="hljs-attr">border</span>=<span class="hljs-string">&#x27;1&#x27;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>&lt;%= vo.getNo() %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>&lt;%= vo.getName() %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>&lt;%= vo.getRegDate() %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/guestbook_Model1/deleteform.jsp?no=&lt;%= vo.getNo() %&gt;&quot;</span>&gt;</span>삭제<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>&lt;%= vo.getContent() %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+&lt;%
+        }
+    }
+%&gt;
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre><ul>
+<li>add.jsp</li>
+</ul>
+<pre class="theme-atom-one-dark"><code class="language-html">&lt;%@ page import=&quot;guestbook_Model1.GuestBookVo&quot; %&gt;
+&lt;%@ page import=&quot;guestbook_Model1.GuestBookDao&quot; %&gt;
+&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot; pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;%
+    request.setCharacterEncoding(&quot;utf-8&quot;);
+
+    String name = request.getParameter(&quot;name&quot;);
+    String pwd = request.getParameter(&quot;pwd&quot;);
+    String content = request.getParameter(&quot;content&quot;);
+    
+    GuestBookVo vo = new GuestBookVo();
+    vo.setName(name);
+    vo.setPwd(pwd);
+    vo.setContent(content);
+
+    GuestBookDao dao = new GuestBookDao();
+    dao.insert(vo);
+
+    response.sendRedirect(&quot;/guestbook_Model1&quot;);
+%&gt;</code></pre><ul>
+<li>deleteform.jsp</li>
+</ul>
+<pre class="theme-atom-one-dark"><code class="language-html">&lt;%@ page import=&quot;guestbook_Model1.GuestBookVo&quot; %&gt;
+&lt;%@ page import=&quot;guestbook_Model1.GuestBookDao&quot; %&gt;
+&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+    
+&lt;% String no = request.getParameter(&quot;no&quot;); %&gt;
+<span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Guest Book delete form<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;/guestbook_Model1/delete.jsp&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&#x27;hidden&#x27;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&#x27;no&#x27;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&#x27;&lt;%= no %&gt;&#x27;</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">border</span>=<span class="hljs-string">&#x27;1&#x27;</span> <span class="hljs-attr">width</span>=<span class="hljs-string">&#x27;200&#x27;</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span> NO <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>&lt;%= no %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span> PWD <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&#x27;password&#x27;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&#x27;pwd&#x27;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&#x27;submit&#x27;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&#x27;check&#x27;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+			<span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre><ul>
+<li>delete.jsp</li>
+</ul>
+<pre class="theme-atom-one-dark"><code class="language-html">&lt;%@ page import=&quot;guestbook_Model1.GuestBookVo&quot; %&gt;
+&lt;%@ page import=&quot;guestbook_Model1.GuestBookDao&quot; %&gt;
+&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot; pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;%
+    request.setCharacterEncoding(&quot;utf-8&quot;);
+
+    String no = request.getParameter(&quot;no&quot;);
+    String pwd = request.getParameter(&quot;pwd&quot;);
+    
+    GuestBookVo vo = new GuestBookVo();
+    vo.setNo(no);
+    vo.setPwd(pwd);
+    
+    GuestBookDao dao = new GuestBookDao();
+    dao.delete(vo);
+    
+    response.sendRedirect(&quot;/guestbook_Model1&quot;);
+%&gt;</code></pre>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+    

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="jrh7qB1kgowvnvE0P3KqlhI-iNmw9CvGJF4dQsaCTAk" />
-    <title>삼겹살 덮밥</title>
+    <title>6. 객체 범위 (Scope)</title>
 
     
 <link rel="stylesheet" href="https://ballboyDev.github.io/assets/markdown.css">
@@ -16,13 +16,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
 <style>
-    #p-12 {
+    #p-64 {
         color: rgb(76, 193, 237) !important;
     }
 </style>
 <script id="data" type="application/json">
 {
-    "fold": ["6","63"]
+    "fold": ["2","21"]
 }
 </script>
 
@@ -356,111 +356,95 @@
             <div class="bookmark">
 
             <div class="title t1">
-                <div><a href="#bm-0"># 삼겹살 덮밥 만들기
-</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-5">### 난이도 ✭✭</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t2">
-                <div><a href="#bm-8">## 재료
-</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-9">### 재료</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-12">### 양념/조미료</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t2">
-                <div><a href="#bm-15">## 레시피</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t2">
-                <div><a href="#bm-20">## 참고 자료/영상</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t2">
-                <div><a href="#bm-23">## 추가 내용</a></div>
+                <div><a href="#bm-3"># 객체 범위 (Scope)</a></div>
                 <p>•</p>
             </div></div>
             
             
+<a href="https://ballboyDev.github.io/post/63.html" class="prev post">
+    <img src="https://ballboyDev.github.io/assets/img/prev.svg" alt="" srcset="">
+</a>
+    
             
             
+<a href="https://ballboyDev.github.io/post/65.html" class="next post">
+    <img src="https://ballboyDev.github.io/assets/img/next.svg" alt="" srcset="">
+</a>
+    
             
             <div class="main markdown-body">
 
-                <h1 id="bm-0">삼겹살 덮밥 만들기</h1><pre><code class="language-plaintext"}>밤에 유튜브를 보며 뒹굴거리다 출출해져 야식으로 무얼 먹을까 고민을 하는중 얼마전 이마트에서 기한이 얼마 남지 않아 40%나 세일을 하길레 얼른 주워온 삼겹살이 생각났다
-야식은 역시 맵고 짜고 단거 니까... 삼겹살 덮밥을 만들어 봤다.</code></pre><p><img src="https://ballboyDev.github.io/assets/img/12_1.jpeg" alt="이미지 준비중"></p>
-<h3 id="bm-5">난이도 ✭✭</h3><blockquote>
-<p>노브랜드 대패 삼겹살 말고 일반 삼겹살을 살 이유가 생겼다</p>
+                <blockquote>
+<p>본 글은 <a href="https://victorydntmd.tistory.com/category/%EC%9B%B9%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/JSP%20%26%20Servlet">victolee</a>님의 포스팅을 보고 따라 학습하며 내용을 정리한 포스팅 입니다.</p>
 </blockquote>
-<h2 id="bm-8">재료</h2><h3 id="bm-9">재료</h3><ol>
-<li>삼겹살 / 1<del>2줄 (100</del>200g)</li>
-<li>마늘 / 5~10쪽</li>
-<li>양파 / 1/4알</li>
-<li>대파 or 쪽파</li>
-<li>청양고추 / 1개<ul>
-<li>필수 아님</li>
+<h1 id="bm-3">객체 범위 (Scope)</h1><blockquote>
+<p>객체 범위 종류</p>
+</blockquote>
+<ul>
+<li>웹 애플리케이션에는 4개의 객체 범위가 존재합니다.</li>
+</ul>
+<ol>
+<li><p>page 영역</p>
+<ul>
+<li>한 번의 클라이언트 요청이 오면, 하나의 JSP 페이지가 응답됩니다.</li>
+<li>page영역은 이 때 하나의 JSP 페이지 내에서만 객체를 공유하는 영역을 의미합니다.</li>
+<li>JSP 파일에 &lt;% %&gt;안에 변수를 사용하면, 이 변수는 해당 JSP파일 내에서만 유효한데 이는 page스코프에 정의된 객체이기 때문입니다.</li>
+</ul>
+</li>
+<li><p>request 영역</p>
+<ul>
+<li>요청을 받아서 응답하기까지 객체가 유효한 영역입니다.</li>
+<li>servlet에서 forward또는 include를 사용한다면, request 요청 객체가 공유되어서 request영역이 됩니다.</li>
+</ul>
+</li>
+<li><p>session 영역</p>
+<ul>
+<li>하나의 브라우저(동일한 클라이언트) 당 1개의 session 객체가 생성됩니다.</li>
+<li>같은 브라우저(동일한 클라이언트) 내에서 요청되는 페이지들은 같은 객체를 공유하게 되는데, 이를 세션 영역이라고 합니다.</li>
+</ul>
+</li>
+<li><p>application 영역</p>
+<ul>
+<li>하나의 application당 1개의 application 객체가 생성됩니다.</li>
+<li>다른 클라이언트에서 공유, 모든 클라이언트에서 동일한 객체의 사용이 가능합니다.</li>
 </ul>
 </li>
 </ol>
-<h3 id="bm-12">양념/조미료</h3><ol>
-<li>양조간장 / 3sp</li>
-<li>설탕 / 1sp</li>
-<li>고추가루 / 1sp</li>
-<li>소금, 후추</li>
-</ol>
-<h2 id="bm-15">레시피</h2><ol>
-<li><p>삼겹살을 소금과 후추를 뿌려 구워준다.</p>
-</li>
-<li><p>구워진 삼겹살을 잠시 빼놓고 삼겹살 기름에 마늘과 채썬 양파를 넣고 볶아 준다.</p>
-<ul>
-<li>마늘은 통마늘, 편마늘 모두 가능하다.</li>
-</ul>
-</li>
-<li><p>마늘과 양파가 적당량 볶아지면 삼겹살을 다시 넣고 팬 바깥쪽으로 간장을 3sp을 뿌려 졸여준다.</p>
-<ul>
-<li>매콤한 맛을 원하면 청양고추 1개나 페퍼론치노 5개정도 넣어 함께 볶아준다.</li>
-</ul>
-</li>
-<li><p>팬에 설탕 1sp과 고추가루 1sp을 넣고 모든 재료를 잘 섞어 볶아준다. </p>
-<ul>
-<li>고추가루가 떡이 지거나 재료가 잘 섞이지 않는다면 50ml 정도를 넣고 섞는다.</li>
-</ul>
-</li>
-<li><p>마지막으로 참기름을 살짝 부리고 잘게 썬 대파나 쪽파를 올린다.</p>
-</li>
-<li><p>밥위에 올려 덮밥이나 반찬으로 준비한다.</p>
-</li>
-<li><p>맛잇게 먹는다.</p>
-</li>
-</ol>
-<pre><code class="language-plaintext"}>>> 자취생 평가 <<
-
-삼겹살이 맛있지만 대패나 국거리로 해도 맛이 괜찮다.</code></pre><h2 id="bm-20">참고 자료/영상</h2><ul>
-<li><a href="https://www.youtube.com/shorts/6Sd8bytvFPA">https://www.youtube.com/shorts/6Sd8bytvFPA</a></li>
-</ul>
-<h2 id="bm-23">추가 내용</h2><ul>
-<li>2025-03-23<ul>
-<li>사실 삼겹살 야채와 함께 볶아도 맛있다.</li>
-<li>대신 삼겹살이 오래 익으며 질겨지는 감은 있다.</li>
-</ul>
-</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="center">page영역</th>
+<th align="center">request영역</th>
+<th align="center">session역역</th>
+<th align="center">application영역</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">저장소</td>
+<td align="center">pageContext</td>
+<td align="center">HttpServletRequest</td>
+<td align="center">HttpSession</td>
+<td align="center">ServletContext</td>
+</tr>
+<tr>
+<td align="left">저장메소드</td>
+<td align="center">setAttribute(KEY, 객체)</td>
+<td align="center">setAttribute(KEY, 객체)</td>
+<td align="center">setAttribute(KEY, 객체)</td>
+<td align="center">setAttribute(KEY, 객체)</td>
+</tr>
+<tr>
+<td align="left">호출메서드</td>
+<td align="center">getAttribute(KEY)</td>
+<td align="center">getAttribute(KEY)</td>
+<td align="center">1. getAttribute(KEY)<br>2. getSession()</td>
+<td align="center">1. getAttribute(KEY)<br>2. getServletContext()</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>애트리트트 명은 좁은 범위의 영역부터 큰 범위의 영역으로 탐색을 합니다.</p>
+</blockquote>
 
 
             </div>

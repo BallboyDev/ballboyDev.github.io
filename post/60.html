@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="jrh7qB1kgowvnvE0P3KqlhI-iNmw9CvGJF4dQsaCTAk" />
-    <title>삼겹살 덮밥</title>
+    <title>2. Servlet, Dao, Vo</title>
 
     
 <link rel="stylesheet" href="https://ballboyDev.github.io/assets/markdown.css">
@@ -16,13 +16,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
 <style>
-    #p-12 {
+    #p-60 {
         color: rgb(76, 193, 237) !important;
     }
 </style>
 <script id="data" type="application/json">
 {
-    "fold": ["6","63"]
+    "fold": ["2","21"]
 }
 </script>
 
@@ -356,110 +356,161 @@
             <div class="bookmark">
 
             <div class="title t1">
-                <div><a href="#bm-0"># 삼겹살 덮밥 만들기
-</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-5">### 난이도 ✭✭</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t2">
-                <div><a href="#bm-8">## 재료
-</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-9">### 재료</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-12">### 양념/조미료</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t2">
-                <div><a href="#bm-15">## 레시피</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t2">
-                <div><a href="#bm-20">## 참고 자료/영상</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t2">
-                <div><a href="#bm-23">## 추가 내용</a></div>
+                <div><a href="#bm-3"># Servlet / DAO / VO(DTO)</a></div>
                 <p>•</p>
             </div></div>
             
             
+<a href="https://ballboyDev.github.io/post/59.html" class="prev post">
+    <img src="https://ballboyDev.github.io/assets/img/prev.svg" alt="" srcset="">
+</a>
+    
             
             
+<a href="https://ballboyDev.github.io/post/61.html" class="next post">
+    <img src="https://ballboyDev.github.io/assets/img/next.svg" alt="" srcset="">
+</a>
+    
             
             <div class="main markdown-body">
 
-                <h1 id="bm-0">삼겹살 덮밥 만들기</h1><pre><code class="language-plaintext"}>밤에 유튜브를 보며 뒹굴거리다 출출해져 야식으로 무얼 먹을까 고민을 하는중 얼마전 이마트에서 기한이 얼마 남지 않아 40%나 세일을 하길레 얼른 주워온 삼겹살이 생각났다
-야식은 역시 맵고 짜고 단거 니까... 삼겹살 덮밥을 만들어 봤다.</code></pre><p><img src="https://ballboyDev.github.io/assets/img/12_1.jpeg" alt="이미지 준비중"></p>
-<h3 id="bm-5">난이도 ✭✭</h3><blockquote>
-<p>노브랜드 대패 삼겹살 말고 일반 삼겹살을 살 이유가 생겼다</p>
+                <blockquote>
+<p>본 글은 <a href="https://victorydntmd.tistory.com/category/%EC%9B%B9%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/JSP%20%26%20Servlet">victolee</a>님의 포스팅을 보고 따라 학습하며 내용을 정리한 포스팅 입니다.</p>
 </blockquote>
-<h2 id="bm-8">재료</h2><h3 id="bm-9">재료</h3><ol>
-<li>삼겹살 / 1<del>2줄 (100</del>200g)</li>
-<li>마늘 / 5~10쪽</li>
-<li>양파 / 1/4알</li>
-<li>대파 or 쪽파</li>
-<li>청양고추 / 1개<ul>
-<li>필수 아님</li>
-</ul>
-</li>
-</ol>
-<h3 id="bm-12">양념/조미료</h3><ol>
-<li>양조간장 / 3sp</li>
-<li>설탕 / 1sp</li>
-<li>고추가루 / 1sp</li>
-<li>소금, 후추</li>
-</ol>
-<h2 id="bm-15">레시피</h2><ol>
-<li><p>삼겹살을 소금과 후추를 뿌려 구워준다.</p>
-</li>
-<li><p>구워진 삼겹살을 잠시 빼놓고 삼겹살 기름에 마늘과 채썬 양파를 넣고 볶아 준다.</p>
+<h1 id="bm-3">Servlet / DAO / VO(DTO)</h1><blockquote>
+<p>DAO(Data Access Object)<br/>
+VO(Value Object) / DTO(Data Transfer Object)</p>
+</blockquote>
 <ul>
-<li>마늘은 통마늘, 편마늘 모두 가능하다.</li>
+<li>DAO<ul>
+<li>DB 질의를 통해 데이터에 접근하는 객체</li>
 </ul>
 </li>
-<li><p>마늘과 양파가 적당량 볶아지면 삼겹살을 다시 넣고 팬 바깥쪽으로 간장을 3sp을 뿌려 졸여준다.</p>
+<li>VO <ul>
+<li>DB 테이블의 컬럼 값을 java에서 객체로 다루기 위한 객체</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>JDBC 설정</p>
+</blockquote>
 <ul>
-<li>매콤한 맛을 원하면 청양고추 1개나 페퍼론치노 5개정도 넣어 함께 볶아준다.</li>
+<li>JDBC 라이브러치 추가(이전 JDBC 라이브러리 추가 방법 참조)</li>
+<li>Deployment Assembly 설정</li>
 </ul>
-</li>
-<li><p>팬에 설탕 1sp과 고추가루 1sp을 넣고 모든 재료를 잘 섞어 볶아준다. </p>
-<ul>
-<li>고추가루가 떡이 지거나 재료가 잘 섞이지 않는다면 50ml 정도를 넣고 섞는다.</li>
-</ul>
-</li>
-<li><p>마지막으로 참기름을 살짝 부리고 잘게 썬 대파나 쪽파를 올린다.</p>
-</li>
-<li><p>밥위에 올려 덮밥이나 반찬으로 준비한다.</p>
-</li>
-<li><p>맛잇게 먹는다.</p>
-</li>
+<ol>
+<li>프로젝트 Properties -&gt; Deployment Assemply -&gt; Add...</li>
+<li>Jaav Build Path Entries -&gt; 이전에 생성한 JDBC 라이브러리 선택 -&gt; Apply</li>
 </ol>
-<pre><code class="language-plaintext"}>>> 자취생 평가 <<
+<blockquote>
+<p>Dao 클래스 생성</p>
+</blockquote>
+<pre class="theme-atom-one-dark"><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">UserDao</span> {
+	<span class="hljs-keyword">private</span> Connection <span class="hljs-title function_">getConnection</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> SQLException {
+		<span class="hljs-type">Connection</span> <span class="hljs-variable">conn</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+		
+		<span class="hljs-keyword">try</span> {
+			Class.forName(<span class="hljs-string">&quot;com.mysql.jdbc.Driver&quot;</span>);
+			
+			<span class="hljs-type">String</span> <span class="hljs-variable">url</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;jdbc:mysql://localhost/연결DB명&quot;</span>;
+			conn = DriverManager.getConnection(url, 아이디, 패스워드);
+		} <span class="hljs-keyword">catch</span> (ClassNotFoundException e) {
+			System.out.println(<span class="hljs-string">&quot;드라이버 로딩 실패&quot;</span>);
+		}
+		
+		<span class="hljs-keyword">return</span> conn;
+	}
+	
+	<span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">insert</span><span class="hljs-params">(UserVo vo)</span> {
+		<span class="hljs-type">boolean</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;
+		<span class="hljs-type">Connection</span> <span class="hljs-variable">conn</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+		<span class="hljs-type">PreparedStatement</span> <span class="hljs-variable">pstmt</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+		
+		<span class="hljs-keyword">try</span> {
+			conn = getConnection();
+			
+			<span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;INSERT INTO USER VALUES (null, ?, ?, ?)&quot;</span>;
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(<span class="hljs-number">1</span>, vo.getName());
+			pstmt.setString(<span class="hljs-number">2</span>, vo.getEmail());
+			pstmt.setString(<span class="hljs-number">3</span>, vo.getPwd());
+			
+			<span class="hljs-type">int</span> <span class="hljs-variable">count</span> <span class="hljs-operator">=</span> pstmt.executeUpdate();
+			
+			result = (count == <span class="hljs-number">1</span>);
+		} <span class="hljs-keyword">catch</span>(SQLException e) {
+			e.printStackTrace();
+		} <span class="hljs-keyword">finally</span> {
+			<span class="hljs-keyword">try</span> {
+				<span class="hljs-keyword">if</span>(conn != <span class="hljs-literal">null</span> &amp;&amp; !conn.isClosed()) {
+					conn.close();
+				}
+				<span class="hljs-keyword">if</span>(pstmt != <span class="hljs-literal">null</span> &amp;&amp; !pstmt.isClosed()) {
+					pstmt.close();
+				}
+			} <span class="hljs-keyword">catch</span> (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		<span class="hljs-keyword">return</span> result;
+	}
+	
+	<span class="hljs-keyword">public</span> UserVo <span class="hljs-title function_">select</span><span class="hljs-params">(UserVo vo)</span> {
+		<span class="hljs-type">Connection</span> <span class="hljs-variable">conn</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+		<span class="hljs-type">PreparedStatement</span> <span class="hljs-variable">pstmt</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+		<span class="hljs-type">ResultSet</span> <span class="hljs-variable">rs</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+		<span class="hljs-type">UserVo</span> <span class="hljs-variable">resultVo</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">UserVo</span>();
+		
+		<span class="hljs-keyword">try</span> {
+			conn = getConnection();
+			
+			<span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;SELECT NAME, EMAIL, PWD FROM USER WHERE NAME = ?&quot;</span>;
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(<span class="hljs-number">1</span>, vo.getName());
+			rs = pstmt.executeQuery();
+			
+			<span class="hljs-keyword">while</span>(rs.next()) {
+				resultVo.setName(rs.getString(<span class="hljs-number">1</span>));
+				resultVo.setEmail(rs.getString(<span class="hljs-number">2</span>));
+				resultVo.setPwd(rs.getString(<span class="hljs-number">3</span>));
+			}
+		} <span class="hljs-keyword">catch</span> (SQLException e) {
+			System.out.println(<span class="hljs-string">&quot;Query Error : &quot;</span> + e);
+			e.printStackTrace();
+		} <span class="hljs-keyword">finally</span> {
+			<span class="hljs-keyword">try</span> {
+				<span class="hljs-keyword">if</span>(conn != <span class="hljs-literal">null</span> &amp;&amp; !conn.isClosed()) {
+					conn.close();
+				}
+				<span class="hljs-keyword">if</span>(pstmt != <span class="hljs-literal">null</span> &amp;&amp; !pstmt.isClosed()) {
+					pstmt.close();
+				}
+			} <span class="hljs-keyword">catch</span>(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		<span class="hljs-keyword">return</span> resultVo;
+	}
+}</code></pre><blockquote>
+<p>Servlet 작성</p>
+</blockquote>
+<pre class="theme-atom-one-dark"><code class="language-java"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doGet</span><span class="hljs-params">(HttpServletRequest, HttpServletResponse response)</span> <span class="hljs-keyword">throws</span> ServletException, IOException {
+    request.setCharacterEncoding(<span class="hljs-string">&quot;UTF-8&quot;</span>);
 
-삼겹살이 맛있지만 대패나 국거리로 해도 맛이 괜찮다.</code></pre><h2 id="bm-20">참고 자료/영상</h2><ul>
-<li><a href="https://www.youtube.com/shorts/6Sd8bytvFPA">https://www.youtube.com/shorts/6Sd8bytvFPA</a></li>
-</ul>
-<h2 id="bm-23">추가 내용</h2><ul>
-<li>2025-03-23<ul>
-<li>사실 삼겹살 야채와 함께 볶아도 맛있다.</li>
-<li>대신 삼겹살이 오래 익으며 질겨지는 감은 있다.</li>
-</ul>
-</li>
+    <span class="hljs-type">UserVo</span> <span class="hljs-variable">vo</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">UserVo</span>();
+    vo.setName(request.getParameter(<span class="hljs-string">&quot;name&quot;</span>));
+    vo.setEmail(request.getParameter(<span class="hljs-string">&quot;email&quot;</span>));
+    vo.setPwd(request.getParameter(<span class="hljs-string">&quot;pwd&quot;</span>));
+
+    <span class="hljs-type">UserDao</span> <span class="hljs-variable">dao</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">UserDao</span>();
+    dao.select(vo);
+    dao.insert(vo);
+
+    response.sendRedirect(<span class="hljs-string">&quot;/Project/index.jsp&quot;</span>);
+}</code></pre><ul>
+<li>클라이언트에게 응답 페이지를 보여주기 위한 redirect 작성</li>
 </ul>
 
 
