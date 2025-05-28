@@ -231,7 +231,7 @@ const app = {
 
                     if (type === 'dir') {
                         tagList.push(`<li id="dt-${num}" onclick="foldNavi(${num})">${root[v].title} (${root[v].count})</li>`)
-                        tagList.push(`<ul id="dc-${num}" style="display: none;">`)
+                        tagList.push(`<ul id="dc-${num}" class='dc-all' style="display: none;">`)
                         tagList.push(recursion(root[v].children))
                         tagList.push('</ul>')
                     } else {
@@ -261,8 +261,10 @@ const app = {
 
         try {
             const mdFile = matter(fs.readFileSync(`${utils.path.index}`, 'utf8').trim())
+            // const content = `${mdFile.content}\n\n\n${utils.postingList.join('\n')}`
+            const content = `${mdFile.content}`
 
-            const htmlFile = marked.parse(`${mdFile.content}\n\n\n${utils.postingList.join('\n')}`)
+            const htmlFile = marked.parse(content)
 
             const metaData = {
                 env: env,

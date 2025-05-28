@@ -42,12 +42,20 @@ window.onload = () => {
 
 };
 
-const foldNavi = (num) => {
-    const ulTag = document.getElementById(`dc-${num}`)
-    if (ulTag.style.display === "block") {
-        ulTag.style.display = "none"
+const foldNavi = (num = 0) => {
+
+    if (!!num) {
+        const ulTag = document.getElementById(`dc-${num}`)
+        if (ulTag.style.display === "block") {
+            ulTag.style.display = "none"
+        } else {
+            ulTag.style.display = "block"
+        }
     } else {
-        ulTag.style.display = "block"
+        const ulTags = document.getElementsByClassName('dc-all')
+        for (let ulTag of ulTags) {
+            ulTag.style.display = "none"
+        }
     }
 }
 

@@ -98,13 +98,20 @@ const page = (param) => {
             <h3 class="home"><a href="${data.url}${data.env === 'dev' ? '/index.html' : ''}">HOME</a></h3>
             <hr />
             
-            <h3 class="category">카테고리</h3>
+            <h3 class="category" onclick="foldNavi()">카테고리</h3>
             <div class="navi">
                 <ul class="root">
 
                     ${tag.navi}
 
                 </ul>
+            </div>
+
+            <div class="copyright">
+                <img class="img"
+                    src="${data.url}/assets/img/github-mark-white.svg"
+                    alt="" srcset="">
+                <a href="https://github.com/BallboyDev/ballboyDev.github.io">Designed by ballboyDev</a>
             </div>
 
         </div>
