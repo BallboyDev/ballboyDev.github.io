@@ -358,6 +358,57 @@
             <div class="title t1">
                 <div><a href="#bm-3"># JSTL / EL</a></div>
                 <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-4">## EL (Expression Language)</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-7">### EL 표기법에서 자주 사용될 수 있는 내장 객체들
+</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-9">## JSTL (JavaServer Pages Standard Tag Library)</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-13">### set</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-17">### if</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-21">### choose</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-24">### foreach</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-27">### import</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-30">### 날짜 format</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-33">### split</a></div>
+                <p>•</p>
             </div></div>
             
             
@@ -373,10 +424,7 @@
                 <blockquote>
 <p>본 글은 <a href="https://victorydntmd.tistory.com/category/%EC%9B%B9%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/JSP%20%26%20Servlet">victolee</a>님의 포스팅을 보고 따라 학습하며 내용을 정리한 포스팅 입니다.</p>
 </blockquote>
-<h1 id="bm-3">JSTL / EL</h1><blockquote>
-<p>EL (Expression Language)</p>
-</blockquote>
-<ul>
+<h1 id="bm-3">JSTL / EL</h1><h2 id="bm-4">EL (Expression Language)</h2><ul>
 <li>EL은 JSP의 출력 문법을 대체하는 표현입니다.<ul>
 <li><code>&lt;%= i %&gt;</code><ul>
 <li>JSP에서의 값 표기법이며, i는 변수 입니다.</li>
@@ -392,10 +440,7 @@
 <li>EL 표기법에서 파라미터 값은 param 키워드를 통해 가져올 수 있습니다.
 또한, JSP 값 표기법에서 파라미터는 문자열이지만, EL에서 숫자는 수자로, 문자열은 문자열로 인식합니다.</li>
 </ul>
-<blockquote>
-<p>EL 표기법에서 자주 사용될 수 있는 내장 객체들</p>
-</blockquote>
-<table>
+<h3 id="bm-7">EL 표기법에서 자주 사용될 수 있는 내장 객체들</h3><table>
 <thead>
 <tr>
 <th align="center"></th>
@@ -449,38 +494,26 @@
 <td align="center">pageContext 객체에 접근하기 위한 객체</td>
 </tr>
 </tbody></table>
-<blockquote>
-<p>JSTL (JavaServer Pages Standard Tag Library)</p>
-</blockquote>
-<ul>
+<h2 id="bm-9">JSTL (JavaServer Pages Standard Tag Library)</h2><ul>
 <li>JSTL은 태그를 통해 JSP 코드를 관리하는 라이브러리로서, JSP의 가독성이 좋아집니다.</li>
 <li>라이브러리이기 때문에 JSTL을 사용하려면, 라이브러리를 다운로드 해서 추가해야 합니다. (<a href="http://tomcat.apache.org/taglibs/standard/">http://tomcat.apache.org/taglibs/standard/</a>)</li>
 </ul>
 <pre><code class="language-plaintext"}><%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%></code></pre><blockquote>
-<p>set</p>
-</blockquote>
-<pre class="theme-atom-one-dark"><code class="language-jsp">&lt;c:set <span class="hljs-keyword">var</span>=<span class="hljs-string">&quot;변수명&quot;</span> value=<span class="hljs-string">&quot;값&quot;</span> [scope=<span class="hljs-string">&quot;영역&quot;</span>] /&gt;
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%></code></pre><h3 id="bm-13">set</h3><pre class="theme-atom-one-dark"><code class="language-jsp">&lt;c:set <span class="hljs-keyword">var</span>=<span class="hljs-string">&quot;변수명&quot;</span> value=<span class="hljs-string">&quot;값&quot;</span> [scope=<span class="hljs-string">&quot;영역&quot;</span>] /&gt;
 &lt;c:set <span class="hljs-keyword">var</span>=<span class="hljs-string">&quot;count&quot;</span> value=<span class="hljs-string">&quot;${ fn:length(list)}&quot;</span> /&gt;</code></pre><ul>
 <li>변수생성 </li>
 <li>var: EL변수의 이름</li>
 <li>value: 실제 값을 지정</li>
 <li>scope: 변수를 저장할 영역</li>
 </ul>
-<blockquote>
-<p>if</p>
-</blockquote>
-<pre class="theme-atom-one-dark"><code class="language-jsp">&lt;c:<span class="hljs-keyword">if</span> test=<span class="hljs-string">&quot;true&quot;</span>&gt;
+<h3 id="bm-17">if</h3><pre class="theme-atom-one-dark"><code class="language-jsp">&lt;c:<span class="hljs-keyword">if</span> test=<span class="hljs-string">&quot;true&quot;</span>&gt;
     contents
 &lt;/c:<span class="hljs-keyword">if</span>&gt;</code></pre><ul>
 <li>if는 조건이 한 개인 경우만 사용이 가능하다.</li>
 <li>if-else 사용은 불가하며, choose 태그로 대체한다.</li>
 </ul>
-<blockquote>
-<p>choose</p>
-</blockquote>
-<pre class="theme-atom-one-dark"><code class="language-jsp">&lt;c:choose&gt;
+<h3 id="bm-21">choose</h3><pre class="theme-atom-one-dark"><code class="language-jsp">&lt;c:choose&gt;
     &lt;c:<span class="hljs-keyword">when</span> test=<span class="hljs-string">&quot;조건1&quot;</span>&gt;
         contents
     &lt;/c:<span class="hljs-keyword">when</span>&gt;
@@ -493,10 +526,7 @@
     &lt;c:otherwise&gt;
         contents
     &lt;/c:otherwise&gt;
-&lt;/c:choose&gt;</code></pre><blockquote>
-<p>foreach</p>
-</blockquote>
-<pre class="theme-atom-one-dark"><code class="language-jsp">&lt;c:forEach 
+&lt;/c:choose&gt;</code></pre><h3 id="bm-24">foreach</h3><pre class="theme-atom-one-dark"><code class="language-jsp">&lt;c:forEach 
     <span class="hljs-keyword">var</span>=<span class="hljs-string">&quot;변수&quot;</span>
     items=<span class="hljs-string">&quot;아이템&quot;</span>
     begin=<span class="hljs-string">&quot;시작값&quot;</span>
@@ -512,24 +542,15 @@
     &lt;div&gt;${ vo.no} / [${ status.index}]&lt;/div&gt;
     &lt;!-- JSTL에서는 \n을 사용할 수 없어서 page context에 다른 변수로 추가 해줘야 함 --&gt;
     &lt;div&gt;${ fn:replace(vo.content, newLine, <span class="hljs-string">&quot;&lt;br&gt;&quot;</span>)}&lt;/div&gt;
-&lt;/c:forEach&gt;</code></pre><blockquote>
-<p>import</p>
-</blockquote>
-<pre class="theme-atom-one-dark"><code class="language-jsp">&lt;!-- jsp --&gt;
+&lt;/c:forEach&gt;</code></pre><h3 id="bm-27">import</h3><pre class="theme-atom-one-dark"><code class="language-jsp">&lt;!-- jsp --&gt;
 &lt;jsp:include page=<span class="hljs-string">&quot;/WEB-INF/views/includes/header.jsp&quot;</span>&gt;
 &lt;!-- JSTL --&gt;
 &lt;c:<span class="hljs-keyword">import</span> url=<span class="hljs-string">&quot;/WEB-INF/views/includes/header.jsp&quot;</span>&gt;
 &lt;!-- <span class="hljs-keyword">import</span> 할 때 파라미터를 넘겨줄 수 있다. --&gt;
 &lt;c:<span class="hljs-keyword">import</span> url=<span class="hljs-string">&quot;/WEB-INF/views/includes/navigation.jsp&quot;</span>&gt;
     &lt;c:param name=<span class="hljs-string">&quot;menu&quot;</span> value=<span class="hljs-string">&quot;main&quot;</span> /&gt;
-&lt;/c:<span class="hljs-keyword">import</span>&gt;</code></pre><blockquote>
-<p>날짜 format</p>
-</blockquote>
-<pre class="theme-atom-one-dark"><code class="language-jsp">&lt;fmt:parseDate value=<span class="hljs-string">&#x27;${ vo.regDate}&#x27;</span> <span class="hljs-keyword">var</span>=<span class="hljs-string">&#x27;regDate&#x27;</span> pattern=<span class="hljs-string">&quot;yyyy-MM-dd H:m&quot;</span>&gt;
-&lt;fmt:formatDate value=<span class="hljs-string">&#x27;${ regDate}&#x27;</span> pattern=<span class="hljs-string">&#x27;MM월 dd일 H:m&#x27;</span> /&gt;</code></pre><blockquote>
-<p>split</p>
-</blockquote>
-<pre class="theme-atom-one-dark"><code class="language-jsp">&lt;c:set <span class="hljs-keyword">var</span>=<span class="hljs-string">&quot;phone&quot;</span> value=<span class="hljs-string">&quot;${ fn:split(vo.phone, &#x27;-&#x27;)}&quot;</span> /&gt;</code></pre><ul>
+&lt;/c:<span class="hljs-keyword">import</span>&gt;</code></pre><h3 id="bm-30">날짜 format</h3><pre class="theme-atom-one-dark"><code class="language-jsp">&lt;fmt:parseDate value=<span class="hljs-string">&#x27;${ vo.regDate}&#x27;</span> <span class="hljs-keyword">var</span>=<span class="hljs-string">&#x27;regDate&#x27;</span> pattern=<span class="hljs-string">&quot;yyyy-MM-dd H:m&quot;</span>&gt;
+&lt;fmt:formatDate value=<span class="hljs-string">&#x27;${ regDate}&#x27;</span> pattern=<span class="hljs-string">&#x27;MM월 dd일 H:m&#x27;</span> /&gt;</code></pre><h3 id="bm-33">split</h3><pre class="theme-atom-one-dark"><code class="language-jsp">&lt;c:set <span class="hljs-keyword">var</span>=<span class="hljs-string">&quot;phone&quot;</span> value=<span class="hljs-string">&quot;${ fn:split(vo.phone, &#x27;-&#x27;)}&quot;</span> /&gt;</code></pre><ul>
 <li>010-0000-0000 이라는 문자열이 있을 때 하이픈 &quot;-&quot;을 기준으로 파싱합니다.</li>
 </ul>
 

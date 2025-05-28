@@ -358,6 +358,26 @@
             <div class="title t1">
                 <div><a href="#bm-3"># Model2 - Servlet Controller</a></div>
                 <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-4">## 방명록 페이지 개요</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-11">### views 폴더</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-14">### Controller - Servlet 작성</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-19">### JSP 작성</a></div>
+                <p>•</p>
             </div></div>
             
             
@@ -377,10 +397,7 @@
                 <blockquote>
 <p>본 글은 <a href="https://victorydntmd.tistory.com/category/%EC%9B%B9%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/JSP%20%26%20Servlet">victolee</a>님의 포스팅을 보고 따라 학습하며 내용을 정리한 포스팅 입니다.</p>
 </blockquote>
-<h1 id="bm-3">Model2 - Servlet Controller</h1><blockquote>
-<p>방명록 페이지 개요</p>
-</blockquote>
-<ul>
+<h1 id="bm-3">Model2 - Servlet Controller</h1><h2 id="bm-4">방명록 페이지 개요</h2><ul>
 <li>방명록을 작성하는 입력 form 페이지</li>
 <li>게시글 리스트 페잊</li>
 <li>삭제하기 위해 비밀번호를 입력하는 페이지</li>
@@ -394,20 +411,14 @@
 )</code></pre><ul>
 <li>Dao, Vo 작성 과정 생략</li>
 </ul>
-<blockquote>
-<p>views 폴더</p>
-</blockquote>
-<ul>
+<h3 id="bm-11">views 폴더</h3><ul>
 <li>JSP 파일은 WebContent에 직접 작성하지 않고, WEB-INF 폴더 하위의 views 폴더에 위치합니다.<ul>
 <li>JSP 파일이 WEB-INF 폴더 하위에 위치하게 되면, 외부에서 직접 접근을 할 수 없게 됩니다.</li>
 <li>애플리케이션 내부에서는 WEB-INF 폴더에 접근할 수 있으므로, Servlet이 요청을 처리한 후 응답할 페이지를 WEB-INF 폴더에 접근하여 응답합니다.</li>
 </ul>
 </li>
 </ul>
-<blockquote>
-<p>Controller - Servlet 작성</p>
-</blockquote>
-<ul>
+<h3 id="bm-14">Controller - Servlet 작성</h3><ul>
 <li>모든 요청은 Servlet에서 받습니다.</li>
 </ul>
 <pre class="theme-atom-one-dark"><code class="language-java"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doGet</span><span class="hljs-params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="hljs-keyword">throws</span> ServletException, IOException {
@@ -462,10 +473,7 @@
 </ul>
 </li>
 </ul>
-<blockquote>
-<p>JSP 작성</p>
-</blockquote>
-<ul>
+<h3 id="bm-19">JSP 작성</h3><ul>
 <li>index.jsp</li>
 </ul>
 <pre class="theme-atom-one-dark"><code class="language-html">&lt;%@page import=&quot;vo.GuestBookVo&quot; %&gt;

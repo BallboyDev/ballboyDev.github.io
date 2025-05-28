@@ -358,6 +358,31 @@
             <div class="title t1">
                 <div><a href="#bm-3"># servlet</a></div>
                 <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-4">### 톰캣과 web.xml</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-7">### Servlet 기본 구조</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-10">### URL과 Servlet 매핑 - web.xml</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-15">### (HttpServletRequest)Request / (HttpServletResponse)Response</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-18">## Servlet 객체로 응답하기</a></div>
+                <p>•</p>
             </div></div>
             
             
@@ -373,27 +398,18 @@
                 <blockquote>
 <p>본 글은 <a href="https://victorydntmd.tistory.com/category/%EC%9B%B9%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/JSP%20%26%20Servlet">victolee</a>님의 포스팅을 보고 따라 학습하며 내용을 정리한 포스팅 입니다.</p>
 </blockquote>
-<h1 id="bm-3">servlet</h1><blockquote>
-<p>톰캣과 web.xml</p>
-</blockquote>
-<ul>
+<h1 id="bm-3">servlet</h1><h3 id="bm-4">톰캣과 web.xml</h3><ul>
 <li>톰캣은 Servlet Container, Servlet Engine으로써 Servlet을 실행하여 동작합니다.</li>
 <li>web.xml 파일은 클라이언트가 어떤 URL을 요청했을 때 어떤 Servlet 파일을 실행시킬 것인지를 매핑해 놓은 파일</li>
 </ul>
-<blockquote>
-<p>Servlet 기본 구조</p>
-</blockquote>
-<ul>
+<h3 id="bm-7">Servlet 기본 구조</h3><ul>
 <li>톰캣에서 만들어 놓은 HttpServlet 클래스를 상속</li>
 <li>HTTP 요청 메서드인 Get 방식과 Post 방식을 처리하기 위해 doGet()과 doPost()를 오버라이딩<ul>
 <li>매개 변수로는 HttpServletRequest, HttpServletResponse 클래스를 정의합니다.</li>
 </ul>
 </li>
 </ul>
-<blockquote>
-<p>URL과 Servlet 매핑 - web.xml</p>
-</blockquote>
-<ul>
+<h3 id="bm-10">URL과 Servlet 매핑 - web.xml</h3><ul>
 <li>URL 매핑을 하는 방법에는 web.xml에 직접 작성하거나 어노테이션(@WebServlet(&quot;/mapping&quot;))을 작성하는 방식이 있습니다.<ul>
 <li>어노테이션과 web.xml파일의 매핑이 중복되면 톰캣 실행이 되지 않습니다.</li>
 </ul>
@@ -421,10 +437,7 @@
 </ul>
 </li>
 </ul>
-<blockquote>
-<p>(HttpServletRequest)Request / (HttpServletResponse)Response</p>
-</blockquote>
-<ul>
+<h3 id="bm-15">(HttpServletRequest)Request / (HttpServletResponse)Response</h3><ul>
 <li>두 객체는 톰캣에서 미리 작성해둔 클래스이며, HTTP 요청과 응답에 대한 정보들을 모두 갖고 있습니다.</li>
 <li>request<ul>
 <li>클라이언트가 요청할 때 함께 전송한 데이터들을 포함</li>
@@ -437,10 +450,7 @@
 </ul>
 </li>
 </ul>
-<blockquote>
-<p>Servlet 객체로 응답하기</p>
-</blockquote>
-<pre class="theme-atom-one-dark"><code class="language-java"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doGet</span><span class="hljs-params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="hljs-keyword">throws</span> ServletException, IOException {
+<h2 id="bm-18">Servlet 객체로 응답하기</h2><pre class="theme-atom-one-dark"><code class="language-java"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doGet</span><span class="hljs-params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="hljs-keyword">throws</span> ServletException, IOException {
     response.setContentType(<span class="hljs-string">&quot;text/html; charset=UTF-8&quot;</span>);
 
     <span class="hljs-type">PrintWriter</span> <span class="hljs-variable">out</span> <span class="hljs-operator">=</span> response.getWriter();

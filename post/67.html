@@ -358,6 +358,16 @@
             <div class="title t1">
                 <div><a href="#bm-1"># JDBC</a></div>
                 <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-5">## 이클립스에서 JDBC 등록하기(MySql)</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-8">### JDBC 사용하기</a></div>
+                <p>•</p>
             </div></div>
             
             
@@ -372,20 +382,14 @@
 <ul>
 <li>자바에서 데이터베이스를 사용하기 위한 절차에 대한 규약입니다.</li>
 </ul>
-<blockquote>
-<p>이클립스에서 JDBC 등록하기(MySql)</p>
-</blockquote>
-<ol>
+<h2 id="bm-5">이클립스에서 JDBC 등록하기(MySql)</h2><ol>
 <li>jar파일 다운로드 (<a href="https://dev.mysql.com/downloads/connector/j/">https://dev.mysql.com/downloads/connector/j/</a>)</li>
 <li>JDBC를 연결할 프로젝트 Properties내부의 Java Build Path 이동</li>
 <li>Libraries -&gt; Add Library... -&gt; User Library -&gt; User Libraries</li>
 <li>이름 작성 -&gt; Add External JARs -&gt; jar 파일 선택
 (mysql-connector-java-(버전)-bin.jar)</li>
 </ol>
-<blockquote>
-<p>JDBC 사용하기</p>
-</blockquote>
-<ul>
+<h3 id="bm-8">JDBC 사용하기</h3><ul>
 <li>Connection 객체를 자동완성으로 import 할 때는 com.mysql.connection이 아닌 Java 표준인 java.sql.Connection 클래스를 import 해야 한다.</li>
 </ul>
 <pre class="theme-atom-one-dark"><code class="language-java"><span class="hljs-comment">// 동적 변수가 없는 SELECT문 실행</span>
