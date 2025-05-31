@@ -1,5 +1,4 @@
 const { marked } = require('marked')
-const { markedHighlight } = require('marked-highlight')
 const hljs = require('highlight.js')
 const env = process.env.NODE_ENV
 const path = require('path')
@@ -11,28 +10,40 @@ const custom = {
     },
     image: (meta) => {
         return `<img src="${meta.href.search(/(?:\.\.\/)*docsImg\//g) > -1 ? `${custom.path[env]}/assets/img/${path.basename(meta.href)}` : meta.href}" alt="${meta.text}">`
-    }
+    },
+    code: (meta) => {
+        if (!!hljs.getLanguage(meta.lang)) {
+            const result = hljs.highlight(meta.text, { language: meta.lang })
+            return `<pre class="theme-atom-one-dark"><code class="language-${meta.lang}">${result.value}</code></pre>`
+        }
+
+        return `<pre><code class="language-plaintext"}>${meta.text}</code></pre>`
+
+    },
 }
 
 const markdown = (p) => {
-    custom.path = p
+    console.group('\x1b[43m\x1b[30m%s\x1b[0m', '\n##### [ custom.markdown ] #####')
 
-    const renderer = new marked.Renderer()
+    try {
+        custom.path = p
 
-    renderer.heading = custom.heading
-    renderer.image = custom.image
+        const renderer = new marked.Renderer()
 
-    marked.setOptions({
-        renderer: renderer,
-        highlight: (code, lang) => {
-            console.log(code, lang)
-            const validLang = hljs.getLanguage(lang) ? lang : 'plaintext';
-            return hljs.highlight(code, { language: validLang }).value;
-        },
-        langPrefix: 'hljs language-'
-    })
+        renderer.heading = custom.heading
+        renderer.image = custom.image
+        renderer.code = custom.code
 
+        marked.setOptions({
+            renderer: renderer,
+        })
 
+    } catch (err) {
+        console.error(err)
+    } finally {
+        console.groupEnd()
+        console.log('Done!!!')
+    }
 
 }
 

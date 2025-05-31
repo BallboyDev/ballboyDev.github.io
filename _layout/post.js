@@ -5,6 +5,9 @@ const assets = (param) => {
 <link rel="stylesheet" href="${assetsUrl}/markdown.css">
 <link rel="stylesheet" href="${assetsUrl}/skin.css">
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+
 <style>
     #p-${index} {
         color: rgb(76, 193, 237) !important;
@@ -56,8 +59,6 @@ const bookmark = (param) => {
     }, '')
 
     return `<div class="bookmark">${html}</div>`
-
-
 }
 
 const page = (param) => {
@@ -111,7 +112,7 @@ const page = (param) => {
                 <img class="img"
                     src="${data.url}/assets/img/github-mark-white.svg"
                     alt="" srcset="">
-                <a href="https://github.com/BallboyDev/ballboyDev.github.io">Designed by ballboyDev</a>
+                <a href="https://github.com/BallboyDev/ballboyDev.github.io" target="_blank">Designed by ballboyDev</a>
             </div>
 
         </div>
@@ -163,7 +164,6 @@ const output = (param) => {
             contents: param.contents,
         }
     }
-
 
     return page(temp)
 }

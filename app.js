@@ -56,9 +56,9 @@ const app = {
         await custom.markdown(utils.path)
         await app.mkJson();
         await app.mkNavi();
+        await app.mkMainPage();
         await app.mkPostPage();
         await app.finalWork();
-        await app.mkMainPage();
     },
     init: () => {
         console.group('\x1b[43m\x1b[30m%s\x1b[0m', '\n##### [ app.init ] #####')
@@ -154,6 +154,7 @@ const app = {
                         }
                     } else {
                         const mdFile = matter(fs.readFileSync(`${root}/${v}`, 'utf8').trim());
+                        const { birthtime, mtime } = fs.statSync(`${root}/${v}`)
                         const title = mdFile.data?.title;
                         const index = mdFile.data?.index || 0;
                         const upload = mdFile.data?.upload || false;
@@ -170,11 +171,15 @@ const app = {
                                 upload: upload,
                                 path: `${root}/${v}`,
                                 fold,
-                                date: mdFile.data?.date || '99999999',
+                                date: !!mdFile.data?.date ? dayjs(`${mdFile.data?.date}`, 'YYYYMMDD').format("YYYY-MM-DD HH:mm:ss") : dayjs(birthtime),
+                                // date: dayjs(`${mdFile.data?.date}`, 'YYYYMMDD').format("YYYY-MM-DD HH:mm:ss"),
+                                birthtime, mtime,
                                 ...mdFile.data,
                                 token: token,
                                 bookmark: token.filter((v) => { return v.type === 'heading' })
                             };
+
+                            console.log(item)
 
                             temp1[`post_${index}`] = item;
                             if (upload) {
@@ -238,7 +243,7 @@ const app = {
                         if (parseInt(root[v].index) !== 0 && (env === 'dev' || (env === 'build' && root[v].upload))) {
                             // tagList.push(`<a href="${utils.path[env]}/post/${root[v].index}.html">`)
                             tagList.push(`<a href="${utils.path[env]}/post/${root[v].index}${env === 'dev' ? '.html' : ''}">`)
-                            tagList.push(`<li id="p-${root[v].index}">${root[v]?.title || root[v]?.file}</li>`)
+                            tagList.push(`<li id="p-${root[v].index}">• ${root[v]?.title || root[v]?.file}</li>`)
                             tagList.push(`</a>`)
                         }
                     }
@@ -335,7 +340,9 @@ const app = {
         console.log('\x1b[36m[ 배포* ]  \x1b[36m[ 배포대기 ]  \x1b[33m[ 테스트 ]  \x1b[31m[ 작성중 ]\x1b[0m\n')
 
         try {
-            const posting = [`# Posting List (${dayjs().format("YYYY.MM.DD")})\n`, '||title|date|prev|next|url|', '|:-:|:--|:-:|:-:|:-:|:--|']
+            const posting = [`# Posting List (${dayjs().format("YYYY.MM.DD")})\n`, '||index|title|date|prev|next|url|', '|:-:|:-:|:--|:-:|:-:|:-:|:--|']
+            const sitemap = []
+            let index = 1;
 
             for (let i = 0; i < utils.contents.length; i++) {
                 const item = utils.contents[i]
@@ -346,19 +353,26 @@ const app = {
                 } catch (err) {
                     // console.log(err)
                     if (err.status !== 404) {
-                        console.log(`ERROR >> ${item?.title || item?.file || 'no file'}`)
+                        console.log(`ERROR [${err.status}] >> ${item?.title || item?.file || 'no file'}`)
                     }
                 }
 
                 // create posting.md
-                const text1 = `|[ ${item.index} ]|${item?.title || item?.file}|${item.date}|${item?.prev || ''}|${item?.next || ''}|${status ? `${utils.path.build}/post/${item.index}${env === 'dev' ? '.html' : ''}` : 'not yet'}|`
+                const text1 = `|${parseInt(item.index) === 0 ? '0' : index}|[ ${item.index} ]|${item?.title || item?.file}|${item.date}|${item?.prev || ''}|${item?.next || ''}|${status ? `${utils.path.build}/post/${item.index}${env === 'dev' ? '.html' : ''}` : 'not yet'}|`
                 posting.push(text1)
 
-                // ballboy / create index.md / 포스팅 리스트 레이아웃을 따로 제작하는 방향으로 개선
-                if (item.upload) {
-                    const text2 = `|[ ${item.index} ]|[${item?.title || item?.file}](${utils.path[env]}/post/${item.index}${env === 'dev' ? '.html' : ''})|${item.date}|`
-                    utils.postingList.push(text2)
+                const text2 = item.index !== 0 && !!status ? `<url><loc>${utils.path.build}/post/${item.index}</loc><lastmod>${dayjs(item.mtime).format('YYYY-MM-DD')}</lastmod><changefreq>monthly</changefreq></url>` : ''
+                sitemap.push(text2)
+
+                if (parseInt(item.index)) {
+                    index++
                 }
+
+                // ballboy / create index.md / 포스팅 리스트 레이아웃을 따로 제작하는 방향으로 개선
+                // if (item.upload) {
+                //     const text2 = `|[ ${item.index} ]|[${item?.title || item?.file}](${utils.path[env]}/post/${item.index}${env === 'dev' ? '.html' : ''})|${item.date}|`
+                //     utils.postingList.push(text2)
+                // }
 
                 let font = ''
                 if (item.upload && parseInt(item.index) !== 0) {
@@ -369,10 +383,14 @@ const app = {
                     font = '\x1b[31m%s\x1b[0m'
                 }
 
-                console.log(font, `[ ${item.index}${status ? '*' : ''} ] ${item?.title || item?.file}`); // yellow
+                console.log(font, `[ ${item.index}${status ? '*' : ''} ] ${item?.title || item?.file}`);
             }
 
             fs.writeFileSync(`${utils.path.post}/postList.md`, posting.join('\n'))
+
+            fs.writeFileSync(`${utils.path.dist}/sitemap.xml`, `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${sitemap.join('\n')}</urlset>`)
+            fs.writeFileSync(`${utils.path.dist}/robots.txt`, `User-agent: *\nAllow: /\n\nSitemap: https://ballboyDev.github.io/sitemap.xml`)
+
         } catch (err) {
             console.log(err)
         } finally {
