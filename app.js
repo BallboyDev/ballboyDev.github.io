@@ -179,8 +179,6 @@ const app = {
                                 bookmark: token.filter((v) => { return v.type === 'heading' })
                             };
 
-                            console.log(item)
-
                             temp1[`post_${index}`] = item;
                             if (upload) {
                                 temp2[`${title || path.basename(v, path.extname(v))}`] = `${utils.path.build}/post/${parseInt(index)}`
@@ -198,7 +196,7 @@ const app = {
             [utils.post, utils.json] = [...recursion(utils.path.post)]
 
             console.log('ballboy >> utils.json, utils.post')
-            fs.writeFileSync(`test.json`, JSON.stringify(utils.post))
+            // fs.writeFileSync(`test.json`, JSON.stringify(utils.post))
 
             fs.writeFileSync(`${utils.path.dist}/post.json`, JSON.stringify(utils.json))
         } catch (err) {

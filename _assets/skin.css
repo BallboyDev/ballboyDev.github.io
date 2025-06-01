@@ -246,6 +246,10 @@ body {
     border: 0.5px solid #4f4f4f;
     border-radius: 0.3rem;
 
+    /* background-color: rgba(47, 53, 63, 0.5); */
+
+    background-color: rgb(13, 17, 23);
+
     height: 1.2rem;
 
     transform-origin: 0 100% 0;
@@ -254,10 +258,12 @@ body {
     transition: transform 0.5s ease, opacity 0.5s ease;
 
     cursor: pointer;
+
+    box-shadow: -0.3rem 0.4rem 0.3rem black;
 }
 
 #contents>.bookmark>.title>div:hover {
-    background-color: rgba(47, 53, 63, 0.8);
+    background-color: rgb(51, 55, 61);
 }
 
 #contents>.bookmark>.title>p {

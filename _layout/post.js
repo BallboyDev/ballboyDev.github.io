@@ -2,6 +2,7 @@ const assets = (param) => {
     const { assetsUrl, index, fold } = param
 
     const html = `
+<link rel="icon" href="${assetsUrl}/img/bDev.ico">
 <link rel="stylesheet" href="${assetsUrl}/markdown.css">
 <link rel="stylesheet" href="${assetsUrl}/skin.css">
 

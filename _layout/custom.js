@@ -34,6 +34,7 @@ const markdown = (p) => {
         renderer.image = custom.image
         renderer.code = custom.code
 
+
         marked.setOptions({
             renderer: renderer,
         })
