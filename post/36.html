@@ -58,7 +58,7 @@
             <div class="navi">
                 <ul class="root">
 
-                    <li id="dt-1" onclick="foldNavi(1)">----- Javascript ----- (11)</li>
+                    <li id="dt-1" onclick="foldNavi(1)">----- Javascript ----- (12)</li>
 <ul id="dc-1" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/31">
 <li id="p-31">• json객체와 Map()의 비교</li>
@@ -68,6 +68,9 @@
 </a>
 <a href="https://ballboyDev.github.io/post/36">
 <li id="p-36">• console 객체 활용하기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/73">
+<li id="p-73">• node 내장 객체와 내장 모듈 사용하기</li>
 </a>
 <li id="dt-11" onclick="foldNavi(11)">expressjs (0)</li>
 <ul id="dc-11" class='dc-all' style="display: none;">
@@ -271,7 +274,7 @@
 </ul>
 
 </ul>
-<li id="dt-6" onclick="foldNavi(6)">자취생 밥 만들어 먹기 (20)</li>
+<li id="dt-6" onclick="foldNavi(6)">자취생 밥 만들어 먹기 (21)</li>
 <ul id="dc-6" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/27">
 <li id="p-27">• 내돈 내산 양념/조미료 사용 후기</li>
@@ -311,7 +314,7 @@
 </a>
 
 </ul>
-<li id="dt-63" onclick="foldNavi(63)">육식 없이는 못살아 (5)</li>
+<li id="dt-63" onclick="foldNavi(63)">삶의 에너지 고기(육식) (6)</li>
 <ul id="dc-63" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/8">
 <li id="p-8">• 국물 두루치기</li>
@@ -327,6 +330,9 @@
 </a>
 <a href="https://ballboyDev.github.io/post/37">
 <li id="p-37">• 제육볶음</li>
+</a>
+<a href="https://ballboyDev.github.io/post/72">
+<li id="p-72">• 멍게 무침</li>
 </a>
 
 </ul>
@@ -434,22 +440,22 @@
 <li>가장 기본적이며 일반 메시지를 출력하는 메서드</li>
 <li>추가 매개변수와 함께 Object 출력 가능</li>
 </ul>
-<p><img src="https://ballboyDev.github.io/assets/img/36_1.png" alt="alt text"></p>
+<p><img src="https://ballboyDev.github.io/assets/img/36_1.png" alt="console log"></p>
 <h3 id="bm-12">warn(), error()</h3><ul>
 <li>오류 및 경고 메시지 출력</li>
 </ul>
-<p><img src="https://ballboyDev.github.io/assets/img/36_2.png" alt="alt text"></p>
+<p><img src="https://ballboyDev.github.io/assets/img/36_2.png" alt="console warn, error"></p>
 <h3 id="bm-17">group(), groupCollapsed(), groupEnd()</h3><ul>
 <li>출력 메시지의 그룹을 생성해 이후 출력을 모두 한단계 들여쓰기 한다.</li>
 <li>group()과 groupCollapsed()는 동일한 기능을 지원하지만 group()과 달리 groupCollapsed()는 출력시 텍스트가 접혀 있다.</li>
 <li>그룹을 종료하기 위해서는 groupEnd()를 사용한다.</li>
 </ul>
-<p><img src="https://ballboyDev.github.io/assets/img/36_3.png" alt="alt text"></p>
+<p><img src="https://ballboyDev.github.io/assets/img/36_3.png" alt="console group"></p>
 <h3 id="bm-22">time(), timeLog(), timeEnd()</h3><ul>
 <li>시간 측정을 위한 타이머를 생성한다. 타이머는 동시에 최대 10000개 까지 생성이 가능하다.</li>
 <li>측정 중간 시간 기록을 찍기위해서는 timeLog()를 사용한다.</li>
 </ul>
-<p><img src="https://ballboyDev.github.io/assets/img/36_4.png" alt="alt text"></p>
+<p><img src="https://ballboyDev.github.io/assets/img/36_4.png" alt="console time"></p>
 <h2 id="bm-27">텍스트 꾸미기</h2><p>node 환경에서 console 객체 메서드로 출력되는 문자열의 생상을 바꿀 수 있다.
 ANSI escape code를 사용하거나 이를 지원하는 라이브러리를 사용하면 된다.
 이를 통해 좀 더 명확한 로그를 남길 수 있다.</p>
@@ -540,7 +546,7 @@ ANSI escape code를 사용하거나 이를 지원하는 라이브러리를 사�
 
 <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;\x1b[1m\x1b[31m%s\x1b[0m&#x27;</span>, <span class="hljs-string">&#x27;굵은 빨간 텍스트&#x27;</span>);
 
-<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;\x1b[36m[시안]  \x1b[33m[노랑]  \x1b[31m[빨강]  \x1b[0m[초기화]&#x27;</span>);</code></pre><p><img src="https://ballboyDev.github.io/assets/img/36_5.png" alt="alt text"></p>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;\x1b[36m[시안]  \x1b[33m[노랑]  \x1b[31m[빨강]  \x1b[0m[초기화]&#x27;</span>);</code></pre><p><img src="https://ballboyDev.github.io/assets/img/36_5.png" alt="console style"></p>
 <h3 id="bm-40">`\x1b[<코드>m`의 구조와 의미</h3><ul>
 <li><code>\x1b[&lt;코드&gt;m</code> 이 문자열은 3부분으로 구성되어 있다.</li>
 </ul>

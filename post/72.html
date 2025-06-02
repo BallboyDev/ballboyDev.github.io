@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="jrh7qB1kgowvnvE0P3KqlhI-iNmw9CvGJF4dQsaCTAk" />
     <meta name="naver-site-verification" content="6fe49ccdb8613221b89ae2d580300c63a91af446" />
-    <title>배열 생성 성능 비교</title>
+    <title>멍게 무침</title>
 
     
 <link rel="icon" href="https://ballboyDev.github.io/assets/img/bDev.ico">
@@ -18,13 +18,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
 <style>
-    #p-32 {
+    #p-72 {
         color: rgb(76, 193, 237) !important;
     }
 </style>
 <script id="data" type="application/json">
 {
-    "fold": ["1"]
+    "fold": ["6","63"]
 }
 </script>
 
@@ -376,83 +376,29 @@
             <div class="bookmark">
 
             <div class="title t1">
-                <div><a href="#bm-1"># 배열 생성 방법별 성능 비교
+                <div><a href="#bm-1"># 멍게 비빔밥
 </a></div>
                 <p>•</p>
             </div>
 
             <div class="title t2">
-                <div><a href="#bm-5">## 성능 비교</a></div>
+                <div><a href="#bm-8">## 재료
+</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t3">
-                <div><a href="#bm-6">### 코드 A - spread + map</a></div>
+                <div><a href="#bm-9">### 재료</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t3">
-                <div><a href="#bm-9">### 코드 B - Array.from</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-12">### 코드 C - 순수 for 루프</a></div>
+                <div><a href="#bm-12">### 양념/조미료</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t2">
-                <div><a href="#bm-15">## 메모리 할당</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-16">### 코드 A - spread + map</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-19">### 코드 B - Array.from</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-22">### 코드 C - 순수 for 루프</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t2">
-                <div><a href="#bm-25">## 가독성 & 유연성</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-26">### 코드 A - spread + map</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-29">### 코드 B - Array.from</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-32">### 코드 C - 순수 for 루프</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t2">
-                <div><a href="#bm-35">## 호환성</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-36">### 코드 A, 코드 B</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-39">### 코드 C</a></div>
+                <div><a href="#bm-15">## 레시피</a></div>
                 <p>•</p>
             </div></div>
             
@@ -462,87 +408,56 @@
             
             <div class="main markdown-body">
 
-                <h1 id="bm-1">배열 생성 방법별 성능 비교</h1><pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">// 코드 A - spread + map</span>
-<span class="hljs-keyword">const</span> arr1 = [...<span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>(<span class="hljs-number">100</span>)].<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">v, i</span>) =&gt;</span> {<span class="hljs-keyword">return</span> i + <span class="hljs-number">1</span>})
+                <h1 id="bm-1">멍게 비빔밥</h1><pre><code class="language-plaintext"}>마트에서 손질 멍게 2봉을 사왔다.
+한봉은 어제 멍게 비빔밥을 해 먹었는데 맛이 썩 좋았다.
+남은 한봉은 비빔밥 보단 다른 요리를 해먹고 싶어 찾아 보니 멍게 무침이 있었다.
+따뜻한 밥에 비릿 짭짤한 멍게 무침 한조각이면 나쁘지 않은 조합이 될것 같아 도전 해 보았다.</code></pre><blockquote>
+<p>난이도 ✭✭</p>
+<ul>
+<li>사실 멍게는 민락수산시장에서 신선한거 사서 회로 먹는게 최고다.</li>
+</ul>
+</blockquote>
+<p><img src="https://ballboyDev.github.io/assets/img/72_1.jpeg" alt="멍게 무침"></p>
+<h2 id="bm-8">재료</h2><h3 id="bm-9">재료</h3><ol>
+<li>손질 멍게 / 1봉</li>
+<li>다진 마늘 / 1sp</li>
+<li>다진 대파 / 적당량</li>
+<li>다진 고추 / 적당량</li>
+<li>기타 채소</li>
+</ol>
+<h3 id="bm-12">양념/조미료</h3><ol>
+<li>소금 / 0.3sp</li>
+<li>액젓 / 1sp</li>
+<li>고운 고추가루 / 1sp</li>
+<li>매실청 / 1sp<ul>
+<li>설탕이나 물엿 대체 가능</li>
+</ul>
+</li>
+<li>통깨 / 적당량</li>
+</ol>
+<h2 id="bm-15">레시피</h2><ol>
+<li><p>손질 멍게를 흐르는 물에 헹구듯이 씩고 먹기 적당한 크기로 자른 다음 체에 받쳐 물을 빼준다.</p>
+</li>
+<li><p>멍게에 소금과 액젓, 고추가루를 넣고 무쳐 준다.</p>
+<ul>
+<li>간을 보고 액젓과 소금을 추가한다.</li>
+<li>비빈 후 한동안 절여 두면 좋다.</li>
+</ul>
+</li>
+<li><p>다진 마늘과 매실청, 다진 고추를 넣고 무쳐 준다.</p>
+<ul>
+<li>새싹 채소나 양배추를 얇게 채썰어 넣어도 나쁘지 않다.</li>
+</ul>
+</li>
+<li><p>마지막으로 다진 대파와 통깨를 위에 뿌려 마무리 한다.</p>
+</li>
+<li><p>맛있게 먹는다.</p>
+</li>
+</ol>
+<pre><code class="language-plaintext"}>>> 자취생 평가 <<
 
-<span class="hljs-comment">// 코드 B - Array.from</span>
-<span class="hljs-keyword">const</span> arr2 = <span class="hljs-title class_">Array</span>.<span class="hljs-title function_">from</span>({<span class="hljs-attr">length</span>: <span class="hljs-number">100</span>}, <span class="hljs-function">(<span class="hljs-params">v, i</span>) =&gt;</span> {<span class="hljs-keyword">return</span> i + <span class="hljs-number">1</span>})
-
-<span class="hljs-comment">// 코드 C - 순수 for 루프</span>
-<span class="hljs-keyword">const</span> arr3 = []
-<span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">100</span>; i++) {
-    arr.<span class="hljs-title function_">push</span>(i)
-}</code></pre><table>
-<thead>
-<tr>
-<th align="left">항목</th>
-<th align="left">코드 A (spread + map)</th>
-<th align="left">코드 B (Array.from())</th>
-<th align="left">코드 C (for loop)</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">성능 순위</td>
-<td align="left">최하</td>
-<td align="left">중간</td>
-<td align="left">상위</td>
-</tr>
-<tr>
-<td align="left">메모리 할당</td>
-<td align="left">빈배열 할당 -&gt; map 시 새 배열 할당(이중할당)</td>
-<td align="left">배열 크기 한번에 할당, 생성</td>
-<td align="left">push 마다 내부 버퍼 관리</td>
-</tr>
-<tr>
-<td align="left">호환성</td>
-<td align="left">ES6+</td>
-<td align="left">ES6+</td>
-<td align="left">상관 없음</td>
-</tr>
-<tr>
-<td align="left">사용 예시</td>
-<td align="left">단순 상수 값 채우기 등 특수한 경우(내용이 모두 같은 경우 등)</td>
-<td align="left">가독성, 타입 안정성 중시와 적당한 성능 확보시</td>
-<td align="left">성능이 최우선인 대용량 처리 영역</td>
-</tr>
-</tbody></table>
-<h2 id="bm-5">성능 비교</h2><h3 id="bm-6">코드 A - spread + map</h3><ul>
-<li>new Array(100)으로 빈 슬롯만 있는 배열을 만든 뒤, spread로 실제 undefined 요소가 있는 배열로 복사한 다음 map을 또 한 번 순회 하므로 가장 느립니다.</li>
-<li>요소 개수가 많을 때 성능 저하기 뚜렷해집니다.</li>
-</ul>
-<h3 id="bm-9">코드 B - Array.from</h3><ul>
-<li>내부에서 배열 생성과 동시에 매핑 콜백을 실행하므로, new Array + map 처럼 &quot;배열 생성 -&gt; map 순회&quot;의 두 단계가 아니라 한번에 처리합니다.</li>
-<li>map보다는 빠르고, 순수 루프 보다는 약간 느린 중간 수준 성능을 보입니다.</li>
-</ul>
-<h3 id="bm-12">코드 C - 순수 for 루프</h3><ul>
-<li>콜백 호출 오버헤드가 전혀 없으므로 세 가지 중 가장 빠릅니다.</li>
-<li>요소 개수가 많아 질수록 map-계열보다 더 우수한 성능을 보입니다.</li>
-</ul>
-<h2 id="bm-15">메모리 할당</h2><h3 id="bm-16">코드 A - spread + map</h3><ul>
-<li>빈 배열 -&gt; spread 복사로 실제 요소 배열 할당 -&gt; map 결과 배열 또 할당 -&gt; 총 두번 배열을 만듦</li>
-</ul>
-<h3 id="bm-19">코드 B - Array.from</h3><ul>
-<li>length 기반으로 한 번만 배열 크기로 잡고, 콜백으로 바로 값을 채워 넣음</li>
-</ul>
-<h3 id="bm-22">코드 C - 순수 for 루프</h3><ul>
-<li>push 호출 시 내부 버퍼 재할당이 일어날 수 있지만, V8등 최신 엔진은 적절히 예측 및 최적화하여 큰 문제가 되지 않습니다.</li>
-</ul>
-<h2 id="bm-25">가독성 & 유연성</h2><h3 id="bm-26">코드 A - spread + map</h3><ul>
-<li>매우 간결하지만, &quot;새 Array -&gt; spread -&gt; map&quot; 조합이 직관적이지 않아 협업시 오해 가능</li>
-</ul>
-<h3 id="bm-29">코드 B - Array.from</h3><ul>
-<li>length 명시와 동시에 값 채움이라는 의도가 분명해 유지보수성과 가독성이 좋습니다.</li>
-</ul>
-<h3 id="bm-32">코드 C - 순수 for 루프</h3><ul>
-<li>가장 직관적이고 &quot;무슨 일이 일어나는지&quot; 설명이 따로 필요 없지만, 반복문 + push가 장황하게 느껴질 수 있습니다.</li>
-</ul>
-<h2 id="bm-35">호환성</h2><h3 id="bm-36">코드 A, 코드 B</h3><ul>
-<li>ES6 이상 가능 (..., Array.from 등)이 필요합니다</li>
-</ul>
-<h3 id="bm-39">코드 C</h3><ul>
-<li>아주 구형 환경에서도 운영 가능</li>
-</ul>
-
+아직은 미완의 음식인것 같다.
+몇번 더 시도해보고 최적의 조합을 찾아야 겠다.</code></pre>
 
             </div>
         </div>
