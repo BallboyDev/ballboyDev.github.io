@@ -1,65 +1,64 @@
 
-<!DOCTYPE html>
-<html lang="en">
+            <!DOCTYPE html>
+            <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="jrh7qB1kgowvnvE0P3KqlhI-iNmw9CvGJF4dQsaCTAk" />
-    <meta name="naver-site-verification" content="6fe49ccdb8613221b89ae2d580300c63a91af446" />
-    
-    
-<link rel="icon" href="https://ballboyDev.github.io/assets/img/bDev.ico">
-<link rel="stylesheet" href="https://ballboyDev.github.io/assets/markdown.css">
-<link rel="stylesheet" href="https://ballboyDev.github.io/assets/skin.css">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta name="google-site-verification" content="jrh7qB1kgowvnvE0P3KqlhI-iNmw9CvGJF4dQsaCTAk" />
+                <meta name="naver-site-verification" content="6fe49ccdb8613221b89ae2d580300c63a91af446" />
+                
+                
+            <link rel="icon" href="https://ballboyDev.github.io/assets/img/bDev.ico">
+            <link rel="stylesheet" href="https://ballboyDev.github.io/assets/markdown.css">
+            <link rel="stylesheet" href="https://ballboyDev.github.io/assets/skin.css">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
-<style>
-    #p-63 {
-        color: rgb(76, 193, 237) !important;
-    }
-</style>
-<script id="data" type="application/json">
-{
-    "fold": ["2","21"]
-}
-</script>
+            <style>
+                #p-63 {
+                    color: rgb(76, 193, 237) !important;
+                }
+            </style>
+            <script id="data" type="application/json">
+            {
+                "fold": ["2","21"]
+            }
+            </script>
 
-<script src="https://ballboyDev.github.io/assets/skin.js"></script>
-    
+            <script src="https://ballboyDev.github.io/assets/skin.js"></script>
 
-    <title>5. servlet 생명주기</title>
-</head>
+                <title>5. servlet 생명주기</title>
+            </head>
 
-<body>
-    <div id="wrapper">
-        <!-- side bar component -->
-        <div id="head-bar">
-            <img id="openNavi" class="img"
-                src="https://ballboyDev.github.io/assets/img/profile.jpeg"
-                alt="" srcset="">
-            <div class="title">심심한 개발자의 취미생활</div>
-        </div>
-        <div id="side-bar">
-            <img id="closeNavi" class="close"
-                src="https://ballboyDev.github.io/assets/img/close.svg"
-                alt="" srcset="">
-            <div class="profile">
-                <img class="img" src="https://ballboyDev.github.io/assets/img/profile.jpeg" alt="" srcset="">
-                <p>심심한 개발자의 취미생활</p>
-                <p>환영합니다.</p>
-            </div>
-            <hr />
-            <h3 class="home"><a href="https://ballboyDev.github.io">HOME</a></h3>
-            <hr />
-            
-            <h3 class="category" onclick="foldNavi()">카테고리</h3>
-            <div class="navi">
-                <ul class="root">
+            <body>
+                <div id="wrapper">
+                    <!-- side bar component -->
+                    <div id="head-bar">
+                        <img id="openNavi" class="img"
+                            src="https://ballboyDev.github.io/assets/img/profile.jpeg"
+                            alt="" srcset="">
+                        <div class="title">심심한 개발자의 취미생활</div>
+                    </div>
+                    <div id="side-bar">
+                        <img id="closeNavi" class="close"
+                            src="https://ballboyDev.github.io/assets/img/close.svg"
+                            alt="" srcset="">
+                        <div class="profile">
+                            <img class="img" src="https://ballboyDev.github.io/assets/img/profile.jpeg" alt="" srcset="">
+                            <p>심심한 개발자의 취미생활</p>
+                            <p>환영합니다.</p>
+                        </div>
+                        <hr />
+                        <h3 class="home"><a href="https://ballboyDev.github.io">HOME</a></h3>
+                        <hr />
+                        
+                        <h3 class="category" onclick="foldNavi()">카테고리</h3>
+                        <div class="navi">
+                            <ul class="root">
 
-                    <li id="dt-1" onclick="foldNavi(1)">----- Javascript ----- (12)</li>
+                                <li id="dt-1" onclick="foldNavi(1)">----- Javascript ----- (12)</li>
 <ul id="dc-1" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/31">
 <li id="p-31">• json객체와 Map()의 비교</li>
@@ -359,22 +358,22 @@
 
 </ul>
 
-                </ul>
-            </div>
+                            </ul>
+                        </div>
 
-            <div class="copyright">
-                <img class="img"
-                    src="https://ballboyDev.github.io/assets/img/github-mark-white.svg"
-                    alt="" srcset="">
-                <a href="https://github.com/BallboyDev/ballboyDev.github.io" target="_blank">Designed by ballboyDev</a>
-            </div>
+                        <div class="copyright">
+                            <img class="img"
+                                src="https://ballboyDev.github.io/assets/img/github-mark-white.svg"
+                                alt="" srcset="">
+                            <a href="https://github.com/BallboyDev/ballboyDev.github.io" target="_blank">Designed by ballboyDev</a>
+                        </div>
 
-        </div>
+                    </div>
 
-        <!-- contents component -->
-        <div id="contents">
+                    <!-- contents component -->
+                    <div id="contents">
 
-            <div class="bookmark">
+                        <div class="bookmark">
 
             <div class="title t1">
                 <div><a href="#bm-3"># servlet 생명 주기 (Life Cycle)</a></div>
@@ -390,22 +389,20 @@
                 <div><a href="#bm-9">### LifeCycleServlet.java</a></div>
                 <p>•</p>
             </div></div>
-            
-            
-<a href="https://ballboyDev.github.io/post/62.html" class="prev post">
-    <img src="https://ballboyDev.github.io/assets/img/prev.svg" alt="" srcset="">
-</a>
-    
-            
-            
-<a href="https://ballboyDev.github.io/post/64.html" class="next post">
-    <img src="https://ballboyDev.github.io/assets/img/next.svg" alt="" srcset="">
-</a>
-    
-            
-            <div class="main markdown-body">
+                        
+                        
+            <a href="https://ballboyDev.github.io/post/62.html" class="prev post">
+                <img src="https://ballboyDev.github.io/assets/img/prev.svg" alt="" srcset="">
+            </a>
+                        
+                        
+            <a href="https://ballboyDev.github.io/post/64.html" class="next post">
+                <img src="https://ballboyDev.github.io/assets/img/next.svg" alt="" srcset="">
+            </a>
+                        
+                        <div class="main markdown-body">
 
-                <blockquote>
+                            <blockquote>
 <p>본 글은 <a href="https://victorydntmd.tistory.com/category/%EC%9B%B9%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/JSP%20%26%20Servlet">victolee</a>님의 포스팅을 보고 따라 학습하며 내용을 정리한 포스팅 입니다.</p>
 </blockquote>
 <h1 id="bm-3">servlet 생명 주기 (Life Cycle)</h1><ul>
@@ -474,19 +471,21 @@ Servlet은 객체를 생성하고 초기화 작업을 거친 후, 요청을 처�
 </ul>
 
 
-            </div>
+                        </div>
 
-            
-<div class="utterances" style="height: 269px;">
-    <iframe class="utterances-frame" title="Comments" scrolling="no" src="https://utteranc.es/utterances.html?src=https%3A%2F%2Futteranc.es%2Fclient.js&amp;repo=ballboyDev%2Fpersonal-storage&amp;issue-term=pathname&amp;label=comments&amp;theme=github-dark&amp;crossorigin=anonymous&amp;async=&amp;url=https%3A%2F%2Fballboydev.github.io%2Fpost%2F27&amp;origin=https%3A%2F%2Fballboydev.github.io&amp;pathname=post%2F27&amp;title=%EB%82%B4%EB%8F%88+%EB%82%B4%EC%82%B0+%EC%96%91%EB%85%90%2F%EC%A1%B0%EB%AF%B8%EB%A3%8C+%EC%82%AC%EC%9A%A9+%ED%9B%84%EA%B8%B0&amp;description=&amp;og%3Atitle=&amp;session=5042febae81a9e9d337aa237ptPDl1LoPdfJXLxN4yc0lh1JCLlk%2FKodA4ZCMw9O0iOEfIjPQRRtorKWicaZyWYkbwdKsxhc8wG7NqlrbC%2Ba1QmVrKpaJEY8Ckp6RpcHE1gFEvoWoKKbOXe0N%2Fk%3D" loading="lazy"></iframe>
-  </div>
+                        () => {
+        return `
+            <script src="https://utteranc.es/client.js"
+                repo="ballboyDev/personal-storage"
+                issue-term="pathname"
+                label="comments"
+                theme="github-dark"
+                crossorigin="anonymous"
+                async>
+            </script>`
+    }
 
-
-        </div>
-
-        
-    </div>
-</body>
-
-</html>
-    
+                    </div>
+                </div>
+            </body>
+            </html>

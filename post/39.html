@@ -1,65 +1,64 @@
 
-<!DOCTYPE html>
-<html lang="en">
+            <!DOCTYPE html>
+            <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="jrh7qB1kgowvnvE0P3KqlhI-iNmw9CvGJF4dQsaCTAk" />
-    <meta name="naver-site-verification" content="6fe49ccdb8613221b89ae2d580300c63a91af446" />
-    
-    
-<link rel="icon" href="https://ballboyDev.github.io/assets/img/bDev.ico">
-<link rel="stylesheet" href="https://ballboyDev.github.io/assets/markdown.css">
-<link rel="stylesheet" href="https://ballboyDev.github.io/assets/skin.css">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta name="google-site-verification" content="jrh7qB1kgowvnvE0P3KqlhI-iNmw9CvGJF4dQsaCTAk" />
+                <meta name="naver-site-verification" content="6fe49ccdb8613221b89ae2d580300c63a91af446" />
+                
+                
+            <link rel="icon" href="https://ballboyDev.github.io/assets/img/bDev.ico">
+            <link rel="stylesheet" href="https://ballboyDev.github.io/assets/markdown.css">
+            <link rel="stylesheet" href="https://ballboyDev.github.io/assets/skin.css">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
-<style>
-    #p-39 {
-        color: rgb(76, 193, 237) !important;
-    }
-</style>
-<script id="data" type="application/json">
-{
-    "fold": ["4","41"]
-}
-</script>
+            <style>
+                #p-39 {
+                    color: rgb(76, 193, 237) !important;
+                }
+            </style>
+            <script id="data" type="application/json">
+            {
+                "fold": ["4","41"]
+            }
+            </script>
 
-<script src="https://ballboyDev.github.io/assets/skin.js"></script>
-    
+            <script src="https://ballboyDev.github.io/assets/skin.js"></script>
 
-    <title>MongoDB 소개 및 데이터 모델링</title>
-</head>
+                <title>MongoDB 소개 및 데이터 모델링</title>
+            </head>
 
-<body>
-    <div id="wrapper">
-        <!-- side bar component -->
-        <div id="head-bar">
-            <img id="openNavi" class="img"
-                src="https://ballboyDev.github.io/assets/img/profile.jpeg"
-                alt="" srcset="">
-            <div class="title">심심한 개발자의 취미생활</div>
-        </div>
-        <div id="side-bar">
-            <img id="closeNavi" class="close"
-                src="https://ballboyDev.github.io/assets/img/close.svg"
-                alt="" srcset="">
-            <div class="profile">
-                <img class="img" src="https://ballboyDev.github.io/assets/img/profile.jpeg" alt="" srcset="">
-                <p>심심한 개발자의 취미생활</p>
-                <p>환영합니다.</p>
-            </div>
-            <hr />
-            <h3 class="home"><a href="https://ballboyDev.github.io">HOME</a></h3>
-            <hr />
-            
-            <h3 class="category" onclick="foldNavi()">카테고리</h3>
-            <div class="navi">
-                <ul class="root">
+            <body>
+                <div id="wrapper">
+                    <!-- side bar component -->
+                    <div id="head-bar">
+                        <img id="openNavi" class="img"
+                            src="https://ballboyDev.github.io/assets/img/profile.jpeg"
+                            alt="" srcset="">
+                        <div class="title">심심한 개발자의 취미생활</div>
+                    </div>
+                    <div id="side-bar">
+                        <img id="closeNavi" class="close"
+                            src="https://ballboyDev.github.io/assets/img/close.svg"
+                            alt="" srcset="">
+                        <div class="profile">
+                            <img class="img" src="https://ballboyDev.github.io/assets/img/profile.jpeg" alt="" srcset="">
+                            <p>심심한 개발자의 취미생활</p>
+                            <p>환영합니다.</p>
+                        </div>
+                        <hr />
+                        <h3 class="home"><a href="https://ballboyDev.github.io">HOME</a></h3>
+                        <hr />
+                        
+                        <h3 class="category" onclick="foldNavi()">카테고리</h3>
+                        <div class="navi">
+                            <ul class="root">
 
-                    <li id="dt-1" onclick="foldNavi(1)">----- Javascript ----- (12)</li>
+                                <li id="dt-1" onclick="foldNavi(1)">----- Javascript ----- (12)</li>
 <ul id="dc-1" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/31">
 <li id="p-31">• json객체와 Map()의 비교</li>
@@ -359,22 +358,22 @@
 
 </ul>
 
-                </ul>
-            </div>
+                            </ul>
+                        </div>
 
-            <div class="copyright">
-                <img class="img"
-                    src="https://ballboyDev.github.io/assets/img/github-mark-white.svg"
-                    alt="" srcset="">
-                <a href="https://github.com/BallboyDev/ballboyDev.github.io" target="_blank">Designed by ballboyDev</a>
-            </div>
+                        <div class="copyright">
+                            <img class="img"
+                                src="https://ballboyDev.github.io/assets/img/github-mark-white.svg"
+                                alt="" srcset="">
+                            <a href="https://github.com/BallboyDev/ballboyDev.github.io" target="_blank">Designed by ballboyDev</a>
+                        </div>
 
-        </div>
+                    </div>
 
-        <!-- contents component -->
-        <div id="contents">
+                    <!-- contents component -->
+                    <div id="contents">
 
-            <div class="bookmark">
+                        <div class="bookmark">
 
             <div class="title t1">
                 <div><a href="#bm-1"># MongoDB 소개 및 데이터 모델링</a></div>
@@ -430,18 +429,17 @@
                 <div><a href="#bm-28">### 예제</a></div>
                 <p>•</p>
             </div></div>
-            
-            
-            
-            
-<a href="https://ballboyDev.github.io/post/40.html" class="next post">
-    <img src="https://ballboyDev.github.io/assets/img/next.svg" alt="" srcset="">
-</a>
-    
-            
-            <div class="main markdown-body">
+                        
+                        
+                        
+                        
+            <a href="https://ballboyDev.github.io/post/40.html" class="next post">
+                <img src="https://ballboyDev.github.io/assets/img/next.svg" alt="" srcset="">
+            </a>
+                        
+                        <div class="main markdown-body">
 
-                <h1 id="bm-1">MongoDB 소개 및 데이터 모델링</h1><h2 id="bm-2">참고 사이트</h2><p><a href="https://velopert.com/category/dev-log/tech-log/mongodb">https://velopert.com/category/dev-log/tech-log/mongodb</a></p>
+                            <h1 id="bm-1">MongoDB 소개 및 데이터 모델링</h1><h2 id="bm-2">참고 사이트</h2><p><a href="https://velopert.com/category/dev-log/tech-log/mongodb">https://velopert.com/category/dev-log/tech-log/mongodb</a></p>
 <h2 id="bm-5">소개</h2><p>MongoDB는 C++로 작성된 오픈소스 문서 지향적 Cross-platform 데이터 베이스이며, 뛰어난 확장성과 성능을 자랑합니다.</p>
 <h3 id="bm-8">Document</h3><ul>
 <li>Document는 RDMS의 recode와 비슷한 개념으로, 이의 데이터 구조는 한개이상의 key-value 쌍으로 이루어져 있습니다.</li>
@@ -542,19 +540,21 @@ _id는 12bytes의 hexadecimal 값으로, 각 document의 유일함(uniqueness)�
     <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span></code></pre>
 
-            </div>
+                        </div>
 
-            
-<div class="utterances" style="height: 269px;">
-    <iframe class="utterances-frame" title="Comments" scrolling="no" src="https://utteranc.es/utterances.html?src=https%3A%2F%2Futteranc.es%2Fclient.js&amp;repo=ballboyDev%2Fpersonal-storage&amp;issue-term=pathname&amp;label=comments&amp;theme=github-dark&amp;crossorigin=anonymous&amp;async=&amp;url=https%3A%2F%2Fballboydev.github.io%2Fpost%2F27&amp;origin=https%3A%2F%2Fballboydev.github.io&amp;pathname=post%2F27&amp;title=%EB%82%B4%EB%8F%88+%EB%82%B4%EC%82%B0+%EC%96%91%EB%85%90%2F%EC%A1%B0%EB%AF%B8%EB%A3%8C+%EC%82%AC%EC%9A%A9+%ED%9B%84%EA%B8%B0&amp;description=&amp;og%3Atitle=&amp;session=5042febae81a9e9d337aa237ptPDl1LoPdfJXLxN4yc0lh1JCLlk%2FKodA4ZCMw9O0iOEfIjPQRRtorKWicaZyWYkbwdKsxhc8wG7NqlrbC%2Ba1QmVrKpaJEY8Ckp6RpcHE1gFEvoWoKKbOXe0N%2Fk%3D" loading="lazy"></iframe>
-  </div>
+                        () => {
+        return `
+            <script src="https://utteranc.es/client.js"
+                repo="ballboyDev/personal-storage"
+                issue-term="pathname"
+                label="comments"
+                theme="github-dark"
+                crossorigin="anonymous"
+                async>
+            </script>`
+    }
 
-
-        </div>
-
-        
-    </div>
-</body>
-
-</html>
-    
+                    </div>
+                </div>
+            </body>
+            </html>
