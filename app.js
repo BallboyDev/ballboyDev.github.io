@@ -29,6 +29,7 @@ const utils = {
 
         // 운영 환경 배포 경로
         build: 'https://ballboyDev.github.io',
+        // build: 'https://lazyDev500.github.io',
     },
     post: {},           // 블로그 생성을 위한 기초 json 데이터
     json: {},           // 단축어 등 외부 기능 활용을 위한 포스팅 글 URL 제공 json 데이터
@@ -168,15 +169,14 @@ const app = {
                                 title,
                                 file: path.basename(v, path.extname(v)),
                                 index: parseInt(index),
-                                upload: upload,
                                 path: `${root}/${v}`,
                                 fold,
                                 date: !!mdFile.data?.date ? dayjs(`${mdFile.data?.date}`, 'YYYYMMDD').format("YYYY-MM-DD HH:mm:ss") : dayjs(birthtime),
                                 // date: dayjs(`${mdFile.data?.date}`, 'YYYYMMDD').format("YYYY-MM-DD HH:mm:ss"),
                                 birthtime, mtime,
-                                ...mdFile.data,
                                 token: token,
-                                bookmark: token.filter((v) => { return v.type === 'heading' })
+                                bookmark: token.filter((v) => { return v.type === 'heading' && v.depth <= 3 }),
+                                ...mdFile.data,
                             };
 
                             temp1[`post_${index}`] = item;
@@ -196,7 +196,8 @@ const app = {
             [utils.post, utils.json] = [...recursion(utils.path.post)]
 
             console.log('ballboy >> utils.json, utils.post')
-            // fs.writeFileSync(`test.json`, JSON.stringify(utils.post))
+
+            fs.writeFileSync(`test.json`, JSON.stringify(utils.json))
 
             fs.writeFileSync(`${utils.path.dist}/post.json`, JSON.stringify(utils.json))
         } catch (err) {
@@ -272,10 +273,7 @@ const app = {
             const metaData = {
                 env: env,
                 url: utils.path[env],
-                index: 0,
                 fold: [],
-                prev: 0,
-                next: 0,
                 navi: utils.navi,
                 contents: htmlFile
             }
@@ -314,11 +312,11 @@ const app = {
                     url: utils.path[env],
                     index: v.index,
                     fold: v.fold,
-                    prev: v.prev || 0,
-                    next: v.next || 0,
                     navi: utils.navi,
                     contents: htmlFile,
-                    bookmark: v.bookmark
+                    bookmark: v.bookmark,
+                    comment: v.comment,
+                    link: v.link
                 }
 
                 const result = post.output(metaData)
@@ -356,7 +354,9 @@ const app = {
                 }
 
                 // create posting.md
-                const text1 = `|${parseInt(item.index) === 0 ? '0' : index}|[ ${item.index} ]|${item?.title || item?.file}|${item.date}|${item?.prev || ''}|${item?.next || ''}|${status ? `${utils.path.build}/post/${item.index}${env === 'dev' ? '.html' : ''}` : 'not yet'}|`
+                const [prev, next] = !!item?.link ? item.link.split('/') : [0, 0]
+
+                const text1 = `|${parseInt(item.index) === 0 ? '0' : index}|[ ${item.index} ]|${item?.title || item?.file}|${item.date}|${parseInt(prev) !== 0 ? prev : ''}|${parseInt(next) !== 0 ? next : ''}|${status ? `${utils.path.build}/post/${item.index}${env === 'dev' ? '.html' : ''}` : 'not yet'}|`
                 posting.push(text1)
 
                 const text2 = item.index !== 0 && !!status ? `<url><loc>${utils.path.build}/post/${item.index}</loc><lastmod>${dayjs(item.mtime).format('YYYY-MM-DD')}</lastmod><changefreq>monthly</changefreq></url>` : ''
@@ -385,6 +385,7 @@ const app = {
             }
 
             fs.writeFileSync(`${utils.path.post}/postList.md`, posting.join('\n'))
+            fs.writeFileSync(`${utils.path.dist}/postList.html`, marked.parse(posting.join('\n')))
 
             fs.writeFileSync(`${utils.path.dist}/sitemap.xml`, `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${sitemap.join('\n')}</urlset>`)
             fs.writeFileSync(`${utils.path.dist}/robots.txt`, `User-agent: *\nAllow: /\n\nSitemap: https://ballboyDev.github.io/sitemap.xml`)
