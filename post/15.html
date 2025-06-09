@@ -29,7 +29,7 @@
 
             <script src="https://ballboyDev.github.io/assets/skin.js"></script>
 
-                <title>docker 기본 명령어 및 run 옵션 정리</title>
+                <title>docker 기본 명령어 및 실행 옵션 정리</title>
             </head>
 
             <body>
@@ -149,12 +149,15 @@
 </ul>
 
 </ul>
-<li id="dt-3" onclick="foldNavi(3)">----- Infra ----- (1)</li>
+<li id="dt-3" onclick="foldNavi(3)">----- Infra ----- (2)</li>
 <ul id="dc-3" class='dc-all' style="display: none;">
-<li id="dt-31" onclick="foldNavi(31)">Docker (1)</li>
+<li id="dt-31" onclick="foldNavi(31)">Docker (2)</li>
 <ul id="dc-31" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/15">
-<li id="p-15">• docker 기본 명령어 및 run 옵션 정리</li>
+<li id="p-15">• docker 기본 명령어 및 실행 옵션 정리</li>
+</a>
+<a href="https://ballboyDev.github.io/post/77">
+<li id="p-77">• docker mariadb setting</li>
 </a>
 
 </ul>
@@ -274,7 +277,7 @@
 </ul>
 
 </ul>
-<li id="dt-6" onclick="foldNavi(6)">자취생 밥 만들어 먹기 (22)</li>
+<li id="dt-6" onclick="foldNavi(6)">자취생 밥 만들어 먹기 (23)</li>
 <ul id="dc-6" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/27">
 <li id="p-27">• 내돈 내산 양념/조미료 사용 후기</li>
@@ -326,10 +329,10 @@
 <li id="p-12">• 삼겹살 덮밥</li>
 </a>
 <a href="https://ballboyDev.github.io/post/26">
-<li id="p-26">• 전자레인지로 대패 삼겹살 솥밥 만들기</li>
+<li id="p-26">• 전자레인지 대패 삼겹살 솥밥</li>
 </a>
 <a href="https://ballboyDev.github.io/post/30">
-<li id="p-30">• 멍게 비빔밥 만들기</li>
+<li id="p-30">• 멍게 비빔밥</li>
 </a>
 <a href="https://ballboyDev.github.io/post/37">
 <li id="p-37">• 제육볶음</li>
@@ -339,7 +342,7 @@
 </a>
 
 </ul>
-<li id="dt-64" onclick="foldNavi(64)">면 러버의 면 사랑 요리 (5)</li>
+<li id="dt-64" onclick="foldNavi(64)">면 러버의 면 사랑 요리 (6)</li>
 <ul id="dc-64" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/25">
 <li id="p-25">• 내 멋대로 알리오 올리오</li>
@@ -355,6 +358,9 @@
 </a>
 <a href="https://ballboyDev.github.io/post/70">
 <li id="p-70">• 라면 요리 - 마늘 해장 라면</li>
+</a>
+<a href="https://ballboyDev.github.io/post/76">
+<li id="p-76">• 라면 요리 - 대파 해장 라면</li>
 </a>
 
 </ul>
@@ -493,25 +499,25 @@ docker <span class="hljs-built_in">rm</span> -f $(docker ps -a -q)</code></pre><
 <li>Docker run 커맨드 기본 포멧</li>
 </ul>
 <pre class="theme-atom-one-dark"><code class="language-bash">docker run (&lt;options&gt;) &lt;imageId&gt; (&lt;<span class="hljs-built_in">command</span>&gt;) (&lt;parameter&gt;)</code></pre><ul>
-<li><code>-d</code> option<ul>
+<li><code>-d</code>, <code>--detach</code> option<ul>
 <li><code>-d</code> 옵션을 사용하면 컨테이너가 detached 모드에서 실행되며, 실행 결과로 컨테이너 ID만을 출력합니다.</li>
 <li><code>-d</code> 옵션없이 실행했다면 해당 터미널에서 <code>command c</code> 를 눌러서 빠져 나오는 순간 해당 컨테이너는 종료 됩니다.</li>
 </ul>
 </li>
 </ul>
 <pre class="theme-atom-one-dark"><code class="language-bash">docker run -d python:3.8-alpine</code></pre><ul>
-<li><p><code>—-interactive</code> option</p>
+<li><p><code>--interactive</code> option</p>
 <ul>
 <li>컨테이너 접속 상태 유지 옵션</li>
 </ul>
 </li>
-<li><p><code>—-tty</code> option</p>
+<li><p><code>--tty</code> option</p>
 <ul>
 <li>터미널 세션을 통한 컨테이너 조작 옵션</li>
 </ul>
 </li>
 </ul>
-<pre class="theme-atom-one-dark"><code class="language-bash">docker run —interaction —<span class="hljs-built_in">tty</span> [image]:[tag]</code></pre><ul>
+<pre class="theme-atom-one-dark"><code class="language-bash">docker run --interaction —<span class="hljs-built_in">tty</span> [image]:[tag]</code></pre><ul>
 <li><code>-it</code> option<ul>
 <li><code>-i</code>옵션과 <code>-t</code>옵션은 함께 쓰이면 컨테이너를 종료하지 않은체로, 터미널의 입력을 계속해서 컨테이너로 전달하기 위해서 사용합니다.</li>
 </ul>
@@ -521,12 +527,12 @@ docker <span class="hljs-built_in">rm</span> -f $(docker ps -a -q)</code></pre><
 
 docker run -it python:3.8-alpine /bin/sh</code></pre><ul>
 <li><code>--name</code> option<ul>
-<li><code>—-name</code> 옵션을 사용하여 컨테이너에 이름을 부여할수 있습니다. </li>
+<li><code>--name</code> 옵션을 사용하여 컨테이너에 이름을 부여할수 있습니다. </li>
 <li>부여된 이름으로 컨테이너를 식별 할 수 있습니다.</li>
 </ul>
 </li>
 </ul>
-<pre class="theme-atom-one-dark"><code class="language-bash">docker run -d —-name my-server python:3.8-alpine python -m http.server
+<pre class="theme-atom-one-dark"><code class="language-bash">docker run -d --name my-server python:3.8-alpine python -m http.server
 docker ps
 docker <span class="hljs-built_in">kill</span> my-server
 docker <span class="hljs-built_in">rm</span> my-server</code></pre><ul>
@@ -559,18 +565,18 @@ docker run -v `<span class="hljs-built_in">pwd</span>`:etc python:3.8-alpine <sp
 </li>
 </ul>
 <pre class="theme-atom-one-dark"><code class="language-bash">docker run -w /etc python:3.8-alpine <span class="hljs-built_in">pwd</span></code></pre><ul>
-<li><code>—-entrypoint</code> option<ul>
-<li><code>—-entrypoint</code> 옵션은 Dockerfile의 ENTRYPOINT 설정을 덮어쓰기 위해서 사용합니다.</li>
+<li><code>--entrypoint</code> option<ul>
+<li><code>--entrypoint</code> 옵션은 Dockerfile의 ENTRYPOINT 설정을 덮어쓰기 위해서 사용합니다.</li>
 </ul>
 </li>
 </ul>
-<pre class="theme-atom-one-dark"><code class="language-bash">docker run —-entrypoint python python:3.8-alpine —-version</code></pre><ul>
-<li><code>—-rm</code> option<ul>
-<li><code>—-rm</code> 옵션은 컨테이너가 종료될 때 컨테이너와 관련된 리소스(파일 시스템, 볼륨) 까지 깨끗이 제거합니다.</li>
+<pre class="theme-atom-one-dark"><code class="language-bash">docker run --entrypoint python python:3.8-alpine --version</code></pre><ul>
+<li><code>--rm</code> option<ul>
+<li><code>--rm</code> 옵션은 컨테이너가 종료될 때 컨테이너와 관련된 리소스(파일 시스템, 볼륨) 까지 깨끗이 제거합니다.</li>
 </ul>
 </li>
 </ul>
-<pre class="theme-atom-one-dark"><code class="language-bash">docker run —-<span class="hljs-built_in">rm</span> -it wernight/funbox nyancat</code></pre>
+<pre class="theme-atom-one-dark"><code class="language-bash">docker run --<span class="hljs-built_in">rm</span> -it wernight/funbox nyancat</code></pre>
 
                         </div>
 
