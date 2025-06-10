@@ -149,15 +149,18 @@
 </ul>
 
 </ul>
-<li id="dt-3" onclick="foldNavi(3)">----- Infra ----- (2)</li>
+<li id="dt-3" onclick="foldNavi(3)">----- Infra ----- (3)</li>
 <ul id="dc-3" class='dc-all' style="display: none;">
-<li id="dt-31" onclick="foldNavi(31)">Docker (2)</li>
+<li id="dt-31" onclick="foldNavi(31)">Docker (3)</li>
 <ul id="dc-31" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/15">
 <li id="p-15">• docker 기본 명령어 및 실행 옵션 정리</li>
 </a>
 <a href="https://ballboyDev.github.io/post/77">
 <li id="p-77">• docker mariadb setting</li>
+</a>
+<a href="https://ballboyDev.github.io/post/78">
+<li id="p-78">• docker mongodb setting</li>
 </a>
 
 </ul>
@@ -426,7 +429,11 @@ docker run --detach --name dev-mariadb --<span class="hljs-built_in">env</span> 
 docker run --name dev-mariadb --<span class="hljs-built_in">env</span> MARIADB_RANDOM_ROOT_PASSWORD=1 mariadb:latest</code></pre><ul>
 <li><a href="https://mariadb.com/kb/en/mariadb-server-docker-official-image-environment-variables/">MariaDB Docker image options</a></li>
 </ul>
-<h3 id="bm-10">MariaDB 컨테이너 접속</h3><pre class="theme-atom-one-dark"><code class="language-sh">docker <span class="hljs-built_in">exec</span> -it dev-mariadb /bin/bash</code></pre><h3 id="bm-13">DB 접속</h3><pre class="theme-atom-one-dark"><code class="language-sh">mariadb -u root -p</code></pre>
+<h3 id="bm-10">MariaDB 컨테이너 접속</h3><pre class="theme-atom-one-dark"><code class="language-sh">docker <span class="hljs-built_in">exec</span> -it dev-mariadb /bin/bash</code></pre><h3 id="bm-13">DB 접속</h3><pre class="theme-atom-one-dark"><code class="language-sh"><span class="hljs-comment"># docker 내부에서 접근</span>
+mariadb -u root -p
+
+<span class="hljs-comment"># local에서 Docker DB로 접근</span>
+mariadb -h 127.0.0.1 -P 3306 -u root -p</code></pre>
 
                         </div>
 

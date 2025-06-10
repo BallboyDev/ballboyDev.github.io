@@ -17,19 +17,19 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
             <style>
-                #p-60 {
+                #p-78 {
                     color: rgb(76, 193, 237) !important;
                 }
             </style>
             <script id="data" type="application/json">
             {
-                "fold": ["2","21"]
+                "fold": ["3","31"]
             }
             </script>
 
             <script src="https://ballboyDev.github.io/assets/skin.js"></script>
 
-                <title>2. Servlet, Dao, Vo</title>
+                <title>docker mongodb setting</title>
             </head>
 
             <body>
@@ -388,167 +388,53 @@
                         <div class="bookmark">
 
             <div class="title t1">
-                <div><a href="#bm-3"># Servlet / DAO / VO(DTO)</a></div>
+                <div><a href="#bm-1"># Docker로 MongoDB community server Setting 하기
+</a></div>
                 <p>•</p>
             </div>
 
-            <div class="title t2">
-                <div><a href="#bm-7">## JDBC 설정</a></div>
+            <div class="title t3">
+                <div><a href="#bm-2">### MongoDB image 설치</a></div>
                 <p>•</p>
             </div>
 
-            <div class="title t2">
-                <div><a href="#bm-11">## Dao 클래스 생성</a></div>
+            <div class="title t3">
+                <div><a href="#bm-5">### MongoDB 컨테이너 생성 및 실행</a></div>
                 <p>•</p>
             </div>
 
-            <div class="title t2">
-                <div><a href="#bm-14">## Servlet 작성</a></div>
+            <div class="title t3">
+                <div><a href="#bm-11">### MongoDB 컨테이너 접속</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-14">### DB 접속</a></div>
                 <p>•</p>
             </div></div>
                         
                         
-            <a href="https://ballboyDev.github.io/post/59.html" class="prev post">
-                <img src="https://ballboyDev.github.io/assets/img/prev.svg" alt="" srcset="">
-            </a>
                         
                         
-            <a href="https://ballboyDev.github.io/post/61.html" class="next post">
-                <img src="https://ballboyDev.github.io/assets/img/next.svg" alt="" srcset="">
-            </a>
                         
                         <div class="main markdown-body">
 
-                            <blockquote>
-<p>본 글은 <a href="https://victorydntmd.tistory.com/category/%EC%9B%B9%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/JSP%20%26%20Servlet">victolee</a>님의 포스팅을 보고 따라 학습하며 내용을 정리한 포스팅 입니다.</p>
-</blockquote>
-<h1 id="bm-3">Servlet / DAO / VO(DTO)</h1><blockquote>
-<p>DAO(Data Access Object)<br/>
-VO(Value Object) / DTO(Data Transfer Object)</p>
-</blockquote>
-<ul>
-<li>DAO<ul>
-<li>DB 질의를 통해 데이터에 접근하는 객체</li>
-</ul>
-</li>
-<li>VO <ul>
-<li>DB 테이블의 컬럼 값을 java에서 객체로 다루기 위한 객체</li>
-</ul>
-</li>
-</ul>
-<h2 id="bm-7">JDBC 설정</h2><ul>
-<li>JDBC 라이브러치 추가(이전 JDBC 라이브러리 추가 방법 참조)</li>
-<li>Deployment Assembly 설정</li>
-</ul>
-<ol>
-<li>프로젝트 Properties -&gt; Deployment Assemply -&gt; Add...</li>
-<li>Jaav Build Path Entries -&gt; 이전에 생성한 JDBC 라이브러리 선택 -&gt; Apply</li>
-</ol>
-<h2 id="bm-11">Dao 클래스 생성</h2><pre class="theme-atom-one-dark"><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">UserDao</span> {
-	<span class="hljs-keyword">private</span> Connection <span class="hljs-title function_">getConnection</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> SQLException {
-		<span class="hljs-type">Connection</span> <span class="hljs-variable">conn</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
-		
-		<span class="hljs-keyword">try</span> {
-			Class.forName(<span class="hljs-string">&quot;com.mysql.jdbc.Driver&quot;</span>);
-			
-			<span class="hljs-type">String</span> <span class="hljs-variable">url</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;jdbc:mysql://localhost/연결DB명&quot;</span>;
-			conn = DriverManager.getConnection(url, 아이디, 패스워드);
-		} <span class="hljs-keyword">catch</span> (ClassNotFoundException e) {
-			System.out.println(<span class="hljs-string">&quot;드라이버 로딩 실패&quot;</span>);
-		}
-		
-		<span class="hljs-keyword">return</span> conn;
-	}
-	
-	<span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">insert</span><span class="hljs-params">(UserVo vo)</span> {
-		<span class="hljs-type">boolean</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;
-		<span class="hljs-type">Connection</span> <span class="hljs-variable">conn</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
-		<span class="hljs-type">PreparedStatement</span> <span class="hljs-variable">pstmt</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
-		
-		<span class="hljs-keyword">try</span> {
-			conn = getConnection();
-			
-			<span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;INSERT INTO USER VALUES (null, ?, ?, ?)&quot;</span>;
-			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setString(<span class="hljs-number">1</span>, vo.getName());
-			pstmt.setString(<span class="hljs-number">2</span>, vo.getEmail());
-			pstmt.setString(<span class="hljs-number">3</span>, vo.getPwd());
-			
-			<span class="hljs-type">int</span> <span class="hljs-variable">count</span> <span class="hljs-operator">=</span> pstmt.executeUpdate();
-			
-			result = (count == <span class="hljs-number">1</span>);
-		} <span class="hljs-keyword">catch</span>(SQLException e) {
-			e.printStackTrace();
-		} <span class="hljs-keyword">finally</span> {
-			<span class="hljs-keyword">try</span> {
-				<span class="hljs-keyword">if</span>(conn != <span class="hljs-literal">null</span> &amp;&amp; !conn.isClosed()) {
-					conn.close();
-				}
-				<span class="hljs-keyword">if</span>(pstmt != <span class="hljs-literal">null</span> &amp;&amp; !pstmt.isClosed()) {
-					pstmt.close();
-				}
-			} <span class="hljs-keyword">catch</span> (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		
-		<span class="hljs-keyword">return</span> result;
-	}
-	
-	<span class="hljs-keyword">public</span> UserVo <span class="hljs-title function_">select</span><span class="hljs-params">(UserVo vo)</span> {
-		<span class="hljs-type">Connection</span> <span class="hljs-variable">conn</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
-		<span class="hljs-type">PreparedStatement</span> <span class="hljs-variable">pstmt</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
-		<span class="hljs-type">ResultSet</span> <span class="hljs-variable">rs</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
-		<span class="hljs-type">UserVo</span> <span class="hljs-variable">resultVo</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">UserVo</span>();
-		
-		<span class="hljs-keyword">try</span> {
-			conn = getConnection();
-			
-			<span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;SELECT NAME, EMAIL, PWD FROM USER WHERE NAME = ?&quot;</span>;
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(<span class="hljs-number">1</span>, vo.getName());
-			rs = pstmt.executeQuery();
-			
-			<span class="hljs-keyword">while</span>(rs.next()) {
-				resultVo.setName(rs.getString(<span class="hljs-number">1</span>));
-				resultVo.setEmail(rs.getString(<span class="hljs-number">2</span>));
-				resultVo.setPwd(rs.getString(<span class="hljs-number">3</span>));
-			}
-		} <span class="hljs-keyword">catch</span> (SQLException e) {
-			System.out.println(<span class="hljs-string">&quot;Query Error : &quot;</span> + e);
-			e.printStackTrace();
-		} <span class="hljs-keyword">finally</span> {
-			<span class="hljs-keyword">try</span> {
-				<span class="hljs-keyword">if</span>(conn != <span class="hljs-literal">null</span> &amp;&amp; !conn.isClosed()) {
-					conn.close();
-				}
-				<span class="hljs-keyword">if</span>(pstmt != <span class="hljs-literal">null</span> &amp;&amp; !pstmt.isClosed()) {
-					pstmt.close();
-				}
-			} <span class="hljs-keyword">catch</span>(SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		<span class="hljs-keyword">return</span> resultVo;
-	}
-}</code></pre><h2 id="bm-14">Servlet 작성</h2><pre class="theme-atom-one-dark"><code class="language-java"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doGet</span><span class="hljs-params">(HttpServletRequest, HttpServletResponse response)</span> <span class="hljs-keyword">throws</span> ServletException, IOException {
-    request.setCharacterEncoding(<span class="hljs-string">&quot;UTF-8&quot;</span>);
+                            <h1 id="bm-1">Docker로 MongoDB community server Setting 하기</h1><h3 id="bm-2">MongoDB image 설치</h3><pre class="theme-atom-one-dark"><code class="language-sh">docker pull mongodb/mongodb-community-server:latest</code></pre><h3 id="bm-5">MongoDB 컨테이너 생성 및 실행</h3><pre class="theme-atom-one-dark"><code class="language-sh"><span class="hljs-comment"># default</span>
+docker run --name dev-mongodb -p 27017:27017 -d mongodb/mongodb-community-server:latest
 
-    <span class="hljs-type">UserVo</span> <span class="hljs-variable">vo</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">UserVo</span>();
-    vo.setName(request.getParameter(<span class="hljs-string">&quot;name&quot;</span>));
-    vo.setEmail(request.getParameter(<span class="hljs-string">&quot;email&quot;</span>));
-    vo.setPwd(request.getParameter(<span class="hljs-string">&quot;pwd&quot;</span>));
-
-    <span class="hljs-type">UserDao</span> <span class="hljs-variable">dao</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">UserDao</span>();
-    dao.select(vo);
-    dao.insert(vo);
-
-    response.sendRedirect(<span class="hljs-string">&quot;/Project/index.jsp&quot;</span>);
-}</code></pre><ul>
-<li>클라이언트에게 응답 페이지를 보여주기 위한 redirect 작성</li>
+<span class="hljs-comment"># 5.0 version</span>
+docker run --name mongodb -p 27017:27017 -d mongodb/mongodb-community-server:5.0-ubuntu2004</code></pre><ul>
+<li>Docker 실행 명령에 명령줄 옵션을 추가하여 mongod 명령줄 옵션을 사용할 수 있습니다.
+예를 들어 <code>mongod --replSet</code> Docker 명령줄 옵션을 생각할 수 있습니다.</li>
 </ul>
+<pre class="theme-atom-one-dark"><code class="language-sh">docker run -p 27017:27017 -d mongodb/mongodb-community-server:latest --name mongodb --replSet myReplicaSet</code></pre><h3 id="bm-11">MongoDB 컨테이너 접속</h3><pre class="theme-atom-one-dark"><code class="language-sh">docker <span class="hljs-built_in">exec</span> -it dev-mongodb /bin/bash</code></pre><h3 id="bm-14">DB 접속</h3><pre class="theme-atom-one-dark"><code class="language-sh"><span class="hljs-comment"># docker에서 DB 접근</span>
+mongosh
 
+<span class="hljs-comment"># mongo 접속 문자열 출력</span>
+db.getMongo()
+
+<span class="hljs-comment"># local에서 Docker DB로 접근</span>
+mongosh [db.getMongo() 출력 내용]</code></pre>
 
                         </div>
 

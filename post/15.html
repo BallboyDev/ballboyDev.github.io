@@ -149,15 +149,18 @@
 </ul>
 
 </ul>
-<li id="dt-3" onclick="foldNavi(3)">----- Infra ----- (2)</li>
+<li id="dt-3" onclick="foldNavi(3)">----- Infra ----- (3)</li>
 <ul id="dc-3" class='dc-all' style="display: none;">
-<li id="dt-31" onclick="foldNavi(31)">Docker (2)</li>
+<li id="dt-31" onclick="foldNavi(31)">Docker (3)</li>
 <ul id="dc-31" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/15">
 <li id="p-15">• docker 기본 명령어 및 실행 옵션 정리</li>
 </a>
 <a href="https://ballboyDev.github.io/post/77">
 <li id="p-77">• docker mariadb setting</li>
+</a>
+<a href="https://ballboyDev.github.io/post/78">
+<li id="p-78">• docker mongodb setting</li>
 </a>
 
 </ul>
@@ -451,7 +454,10 @@ docker images</code></pre><h3 id="bm-16">컨테이너 관련 명령어</h3><ul>
 docker container <span class="hljs-built_in">ls</span>
 
 <span class="hljs-comment"># 모든 컨테이너 목록 (작동 및 종료 상태의 모든 컨테이너)</span>
-docker ps -a</code></pre><ul>
+docker ps -a
+
+<span class="hljs-comment"># 컨테이너 정보 출력 포멧 지정</span>
+docker ps --format <span class="hljs-string">&quot;table {{.ID}}\t{{.Image}}&quot;</span></code></pre><ul>
 <li>컨테이너 생성</li>
 </ul>
 <pre class="theme-atom-one-dark"><code class="language-bash">docker create [OPTIONS] IMAGE [COMMAND] [ARG...]</code></pre><ul>
