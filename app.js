@@ -4,6 +4,7 @@ const { marked } = require('marked')
 const matter = require('gray-matter')
 const dayjs = require('dayjs')
 const { default: axios } = require('axios')
+const { exec, spawn } = require('child_process')
 
 const post = require('./_layout/post')
 const custom = require('./_layout/custom')
@@ -41,11 +42,11 @@ const utils = {
         '|:-:|:--|:-:|'
     ],
     commonFile: [       // 적용 예외 공통 파일
-        '_Common', // 공통 사용 폴더
-        'docsImg', // 포스팅 글에 첨부되는 이미지 모음 폴더
-        'index.md', // index 페이지 마크다운 파일
-        'postList.md', // 포스팅 글 리스트 정리 파일
-        'deploy.sh' // 원격 배포 파일
+        '_Common',      // 공통 사용 폴더
+        'docsImg',      // 포스팅 글에 첨부되는 이미지 모음 폴더
+        'index.md',     // index 페이지 마크다운 파일
+        'postList.md',  // 포스팅 글 리스트 정리 파일
+        'deploy.sh'     // 원격 배포 파일
     ]
 }
 
@@ -195,9 +196,8 @@ const app = {
 
             [utils.post, utils.json] = [...recursion(utils.path.post)]
 
-            console.log('ballboy >> utils.json, utils.post')
-
-            fs.writeFileSync(`test.json`, JSON.stringify(utils.json))
+            console.log('ballboy >> utils.json, utils.post, utils.content')
+            fs.writeFileSync(`test.json`, JSON.stringify(utils.contents))
 
             fs.writeFileSync(`${utils.path.dist}/post.json`, JSON.stringify(utils.json))
         } catch (err) {
@@ -333,7 +333,7 @@ const app = {
     finalWork: async () => {
         console.group('\x1b[43m\x1b[30m%s\x1b[0m', '\n##### [ app.finalWork ] #####')
 
-        console.log('\x1b[36m[ 배포* ]  \x1b[36m[ 배포대기 ]  \x1b[33m[ 테스트 ]  \x1b[31m[ 작성중 ]\x1b[0m\n')
+        console.log('\x1b[36m[ 배포* ]  \x1b[36m[ 배포대기 ]  \x1b[33m[ 작성중 ]  \x1b[31m[ 기획중 ]\x1b[0m\n')
 
         try {
             const posting = [`# Posting List (${dayjs().format("YYYY.MM.DD")})\n`, '||index|title|date|prev|next|url|', '|:-:|:-:|:--|:-:|:-:|:-:|:--|']
