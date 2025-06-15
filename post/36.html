@@ -235,7 +235,7 @@
 </ul>
 
 </ul>
-<li id="dt-5" onclick="foldNavi(5)">심심한 개발자의 취미 개발 (11)</li>
+<li id="dt-5" onclick="foldNavi(5)">심심한 개발자의 취미 개발 (12)</li>
 <ul id="dc-5" class='dc-all' style="display: none;">
 <li id="dt-51" onclick="foldNavi(51)">간단 블로그 만들기 (8)</li>
 <ul id="dc-51" class='dc-all' style="display: none;">
@@ -265,7 +265,7 @@
 </a>
 
 </ul>
-<li id="dt-52" onclick="foldNavi(52)">개발 팁 (3)</li>
+<li id="dt-52" onclick="foldNavi(52)">개발 팁 (4)</li>
 <ul id="dc-52" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/3">
 <li id="p-3">• vim 에디터 정리</li>
@@ -275,6 +275,9 @@
 </a>
 <a href="https://ballboyDev.github.io/post/69">
 <li id="p-69">• curl 명령어 사용법 정리</li>
+</a>
+<a href="https://ballboyDev.github.io/post/80">
+<li id="p-80">• 터미널 이미지 형식 변환(sips)</li>
 </a>
 
 </ul>
@@ -455,22 +458,22 @@
 <li>가장 기본적이며 일반 메시지를 출력하는 메서드</li>
 <li>추가 매개변수와 함께 Object 출력 가능</li>
 </ul>
-<p><img src="https://ballboyDev.github.io/assets/img/36_1.png" alt="console log"></p>
+<p><img src="https://ballboyDev.github.io/assets/img/36_1.jpeg" alt="console log"></p>
 <h3 id="bm-12">warn(), error()</h3><ul>
 <li>오류 및 경고 메시지 출력</li>
 </ul>
-<p><img src="https://ballboyDev.github.io/assets/img/36_2.png" alt="console warn, error"></p>
+<p><img src="https://ballboyDev.github.io/assets/img/36_2.jpeg" alt="console warn, error"></p>
 <h3 id="bm-17">group(), groupCollapsed(), groupEnd()</h3><ul>
 <li>출력 메시지의 그룹을 생성해 이후 출력을 모두 한단계 들여쓰기 한다.</li>
 <li>group()과 groupCollapsed()는 동일한 기능을 지원하지만 group()과 달리 groupCollapsed()는 출력시 텍스트가 접혀 있다.</li>
 <li>그룹을 종료하기 위해서는 groupEnd()를 사용한다.</li>
 </ul>
-<p><img src="https://ballboyDev.github.io/assets/img/36_3.png" alt="console group"></p>
+<p><img src="https://ballboyDev.github.io/assets/img/36_3.jpeg" alt="console group"></p>
 <h3 id="bm-22">time(), timeLog(), timeEnd()</h3><ul>
 <li>시간 측정을 위한 타이머를 생성한다. 타이머는 동시에 최대 10000개 까지 생성이 가능하다.</li>
 <li>측정 중간 시간 기록을 찍기위해서는 timeLog()를 사용한다.</li>
 </ul>
-<p><img src="https://ballboyDev.github.io/assets/img/36_4.png" alt="console time"></p>
+<p><img src="https://ballboyDev.github.io/assets/img/36_4.jpeg" alt="console time"></p>
 <h2 id="bm-27">텍스트 꾸미기</h2><p>node 환경에서 console 객체 메서드로 출력되는 문자열의 생상을 바꿀 수 있다.
 ANSI escape code를 사용하거나 이를 지원하는 라이브러리를 사용하면 된다.
 이를 통해 좀 더 명확한 로그를 남길 수 있다.</p>
@@ -561,7 +564,7 @@ ANSI escape code를 사용하거나 이를 지원하는 라이브러리를 사�
 
 <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;\x1b[1m\x1b[31m%s\x1b[0m&#x27;</span>, <span class="hljs-string">&#x27;굵은 빨간 텍스트&#x27;</span>);
 
-<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;\x1b[36m[시안]  \x1b[33m[노랑]  \x1b[31m[빨강]  \x1b[0m[초기화]&#x27;</span>);</code></pre><p><img src="https://ballboyDev.github.io/assets/img/36_5.png" alt="console style"></p>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;\x1b[36m[시안]  \x1b[33m[노랑]  \x1b[31m[빨강]  \x1b[0m[초기화]&#x27;</span>);</code></pre><p><img src="https://ballboyDev.github.io/assets/img/36_5.jpeg" alt="console style"></p>
 <h3 id="bm-40">`\x1b[<코드>m`의 구조와 의미</h3><ul>
 <li><code>\x1b[&lt;코드&gt;m</code> 이 문자열은 3부분으로 구성되어 있다.</li>
 </ul>
