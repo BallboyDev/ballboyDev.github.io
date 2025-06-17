@@ -197,7 +197,7 @@ const app = {
             [utils.post, utils.json] = [...recursion(utils.path.post)]
 
             console.log('ballboy >> utils.json, utils.post, utils.content')
-            fs.writeFileSync(`test.json`, JSON.stringify(utils.contents))
+            // fs.writeFileSync(`test.json`, JSON.stringify(utils.contents))
 
             fs.writeFileSync(`${utils.path.dist}/post.json`, JSON.stringify(utils.json))
         } catch (err) {
