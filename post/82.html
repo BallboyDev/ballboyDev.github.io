@@ -17,19 +17,19 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
             <style>
-                #p-1 {
+                #p-82 {
                     color: rgb(76, 193, 237) !important;
                 }
             </style>
             <script id="data" type="application/json">
             {
-                "fold": ["5","51"]
+                "fold": ["3","31","311"]
             }
             </script>
 
             <script src="https://ballboyDev.github.io/assets/skin.js"></script>
 
-                <title>블로그 개발 기획, 배포 일지</title>
+                <title>Docker container 관련 명령어</title>
             </head>
 
             <body>
@@ -407,228 +407,112 @@
                         <div class="bookmark">
 
             <div class="title t1">
-                <div><a href="#bm-1"># 블로그 개발 기획, 배포 일지
+                <div><a href="#bm-1"># Docker container 관련 명령어
 </a></div>
                 <p>•</p>
             </div>
 
-            <div class="title t2">
-                <div><a href="#bm-2">## 기획 중인 개발 사항
-</a></div>
+            <div class="title t3">
+                <div><a href="#bm-2">### 컨테이너 리스트 보기</a></div>
                 <p>•</p>
             </div>
 
-            <div class="title t2">
-                <div><a href="#bm-3">## 개발 / 배포 일지</a></div>
+            <div class="title t3">
+                <div><a href="#bm-5">### 컨테이너 생성</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-8">### 컨테이너 실행</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-11">### 컨테이너 생성, 실행</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-14">### 컨테이너 재시작</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-17">### 컨테이너 정지</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-20">### 컨테이너 삭제</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-23">### 컨테이너 로그 확인</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-26">### 컨테이너 상세 정보</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-29">### 컨테이너 실시간 리소스</a></div>
                 <p>•</p>
             </div></div>
                         
                         
                         
                         
-            <a href="https://ballboyDev.github.io/post/10.html" class="next post">
-                <img src="https://ballboyDev.github.io/assets/img/next.svg" alt="" srcset="">
-            </a>
                         
                         <div class="main markdown-body">
 
-                            <h1 id="bm-1">블로그 개발 기획, 배포 일지</h1><h2 id="bm-2">기획 중인 개발 사항</h2><h2 id="bm-3">개발 / 배포 일지</h2><ul>
-<li><p>2025-03-14</p>
-<ul>
-<li>개발 시작</li>
-<li>기본 디자인 Mockup.html 파일 작성</li>
-<li>skin.css, skin.js 파일 생성</li>
+                            <h1 id="bm-1">Docker container 관련 명령어</h1><h3 id="bm-2">컨테이너 리스트 보기</h3><ul>
+<li><code>docker ps</code></li>
+<li><code>docker ps -a</code><ul>
+<li>모든 상태의 컨테이너 조회</li>
 </ul>
 </li>
-<li><p>2025-03-17</p>
-<ul>
-<li>네비게이터 기능 개발 </li>
-<li>마크다운 변환 기능 개발</li>
-</ul>
-</li>
-<li><p>2025-03-18</p>
-<ul>
-<li>블로그의 기본 기능 및 형태 개발 완료</li>
-<li>포스팅 작성 시작</li>
-</ul>
-</li>
-<li><p>2025-03-20 </p>
-<ul>
-<li>개발 환경 개선 작업 (css/js 파일 배포 환경과 배포 환경에서의 링크 주소 연결)</li>
-<li>블로그 만들기 글 작성 시작</li>
-<li>작성된 글 / 작성중인 글 / 미 배포 글 구분 및 글 리스트 정리 내용 파일화</li>
-<li>모바일 반응형 디자인 1차 적용<ul>
-<li>화면 사이즈 적용</li>
-<li>navi open/close 기능 개발</li>
-</ul>
-</li>
-<li>네비게이터 디자인 수정</li>
-</ul>
-</li>
-<li><p>2025-03-21</p>
-<ul>
-<li>사이드바 css 일부 수정</li>
-</ul>
-</li>
-<li><p>2025-03-23 </p>
-<ul>
-<li>마크다운 변환 라이브러리 변경<ul>
-<li>mardown-it -&gt; marked</li>
+<li><code>docker ps --format &quot;table {{.ID}}\t{{.Image}}&quot;</code><ul>
+<li>컨테이너 정보 출력 포멧 지정</li>
 </ul>
 </li>
 </ul>
-</li>
-<li><p>2025-03-24 </p>
-<ul>
-<li>디렉토리 넘버링 방법 변경</li>
+<h3 id="bm-5">컨테이너 생성</h3><ul>
+<li><code>docker create [OPTIONS] IMAGE [COMMAND] [ARG...]</code></li>
+</ul>
+<h3 id="bm-8">컨테이너 실행</h3><ul>
+<li><code>docker start [OPTIONS] CONTAINER_ID</code></li>
+</ul>
+<h3 id="bm-11">컨테이너 생성, 실행</h3><ul>
+<li><code>docker run [OPTIONS] IMAGE [COMMAND] [ARG...]</code></li>
+</ul>
+<h3 id="bm-14">컨테이너 재시작</h3><ul>
+<li><code>docker restart [OPTIONS] CONTAINER_ID</code></li>
+</ul>
+<h3 id="bm-17">컨테이너 정지</h3><ul>
+<li><code>dockert stop [OPTIONS] CONTAINER_ID</code></li>
+</ul>
+<h3 id="bm-20">컨테이너 삭제</h3><ul>
+<li><code>docker rm [OPTIONS] CONTAINER_ID</code></li>
+<li><code>docker rm -f CONTAINER_ID</code><ul>
+<li>컨테이너 강제 삭제</li>
 </ul>
 </li>
-<li><p>2025-03-27 </p>
-<ul>
-<li>포스팅 파일 네이밍 변경</li>
-<li>prev/next 이동 기능 생성 <ul>
-<li>페이지 크기에 따른 이동 버튼 생성에 대한 고민 필요</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>2025-03-29</p>
-<ul>
-<li>개발/테스트 환경 디렉토리 생성 코드 수정<ul>
-<li>개발 테스트를 위한 임시(미 배포용) 디렉토리 생성 기능 - 넘버링 &#39;0&#39;</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>2025-03-30 </p>
-<ul>
-<li>개발/테스트 환경 디렉토리 생성 코드 수정<ul>
-<li>넘버링이 아예 없는 경우 처리</li>
-</ul>
-</li>
-<li>카테고리별 포스팅 개수 표시</li>
-</ul>
-</li>
-<li><p>2025-04-03 </p>
-<ul>
-<li>카테고리 Index 페이지 생성 및 디자인 작업</li>
-</ul>
-</li>
-<li><p>2025-04-04 </p>
-<ul>
-<li>기능 고도화와 변환 기능 라이브러리화 진행을 위한 사전 리팩토링 작업 기획<ul>
-<li>트리 탐색의 최소화 </li>
-<li>반복 작업의 최소화</li>
+<li><code>docker rm -f ${docker ps -a -q}</code><ul>
+<li>모든 컨테이너 삭제</li>
 </ul>
 </li>
 </ul>
-</li>
-<li><p>2025-04-15</p>
-<ul>
-<li>빌드 코드 version.2 개발 작업 진행</li>
+<h3 id="bm-23">컨테이너 로그 확인</h3><ul>
+<li><code>docker logs [OPTIONS] CONTAINER_ID_</code></li>
 </ul>
-</li>
-<li><p>2025-04-19 </p>
-<ul>
-<li>빌드 코드 version.2 개발 작업(리팩토링) 진행<ul>
-<li>대부분 기능 작업 완료</li>
-<li>prev, next 데이터 관리 방법 고민 중<ul>
-<li>gray-matter 라이브러리에 대하여 조그만 더 빨리 알았더라면...</li>
+<h3 id="bm-26">컨테이너 상세 정보</h3><ul>
+<li><code>docker inspect [OPTIONS] CONTAINER_ID</code></li>
 </ul>
-</li>
-<li>index 페이지 등 공통 페이지 관리 방법 고민 중</li>
-<li>이미지 URL 변환 코드 수정 작업</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>2025-04-21</p>
-<ul>
-<li>데이터 정렬 로직 수정</li>
-<li>포스팅 리스트 작성 파일 생성 로직 개발</li>
-</ul>
-</li>
-<li><p>2025-04-24 </p>
-<ul>
-<li>이미지 경로 변경 로직 수정</li>
-<li>index 페이지 생성 및 디자인 변경</li>
-</ul>
-</li>
-<li><p>2025-05-12</p>
-<ul>
-<li>블로그 첨부 이미지 경로 수정 및 블로그 포스트 위치 변경</li>
-<li>배포 환경 gh-pages 적용</li>
-</ul>
-</li>
-<li><p>2025-05-13</p>
-<ul>
-<li>애플 단축어로 포스팅 접근 기능 구현</li>
-<li>index.html 생성 로직 변경<ul>
-<li>index.md 파일을 수정 하지 않고 코드상에서 합병</li>
-</ul>
-</li>
-<li>코드 상 예외처리 수정</li>
-<li>모듈별 로그 작업</li>
-</ul>
-</li>
-<li><p>2025-05-14 </p>
-<ul>
-<li>포스팅 업로드 기준을 index(Int)에서 upload(Boolean) 값으로 변경</li>
-<li>빌드 로그 디자인 수정</li>
-</ul>
-</li>
-<li><p>2025-05-17</p>
-<ul>
-<li>페이지 목차 개발중<ul>
-<li>디자인 및 목업 코드 완성</li>
-</ul>
-</li>
-<li>post.json 데이터 순서 정렬 적용</li>
-</ul>
-</li>
-<li><p>2025-05-24</p>
-<ul>
-<li>marked 라이브러리 변환 Custom 코드 작성 <ul>
-<li>heading<ul>
-<li>목차 기능 인덱스 생성</li>
-</ul>
-</li>
-<li>image<ul>
-<li>테스트, 운영 환경 이미지 경로 설정 기능 개발</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>2025-05-26 </p>
-<ul>
-<li>네비게이션(사이드바) 동적 넓이 변화</li>
-<li>네비게이션 전체 접기 기능 추가</li>
-<li>git 연결 링크 추가</li>
-</ul>
-</li>
-<li><p>2025-05-28 </p>
-<ul>
-<li>코드 하이라이트 기능 추가</li>
-<li>sitemap.xml, robots.txt 파일 생성 로직 제작</li>
-</ul>
-</li>
-<li><p>2025-06-01 </p>
-<ul>
-<li>favicon 제작 및 적용</li>
-</ul>
-</li>
-<li><p>2025-06-03</p>
-<ul>
-<li>블로그 댓글 기능 추가 (Utterances)</li>
-</ul>
-</li>
-<li><p>먼 미래</p>
-<ul>
-<li>백엔드와 함께 클라우드상 개인 사이트 배포 및 운영</li>
-</ul>
-</li>
+<h3 id="bm-29">컨테이너 실시간 리소스</h3><ul>
+<li><code>docker stats [OPTIONS] CONTAINER_ID</code></li>
 </ul>
 
 
