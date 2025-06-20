@@ -10,6 +10,7 @@ const post = require('./_layout/post')
 const custom = require('./_layout/custom')
 
 const env = process.env.NODE_ENV
+const test = !!process.env.TEST
 
 const utils = {
     path: {
@@ -24,6 +25,9 @@ const utils = {
 
         // 이미지, css, js 파일 등 구성 요소 저장 공간 위치
         assets: '_assets',
+
+        // 마크다운 변환 커스텀 환경 개발 테스트
+        mdTest: '_test',
 
         // 테스트 환경 배포 경로
         dev: `file://${__dirname}/_dist`,
@@ -46,7 +50,7 @@ const utils = {
         'docsImg',      // 포스팅 글에 첨부되는 이미지 모음 폴더
         'index.md',     // index 페이지 마크다운 파일
         'postList.md',  // 포스팅 글 리스트 정리 파일
-        'deploy.sh'     // 원격 배포 파일
+        'deploy.sh',     // 원격 배포 파일
     ]
 }
 
@@ -78,13 +82,13 @@ const app = {
             fs.copyFileSync(`${utils.path.assets}/markdown.css`, `${utils.path.dist}/assets/markdown.css`)
             fs.copyFileSync(`${utils.path.assets}/skin.js`, `${utils.path.dist}/assets/skin.js`)
             fs.cpSync(`${utils.path.assets}/img/`, `${utils.path.dist}/assets/img/`, { recursive: true })
-            fs.cpSync(`${utils.path.post}/docsImg/`, `${utils.path.dist}/assets/img/`, { recursive: true })
+            fs.cpSync(`${utils.path[!!process.env.TEST ? 'mdTest' : 'post']}/docsImg/`, `${utils.path.dist}/assets/img/`, { recursive: true })
 
 
             console.log('>> set Environment <<')
             console.group('set Path')
             console.log(`index: ${utils.path.index}`)
-            console.log(`post: ${utils.path.post}`)
+            console.log(`post: ${utils.path[!!process.env.TEST ? 'mdTest' : 'post']}`)
             console.log(`${env}: ${utils.path[env]}`)
             console.groupEnd()
 
@@ -138,7 +142,6 @@ const app = {
                                         child[b].count :
                                         (
                                             parseInt(child[b].index) !== 0 && (env === 'dev' || (env === 'build' && child[b].upload)) ? 1 : 0
-                                            // !child[b].upload ? 0 : 1
                                         )
                                 );
                             }, 0);
@@ -173,7 +176,6 @@ const app = {
                                 path: `${root}/${v}`,
                                 fold,
                                 date: !!mdFile.data?.date ? dayjs(`${mdFile.data?.date}`, 'YYYYMMDD').format("YYYY-MM-DD HH:mm:ss") : dayjs(birthtime),
-                                // date: dayjs(`${mdFile.data?.date}`, 'YYYYMMDD').format("YYYY-MM-DD HH:mm:ss"),
                                 birthtime, mtime,
                                 token: token,
                                 bookmark: token.filter((v) => { return v.type === 'heading' && v.depth <= 3 }),
@@ -194,7 +196,7 @@ const app = {
                 return [temp1, temp2]
             }
 
-            [utils.post, utils.json] = [...recursion(utils.path.post)]
+            [utils.post, utils.json] = [...recursion(utils.path[!!process.env.TEST ? 'mdTest' : 'post'])]
 
             console.log('ballboy >> utils.json, utils.post, utils.content')
             // fs.writeFileSync(`test.json`, JSON.stringify(utils.contents))
@@ -384,8 +386,8 @@ const app = {
                 console.log(font, `[ ${item.index}${status ? '*' : ''} ] ${item?.title || item?.file}`);
             }
 
-            fs.writeFileSync(`${utils.path.post}/postList.md`, posting.join('\n'))
-            fs.writeFileSync(`${utils.path.dist}/postList.html`, marked.parse(posting.join('\n')))
+            fs.writeFileSync(`${utils.path[!!process.env.TEST ? 'mdTest' : 'post']}/postList.md`, posting.join('\n'))
+            // fs.writeFileSync(`${utils.path.dist}/postList.html`, marked.parse(posting.join('\n')))
 
             fs.writeFileSync(`${utils.path.dist}/sitemap.xml`, `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${sitemap.join('\n')}</urlset>`)
             fs.writeFileSync(`${utils.path.dist}/robots.txt`, `User-agent: *\nAllow: /\n\nSitemap: https://ballboyDev.github.io/sitemap.xml`)
