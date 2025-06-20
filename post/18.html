@@ -472,7 +472,7 @@ template code
 <li><p>동적 컨텐츠</p>
 <ul>
 <li>템플릿 내부에서 <code>{ code }</code> 와 같이 사용하면 식의 결과가 표시된다,</li>
-<li><code>&lt;div&gt;현재 시간은 {new Date()} 입니다.&lt;/div&gt;</code></li>
+<li><code><div>현재 시간은 {new Date()} 입니다.</div></code></li>
 <li>동적 속성<ul>
 <li>DOM 요소의 속성명과 변수 명이 동일할 때는 다음과 같이 생략 할 수 있다.<pre class="theme-atom-one-dark"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
     <span class="hljs-keyword">let</span> href = <span class="hljs-string">&#x27;https://svelte.dev/&#x27;</span>
@@ -488,8 +488,8 @@ template code
 <h3 id="bm-10">style</h3><ul>
 <li><p>스타일 문법</p>
 <ul>
-<li><code>&lt;style&gt;</code> 블록에는 일반적인 CSS 문법을 사용한다.</li>
-<li><code>&lt;style&gt;</code> 블록에 작성한 스타일은 .svelte 파일에 스코프 범위를 갖는다.</li>
+<li><code><style></code> 블록에는 일반적인 CSS 문법을 사용한다.</li>
+<li><code><style></code> 블록에 작성한 스타일은 .svelte 파일에 스코프 범위를 갖는다.</li>
 <li>스코프 범위를 벗어나서 전역으로 스타일을 적용하시 싶을 때는 :global 수식자를 사용한다.<pre class="theme-atom-one-dark"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-css">
     <span class="hljs-comment">/** 이 스타일은 &lt;body&gt;에 적용됨 */</span>
     :<span class="hljs-built_in">global</span>(body) {

@@ -531,7 +531,7 @@
 // 이렇게 여러 필드를 넣어 인덱스를 생성하면 age를 오름차순으로 정렬한 상태에서 score는 내림찬순으로 정렬합니다.</code></pre><h2 id="bm-12">인덱스 속성</h2><ul>
 <li>인덱스에 속성을 추가 할 땐 creatIndex() 메소드의 두번째 인자에 속성값을 document 타입으로 전달해주면 됩니다.</li>
 </ul>
-<p><code>&gt; db.COLLECTION.createIndex({key: 1}, {PROPERTY: true})</code></p>
+<p><code>> db.COLLECTION.createIndex({key: 1}, {PROPERTY: true})</code></p>
 <h3 id="bm-16">Unique 속성</h3><p>_id 필드처럼 컬렉션에 단 한개의 값만 존재 할 수 있는 속성입니다.</p>
 <pre><code class="language-plaintext"}>// email 인덱스에 unique 속성 적요
 > db.userinfo.createIndex({email: 1}, {unique: true})
