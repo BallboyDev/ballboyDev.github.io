@@ -177,6 +177,10 @@
 </ul>
 
 </ul>
+<li id="dt-32" onclick="foldNavi(32)">k8s (0)</li>
+<ul id="dc-32" class='dc-all' style="display: none;">
+
+</ul>
 
 </ul>
 <li id="dt-4" onclick="foldNavi(4)">----- Database ----- (19)</li>
@@ -449,11 +453,13 @@
                             <blockquote>
 <p>본 글은 <a href="https://victorydntmd.tistory.com/category/%EC%9B%B9%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/JSP%20%26%20Servlet">victolee</a>님의 포스팅을 보고 따라 학습하며 내용을 정리한 포스팅 입니다.</p>
 </blockquote>
-<h1 id="bm-3">servlet 생명 주기 (Life Cycle)</h1><ul>
+<h1 id="bm-3">servlet 생명 주기 (Life Cycle)</h1>
+<ul>
 <li>클라이언트가 Servlet에 요청을 하면, Servlet은 바로 호출이 되지 않습니다.
 Servlet은 객체를 생성하고 초기화 작업을 거친 후, 요청을 처리하는 생명주기를 갖고 있습니다.</li>
 </ul>
-<h2 id="bm-6">Servlet 생명주기</h2><ol>
+<h2 id="bm-6">Servlet 생명주기</h2>
+<ol>
 <li>요청이 오면, Servlet 클래스가 로딩되어 요청에 대한 Servlet객체가 생성됩니다.</li>
 <li>init()<ul>
 <li>서블릿은 init()메소드를 호출하여 초기화 됩니다.</li>
@@ -470,7 +476,8 @@ Servlet은 객체를 생성하고 초기화 작업을 거친 후, 요청을 처�
 </li>
 <li>마지막으로, 서블릿은 JVM의 가비지 컬렉터에 의해 가비지 수집됩니다.</li>
 </ol>
-<h3 id="bm-9">LifeCycleServlet.java</h3><pre class="theme-atom-one-dark"><code class="language-java"><span class="hljs-meta">@WebServlet(&quot;/lifeCycle&quot;)</span>
+<h3 id="bm-9">LifeCycleServlet.java</h3>
+<pre class="theme-atom-one-dark"><code class="language-java"><span class="hljs-meta">@WebServlet(&quot;/lifeCycle&quot;)</span>
 <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LifeCycleServlet</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">HttpServlet</span> {
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">long</span> <span class="hljs-variable">serialVersionUID</span> <span class="hljs-operator">=</span> <span class="hljs-number">1L</span>;
 

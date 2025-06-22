@@ -177,6 +177,10 @@
 </ul>
 
 </ul>
+<li id="dt-32" onclick="foldNavi(32)">k8s (0)</li>
+<ul id="dc-32" class='dc-all' style="display: none;">
+
+</ul>
 
 </ul>
 <li id="dt-4" onclick="foldNavi(4)">----- Database ----- (19)</li>
@@ -446,7 +450,9 @@
                         
                         <div class="main markdown-body">
 
-                            <h2 id="bm-1">life Cycle</h2><h3 id="bm-2">라이프 사이클</h3><ul>
+                            <h2 id="bm-1">life Cycle</h2>
+<h3 id="bm-2">라이프 사이클</h3>
+<ul>
 <li><p>.svelte 파일로 작성된 컴포넌트는 최종적으로 자바스크립트 파일로 변환되어 브라우저에서 실행된다. 이 실행(런타임) 처리의 흐름을 컴포넌트의 라이프 사이클 이라고 한다.</p>
 </li>
 <li><p>svelte5의 라이프 사이클은 생성과 파괴라는 두 가지 주요 과정으로 구성됩니다.</p>
@@ -518,7 +524,8 @@
 
 {#if clicked}
     <span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;canvas&quot;</span> <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;200&quot;</span> <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;200&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span>
-{/if}</code></pre><h3 id="bm-7">beforeUpdate / afterUpdate</h3><ul>
+{/if}</code></pre><h3 id="bm-7">beforeUpdate / afterUpdate</h3>
+<ul>
 <li>beforeUpdate와 afterUpdate는 각각 컴포넌트의 DOM 구조가 업데이트 되기 직전과 직후에 호출 되는 처리를 등록하는 함수이다.</li>
 </ul>
 <pre class="theme-atom-one-dark"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">

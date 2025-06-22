@@ -177,6 +177,10 @@
 </ul>
 
 </ul>
+<li id="dt-32" onclick="foldNavi(32)">k8s (0)</li>
+<ul id="dc-32" class='dc-all' style="display: none;">
+
+</ul>
 
 </ul>
 <li id="dt-4" onclick="foldNavi(4)">----- Database ----- (19)</li>
@@ -447,7 +451,9 @@
                         
                         <div class="main markdown-body">
 
-                            <h1 id="bm-1">Runtime</h1><h2 id="bm-2">Store</h2><ul>
+                            <h1 id="bm-1">Runtime</h1>
+<h2 id="bm-2">Store</h2>
+<ul>
 <li>스벨트에는 여러 컴포넌트의 상태를 공유하기 위해 store 라는 구조를 제공한다.</li>
 <li>스토어에 대한 참조가 있을 때마다 구성 요소 내부의 해당 값에 <code>$</code> 문자로 접두사를 붙이면 액세스 할 수 있습니다.</li>
 <li>스토어 변수에 값을 할당하기 위해서는 쓰기 가능한 저장소여야 하며, 이는 저장소의 .set 메서드로 호출됩니다.</li>
@@ -463,7 +469,9 @@
 
     $count = 2
     console.log($count)
-</script></code></pre><h3 id="bm-7">svelte/store</h3><ul>
+</script></code></pre>
+<h3 id="bm-7">svelte/store</h3>
+<ul>
 <li><p>writable</p>
 <ul>
 <li>외부 구성 요소에서 설정할 수 있는 값을 가진 저장소를 생성하는 기능입니다. 추가 설정 및 업데이트 방법을 통해 객체로 생성됩니다</li>

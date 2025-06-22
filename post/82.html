@@ -177,6 +177,10 @@
 </ul>
 
 </ul>
+<li id="dt-32" onclick="foldNavi(32)">k8s (0)</li>
+<ul id="dc-32" class='dc-all' style="display: none;">
+
+</ul>
 
 </ul>
 <li id="dt-4" onclick="foldNavi(4)">----- Database ----- (19)</li>
@@ -486,7 +490,9 @@
                         
                         <div class="main markdown-body">
 
-                            <h1 id="bm-1">Docker container 관련 명령어</h1><h3 id="bm-2">컨테이너 리스트 보기</h3><ul>
+                            <h1 id="bm-1">Docker container 관련 명령어</h1>
+<h3 id="bm-2">컨테이너 리스트 보기</h3>
+<ul>
 <li><code>docker ps</code></li>
 <li><code>docker ps -a</code><ul>
 <li>모든 상태의 컨테이너 조회</li>
@@ -497,22 +503,28 @@
 </ul>
 </li>
 </ul>
-<h3 id="bm-5">컨테이너 생성</h3><ul>
+<h3 id="bm-5">컨테이너 생성</h3>
+<ul>
 <li><code>docker create [OPTIONS] IMAGE [COMMAND] [ARG...]</code></li>
 </ul>
-<h3 id="bm-8">컨테이너 실행</h3><ul>
+<h3 id="bm-8">컨테이너 실행</h3>
+<ul>
 <li><code>docker start [OPTIONS] CONTAINER_ID</code></li>
 </ul>
-<h3 id="bm-11">컨테이너 생성, 실행</h3><ul>
+<h3 id="bm-11">컨테이너 생성, 실행</h3>
+<ul>
 <li><code>docker run [OPTIONS] IMAGE [COMMAND] [ARG...]</code></li>
 </ul>
-<h3 id="bm-14">컨테이너 재시작</h3><ul>
+<h3 id="bm-14">컨테이너 재시작</h3>
+<ul>
 <li><code>docker restart [OPTIONS] CONTAINER_ID</code></li>
 </ul>
-<h3 id="bm-17">컨테이너 정지</h3><ul>
+<h3 id="bm-17">컨테이너 정지</h3>
+<ul>
 <li><code>dockert stop [OPTIONS] CONTAINER_ID</code></li>
 </ul>
-<h3 id="bm-20">컨테이너 삭제</h3><ul>
+<h3 id="bm-20">컨테이너 삭제</h3>
+<ul>
 <li><code>docker rm [OPTIONS] CONTAINER_ID</code></li>
 <li><code>docker rm -f CONTAINER_ID</code><ul>
 <li>컨테이너 강제 삭제</li>
@@ -523,16 +535,20 @@
 </ul>
 </li>
 </ul>
-<h3 id="bm-23">컨테이너 로그 확인</h3><ul>
+<h3 id="bm-23">컨테이너 로그 확인</h3>
+<ul>
 <li><code>docker logs [OPTIONS] CONTAINER_ID_</code></li>
 </ul>
-<h3 id="bm-26">컨테이너 상세 정보</h3><ul>
+<h3 id="bm-26">컨테이너 상세 정보</h3>
+<ul>
 <li><code>docker inspect [OPTIONS] CONTAINER_ID</code></li>
 </ul>
-<h3 id="bm-29">컨테이너 실시간 리소스</h3><ul>
+<h3 id="bm-29">컨테이너 실시간 리소스</h3>
+<ul>
 <li><code>docker stats [OPTIONS] CONTAINER_ID</code></li>
 </ul>
-<h3 id="bm-32">생성된 컨테이너 이름 변경</h3><ul>
+<h3 id="bm-32">생성된 컨테이너 이름 변경</h3>
+<ul>
 <li><code>docker rename [OLD_NAME] [NEW_NAME]</code></li>
 </ul>
 

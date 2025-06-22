@@ -177,6 +177,10 @@
 </ul>
 
 </ul>
+<li id="dt-32" onclick="foldNavi(32)">k8s (0)</li>
+<ul id="dc-32" class='dc-all' style="display: none;">
+
+</ul>
 
 </ul>
 <li id="dt-4" onclick="foldNavi(4)">----- Database ----- (19)</li>
@@ -466,22 +470,29 @@
                         
                         <div class="main markdown-body">
 
-                            <h1 id="bm-1">Docker image 관련 명령어</h1><h3 id="bm-2">이미지 목록 보기</h3><ul>
+                            <h1 id="bm-1">Docker image 관련 명령어</h1>
+<h3 id="bm-2">이미지 목록 보기</h3>
+<ul>
 <li><code>docker images [OPTIONS] [REPOSITORY[:TAG]]</code></li>
 </ul>
-<h3 id="bm-5">이미지 검색</h3><ul>
+<h3 id="bm-5">이미지 검색</h3>
+<ul>
 <li><code>docker search [OPTIONS] TERM</code></li>
 </ul>
-<h3 id="bm-8">이미지 다운로드</h3><ul>
+<h3 id="bm-8">이미지 다운로드</h3>
+<ul>
 <li><code>docker pull [OPTIONS] NAME[:TAG | @DIGEST]</code></li>
 </ul>
-<h3 id="bm-11">이미지 태그 작성</h3><ul>
+<h3 id="bm-11">이미지 태그 작성</h3>
+<ul>
 <li><code>docker tag IMAGE_NAME[:TAG] REPO_NAME[:TAG]</code></li>
 </ul>
-<h3 id="bm-14">이미지 업로드</h3><ul>
+<h3 id="bm-14">이미지 업로드</h3>
+<ul>
 <li><code>docker push [OPTIONS] NAME[:TAG]</code></li>
 </ul>
-<h3 id="bm-17">이미지 제작</h3><ul>
+<h3 id="bm-17">이미지 제작</h3>
+<ul>
 <li><code>docker build -t IMAGE_NAME[:TAG]</code><ul>
 <li>-t : 빌드된 이미지에 이름과 태그를 지정</li>
 </ul>
@@ -491,7 +502,8 @@
 </ul>
 </li>
 </ul>
-<h3 id="bm-20">이미지 삭제</h3><ul>
+<h3 id="bm-20">이미지 삭제</h3>
+<ul>
 <li><code>docker rmi IMAGE_ID</code></li>
 <li><code>docker rmi -f IMAGE_ID</code><ul>
 <li>이미지 강제 삭제</li>

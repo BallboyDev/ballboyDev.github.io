@@ -177,6 +177,10 @@
 </ul>
 
 </ul>
+<li id="dt-32" onclick="foldNavi(32)">k8s (0)</li>
+<ul id="dc-32" class='dc-all' style="display: none;">
+
+</ul>
 
 </ul>
 <li id="dt-4" onclick="foldNavi(4)">----- Database ----- (19)</li>
@@ -456,10 +460,12 @@
                         
                         <div class="main markdown-body">
 
-                            <h1 id="bm-1">find()메소드 활용 - sort(), limit(), skip()</h1><ul>
+                            <h1 id="bm-1">find()메소드 활용 - sort(), limit(), skip()</h1>
+<ul>
 <li>find() 메소드를 사용 했을시 cursor 형태의 결과값을 반환합니다. 이 객체가 가지고 있는 limit()메소드와 skip() 메소드를 통하여 보이는 출력물의 갯수를 제한 할 수 있고, sort() 메소드를 사용하여 데이터를 순서대로 나열할 수 있습니다.</li>
 </ul>
-<h2 id="bm-4">sort(Document)</h2><ul>
+<h2 id="bm-4">sort(Document)</h2>
+<ul>
 <li>이 메소드는 데이터를 정렬 할 때 사용됩니다. 매개변수로는 어떤 key를 사용하여 정렬 할 지 알려주는 document를 전달합니다.</li>
 <li>key는 데이터의 field 이름이고, value의 값은 1 혹은 -1 입니다.
 1로 설정하면 오름차순으로, -1로 설정하면 내림차순으로 정렬합니다.</li>
@@ -469,20 +475,27 @@
 > db.tempCol.find().sort({"-_id":1})
 
 // amount 값을 사용하여 오름차순으로 정렬하고, 정렬한 값에서 id값은 내림차순으로 정렬하기
-> db.tempCol.find().sort({"amount":1, "_id":-1})</code></pre><h2 id="bm-8">limit(value)</h2><ul>
+> db.tempCol.find().sort({"amount":1, "_id":-1})</code></pre>
+<h2 id="bm-8">limit(value)</h2>
+<ul>
 <li>limit()메소드는 출력할 데이터 갯수를 제한할 때 사용됩니다.</li>
 <li>value 파라미터는 출력 할 갯수 값 입니다.</li>
 </ul>
 <pre><code class="language-plaintext"}>// 출력 할 갯수를 3개로 제한하기
-> db.tempCol.find().limit(3)</code></pre><h2 id="bm-12">skip(value)</h2><ul>
+> db.tempCol.find().limit(3)</code></pre>
+<h2 id="bm-12">skip(value)</h2>
+<ul>
 <li>skip()메소드는 출력 할 데이터의 시작부분을 설정 할 떄 사용됩니다.</li>
 <li>value 값 갯수의 데이터를 생략하고 그 다음부터 출력합니다.</li>
 </ul>
 <pre><code class="language-plaintext"}>// 2개의 데이터를 생략하고 그 다음부터 출력
-> db.tempCol.find().skip(2)</code></pre><h2 id="bm-16">응용</h2><pre><code class="language-plaintext"}>// order를 최신순으로 한 페이지당 2개씩 나타냅니다.
+> db.tempCol.find().skip(2)</code></pre>
+<h2 id="bm-16">응용</h2>
+<pre><code class="language-plaintext"}>// order를 최신순으로 한 페이지당 2개씩 나타냅니다.
 > let showPage = (page) => {
     return db.tempCol.find().sort({_id:-1}).skip((page - 1) * 2).limit(2);
 }</code></pre>
+
 
                         </div>
 

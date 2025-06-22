@@ -177,6 +177,10 @@
 </ul>
 
 </ul>
+<li id="dt-32" onclick="foldNavi(32)">k8s (0)</li>
+<ul id="dc-32" class='dc-all' style="display: none;">
+
+</ul>
 
 </ul>
 <li id="dt-4" onclick="foldNavi(4)">----- Database ----- (19)</li>
@@ -456,7 +460,9 @@
                         
                         <div class="main markdown-body">
 
-                            <h1 id="bm-1">날짜 연산 및 날짜 함수</h1><h2 id="bm-2">기본 날짜 계산</h2><ul>
+                            <h1 id="bm-1">날짜 연산 및 날짜 함수</h1>
+<h2 id="bm-2">기본 날짜 계산</h2>
+<ul>
 <li>오라클 데이터 베이스는 세기, 연도, 월, 일 시, 분, 초 형태의 내부 숫자 형식으로 날짜를 저장함</li>
 <li>기본 Date Format 설정에 따라 화면에 표시됨</li>
 <li>날짜 표시 Format을 변경하고 싶은 경우 다음 명령을 사용한다.<ul>
@@ -466,59 +472,50 @@
 <li>날짜에 숫자를 더하거나 빼서 날짜 값을 계산할 수 있음</li>
 <li>날짜형 데이터 간 뺄셈을 수항 할 수 있음</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th align="left">함수</th>
+
+        <table>
+            <thead><tr><th align="left">함수</th>
 <th align="left">내용</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">DATE + NUMBER</td>
+</tr></thead>
+            <tbody><tr><td align="left">DATE + NUMBER</td>
 <td align="left">- 날짜에 해당 일수를 더한 날짜를 리턴</td>
 </tr>
-<tr>
-<td align="left">DATE - NUMBER</td>
+<tr><td align="left">DATE - NUMBER</td>
 <td align="left">- 날짜에 해당 일수를 뺀 날짜를 리턴</td>
 </tr>
-<tr>
-<td align="left">DATE1 - DATE2</td>
+<tr><td align="left">DATE1 - DATE2</td>
 <td align="left">- 두 날짜 사이의 경과 일수를 숫자로 리턴</td>
-</tr>
-</tbody></table>
-<pre class="theme-atom-one-dark"><code class="language-SQL"><span class="hljs-comment">-- 현재 날짜/시간</span>
-<span class="hljs-keyword">SELECT</span> SYSDATE <span class="hljs-keyword">FROM</span> DUAL;</code></pre><h2 id="bm-8">날짜 함수 사용하기</h2><table>
-<thead>
-<tr>
-<th align="left">함수</th>
+</tr></tbody>
+        </table>
+        <pre class="theme-atom-one-dark"><code class="language-SQL"><span class="hljs-comment">-- 현재 날짜/시간</span>
+<span class="hljs-keyword">SELECT</span> SYSDATE <span class="hljs-keyword">FROM</span> DUAL;</code></pre><h2 id="bm-8">날짜 함수 사용하기</h2>
+
+        <table>
+            <thead><tr><th align="left">함수</th>
 <th align="left">내용</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">ADD_MONTHS(D1, N)</td>
+</tr></thead>
+            <tbody><tr><td align="left">ADD_MONTHS(D1, N)</td>
 <td align="left">- D1날짜에 N개월을 더함</td>
 </tr>
-<tr>
-<td align="left">MONTHS_BETWEEN(D1, D2)</td>
+<tr><td align="left">MONTHS_BETWEEN(D1, D2)</td>
 <td align="left">- D1, D2 두 날짜 간의 경과 개월 수</td>
 </tr>
-<tr>
-<td align="left">LAST_DAY</td>
+<tr><td align="left">LAST_DAY</td>
 <td align="left">- 해당 월의 마지막 날짜를 리턴</td>
 </tr>
-<tr>
-<td align="left">ROUND</td>
+<tr><td align="left">ROUND</td>
 <td align="left">- 날짜를 년, 월 단위로 반올림</td>
 </tr>
-<tr>
-<td align="left">TRUNC</td>
+<tr><td align="left">TRUNC</td>
 <td align="left">- 날짜를 년, 월 단위로 버림</td>
-</tr>
-</tbody></table>
-<h2 id="bm-10">EXTRACT</h2><ul>
+</tr></tbody>
+        </table>
+        <h2 id="bm-10">EXTRACT</h2>
+<ul>
 <li>날짜에서 지정한 날짜 필드 값을 추출하여 반환함</li>
 </ul>
-<h2 id="bm-13">INTERVAL</h2><ul>
+<h2 id="bm-13">INTERVAL</h2>
+<ul>
 <li>날짜에서 지정한 날짜 필드 값을 더하거나 뺄 수 있음</li>
 <li>사용 예시<ul>
 <li>날짜 + (INTERVAL &#39;1&#39; YEAR) -&gt; 1년 더하기</li>

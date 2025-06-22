@@ -177,6 +177,10 @@
 </ul>
 
 </ul>
+<li id="dt-32" onclick="foldNavi(32)">k8s (0)</li>
+<ul id="dc-32" class='dc-all' style="display: none;">
+
+</ul>
 
 </ul>
 <li id="dt-4" onclick="foldNavi(4)">----- Database ----- (19)</li>
@@ -461,52 +465,46 @@
                         
                         <div class="main markdown-body">
 
-                            <h1 id="bm-1">그룹 함수</h1><h2 id="bm-2">그룹 함수란?</h2><ul>
+                            <h1 id="bm-1">그룹 함수</h1>
+<h2 id="bm-2">그룹 함수란?</h2>
+<ul>
 <li>그룹 함수들은 집계 함수(Aggregate function)이라고도 한다.</li>
 <li>집계한 하나 이상의 데이터들을 대상으로 일종의 통계정보(전체 개수, 평군, 최대값, 최소값)를 말하며 집계 함수 역시 이러한 기능을 수행하는 함수들을 말한다.</li>
 <li>단일 행 함수와 달리 그룹함수는 전체 집합 또는 그룹으로 분류된 집합에 작용하여 그룹당 하나의 결과를 생성한다.</li>
 </ul>
-<h2 id="bm-5">그룹 함수 종류</h2><table>
-<thead>
-<tr>
-<th align="left">그룹 함수</th>
+<h2 id="bm-5">그룹 함수 종류</h2>
+
+        <table>
+            <thead><tr><th align="left">그룹 함수</th>
 <th align="left">사용 목적</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">COUNT(*)</td>
+</tr></thead>
+            <tbody><tr><td align="left">COUNT(*)</td>
 <td align="left">- NULL 값을 포함한 행의 수 출력</td>
 </tr>
-<tr>
-<td align="left">COUNT(표현식)</td>
+<tr><td align="left">COUNT(표현식)</td>
 <td align="left">- 표현식의 값이 NULL 값인 것을 제외한 행의 수 출력</td>
 </tr>
-<tr>
-<td align="left">SUM([DISTINCT</td>
+<tr><td align="left">SUM([DISTINCT</td>
 <td align="left">ALL] 표현식)</td>
 </tr>
-<tr>
-<td align="left">AVG([DISTINCT</td>
+<tr><td align="left">AVG([DISTINCT</td>
 <td align="left">ALL] 표현식)</td>
 </tr>
-<tr>
-<td align="left">MAX([DISTINCT</td>
+<tr><td align="left">MAX([DISTINCT</td>
 <td align="left">ALL] 표현식)</td>
 </tr>
-<tr>
-<td align="left">MIN([DISTINCT</td>
+<tr><td align="left">MIN([DISTINCT</td>
 <td align="left">ALL] 표현식)</td>
 </tr>
-<tr>
-<td align="left">STDDEV([DISTINCT</td>
+<tr><td align="left">STDDEV([DISTINCT</td>
 <td align="left">ALL] 표현식)</td>
 </tr>
-<tr>
-<td align="left">VARIANCE([DISTINCT</td>
+<tr><td align="left">VARIANCE([DISTINCT</td>
 <td align="left">ALL] 표현식)</td>
-</tr>
-</tbody></table>
-<h2 id="bm-7">그룹 함수 사용 지침</h2><ul>
+</tr></tbody>
+        </table>
+        <h2 id="bm-7">그룹 함수 사용 지침</h2>
+<ul>
 <li>DISTINCT를 지정하면 함수는 중복되지 않는 값만 검토하고, ALL을 지정하면 중복 값을 포함한 값을 검토함</li>
 <li>ALL 키워드는 기본값이므로 별도로 사용할 필요가 없음</li>
 <li>COUNT(*)를 제외한 모든 그룹함수는 NULL 값을 제외하고 처리함</li>
@@ -514,7 +512,8 @@
 <li>모든 데이터 타입에 MIN, MAX, COUNT 함수를 사용할 수 있음</li>
 <li>AVG, SUM, VARIANCE, STDDEV는 숫자 데이터 타입만 사용이 가능함</li>
 </ul>
-<h2 id="bm-10">GROUP BY 절</h2><ul>
+<h2 id="bm-10">GROUP BY 절</h2>
+<ul>
 <li>테이블의 행을 더 작은 그룹으로 나눔</li>
 <li>집계 함수 이외에 SELECT 절에 나오는 컬럼이나 값은 두 GROUP BY 절에 명시함 (상수 값 제외)</li>
 <li>한 개 이상의 컬럼이나 값이 올 수 있음</li>
@@ -523,7 +522,8 @@
 <li>WHERE 조건이 먼저 처리된 후 GROUP BY 및 집계 함수가 처리됨</li>
 <li>ORDER BY 절을 사용하면 그룹핑 한 결과를 일정한 순서로 볼 수 있음</li>
 </ul>
-<h2 id="bm-13">HAVING절</h2><ul>
+<h2 id="bm-13">HAVING절</h2>
+<ul>
 <li>GROUP BY 절의 기준 항목이나 소그룹의 집계 함수를 이용한 조건을 표시할 수 있음</li>
 <li>WHERE절은 AGGREGATION 이전, HAVING 절은 AGGREGATION 이후의 FILTERING 작업을 수행함</li>
 <li>GROUP BY 절에 의해 소그룹 별로 만들어진 집계 데이터중, HAVING 절에서 제한 조건을 두어 조건을 만족하는 내용만 출력</li>

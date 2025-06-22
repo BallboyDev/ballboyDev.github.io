@@ -177,6 +177,10 @@
 </ul>
 
 </ul>
+<li id="dt-32" onclick="foldNavi(32)">k8s (0)</li>
+<ul id="dc-32" class='dc-all' style="display: none;">
+
+</ul>
 
 </ul>
 <li id="dt-4" onclick="foldNavi(4)">----- Database ----- (19)</li>
@@ -446,7 +450,9 @@
                         
                         <div class="main markdown-body">
 
-                            <h1 id="bm-1">Document수정 - update()</h1><h2 id="bm-2">정의</h2><ul>
+                            <h1 id="bm-1">Document수정 - update()</h1>
+<h2 id="bm-2">정의</h2>
+<ul>
 <li>MongoDB에서는 update() 메소드를 통하여 데이터를 수정 할 수 있습니다.</li>
 <li>예시)</li>
 </ul>
@@ -458,7 +464,8 @@
         <span class="hljs-attr">multi</span>: &lt;boolean&gt;,
         <span class="hljs-attr">writeConsern</span>: &lt;<span class="hljs-variable language_">document</span>&gt;
     }
-)</code></pre><h2 id="bm-6">update()</h2><pre><code class="language-plaintext"}>// 특정 field 업데이트 하기
+)</code></pre><h2 id="bm-6">update()</h2>
+<pre><code class="language-plaintext"}>// 특정 field 업데이트 하기
 > db.tempCol.update({name: "Abet"}, {$set: {age:20}})
 // 특정 field의 값을 수정 할 떈 $set 연산자를 사용합니다.
 // 이 연산자를 사용해서 똑같은 방법을 새로운 field를 추가 할 수도 있습니다.
@@ -520,6 +527,7 @@
         $pull: {skills: {$in: ["reactjs", "java"]}}
     }
 )</code></pre>
+
 
                         </div>
 

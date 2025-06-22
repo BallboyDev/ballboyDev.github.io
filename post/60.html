@@ -177,6 +177,10 @@
 </ul>
 
 </ul>
+<li id="dt-32" onclick="foldNavi(32)">k8s (0)</li>
+<ul id="dc-32" class='dc-all' style="display: none;">
+
+</ul>
 
 </ul>
 <li id="dt-4" onclick="foldNavi(4)">----- Database ----- (19)</li>
@@ -454,7 +458,8 @@
                             <blockquote>
 <p>본 글은 <a href="https://victorydntmd.tistory.com/category/%EC%9B%B9%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/JSP%20%26%20Servlet">victolee</a>님의 포스팅을 보고 따라 학습하며 내용을 정리한 포스팅 입니다.</p>
 </blockquote>
-<h1 id="bm-3">Servlet / DAO / VO(DTO)</h1><blockquote>
+<h1 id="bm-3">Servlet / DAO / VO(DTO)</h1>
+<blockquote>
 <p>DAO(Data Access Object)<br/>
 VO(Value Object) / DTO(Data Transfer Object)</p>
 </blockquote>
@@ -468,7 +473,8 @@ VO(Value Object) / DTO(Data Transfer Object)</p>
 </ul>
 </li>
 </ul>
-<h2 id="bm-7">JDBC 설정</h2><ul>
+<h2 id="bm-7">JDBC 설정</h2>
+<ul>
 <li>JDBC 라이브러치 추가(이전 JDBC 라이브러리 추가 방법 참조)</li>
 <li>Deployment Assembly 설정</li>
 </ul>
@@ -476,7 +482,8 @@ VO(Value Object) / DTO(Data Transfer Object)</p>
 <li>프로젝트 Properties -&gt; Deployment Assemply -&gt; Add...</li>
 <li>Jaav Build Path Entries -&gt; 이전에 생성한 JDBC 라이브러리 선택 -&gt; Apply</li>
 </ol>
-<h2 id="bm-11">Dao 클래스 생성</h2><pre class="theme-atom-one-dark"><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">UserDao</span> {
+<h2 id="bm-11">Dao 클래스 생성</h2>
+<pre class="theme-atom-one-dark"><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">UserDao</span> {
 	<span class="hljs-keyword">private</span> Connection <span class="hljs-title function_">getConnection</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> SQLException {
 		<span class="hljs-type">Connection</span> <span class="hljs-variable">conn</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
 		
@@ -564,7 +571,8 @@ VO(Value Object) / DTO(Data Transfer Object)</p>
 		}
 		<span class="hljs-keyword">return</span> resultVo;
 	}
-}</code></pre><h2 id="bm-14">Servlet 작성</h2><pre class="theme-atom-one-dark"><code class="language-java"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doGet</span><span class="hljs-params">(HttpServletRequest, HttpServletResponse response)</span> <span class="hljs-keyword">throws</span> ServletException, IOException {
+}</code></pre><h2 id="bm-14">Servlet 작성</h2>
+<pre class="theme-atom-one-dark"><code class="language-java"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doGet</span><span class="hljs-params">(HttpServletRequest, HttpServletResponse response)</span> <span class="hljs-keyword">throws</span> ServletException, IOException {
     request.setCharacterEncoding(<span class="hljs-string">&quot;UTF-8&quot;</span>);
 
     <span class="hljs-type">UserVo</span> <span class="hljs-variable">vo</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">UserVo</span>();

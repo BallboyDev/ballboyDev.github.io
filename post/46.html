@@ -177,6 +177,10 @@
 </ul>
 
 </ul>
+<li id="dt-32" onclick="foldNavi(32)">k8s (0)</li>
+<ul id="dc-32" class='dc-all' style="display: none;">
+
+</ul>
 
 </ul>
 <li id="dt-4" onclick="foldNavi(4)">----- Database ----- (19)</li>
@@ -461,7 +465,9 @@
                         
                         <div class="main markdown-body">
 
-                            <h1 id="bm-1">데이터 유형</h1><h2 id="bm-2">테이블 생성 조건</h2><ol>
+                            <h1 id="bm-1">데이터 유형</h1>
+<h2 id="bm-2">테이블 생성 조건</h2>
+<ol>
 <li>테이블 생성시 컬럼을 정의할 떄 선언한 데이터 유형은 그 컬럼이 받아들일 수 있는 자료형의 유형을 규정함<ul>
 <li>선언한 유형이 아닌 다른 종류의 데이터가 들어오려고 하면 데이터베이스는 에러를 발생기킴</li>
 </ul>
@@ -472,36 +478,32 @@
 </ul>
 </li>
 </ol>
-<h2 id="bm-5">문자형 데이터 타입</h2><table>
-<thead>
-<tr>
-<th align="left">데이터 유형</th>
+<h2 id="bm-5">문자형 데이터 타입</h2>
+
+        <table>
+            <thead><tr><th align="left">데이터 유형</th>
 <th align="left">설명</th>
 <th align="left">길이</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">CHAR(SIZE)</td>
+</tr></thead>
+            <tbody><tr><td align="left">CHAR(SIZE)</td>
 <td align="left">- 고정 길이의 문자 데이터</td>
 <td align="left">- 최대 크기 2000바이트<br/>- size값 생략시 기본 값 1</td>
 </tr>
-<tr>
-<td align="left">varchar2(size)</td>
+<tr><td align="left">varchar2(size)</td>
 <td align="left">- 가변 길이의 문자데이터</td>
 <td align="left">- 최대 4000바이트<br />- size 값 생략 안됨</td>
 </tr>
-<tr>
-<td align="left">CLOB</td>
+<tr><td align="left">CLOB</td>
 <td align="left">- long 타입 확장된 형태<br />- 가변길이 문자 데이터 저장</td>
 <td align="left">- 최대 4GB</td>
 </tr>
-<tr>
-<td align="left">LONG</td>
+<tr><td align="left">LONG</td>
 <td align="left">- 가변 길이의 문자 데이터</td>
 <td align="left">- 최대 크기는 2GB</td>
-</tr>
-</tbody></table>
-<h2 id="bm-7">char VS varchar</h2><ul>
+</tr></tbody>
+        </table>
+        <h2 id="bm-7">char VS varchar</h2>
+<ul>
 <li>char(10)<ul>
 <li>&#39;happy^^^^^&#39;</li>
 </ul>
@@ -511,60 +513,51 @@
 </ul>
 </li>
 </ul>
-<h2 id="bm-10">숫자형 데이터 타입</h2><table>
-<thead>
-<tr>
-<th align="left">데이터 유형</th>
+<h2 id="bm-10">숫자형 데이터 타입</h2>
+
+        <table>
+            <thead><tr><th align="left">데이터 유형</th>
 <th align="left">설명</th>
 <th align="left">길이</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">number[(prec, scale)]</td>
+</tr></thead>
+            <tbody><tr><td align="left">number[(prec, scale)]</td>
 <td align="left">- 정수를 포함한 무돈 실수를 표현하고 저장하는데 사용<br/>- 38자리의 양수 및 음수<br/>precision: 전체 자리수 -&gt; 생략한 경우 적용할 수 있는 최대값 38<br />- Scale: 소수점 이하 자리수 -&gt; 생략한 경우 적용할 수 있는 값 0</td>
 <td align="left">- 최대 21Byte</td>
 </tr>
-<tr>
-<td align="left">BINAYR_FLOAT</td>
+<tr><td align="left">BINAYR_FLOAT</td>
 <td align="left">- 32bit 부동 소수</td>
 <td align="left">- 4byte</td>
 </tr>
-<tr>
-<td align="left">BINARY_DOUBLE</td>
+<tr><td align="left">BINARY_DOUBLE</td>
 <td align="left">- 64bit 부동 소수</td>
 <td align="left">- 8BYTE</td>
-</tr>
-</tbody></table>
-<h2 id="bm-12">날짜 데이터 타입</h2><table>
-<thead>
-<tr>
-<th align="left">데이터 유형</th>
+</tr></tbody>
+        </table>
+        <h2 id="bm-12">날짜 데이터 타입</h2>
+
+        <table>
+            <thead><tr><th align="left">데이터 유형</th>
 <th align="left">설명</th>
 <th align="left">길이</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">DATE</td>
+</tr></thead>
+            <tbody><tr><td align="left">DATE</td>
 <td align="left">- 고정길이 날짜와 시간 데이터<br />- BC 4712년 1월 1일 부터 9999년 12월 31일까지 표현</td>
 <td align="left">- 7BYTE<br />- NLS_DATE_FORMAT</td>
 </tr>
-<tr>
-<td align="left">TIMESTAMP</td>
+<tr><td align="left">TIMESTAMP</td>
 <td align="left">- Millisecond 까지 표현 가능한 데이터 타입<br />- 0 ~ 9까지 가능 <br />- 기본값 6</td>
 <td align="left">7 ~ 11 BYTE<br />NLS_TIMESTAMP_FORMAT</td>
 </tr>
-<tr>
-<td align="left">TIMESTAMP WITH TIME ZONE</td>
+<tr><td align="left">TIMESTAMP WITH TIME ZONE</td>
 <td align="left">- 시간대와 함꼐 날짜와 시간 표현</td>
 <td align="left">- 13BYTE<br/>- NLS_TIMESTAMP_TZ_FORMAT</td>
 </tr>
-<tr>
-<td align="left">TIMESTAMP WITH LOCAL TIME ZONE</td>
+<tr><td align="left">TIMESTAMP WITH LOCAL TIME ZONE</td>
 <td align="left">- 저장시 DB 시간대 준수<br />- 조회시 클라이언트 시간대로 표현됨</td>
 <td align="left">- 7~11BYTE<br />- NLS_TIMESTAMP_FORMAT</td>
-</tr>
-</tbody></table>
-
+</tr></tbody>
+        </table>
+        
 
                         </div>
 

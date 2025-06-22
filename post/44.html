@@ -177,6 +177,10 @@
 </ul>
 
 </ul>
+<li id="dt-32" onclick="foldNavi(32)">k8s (0)</li>
+<ul id="dc-32" class='dc-all' style="display: none;">
+
+</ul>
 
 </ul>
 <li id="dt-4" onclick="foldNavi(4)">----- Database ----- (19)</li>
@@ -473,10 +477,13 @@
                         
                         <div class="main markdown-body">
 
-                            <h1 id="bm-1">Index 설정</h1><h2 id="bm-2">Index란?</h2><ul>
+                            <h1 id="bm-1">Index 설정</h1>
+<h2 id="bm-2">Index란?</h2>
+<ul>
 <li>index가 설정된 도큐먼트의 필드의 데이터 키값을 가지고 document들을 가르키는 포인터값으로 이뤄진 B-Tree 를 만듭니다. 그리고 데이터 조회시 B-Tree의 Binary Search를 통하여 쿼리 속도를 매우 빠르게 향상 시킬수 있습니다.</li>
 </ul>
-<h2 id="bm-5">Index의 종류</h2><ul>
+<h2 id="bm-5">Index의 종류</h2>
+<ul>
 <li><p>_<em>기본 인덱스 <em>id</em></em></p>
 <ul>
 <li>모든 MongoDB의 컬렛견은 기본적으로 _id필드에 인덱스가 존재합니다.
@@ -516,7 +523,8 @@
 </ul>
 </li>
 </ul>
-<h2 id="bm-8">인덱스 생성</h2><ul>
+<h2 id="bm-8">인덱스 생성</h2>
+<ul>
 <li>인덱스를 생성 할 땐, 다음과 같은 createIndex()메소드를 사용합니다. 파라미터는 인덱스를 적용할 필드를 전달합니다. 값을 1로 하면 오름차순으로, -1로 하면 내림차순으로 정렬합니다.</li>
 </ul>
 <pre><code class="language-plaintext"}>> db.COLLENCTION.createIndex({key: 1})
@@ -528,17 +536,22 @@
 
 // 복합 필드 인덱스 생성
 > db.report.createIndex({age:1, score: -1})
-// 이렇게 여러 필드를 넣어 인덱스를 생성하면 age를 오름차순으로 정렬한 상태에서 score는 내림찬순으로 정렬합니다.</code></pre><h2 id="bm-12">인덱스 속성</h2><ul>
+// 이렇게 여러 필드를 넣어 인덱스를 생성하면 age를 오름차순으로 정렬한 상태에서 score는 내림찬순으로 정렬합니다.</code></pre>
+<h2 id="bm-12">인덱스 속성</h2>
+<ul>
 <li>인덱스에 속성을 추가 할 땐 creatIndex() 메소드의 두번째 인자에 속성값을 document 타입으로 전달해주면 됩니다.</li>
 </ul>
 <p><code>> db.COLLECTION.createIndex({key: 1}, {PROPERTY: true})</code></p>
-<h3 id="bm-16">Unique 속성</h3><p>_id 필드처럼 컬렉션에 단 한개의 값만 존재 할 수 있는 속성입니다.</p>
+<h3 id="bm-16">Unique 속성</h3>
+<p>_id 필드처럼 컬렉션에 단 한개의 값만 존재 할 수 있는 속성입니다.</p>
 <pre><code class="language-plaintext"}>// email 인덱스에 unique 속성 적요
 > db.userinfo.createIndex({email: 1}, {unique: true})
 
 // unique 속성은 다음 처럼 복합 인덱스에도 적용 할 수 있습니다.
 // firstName과 lastName 복합 인덱스에 unique 속성 적용
-> db.userinfo.createIndex({firstName: 1, lastName: 1}, {unique: true})</code></pre><h3 id="bm-20">Partial(부분적) 속성</h3><ul>
+> db.userinfo.createIndex({firstName: 1, lastName: 1}, {unique: true})</code></pre>
+<h3 id="bm-20">Partial(부분적) 속성</h3>
+<ul>
 <li>partial속성은 document의 조건을 정하여 일부 document에만 인덱스를 적용 할 때 사용됩니다.
 partial속성을 사용하면, 필요한 부분에만 인덱싱을 사용하여 저장공간도 아끼고 속도를 더 높일 수 있습니다.</li>
 </ul>
@@ -546,16 +559,20 @@ partial속성을 사용하면, 필요한 부분에만 인덱싱을 사용하여 
 > db.store.createIndex(
     {name: 1},
     {partialFilterExpression: {visitors: {&gt: 1000}}}
-)</code></pre><h3 id="bm-24">TLL 속성</h3><ul>
+)</code></pre>
+<h3 id="bm-24">TLL 속성</h3>
+<ul>
 <li>이 인덱스 속성은 Date 타입, 혹은 Date 배열 타입의 필드에 적용 할 수 있는 속성입니다.
 이 속성을 사용하여 document를 expire(만료)시킬 수 있습니다.
 즉, 추가하고 특정 시간이 지나면 document를 컬렉션에서 제거합니다.</li>
 </ul>
 <pre><code class="language-plaintext"}>// notifiedDate가 현재 시간과 1시간 이상 차이나면 제거
-> db.notifications.createIndex({"notifiedDate": 1}, {expireAfterSeconds: 3600})</code></pre><ul>
+> db.notifications.createIndex({"notifiedDate": 1}, {expireAfterSeconds: 3600})</code></pre>
+<ul>
 <li>document가 만료되어 제거 될 때, 시간이 아주 정확하지는 않습니다. 만료 되는 document를 제거하는 thread는 매 60초 마다 실행 됩니다.</li>
 </ul>
-<h2 id="bm-29">인덱스 조회 및 제거</h2><ul>
+<h2 id="bm-29">인덱스 조회 및 제거</h2>
+<ul>
 <li>생성된 인덱스를 조회 할 땐 getIndexs()메서드를 사용합니다.</li>
 </ul>
 <p><code>db.COLLECTION.getIndexs()</code></p>

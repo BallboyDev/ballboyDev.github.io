@@ -177,6 +177,10 @@
 </ul>
 
 </ul>
+<li id="dt-32" onclick="foldNavi(32)">k8s (0)</li>
+<ul id="dc-32" class='dc-all' style="display: none;">
+
+</ul>
 
 </ul>
 <li id="dt-4" onclick="foldNavi(4)">----- Database ----- (19)</li>
@@ -451,7 +455,10 @@
                         
                         <div class="main markdown-body">
 
-                            <h1 id="bm-1">Docker로 MariaDB 세팅하기</h1><h3 id="bm-2">MariaDB image 설치</h3><pre class="theme-atom-one-dark"><code class="language-sh">docker pull mariadb</code></pre><h3 id="bm-5">MariaDB 컨테이너 생성 및 실행</h3><pre class="theme-atom-one-dark"><code class="language-sh"><span class="hljs-comment"># set password</span>
+                            <h1 id="bm-1">Docker로 MariaDB 세팅하기</h1>
+<h3 id="bm-2">MariaDB image 설치</h3>
+<pre class="theme-atom-one-dark"><code class="language-sh">docker pull mariadb</code></pre><h3 id="bm-5">MariaDB 컨테이너 생성 및 실행</h3>
+<pre class="theme-atom-one-dark"><code class="language-sh"><span class="hljs-comment"># set password</span>
 docker run --detach --name dev-mariadb --<span class="hljs-built_in">env</span> MARIADB_ROOT_PASSWORD=my-secret-pw mariadb:latest
 
 <span class="hljs-comment"># root password 없이 컨테이서 생성 및 실행</span>
@@ -461,7 +468,9 @@ docker run --detach --name dev-mariadb --<span class="hljs-built_in">env</span> 
 docker run --name dev-mariadb --<span class="hljs-built_in">env</span> MARIADB_RANDOM_ROOT_PASSWORD=1 mariadb:latest</code></pre><ul>
 <li><a href="https://mariadb.com/kb/en/mariadb-server-docker-official-image-environment-variables/">MariaDB Docker image options</a></li>
 </ul>
-<h3 id="bm-10">MariaDB 컨테이너 접속</h3><pre class="theme-atom-one-dark"><code class="language-sh">docker <span class="hljs-built_in">exec</span> -it dev-mariadb /bin/bash</code></pre><h3 id="bm-13">DB 접속</h3><pre class="theme-atom-one-dark"><code class="language-sh"><span class="hljs-comment"># docker 내부에서 접근</span>
+<h3 id="bm-10">MariaDB 컨테이너 접속</h3>
+<pre class="theme-atom-one-dark"><code class="language-sh">docker <span class="hljs-built_in">exec</span> -it dev-mariadb /bin/bash</code></pre><h3 id="bm-13">DB 접속</h3>
+<pre class="theme-atom-one-dark"><code class="language-sh"><span class="hljs-comment"># docker 내부에서 접근</span>
 mariadb -u root -p
 
 <span class="hljs-comment"># local에서 Docker DB로 접근</span>

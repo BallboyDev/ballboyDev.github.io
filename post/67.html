@@ -177,6 +177,10 @@
 </ul>
 
 </ul>
+<li id="dt-32" onclick="foldNavi(32)">k8s (0)</li>
+<ul id="dc-32" class='dc-all' style="display: none;">
+
+</ul>
 
 </ul>
 <li id="dt-4" onclick="foldNavi(4)">----- Database ----- (19)</li>
@@ -440,20 +444,23 @@
                         
                         <div class="main markdown-body">
 
-                            <h1 id="bm-1">JDBC</h1><blockquote>
+                            <h1 id="bm-1">JDBC</h1>
+<blockquote>
 <p>JDBC란?</p>
 </blockquote>
 <ul>
 <li>자바에서 데이터베이스를 사용하기 위한 절차에 대한 규약입니다.</li>
 </ul>
-<h2 id="bm-5">이클립스에서 JDBC 등록하기(MySql)</h2><ol>
+<h2 id="bm-5">이클립스에서 JDBC 등록하기(MySql)</h2>
+<ol>
 <li>jar파일 다운로드 (<a href="https://dev.mysql.com/downloads/connector/j/">https://dev.mysql.com/downloads/connector/j/</a>)</li>
 <li>JDBC를 연결할 프로젝트 Properties내부의 Java Build Path 이동</li>
 <li>Libraries -&gt; Add Library... -&gt; User Library -&gt; User Libraries</li>
 <li>이름 작성 -&gt; Add External JARs -&gt; jar 파일 선택
 (mysql-connector-java-(버전)-bin.jar)</li>
 </ol>
-<h3 id="bm-8">JDBC 사용하기</h3><ul>
+<h3 id="bm-8">JDBC 사용하기</h3>
+<ul>
 <li>Connection 객체를 자동완성으로 import 할 때는 com.mysql.connection이 아닌 Java 표준인 java.sql.Connection 클래스를 import 해야 한다.</li>
 </ul>
 <pre class="theme-atom-one-dark"><code class="language-java"><span class="hljs-comment">// 동적 변수가 없는 SELECT문 실행</span>
@@ -555,42 +562,34 @@
     } <span class="hljs-keyword">catch</span> (SQLException e) {
         e.printStackTrace();
     }
-}</code></pre><table>
-<thead>
-<tr>
-<th align="left">상황</th>
+}</code></pre>
+        <table>
+            <thead><tr><th align="left">상황</th>
 <th align="center">사용 객체</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">정적 쿼리 실행</td>
+</tr></thead>
+            <tbody><tr><td align="left">정적 쿼리 실행</td>
 <td align="center">Statement</td>
 </tr>
-<tr>
-<td align="left">동적 쿼리 실행</td>
+<tr><td align="left">동적 쿼리 실행</td>
 <td align="center">PreparedStatement</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th align="left">상황</th>
+</tr></tbody>
+        </table>
+        
+        <table>
+            <thead><tr><th align="left">상황</th>
 <th align="center">사용 메서드</th>
 <th align="center">리턴 객체</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">쿼리 실행 결과 유(SELECT)</td>
+</tr></thead>
+            <tbody><tr><td align="left">쿼리 실행 결과 유(SELECT)</td>
 <td align="center">executeQuery()</td>
 <td align="center">ResultSet</td>
 </tr>
-<tr>
-<td align="left">쿼리 실행 결과 무(INSERT, UPDATE, DELETE)</td>
+<tr><td align="left">쿼리 실행 결과 무(INSERT, UPDATE, DELETE)</td>
 <td align="center">executeUpdate()</td>
 <td align="center">int</td>
-</tr>
-</tbody></table>
-
+</tr></tbody>
+        </table>
+        
 
                         </div>
 

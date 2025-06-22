@@ -177,6 +177,10 @@
 </ul>
 
 </ul>
+<li id="dt-32" onclick="foldNavi(32)">k8s (0)</li>
+<ul id="dc-32" class='dc-all' style="display: none;">
+
+</ul>
 
 </ul>
 <li id="dt-4" onclick="foldNavi(4)">----- Database ----- (19)</li>
@@ -496,9 +500,11 @@
                         
                         <div class="main markdown-body">
 
-                            <h1 id="bm-1">node 내장 객체 / 모듈</h1><p>노드는 개발 지원을 위한 다양한 내장 객체와 모듈을 탑제하고 있다. 
+                            <h1 id="bm-1">node 내장 객체 / 모듈</h1>
+<p>노드는 개발 지원을 위한 다양한 내장 객체와 모듈을 탑제하고 있다. 
 따로 설치 않더라도 바로 사용할 수 있다.</p>
-<h2 id="bm-4">__filename, __dirname</h2><ul>
+<h2 id="bm-4">__filename, __dirname</h2>
+<ul>
 <li>__filename<ul>
 <li>현재 파일명</li>
 </ul>
@@ -508,221 +514,187 @@
 </ul>
 </li>
 </ul>
-<h2 id="bm-7">process</h2><ul>
+<h2 id="bm-7">process</h2>
+<ul>
 <li>process 객체는 현재 실행되고 있는 노드 프로세스에 대한 정보를 담고 있는 객체 이다.</li>
 </ul>
-<h3 id="bm-10">attribute</h3><table>
-<thead>
-<tr>
-<th align="left">코드</th>
+<h3 id="bm-10">attribute</h3>
+
+        <table>
+            <thead><tr><th align="left">코드</th>
 <th align="left">설명</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">process.version</td>
+</tr></thead>
+            <tbody><tr><td align="left">process.version</td>
 <td align="left">설치된 노드의 버전</td>
 </tr>
-<tr>
-<td align="left">process.arch</td>
+<tr><td align="left">process.arch</td>
 <td align="left">프로세서 아키텍처 정보</td>
 </tr>
-<tr>
-<td align="left">process.platform</td>
+<tr><td align="left">process.platform</td>
 <td align="left">운영체제 플랫폼 정보</td>
 </tr>
-<tr>
-<td align="left">process.pid</td>
+<tr><td align="left">process.pid</td>
 <td align="left">현재 프로세스의 아이디</td>
 </tr>
-<tr>
-<td align="left">process.execPath</td>
+<tr><td align="left">process.execPath</td>
 <td align="left">노드의 경로</td>
 </tr>
-<tr>
-<td align="left">process.env</td>
+<tr><td align="left">process.env</td>
 <td align="left">시스템 환경 변수</td>
-</tr>
-</tbody></table>
-<h3 id="bm-12">method</h3><table>
-<thead>
-<tr>
-<th align="left">코드</th>
+</tr></tbody>
+        </table>
+        <h3 id="bm-12">method</h3>
+
+        <table>
+            <thead><tr><th align="left">코드</th>
 <th align="left">설명</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">process.uptime()</td>
+</tr></thead>
+            <tbody><tr><td align="left">process.uptime()</td>
 <td align="left">프로세스가 시작 된 후 흐른 시간(초)</td>
 </tr>
-<tr>
-<td align="left">process.cwd()</td>
+<tr><td align="left">process.cwd()</td>
 <td align="left">현재 프로세스가 실행되는 위치</td>
 </tr>
-<tr>
-<td align="left">process.cpuUsage()</td>
+<tr><td align="left">process.cpuUsage()</td>
 <td align="left">현재 CPU 사용량</td>
 </tr>
-<tr>
-<td align="left">process.nestTick(콜백)</td>
+<tr><td align="left">process.nestTick(콜백)</td>
 <td align="left">이벤트 루프가 다른 콜백 함수들 보다 nextTick의 콜백 함수를 우선 실행 처리</td>
 </tr>
-<tr>
-<td align="left">process.exit(코드)</td>
+<tr><td align="left">process.exit(코드)</td>
 <td align="left">실행 중인 노드 프로세스 종료</td>
-</tr>
-</tbody></table>
-<h2 id="bm-14">os 모듈</h2><ul>
+</tr></tbody>
+        </table>
+        <h2 id="bm-14">os 모듈</h2>
+<ul>
 <li>os 모듈은 실행 환경의 운영 체제에 대한 정보 접근하는 모듈입니다.</li>
 </ul>
-<h3 id="bm-17">attribute</h3><table>
-<thead>
-<tr>
-<th align="left">코드</th>
+<h3 id="bm-17">attribute</h3>
+
+        <table>
+            <thead><tr><th align="left">코드</th>
 <th align="left">설명</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">os.contents</td>
+</tr></thead>
+            <tbody><tr><td align="left">os.contents</td>
 <td align="left"></td>
-</tr>
-</tbody></table>
-<h3 id="bm-19">method</h3><table>
-<thead>
-<tr>
-<th align="left">코드</th>
+</tr></tbody>
+        </table>
+        <h3 id="bm-19">method</h3>
+
+        <table>
+            <thead><tr><th align="left">코드</th>
 <th align="left">설명</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">os.arch()</td>
+</tr></thead>
+            <tbody><tr><td align="left">os.arch()</td>
 <td align="left">프로세스 아키텍처 정보</td>
 </tr>
-<tr>
-<td align="left">os.platform()</td>
+<tr><td align="left">os.platform()</td>
 <td align="left">운영체제 플랫폼 정보</td>
 </tr>
-<tr>
-<td align="left">os.type()</td>
+<tr><td align="left">os.type()</td>
 <td align="left">운영체제의 종류</td>
 </tr>
-<tr>
-<td align="left">os.uptime()</td>
+<tr><td align="left">os.uptime()</td>
 <td align="left">운영체제 부팅 이후 흐른 시간(초) 출력</td>
 </tr>
-<tr>
-<td align="left">os.hostname()</td>
+<tr><td align="left">os.hostname()</td>
 <td align="left">컴퓨터 이름</td>
 </tr>
-<tr>
-<td align="left">os.release()</td>
+<tr><td align="left">os.release()</td>
 <td align="left">운영체제의 버전</td>
 </tr>
-<tr>
-<td align="left">os.homedir()</td>
+<tr><td align="left">os.homedir()</td>
 <td align="left">홈 디렉토리 경로</td>
 </tr>
-<tr>
-<td align="left">os.tmpdir()</td>
+<tr><td align="left">os.tmpdir()</td>
 <td align="left">임시 파일 저장 경로</td>
 </tr>
-<tr>
-<td align="left">os.cpus()</td>
+<tr><td align="left">os.cpus()</td>
 <td align="left">컴퓨터 코어 정보</td>
 </tr>
-<tr>
-<td align="left">os.cpus().length</td>
+<tr><td align="left">os.cpus().length</td>
 <td align="left">컴퓨터 코어 개수 이지만 노드에서는 멀티 스레드 설정을 하지 않는다면 하나만 출력된다.</td>
 </tr>
-<tr>
-<td align="left">os.freemem()</td>
+<tr><td align="left">os.freemem()</td>
 <td align="left">사용 가능한 메모리</td>
 </tr>
-<tr>
-<td align="left">os.totalmem()</td>
+<tr><td align="left">os.totalmem()</td>
 <td align="left">전체 메모리 용량</td>
-</tr>
-</tbody></table>
-<h2 id="bm-21">path 모듈</h2><ul>
+</tr></tbody>
+        </table>
+        <h2 id="bm-21">path 모듈</h2>
+<ul>
 <li>path 모듈은 개발 환경과 상관 없이 경로를 다루거나 파일 명 등을 쉽게 다룰수 있도록 지원하는 모듈이다.<ul>
 <li>윈도 : <code>C:\Users\ballboy</code></li>
 <li>POSIX : <code>/home/ballboy</code></li>
 </ul>
 </li>
 </ul>
-<h3 id="bm-24">attribute</h3><table>
-<thead>
-<tr>
-<th align="left">코드</th>
+<h3 id="bm-24">attribute</h3>
+
+        <table>
+            <thead><tr><th align="left">코드</th>
 <th align="left">설명</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">path.sep</td>
+</tr></thead>
+            <tbody><tr><td align="left">path.sep</td>
 <td align="left">경로의 구분자 (윈도: &#39;&#39;, POSIX: &#39;/&#39;)</td>
 </tr>
-<tr>
-<td align="left">path.delimiter</td>
+<tr><td align="left">path.delimiter</td>
 <td align="left">환경 변수의 구분자 (윈도: &#39;;&#39;, POSIX: &#39;:&#39;)</td>
-</tr>
-</tbody></table>
-<h3 id="bm-26">method</h3><table>
-<thead>
-<tr>
-<th align="left">코드</th>
+</tr></tbody>
+        </table>
+        <h3 id="bm-26">method</h3>
+
+        <table>
+            <thead><tr><th align="left">코드</th>
 <th align="left">설명</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">path.dirname(경로)</td>
+</tr></thead>
+            <tbody><tr><td align="left">path.dirname(경로)</td>
 <td align="left">파일이 위치한 폴더 경로</td>
 </tr>
-<tr>
-<td align="left">path.extname(경로)</td>
+<tr><td align="left">path.extname(경로)</td>
 <td align="left">파일의 확장자</td>
 </tr>
-<tr>
-<td align="left">path.basename(경로, 확장자)</td>
+<tr><td align="left">path.basename(경로, 확장자)</td>
 <td align="left">확장자를 포함한 파일의 이름<br/>파일의 이름만 표시하고 싶다면 basename의 두번쨰 인수로 확자자를 넣는다.</td>
 </tr>
-<tr>
-<td align="left">path.parse(경로)</td>
+<tr><td align="left">path.parse(경로)</td>
 <td align="left">파일 경로를 root, dir, base, ext, name으로 분리 후 출력</td>
 </tr>
-<tr>
-<td align="left">path.format(경로)</td>
+<tr><td align="left">path.format(경로)</td>
 <td align="left">path.parse()한 객체를 합침</td>
 </tr>
-<tr>
-<td align="left">path.normalize(경로)</td>
+<tr><td align="left">path.normalize(경로)</td>
 <td align="left">&#39;\&#39;, &#39;/&#39;를 혼용하여 사용 했을 경우 정상적인 경로로 변환</td>
 </tr>
-<tr>
-<td align="left">path.isAbsolute(경로)</td>
+<tr><td align="left">path.isAbsolute(경로)</td>
 <td align="left">파일의 경로가 절대경로 인지 상대 경로 인지 확인</td>
 </tr>
-<tr>
-<td align="left">path.relative(기준 경로, 비교 경로)</td>
+<tr><td align="left">path.relative(기준 경로, 비교 경로)</td>
 <td align="left">기준 경로에서 비교 경로로 가는 경로 출력</td>
 </tr>
-<tr>
-<td align="left">path.join(경로, ...)</td>
+<tr><td align="left">path.join(경로, ...)</td>
 <td align="left">여러 인수를 넣으면 하나의 경로로 합침</td>
 </tr>
-<tr>
-<td align="left">path.resolve(경로, ...)</td>
+<tr><td align="left">path.resolve(경로, ...)</td>
 <td align="left">path.join()과 비슷하나 &#39;/&#39;문자를 만나면 절대경로로 처리한다.</td>
-</tr>
-</tbody></table>
-<h2 id="bm-28">url, querystring 모듈</h2><ul>
+</tr></tbody>
+        </table>
+        <h2 id="bm-28">url, querystring 모듈</h2>
+<ul>
 <li>인터넷 주소 조작 지원 모듈로 각각 URL을 파싱하거나 조작할 때, URL의 쿼리 문자열을 처리 할 때 사용한다.</li>
 </ul>
-<h3 id="bm-31">url 모듈</h3><h4 id="bm-32">new URL(url주소)</h4><ul>
+<h3 id="bm-31">url 모듈</h3>
+<h4 id="bm-32">new URL(url주소)</h4>
+<ul>
 <li>url주소 문자열을 URL 객체로 변환</li>
 </ul>
-<h4 id="bm-34">url.format(URL 객체)</h4><ul>
+<h4 id="bm-34">url.format(URL 객체)</h4>
+<ul>
 <li>URL 객체를 다시 문자열로 반환</li>
 </ul>
-<h4 id="bm-37">주요 객체 속성</h4><ul>
+<h4 id="bm-37">주요 객체 속성</h4>
+<ul>
 <li>protocol: &#39;http:&#39;, &#39;https:&#39;</li>
 <li>host: &#39;ballboydev.github.io:8080&#39;</li>
 <li>hostname: &#39;ballboydev.github.io&#39;</li>
@@ -738,7 +710,8 @@
 
 <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(obj.<span class="hljs-property">protocol</span>) <span class="hljs-comment">// https:</span>
 <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(obj.<span class="hljs-property">hostname</span>) <span class="hljs-comment">// ballboydev.github</span>
-<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(obj.<span class="hljs-property">port</span>) <span class="hljs-comment">// 80</span></code></pre><h3 id="bm-42">querystring 모듈</h3><p>url의 쿼리 문자열을 객체로 파싱하거나 반대로 객체를 문자열로 변환할때 사용</p>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(obj.<span class="hljs-property">port</span>) <span class="hljs-comment">// 80</span></code></pre><h3 id="bm-42">querystring 모듈</h3>
+<p>url의 쿼리 문자열을 객체로 파싱하거나 반대로 객체를 문자열로 변환할때 사용</p>
 <ul>
 <li>querystring.parse(쿼리)<ul>
 <li>url의 query부분을 자바스크립트 객체로 분해</li>

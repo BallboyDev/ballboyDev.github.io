@@ -177,6 +177,10 @@
 </ul>
 
 </ul>
+<li id="dt-32" onclick="foldNavi(32)">k8s (0)</li>
+<ul id="dc-32" class='dc-all' style="display: none;">
+
+</ul>
 
 </ul>
 <li id="dt-4" onclick="foldNavi(4)">----- Database ----- (19)</li>
@@ -455,12 +459,14 @@
                         
                         <div class="main markdown-body">
 
-                            <h1 id="bm-1">curl 란?</h1><ul>
+                            <h1 id="bm-1">curl 란?</h1>
+<ul>
 <li>cURL은 url 기반의 데이터 송수신을 위한 명령줄 제공 라이브러리 이다.</li>
 <li>cURL을 활용하면 별도의 툴 설치 없이 다양한 프로토콜 기반의 데이터 통신이 가능하다.</li>
 <li>대부분의 리눅스 배포 환경에는 curl 패키지가 마리 설치 되어 있으며 맥OS 역시 기본적으로 설치가 되어 있다.</li>
 </ul>
-<h2 id="bm-4">curl 사용법 및 옵션</h2><ul>
+<h2 id="bm-4">curl 사용법 및 옵션</h2>
+<ul>
 <li>curl 을 대체하기 위한 좋은 툴과 라이브러리들이 너무나 많이 존재한다
 하지만 여전히 curl 을 사용하는 이유는 postman이나 다른 툴을 설치 하기 힘든 가상 환경이거나 폐쇄망에서의 테스트 환경에서는 curl이 가장 좋은 선택지가 될것이다.</li>
 </ul>
@@ -479,139 +485,110 @@ curl -F <span class="hljs-string">&quot;file=@example.txt&quot;</span> https://a
 curl -i https://example.com
 
 <span class="hljs-comment"># 리다이렉션 따라가기</span>
-curl -L https://short.url</code></pre><h3 id="bm-9">curl 기본 요청 옵션</h3><table>
-<thead>
-<tr>
-<th align="left">옵션</th>
+curl -L https://short.url</code></pre><h3 id="bm-9">curl 기본 요청 옵션</h3>
+
+        <table>
+            <thead><tr><th align="left">옵션</th>
 <th align="left">설명</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><code>-X, --request</code></td>
+</tr></thead>
+            <tbody><tr><td align="left"><code>-X, --request</code></td>
 <td align="left">요청 메서드 지정 (ex. GET, POST, PUT, DELETE)</td>
 </tr>
-<tr>
-<td align="left"><code>-d, --data</code></td>
+<tr><td align="left"><code>-d, --data</code></td>
 <td align="left">요청 본문에 데이터 전송 (기본은 POST로 설정 됨)</td>
 </tr>
-<tr>
-<td align="left"><code>-G, --get</code></td>
+<tr><td align="left"><code>-G, --get</code></td>
 <td align="left">--data와 함께 사용 시, GET 요청으로 전송 (QueryString)</td>
 </tr>
-<tr>
-<td align="left"><code>-F, --form</code></td>
+<tr><td align="left"><code>-F, --form</code></td>
 <td align="left">multipart/form-data 형식으로 데이터 전송</td>
 </tr>
-<tr>
-<td align="left"><code>-H, --header</code></td>
+<tr><td align="left"><code>-H, --header</code></td>
 <td align="left">헤더 추가 (ex. -H &quot;Content-Type:application/json&quot;)</td>
 </tr>
-<tr>
-<td align="left"><code>-b, --cookie</code></td>
+<tr><td align="left"><code>-b, --cookie</code></td>
 <td align="left">쿠키 전송 (ex. -b &quot;sessionId=abc123&quot;)</td>
 </tr>
-<tr>
-<td align="left"><code>-c, --cookie-jar</code></td>
+<tr><td align="left"><code>-c, --cookie-jar</code></td>
 <td align="left">응탑 쿠키를 파일로 저장</td>
 </tr>
-<tr>
-<td align="left"><code>-u, --user</code></td>
+<tr><td align="left"><code>-u, --user</code></td>
 <td align="left">인증 (ex. -u username:password)</td>
-</tr>
-</tbody></table>
-<h3 id="bm-11">출력 및 형식 옵션</h3><table>
-<thead>
-<tr>
-<th align="left">옵션</th>
+</tr></tbody>
+        </table>
+        <h3 id="bm-11">출력 및 형식 옵션</h3>
+
+        <table>
+            <thead><tr><th align="left">옵션</th>
 <th align="left">설명</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><code>-i</code></td>
+</tr></thead>
+            <tbody><tr><td align="left"><code>-i</code></td>
 <td align="left">응답에 헤더 포함</td>
 </tr>
-<tr>
-<td align="left"><code>-s, --silent</code></td>
+<tr><td align="left"><code>-s, --silent</code></td>
 <td align="left">진행률/에러 숨김 (스크립트 용)</td>
 </tr>
-<tr>
-<td align="left"><code>-S, --show-error</code></td>
+<tr><td align="left"><code>-S, --show-error</code></td>
 <td align="left">silent 모드에서도 에러는 출력</td>
 </tr>
-<tr>
-<td align="left"><code>-v, --verbose</code></td>
+<tr><td align="left"><code>-v, --verbose</code></td>
 <td align="left">상세 로그 출력</td>
 </tr>
-<tr>
-<td align="left"><code>-L, --location</code></td>
+<tr><td align="left"><code>-L, --location</code></td>
 <td align="left">리다이렉트 따라가기</td>
 </tr>
-<tr>
-<td align="left"><code>-o</code></td>
+<tr><td align="left"><code>-o</code></td>
 <td align="left">응답을 파일로 저장</td>
 </tr>
-<tr>
-<td align="left"><code>-O</code></td>
+<tr><td align="left"><code>-O</code></td>
 <td align="left">URL 에서 추출한 파일명으로 저장</td>
-</tr>
-</tbody></table>
-<h3 id="bm-13">보안 관련 옵션</h3><table>
-<thead>
-<tr>
-<th align="left">옵션</th>
+</tr></tbody>
+        </table>
+        <h3 id="bm-13">보안 관련 옵션</h3>
+
+        <table>
+            <thead><tr><th align="left">옵션</th>
 <th align="left">설명</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><code>-k, --insecure</code></td>
+</tr></thead>
+            <tbody><tr><td align="left"><code>-k, --insecure</code></td>
 <td align="left">SSL 인증서 검증 무시 (개발 환경 사용)</td>
 </tr>
-<tr>
-<td align="left"><code>--cert</code></td>
+<tr><td align="left"><code>--cert</code></td>
 <td align="left">클라이언트 인증서 지정</td>
 </tr>
-<tr>
-<td align="left"><code>--key</code></td>
+<tr><td align="left"><code>--key</code></td>
 <td align="left">인증서용 개인 키 지정</td>
 </tr>
-<tr>
-<td align="left"><code>--cacert</code></td>
+<tr><td align="left"><code>--cacert</code></td>
 <td align="left">특정 CA 인증서를 신뢰</td>
-</tr>
-</tbody></table>
-<h3 id="bm-15">기타 유용한 옵션</h3><table>
-<thead>
-<tr>
-<th align="left">옵션</th>
+</tr></tbody>
+        </table>
+        <h3 id="bm-15">기타 유용한 옵션</h3>
+
+        <table>
+            <thead><tr><th align="left">옵션</th>
 <th align="left">설명</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><code>--url</code></td>
+</tr></thead>
+            <tbody><tr><td align="left"><code>--url</code></td>
 <td align="left">요청할 URL 지정 (명령어 맨 뒤에 써도 됨)</td>
 </tr>
-<tr>
-<td align="left"><code>--http1.1, --http2</code></td>
+<tr><td align="left"><code>--http1.1, --http2</code></td>
 <td align="left">HTTP 버전 강제 지정</td>
 </tr>
-<tr>
-<td align="left"><code>--max-time</code></td>
+<tr><td align="left"><code>--max-time</code></td>
 <td align="left">최대 실행 시간 제한</td>
 </tr>
-<tr>
-<td align="left"><code>--compressed</code></td>
+<tr><td align="left"><code>--compressed</code></td>
 <td align="left">서버가 gzip 등의 압축 응답을 하면 자동 해제</td>
 </tr>
-<tr>
-<td align="left"><code>--resolve</code></td>
+<tr><td align="left"><code>--resolve</code></td>
 <td align="left">DNS 우회 (ex. --resolve example.com:443:127.0.0.1)</td>
 </tr>
-<tr>
-<td align="left"><code>--data-urlencode</code></td>
+<tr><td align="left"><code>--data-urlencode</code></td>
 <td align="left">데이터를 URL 인코딩해서 전송</td>
-</tr>
-</tbody></table>
-
+</tr></tbody>
+        </table>
+        
 
                         </div>
 

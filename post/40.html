@@ -177,6 +177,10 @@
 </ul>
 
 </ul>
+<li id="dt-32" onclick="foldNavi(32)">k8s (0)</li>
+<ul id="dc-32" class='dc-all' style="display: none;">
+
+</ul>
 
 </ul>
 <li id="dt-4" onclick="foldNavi(4)">----- Database ----- (19)</li>
@@ -466,7 +470,9 @@
                         
                         <div class="main markdown-body">
 
-                            <h1 id="bm-1">Database/Collection/Document 의 생성, 제거</h1><h2 id="bm-2">DataBase 생성 : use</h2><ul>
+                            <h1 id="bm-1">Database/Collection/Document 의 생성, 제거</h1>
+<h2 id="bm-2">DataBase 생성 : use</h2>
+<ul>
 <li>use DATABASE_NAME 명령어를 사용하여 Database를 생성 할 수 있습니다.</li>
 <li>생성 후, 생성된 사용된 데이터 베이스를 사용하거나, 데이터베이스가 이미 존재하는 경우에는 현존하는 데이터 베이스를 사용합니다.</li>
 </ul>
@@ -486,7 +492,8 @@ local   <span class="hljs-number">0.000</span>GB
 nodejs  <span class="hljs-number">0.000</span>GB
 
 <span class="hljs-comment">// 내부에 데이터가 없는 DB는 리스트에 출력되지 않음</span>
-<span class="hljs-comment">// 최소 한개 이상의 Document를 추가해야 출력이 됨</span></code></pre><h2 id="bm-6">Database 제거 : db.dropDatabase()</h2><ul>
+<span class="hljs-comment">// 최소 한개 이상의 Document를 추가해야 출력이 됨</span></code></pre><h2 id="bm-6">Database 제거 : db.dropDatabase()</h2>
+<ul>
 <li>Database를 제거할 땐 db.dropDatabase() 명령어를 사용합니다.</li>
 <li>이 명령어를 사용하기 전, use DATABASE_NAME명령어로 삭제하고자 하는 데이터베이스를 선택해줘야 합니다.</li>
 </ul>
@@ -496,7 +503,8 @@ switched to db mongodb_study
 
 <span class="hljs-comment">// DB 삭제</span>
 &gt; db.dropDatabase()
-<span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;dropped&quot;</span> <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;mongodb_study&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;ok&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span> <span class="hljs-punctuation">}</span></code></pre><h2 id="bm-10">Collection 생성 : db.createCollection()</h2><ul>
+<span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;dropped&quot;</span> <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;mongodb_study&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;ok&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span> <span class="hljs-punctuation">}</span></code></pre><h2 id="bm-10">Collection 생성 : db.createCollection()</h2>
+<ul>
 <li>Collection을 생성할 때는 db.createCollection(name, [option])명령어를 사용합니다.</li>
 <li>name은 생성하려는 Collection의 이름입니다.</li>
 <li>option은 document타입으로 구성된 해당 컬렉션의 설정값입니다.<ul>
@@ -544,13 +552,15 @@ WriteResult(<span class="hljs-punctuation">{</span> <span class="hljs-attr">&quo
 &gt; show collections
 articles
 books
-people</code></pre><h2 id="bm-14">Collection 제거 : db.COLLECTION_NAME.drop()</h2><ul>
+people</code></pre><h2 id="bm-14">Collection 제거 : db.COLLECTION_NAME.drop()</h2>
+<ul>
 <li>Collection을 제거 할 때느 drop() 메소드를 사용합니다.</li>
 </ul>
 <pre class="theme-atom-one-dark"><code class="language-json"><span class="hljs-comment">// test 데이터베이스의 people 컬렉션을 제거</span>
 &gt; use test
 &gt; db.people.drop()
-<span class="hljs-literal"><span class="hljs-keyword">true</span></span></code></pre><h2 id="bm-18">Document 추가 : db.COLLECTION_NAME.insert(document)</h2><ul>
+<span class="hljs-literal"><span class="hljs-keyword">true</span></span></code></pre><h2 id="bm-18">Document 추가 : db.COLLECTION_NAME.insert(document)</h2>
+<ul>
 <li>insert() 메소드를 사용하여 Document를 추가 할 수 있습니다.</li>
 <li>배열 형식의 인자를 전달해주면 여러 다큐먼트를 동시에 추가 할 수 있습니다.</li>
 </ul>
@@ -562,7 +572,8 @@ WriteResult(<span class="hljs-punctuation">{</span> <span class="hljs-attr">&quo
 &gt; db.books.insert(<span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Book1&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;author&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Ballboy&quot;</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
     <span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Book2&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;author&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Ballboy&quot;</span> <span class="hljs-punctuation">}</span>
-<span class="hljs-punctuation">]</span>)</code></pre><h2 id="bm-22">Document 제거 : db.COLLECTION_NAME.remove(criteria[, justOne])</h2><ul>
+<span class="hljs-punctuation">]</span>)</code></pre><h2 id="bm-22">Document 제거 : db.COLLECTION_NAME.remove(criteria[, justOne])</h2>
+<ul>
 <li>document는 remove(criteria, justOne) 메소드를 사용하여 Document를 제거 할 수 있습니다.</li>
 <li>메소드의 두 개의 변수<ul>
 <li>criteria : document<ul>
