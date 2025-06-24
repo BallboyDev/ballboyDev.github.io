@@ -17,19 +17,19 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
             <style>
-                #p-68 {
+                #p-89 {
                     color: rgb(76, 193, 237) !important;
                 }
             </style>
             <script id="data" type="application/json">
             {
-                "fold": ["1","13"]
+                "fold": ["3","31"]
             }
             </script>
 
             <script src="https://ballboyDev.github.io/assets/skin.js"></script>
 
-                <title>setting svelte.config.js</title>
+                <title>docker network, volume</title>
             </head>
 
             <body>
@@ -433,240 +433,123 @@
                         <div class="bookmark">
 
             <div class="title t1">
-                <div><a href="#bm-1"># setting svelte.config.js</a></div>
+                <div><a href="#bm-1"># 도커 네트워크</a></div>
                 <p>•</p>
             </div>
 
-            <div class="title t2">
-                <div><a href="#bm-6">## Config (`interface Config {...}`)</a></div>
+            <div class="title t3">
+                <div><a href="#bm-4">### 네트워크 종류</a></div>
                 <p>•</p>
             </div>
 
-            <div class="title t2">
-                <div><a href="#bm-10">## KitConfig</a></div>
+            <div class="title t3">
+                <div><a href="#bm-6">### 컨테이너 네트워크 설정 방법</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t1">
+                <div><a href="#bm-9"># 도커 볼륨</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-12">### 볼륨의 종류</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-14">### 컨테이너 볼륨 설정 방법</a></div>
                 <p>•</p>
             </div></div>
                         
                         
-            <a href="https://ballboyDev.github.io/post/24.html" class="prev post">
-                <img src="https://ballboyDev.github.io/assets/img/prev.svg" alt="" srcset="">
-            </a>
                         
                         
                         
                         <div class="main markdown-body">
 
-                            <h1 id="bm-1">setting svelte.config.js</h1>
+                            <h1 id="bm-1">도커 네트워크</h1>
 <ul>
-<li>프로젝트의 구성과 설정은 <code>svelte.config.js</code> 파일을 통하여 이루어집니다. <code>svelte.config.js</code>는 svelteKit 외에도 편집기 확장과 같은 Svelte와 통합되는 다른 도구에서도 사용됩니다.</li>
+<li>도커 컨테이너 간의 통신을 가능하게 해주는 가상 네트워크.
+컨테이너는 동일한 네트워크에 연결되어 있어야 서로 이름으로 통신이 가능하다.</li>
 </ul>
-<pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">// base code</span>
-<span class="hljs-keyword">import</span> adapter <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@sveltejs/adapter-auto&#x27;</span>;
+<h3 id="bm-4">네트워크 종류</h3>
 
-<span class="hljs-comment">/** <span class="hljs-doctag">@type</span> {<span class="hljs-type">import(&#x27;@sveltejs/kit&#x27;).Config</span>} */</span>
-<span class="hljs-keyword">const</span> config = {
-    <span class="hljs-attr">kit</span>: {
-        <span class="hljs-attr">adapter</span>: <span class="hljs-title function_">adapter</span>()
-    }
-};
+        <table>
+            <thead><tr><th align="left">네트워크 종류</th>
+<th align="left">설명</th>
+</tr></thead>
+            <tbody><tr><td align="left">bridge(default)</td>
+<td align="left">단일 호스트 내 컨테이너간 통신. 기본 사용자 정의 네트워크</td>
+</tr>
+<tr><td align="left">host</td>
+<td align="left">컨테이너가 호스트의 네트워크를 그대로 사용. 성능은 좋지만 포트 충돌의 위험이 있음</td>
+</tr>
+<tr><td align="left">none</td>
+<td align="left">네트워크 기능이 없는 경우로 컨테이너를 격리된 상태로 만든다.</td>
+</tr>
+<tr><td align="left">overlay</td>
+<td align="left">여러 호스트에 걸친 컨테이너간 통신. Docker swarm에서 사용된다.</td>
+</tr>
+<tr><td align="left">macvlan</td>
+<td align="left">컨테이너가 실제 물리적 네트워크의 IP를 가지도록 함. 외부와 직접 통신 가능</td>
+</tr></tbody>
+        </table>
+        <h3 id="bm-6">컨테이너 네트워크 설정 방법</h3>
+<ol>
+<li><p>네트워크 만들기</p>
+<ul>
+<li><code>docker network create NETWORK_NAME</code></li>
+</ul>
+</li>
+<li><p>네트워크 옵션을 포함한 컨테이너 생성</p>
+<ul>
+<li><code>docker run -d -p 80:80 --network test-net1 --name test-nginx nginx:1.0.0</code></li>
+<li><code>docker run -d --network test-net1 --name test-nodeserver nodeserver:1.0.0</code></li>
+<li>위과 같이 생성된 test-nginx, test-nodeserver 컨테이너는 <code>test-net1</code>이라는 네트워크로 함께 묶여 서로간의 통신이 가능하다.</li>
+</ul>
+</li>
+<li><p>컨테이너 정보 확인</p>
+<ul>
+<li><code>docker inspect CONTAINER_ID</code>, <code>docker network inspect NETWORK_ID</code></li>
+<li>컨테이너 정보 또는 네트워크 정보를 확인하여 생성된 네트워크의 IP주소에 따라 컨테이너 내부 설정값을 변경하여 사용 가능하다.</li>
+</ul>
+</li>
+</ol>
+<h1 id="bm-9">도커 볼륨</h1>
+<ul>
+<li>도커에서 데이터를 컨테이너 외부에 안전하게 저장하기 위한 메커니즘으로 만약 컨테이너를 삭제 후 제 생성하더라도 볼륨을 연결하면 데이터를 유지할수 있다.</li>
+</ul>
+<h3 id="bm-12">볼륨의 종류</h3>
 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> config;</code></pre><h2 id="bm-6">Config (`interface Config {...}`)</h2>
+        <table>
+            <thead><tr><th align="left">유형</th>
+<th align="left">설명</th>
+</tr></thead>
+            <tbody><tr><td align="left">volume</td>
+<td align="left">도커가 직접 관리하는 외부 스토리지</td>
+</tr>
+<tr><td align="left">bind mount</td>
+<td align="left">호스트의 디렉터리를 직접 연결</td>
+</tr>
+<tr><td align="left">tmpfs</td>
+<td align="left">휘발성 메모리 기반 저장 (리눅스 한정)</td>
+</tr></tbody>
+        </table>
+        <h3 id="bm-14">컨테이너 볼륨 설정 방법</h3>
+<ol>
+<li><p>볼륨 생성</p>
 <ul>
-<li><p><code>compilerOptions?: CompileOptions;</code></p>
+<li><code>docker volume create VOLUME_NAME</code></li>
+</ul>
+</li>
+<li><p>컨테이너 불륨 연결</p>
 <ul>
-<li>DEFAULT <code>{}</code></li>
-<li>옵션이 <code>svelte.compile</code>로 전달됩니다.</li>
+<li><code>docker run -d --name test-mariadb -v test-vol1:/var/lib/mysql mariadb:latest</code></li>
+<li>DB 와 같은 경우 컨테이너 삭제와 함께 데이터가 삭제 되는 것을 방지하거나 여러 컨테이너간의 데이터의 공유가 가능하다.</li>
 </ul>
 </li>
-<li><p><code>extensions?: string[];</code></p>
-<ul>
-<li>DEFAULT <code>[".svelte"]</code></li>
-<li>Svelte 파일로 처리해야 하는 파일 확장자 목록입니다.</li>
-</ul>
-</li>
-<li><p><code>kit?: KitConfig;</code></p>
-<ul>
-<li>SvelteKit 옵션</li>
-</ul>
-</li>
-<li><p><code>preprocess?: any;</code></p>
-<ul>
-<li>전처리기 옵션이 있는 경우. 또한 Vite의 전처리 기능을 통해 전처리를 수행할 수도 있습니다.</li>
-</ul>
-</li>
-<li><p><code>vitePlugin?: PluginOptions</code></p>
-<ul>
-<li><code>vite-plugin-svelte</code> 플러그인 옵션</li>
-</ul>
-</li>
-<li><p><code>[key: string]: any</code></p>
-<ul>
-<li>스벨트 개발 툴에 필요한 추가 옵션</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="bm-10">KitConfig</h2>
-<ul>
-<li><p><code>svelte.config.js</code>파일의 <code>config.kit</code> 속성은 SvelteKit의 옵션을 구성합니다.</p>
-</li>
-<li><p><code>adapter</code></p>
-<ul>
-<li>DEFAULT <code>undefined</code></li>
-<li>Vite 빌드를 실행할 때 어댑터가 실행됩니다. 다양한 플랫폼에서 출력이 어떻게 변환되는지를 결정합니다.</li>
-</ul>
-</li>
-<li><p><code>alias</code></p>
-<ul>
-<li>DEFAULT <code>{}</code></li>
-<li>import 문에서 값을 대체하는 데 사용되는 0개 이상의 별칭을 포함하는 객체입니다. 이 별칭들은 자동으로 Vite와 TypeScript로 전달 됩니다.</li>
-</ul>
-</li>
-</ul>
-<pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">/** <span class="hljs-doctag">@type</span> {<span class="hljs-type">import(&#x27;@sveltejs/kit&#x27;).Config</span>} */</span>
-<span class="hljs-keyword">const</span> config = {
-    <span class="hljs-attr">kit</span>: {
-        <span class="hljs-attr">alias</span>: {
-            <span class="hljs-string">&#x27;my-file&#x27;</span>: <span class="hljs-string">&#x27;path/to/my-file.js&#x27;</span>,
-            <span class="hljs-string">&#x27;my-directory&#x27;</span>: <span class="hljs-string">&#x27;path/to/my-directory&#x27;</span>,
-            <span class="hljs-string">&#x27;my-directory/*&#x27;</span>: <span class="hljs-string">&#x27;path/to/my-directory/*&#x27;</span>
-        }
-    }
-}</code></pre><ul>
-<li><p><code>appDir</code></p>
-<ul>
-<li>DEFAULT <code>_app</code></li>
-<li>svelteKit이 빌드 시 생성하는 내부 애플리케이션 디렉토리의 이름을 설정하는 옵션입니다.</li>
-<li>만약 <code>paths.assets</code>가 지정되면, 두 개의 앱 디렉토리 <code>${paths.assets}/${appDir}</code>, <code>${paths.base}/${appDir}</code>가 생성 됩니다.</li>
-</ul>
-</li>
-<li><p><code>csp</code> ***</p>
-<ul>
-<li><p>CSP(Content Security Policy)는 웹 애플리케이션의 보안을 강화하기 위해 특정 리소스만 허용하도록 규정하는 정책입니다. 이를 통해 XSS(크로스 사이트 스크립팅) 등의 공격을 방지할 수 있습니다.</p>
-</li>
-<li><p>속성 설명</p>
-<ul>
-<li><code>mode?: enum('auto'|'hash')</code><ul>
-<li>auto: SvelteKit이 자동으로 CSP를 생성</li>
-<li>hash: 콘텐츠의 해쉬 값을 생성하여 CSP 정책에 포함</li>
-</ul>
-</li>
-<li><code>directrives?: {}</code><ul>
-<li>특정 리소스 유형별로 허용할 도메인 또는 정책을 설정</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>directives에서 자주 사용되는 csp 정책</p>
-<ul>
-<li>default-src<ul>
-<li>모든 리소스(스크립트, 스타일, 이미지 등)의 기본 출처 설정</li>
-</ul>
-</li>
-<li>script-src<ul>
-<li>실행 가능한 JavaScript의 출처를 제한</li>
-</ul>
-</li>
-<li>style-src<ul>
-<li>적용할 수 있는 CSS의 출처를 제한</li>
-</ul>
-</li>
-<li>img-src<ul>
-<li>이미지 로딩을 허용할 출처를 지정</li>
-</ul>
-</li>
-<li>connect-src<ul>
-<li>Fetch, WebSocket, AJAX 요청을 허용할 출처 지정</li>
-</ul>
-</li>
-<li>frame-src<ul>
-<li>iframe으로 삽입할 수 있는 출처 지정</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-keyword">const</span> config = {
-    <span class="hljs-attr">kit</span>: {
-        <span class="hljs-attr">csp</span>: {
-            <span class="hljs-attr">mode</span>: <span class="hljs-string">&#x27;hash&#x27;</span>,
-            <span class="hljs-attr">directives</span>: {
-                <span class="hljs-string">&#x27;default-src&#x27;</span>: [<span class="hljs-string">&#x27;self&#x27;</span>],
-                <span class="hljs-comment">// self(현재 도메인)와 Google API만 허용</span>
-                <span class="hljs-string">&#x27;script-src&#x27;</span>: [<span class="hljs-string">&#x27;self&#x27;</span>, <span class="hljs-string">&#x27;https://apis.google.com&#x27;</span>],
-                <span class="hljs-comment">// self(현재 도메인) 및 인라인 스타일 허용</span>
-                <span class="hljs-string">&#x27;style-src&#x27;</span>: [<span class="hljs-string">&#x27;self&#x27;</span>, <span class="hljs-string">&quot;&#x27;unsafe-inline&#x27;&quot;</span>],
-                <span class="hljs-comment">// self(현재 도메인) 및 data:(Base64 인코딩된 이미지) 허용</span>
-                <span class="hljs-string">&#x27;img-src&#x27;</span>: [<span class="hljs-string">&#x27;self&#x27;</span>, <span class="hljs-string">&#x27;data:&#x27;</span>],
-                <span class="hljs-comment">// self(현재 도메인) 및 api.example.com에서의 데이터 요청 허용</span>
-                <span class="hljs-string">&#x27;connect-src&#x27;</span>: [<span class="hljs-string">&#x27;self&#x27;</span>, <span class="hljs-string">&#x27;https://api.example.com&#x27;</span>],
-                <span class="hljs-comment">// none으로 설정하여 iframe 삽입 차단</span>
-                <span class="hljs-string">&#x27;frame-src&#x27;</span>: [<span class="hljs-string">&#x27;none&#x27;</span>]
-            }
-        }
-    }
-}</code></pre><ul>
-<li><p><code>csrf</code></p>
-<ul>
-<li><p>CSRF(Cross-Site Request Forgery) 공격을 방지하는 설정이다.</p>
-</li>
-<li><p>속성 설명</p>
-<ul>
-<li><code>checkOrigin?: boolean</code><ul>
-<li>true: 다른 도메인에서의 요청 차단</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>checkOrigin: true 설정 시</p>
-<ul>
-<li>클라이언트가 다른 도메인에서 요청을 보낼 경우 차단된다.</li>
-<li>예를 들어, <a href="https://evil-site.com%EC%97%90%EC%84%9C">https://evil-site.com에서</a> <a href="https://your-site.com%EC%9C%BC%EB%A1%9C">https://your-site.com으로</a> 요청을 보내려고 하면 차단됨</li>
-<li>보안 강화를 위해 기본적으로 true 설정을 권장함</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><code>embedded</code></p>
-<ul>
-<li>DEFAULT <code>false</code></li>
-<li>SvelteKit 애플리케이션을 다른 애플리케이션 안에 포함할 수 있도록 허용하는 설정이다.</li>
-<li>속성 설명<ul>
-<li><code>embedded?: boolean</code><ul>
-<li>true로 설정하면 앱이 다른 웹 페이지 내에서 iframe을 통해 포함될 수 있습니다.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><code>env</code></p>
-<ul>
-<li>kit.env는 svelteKit에서 환경 변수 파일 (.env) 을 로드하는 방식을 설정하는 옵션입니다.</li>
-<li>속성 설명<ul>
-<li><code>dir?: string</code><ul>
-<li>DEFAULT <code>.</code></li>
-<li>환경 변수 파일이 위치할 디렉토리 지정</li>
-</ul>
-</li>
-<li><code>publicPrefix?: string</code><ul>
-<li>DEFAULT <code>PUBLIC_</code></li>
-<li>환경 변수가 클라이언트 측 코드에 노출되어도 안전하다는 표시를 하는 접두사 입니다.</li>
-</ul>
-</li>
-<li><code>privatePrefix?: string</code><ul>
-<li>DEFAULT <code>""</code></li>
-<li>환경 변수가 클라이언트 측 코드에 노출되기에 안전하지 않다는 표시를 하는 접두사 입니다.</li>
-<li>공용 접두사나 개인 접두사에 일치하지 않는 환경변수는 모두 폐기 됩니다.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+</ol>
 
 
                         </div>
