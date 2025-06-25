@@ -46,12 +46,12 @@ body {
     }
 }
 
-#head-bar>.img {
+#head-bar>.menu {
     position: absolute;
     left: 0;
-    width: 2.5rem;
-    height: 2.5rem;
-    margin-left: 0.5rem;
+    width: 2rem;
+    height: 2rem;
+    margin-left: 0.7rem;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -60,6 +60,16 @@ body {
     position: absolute;
     align-items: center;
     font-size: large;
+}
+
+#head-bar>.img {
+    position: absolute;
+    right: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 0.5rem;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 /***** side-bar *****/

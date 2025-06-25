@@ -94,10 +94,13 @@ const code = {
                 <div id="wrapper">
                     <!-- side bar component -->
                     <div id="head-bar">
-                        <img id="openNavi" class="img"
-                            src="${data.url}/assets/img/profile.jpeg"
+                        <img id="openNavi" class="menu"
+                            src="${data.url}/assets/img/menu.svg"
                             alt="" srcset="">
                         <div class="title">심심한 개발자의 취미생활</div>
+                        <img class="img"
+                            src="${data.url}/assets/img/profile.jpeg"
+                            alt="" srcset="">
                     </div>
                     <div id="side-bar">
                         <img id="closeNavi" class="close"
