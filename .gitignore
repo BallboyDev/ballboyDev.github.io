@@ -1,5 +1,7 @@
 node_modules
 _dist
 _post/*
+!_post/markdown.md
 _test/*
+!_test/test.md
 .DS_Store

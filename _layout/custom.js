@@ -32,14 +32,15 @@ const custom = {
             warning: '#ffc107',
             error: '#dc3545'
         }
+        const text = meta.text.replaceAll('<', '&lt;').replaceAll('>', '&gt;')
 
-        const color = meta.text.match(/!\[([^\[\]]+)\]$/)
+        const color = text.match(/!\[([^\[\]]+)\]$/)
 
         if (!!color) {
-            return `<code style="background-color: ${!!colorSet[color[1]] ? colorSet[color[1]] : color[1]};">${meta.text.substring(0, color.index).trim()}</code>`
+            return `<code style="background-color: ${!!colorSet[color[1]] ? colorSet[color[1]] : color[1]};">${text.substring(0, color.index).trim()}</code>`
         }
 
-        return `<code>${meta.text}</code>`
+        return `<code>${text}</code>`
     },
     // 테이블 태그 헤드 존재에 따른 디자인 수정
     table: (meta) => {
