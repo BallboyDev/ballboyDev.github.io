@@ -152,9 +152,9 @@
 </ul>
 
 </ul>
-<li id="dt-3" onclick="foldNavi(3)">----- Infra ----- (8)</li>
+<li id="dt-3" onclick="foldNavi(3)">----- Infra ----- (9)</li>
 <ul id="dc-3" class='dc-all' style="display: none;">
-<li id="dt-31" onclick="foldNavi(31)">Docker (8)</li>
+<li id="dt-31" onclick="foldNavi(31)">Docker (9)</li>
 <ul id="dc-31" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/77">
 <li id="p-77">• docker mariadb setting</li>
@@ -167,6 +167,9 @@
 </a>
 <a href="https://ballboyDev.github.io/post/90">
 <li id="p-90">• docker compose</li>
+</a>
+<a href="https://ballboyDev.github.io/post/94">
+<li id="p-94">• docker 경량 컨테이너 베이스</li>
 </a>
 <li id="dt-311" onclick="foldNavi(311)">Docker 기본 명령어 정리 (4)</li>
 <ul id="dc-311" class='dc-all' style="display: none;">
@@ -261,10 +264,26 @@
 </ul>
 
 </ul>
-<li id="dt-5" onclick="foldNavi(5)">심심한 개발자의 취미 개발 (12)</li>
+<li id="dt-5" onclick="foldNavi(5)">심심한 개발자의 취미 개발 (14)</li>
 <ul id="dc-5" class='dc-all' style="display: none;">
-<li id="dt-51" onclick="foldNavi(51)">간단 블로그 만들기 (8)</li>
+<li id="dt-51" onclick="foldNavi(51)">개발 팁 (4)</li>
 <ul id="dc-51" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/3">
+<li id="p-3">• vim 에디터 정리</li>
+</a>
+<a href="https://ballboyDev.github.io/post/58">
+<li id="p-58">• 자주쓰는 git/git-flow 명령어</li>
+</a>
+<a href="https://ballboyDev.github.io/post/69">
+<li id="p-69">• curl 명령어 사용법 정리</li>
+</a>
+<a href="https://ballboyDev.github.io/post/80">
+<li id="p-80">• 터미널 이미지 형식 변환(sips)</li>
+</a>
+
+</ul>
+<li id="dt-52" onclick="foldNavi(52)">간단 블로그 만들기 (8)</li>
+<ul id="dc-52" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/1">
 <li id="p-1">• 블로그 개발 기획, 배포 일지</li>
 </a>
@@ -291,19 +310,13 @@
 </a>
 
 </ul>
-<li id="dt-52" onclick="foldNavi(52)">개발 팁 (4)</li>
-<ul id="dc-52" class='dc-all' style="display: none;">
-<a href="https://ballboyDev.github.io/post/3">
-<li id="p-3">• vim 에디터 정리</li>
+<li id="dt-53" onclick="foldNavi(53)">온라인 코딩 테스트 시스템 (2)</li>
+<ul id="dc-53" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/92">
+<li id="p-92">• 온라인 코테 시스템 배포 일지</li>
 </a>
-<a href="https://ballboyDev.github.io/post/58">
-<li id="p-58">• 자주쓰는 git/git-flow 명령어</li>
-</a>
-<a href="https://ballboyDev.github.io/post/69">
-<li id="p-69">• curl 명령어 사용법 정리</li>
-</a>
-<a href="https://ballboyDev.github.io/post/80">
-<li id="p-80">• 터미널 이미지 형식 변환(sips)</li>
+<a href="https://ballboyDev.github.io/post/93">
+<li id="p-93">• 0. 온라인 코테 시스템 만들기 - 시작하며</li>
 </a>
 
 </ul>
@@ -491,7 +504,7 @@ template code
 <li><p>동적 컨텐츠</p>
 <ul>
 <li>템플릿 내부에서 <code>{ code }</code> 와 같이 사용하면 식의 결과가 표시된다,</li>
-<li><code><div>현재 시간은 {new Date()} 입니다.</div></code></li>
+<li><code>&lt;div&gt;현재 시간은 {new Date()} 입니다.&lt;/div&gt;</code></li>
 <li>동적 속성<ul>
 <li>DOM 요소의 속성명과 변수 명이 동일할 때는 다음과 같이 생략 할 수 있다.<pre class="theme-atom-one-dark"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
     <span class="hljs-keyword">let</span> href = <span class="hljs-string">&#x27;https://svelte.dev/&#x27;</span>
@@ -508,8 +521,8 @@ template code
 <ul>
 <li><p>스타일 문법</p>
 <ul>
-<li><code><style></code> 블록에는 일반적인 CSS 문법을 사용한다.</li>
-<li><code><style></code> 블록에 작성한 스타일은 .svelte 파일에 스코프 범위를 갖는다.</li>
+<li><code>&lt;style&gt;</code> 블록에는 일반적인 CSS 문법을 사용한다.</li>
+<li><code>&lt;style&gt;</code> 블록에 작성한 스타일은 .svelte 파일에 스코프 범위를 갖는다.</li>
 <li>스코프 범위를 벗어나서 전역으로 스타일을 적용하시 싶을 때는 :global 수식자를 사용한다.<pre class="theme-atom-one-dark"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-css">
     <span class="hljs-comment">/** 이 스타일은 &lt;body&gt;에 적용됨 */</span>
     :<span class="hljs-built_in">global</span>(body) {

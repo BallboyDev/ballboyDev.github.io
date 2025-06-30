@@ -152,9 +152,9 @@
 </ul>
 
 </ul>
-<li id="dt-3" onclick="foldNavi(3)">----- Infra ----- (8)</li>
+<li id="dt-3" onclick="foldNavi(3)">----- Infra ----- (9)</li>
 <ul id="dc-3" class='dc-all' style="display: none;">
-<li id="dt-31" onclick="foldNavi(31)">Docker (8)</li>
+<li id="dt-31" onclick="foldNavi(31)">Docker (9)</li>
 <ul id="dc-31" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/77">
 <li id="p-77">• docker mariadb setting</li>
@@ -167,6 +167,9 @@
 </a>
 <a href="https://ballboyDev.github.io/post/90">
 <li id="p-90">• docker compose</li>
+</a>
+<a href="https://ballboyDev.github.io/post/94">
+<li id="p-94">• docker 경량 컨테이너 베이스</li>
 </a>
 <li id="dt-311" onclick="foldNavi(311)">Docker 기본 명령어 정리 (4)</li>
 <ul id="dc-311" class='dc-all' style="display: none;">
@@ -261,10 +264,26 @@
 </ul>
 
 </ul>
-<li id="dt-5" onclick="foldNavi(5)">심심한 개발자의 취미 개발 (12)</li>
+<li id="dt-5" onclick="foldNavi(5)">심심한 개발자의 취미 개발 (14)</li>
 <ul id="dc-5" class='dc-all' style="display: none;">
-<li id="dt-51" onclick="foldNavi(51)">간단 블로그 만들기 (8)</li>
+<li id="dt-51" onclick="foldNavi(51)">개발 팁 (4)</li>
 <ul id="dc-51" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/3">
+<li id="p-3">• vim 에디터 정리</li>
+</a>
+<a href="https://ballboyDev.github.io/post/58">
+<li id="p-58">• 자주쓰는 git/git-flow 명령어</li>
+</a>
+<a href="https://ballboyDev.github.io/post/69">
+<li id="p-69">• curl 명령어 사용법 정리</li>
+</a>
+<a href="https://ballboyDev.github.io/post/80">
+<li id="p-80">• 터미널 이미지 형식 변환(sips)</li>
+</a>
+
+</ul>
+<li id="dt-52" onclick="foldNavi(52)">간단 블로그 만들기 (8)</li>
+<ul id="dc-52" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/1">
 <li id="p-1">• 블로그 개발 기획, 배포 일지</li>
 </a>
@@ -291,19 +310,13 @@
 </a>
 
 </ul>
-<li id="dt-52" onclick="foldNavi(52)">개발 팁 (4)</li>
-<ul id="dc-52" class='dc-all' style="display: none;">
-<a href="https://ballboyDev.github.io/post/3">
-<li id="p-3">• vim 에디터 정리</li>
+<li id="dt-53" onclick="foldNavi(53)">온라인 코딩 테스트 시스템 (2)</li>
+<ul id="dc-53" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/92">
+<li id="p-92">• 온라인 코테 시스템 배포 일지</li>
 </a>
-<a href="https://ballboyDev.github.io/post/58">
-<li id="p-58">• 자주쓰는 git/git-flow 명령어</li>
-</a>
-<a href="https://ballboyDev.github.io/post/69">
-<li id="p-69">• curl 명령어 사용법 정리</li>
-</a>
-<a href="https://ballboyDev.github.io/post/80">
-<li id="p-80">• 터미널 이미지 형식 변환(sips)</li>
+<a href="https://ballboyDev.github.io/post/93">
+<li id="p-93">• 0. 온라인 코테 시스템 만들기 - 시작하며</li>
 </a>
 
 </ul>
@@ -470,19 +483,18 @@
 <li>스토어에 대한 참조가 있을 때마다 구성 요소 내부의 해당 값에 <code>$</code> 문자로 접두사를 붙이면 액세스 할 수 있습니다.</li>
 <li>스토어 변수에 값을 할당하기 위해서는 쓰기 가능한 저장소여야 하며, 이는 저장소의 .set 메서드로 호출됩니다.</li>
 </ul>
-<pre><code class="language-plaintext"}><script>
-    import { writable } from 'svelte/store';
+<pre class="theme-atom-one-dark"><code class="language-js">&lt;script&gt;
+    <span class="hljs-keyword">import</span> { writable } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;svelte/store&#x27;</span>;
 
-    const count = writable(0)
-    console.log($count)
+    <span class="hljs-keyword">const</span> count = <span class="hljs-title function_">writable</span>(<span class="hljs-number">0</span>)
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>($count)
 
-    count.set(1)
-    console.log($count)
+    count.<span class="hljs-title function_">set</span>(<span class="hljs-number">1</span>)
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>($count)
 
-    $count = 2
-    console.log($count)
-</script></code></pre>
-<h3 id="bm-7">svelte/store</h3>
+    $count = <span class="hljs-number">2</span>
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>($count)
+&lt;/script&gt;</code></pre><h3 id="bm-7">svelte/store</h3>
 <ul>
 <li><p>writable</p>
 <ul>

@@ -17,19 +17,19 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
             <style>
-                #p-79 {
+                #p-94 {
                     color: rgb(76, 193, 237) !important;
                 }
             </style>
             <script id="data" type="application/json">
             {
-                "fold": ["6","63"]
+                "fold": ["3","31"]
             }
             </script>
 
             <script src="https://ballboyDev.github.io/assets/skin.js"></script>
 
-                <title>닭근위 볶음</title>
+                <title>docker 경량 컨테이너 베이스</title>
             </head>
 
             <body>
@@ -449,34 +449,57 @@
                         <div class="bookmark">
 
             <div class="title t1">
-                <div><a href="#bm-1"># 닭근위 볶음 만들기
-</a></div>
+                <div><a href="#bm-1"># docker 경량 컨테이너 베이스 비교 (alpine vs slim vs scratch)</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t2">
-                <div><a href="#bm-8">## 재료
-</a></div>
+                <div><a href="#bm-4">## Alpine</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t3">
-                <div><a href="#bm-9">### 재료</a></div>
+                <div><a href="#bm-7">### 장점 / 단점</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t3">
-                <div><a href="#bm-12">### 양념 / 조미료</a></div>
+                <div><a href="#bm-10">### 예시</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t2">
-                <div><a href="#bm-15">## 레시피</a></div>
+                <div><a href="#bm-13">## Slim</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-16">### 장점 / 단점</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-19">### 예시</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t2">
-                <div><a href="#bm-20">## 추가 내용</a></div>
+                <div><a href="#bm-22">## Scratch</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-25">### 사용</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-28">### 예시</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-31">## Alpine vs Slim vs Scratch</a></div>
                 <p>•</p>
             </div></div>
                         
@@ -486,83 +509,123 @@
                         
                         <div class="main markdown-body">
 
-                            <h1 id="bm-1">닭근위 볶음 만들기</h1>
-<pre><code class="language-plaintext"}>인터넷에서 고기를 구매하던중 1kg에 4600원 이라는 엄청나게 싼 고기를 발견했다.
-바로 닭 근위, 흔히 닭 똥집이라고 부르는 부위이다.
-치킨을 먹을때 사이드로 닭똥집이 있는지 꼭 확인할 만큼 좋아하는 난 잠깐 고민하다가 도전을 위해 구매를 클릭했다.
+                            <h1 id="bm-1">docker 경량 컨테이너 베이스 비교 (alpine vs slim vs scratch)</h1>
+<p>컨테이너 이미지를 제작할때 베이스 이미지로 다양한 이미지를 사용한다.
+그중 상황과 기능에 따라 이미지의 용량을 줄이기 위해 경량 이미지를 찾아 사용하는데 대표적으로 alpine, slim, scratch 버전의 이미지들을 많이 사용한다.
+본 포스팅에서는 alpine, slim, scratch 이 세 이미지 버전에 대하여 어떤 상황에 사용해야 하는게 좋은지 장단점에 대하여 비교해 본다.</p>
+<h2 id="bm-4">Alpine</h2>
+<ul>
+<li>Alpine 버전은 alpine linux 기반으로 제작된 이미지이다. 
+Alpine linux 자체가 &#39;작고&#39;, &#39;보안이 뛰어나고&#39;, &#39;간담함&#39;을 목적으로 만들어진 배포판으로 타 리눅스 배포판 보다 훨씬 가볍고 깔끔한 것이 장점이기 때문에 Docker 컨테이너에 사용되는 예가 많다.</li>
+</ul>
+<h3 id="bm-7">장점 / 단점</h3>
+<ul>
+<li><p>장점</p>
+<ul>
+<li>이미지 크기가 매우 작아서 빌드/배포 속도가 빠름</li>
+<li>패키지 매니저(apk) 사용 가능</li>
+<li>경량 시스템의 특성상 보안 취약점이 적음</li>
+</ul>
+</li>
+<li><p>단점 </p>
+<ul>
+<li>glibc가 아니라 musl 기반으로 일부 라이브러리 호환성 이슈가 있음</li>
+<li>디버깅 도구, 쉘 등이 부족하여 작업에 어려움이 있을수 있음</li>
+</ul>
+</li>
+</ul>
+<h3 id="bm-10">예시</h3>
+<pre class="theme-atom-one-dark"><code class="language-dockerfile"><span class="hljs-keyword">FROM</span> node:alpine
+<span class="hljs-keyword">FROM</span> python:<span class="hljs-number">3.11</span>-alpine</code></pre><h2 id="bm-13">Slim</h2>
+<ul>
+<li>Slim은 Debian 또는 Ubuntu 등 기본 이미지에서 불필요한 패키지를 제거한 경량 버전으로 기존 리눅스 배포판의 기존 기능을 최대한 유지한채 용량만 줄인 버전이다. 특수 목적이 아닌 일반 리눅스 배포판을 경량화 한 버전이기에 glibc 기반으로 라이브러리 호환성이 좋고 기본 디버깅 도구와 라이브러리 사용이 가능하다.</li>
+</ul>
+<h3 id="bm-16">장점 / 단점</h3>
+<ul>
+<li><p>장점</p>
+<ul>
+<li>glibc 기반으로 라이브러리 호환성이 뛰어남</li>
+<li>기본 디버깅 도구, 라이브러리 사용 가능</li>
+<li>Alpine 보다 호환성과 안정성 중시</li>
+</ul>
+</li>
+<li><p>단점</p>
+<ul>
+<li>경량화 버전이긴 하나 경량화를 목적으로 만들어진 Alpine보다는 무거움</li>
+<li>완전한 최소 이미지는 아님</li>
+</ul>
+</li>
+</ul>
+<h3 id="bm-19">예시</h3>
+<pre class="theme-atom-one-dark"><code class="language-dockerfile"><span class="hljs-keyword">FROM</span> node:<span class="hljs-number">18</span>-slim
+<span class="hljs-keyword">FROM</span> python:<span class="hljs-number">3.11</span>-slim</code></pre><h2 id="bm-22">Scratch</h2>
+<ul>
+<li>Scratch는 도커에서 제공하는 정말 아무것도 없는 빈(empty) 베이스 이미지이다. <code>FROM scratch</code>라고 명시하면 그 이후에는 아무것도 포함되지 않은 상태에서 이미지가 생성된다.</li>
+</ul>
+<h3 id="bm-25">사용</h3>
+<ul>
+<li><p>Scratch는 아무런 기능이 없는 빈 이미지 이기에 장단점이라고 할만한 것 자체가 없는데 이러한 Scratch를 사용하는 이유는 극단적으로 작고 안전한 컨테이너 이미지를 생성하여 정적 바이너리 프로그램만을 실행하기 위한 컨테이너를 생성하기 위해 사용된다.</p>
+</li>
+<li><p>장점 이자 단점 </p>
+<ul>
+<li>극단적으로 적은 용량의 이미지 제작 가능</li>
+<li>실행 환경에 의존하지 않는 서비스 배포 가능</li>
+<li>쉘, 로그, 디버깅 툴이 없어 디버깅에 대한 분석이 어려움</li>
+<li>리눅스 베포판과 같이 기본적인 기능 조차 없어 동적 라이브러리가 필요한 경우 실행이 불가</li>
+<li>apt, apk, yum 과 같은 패키지 설치 툴이 전혀 없음</li>
+<li>환경 변수나 기본 경로 역시 없어 필요시 직접 제작 생성해야 함</li>
+</ul>
+</li>
+</ul>
+<h3 id="bm-28">예시</h3>
+<pre class="theme-atom-one-dark"><code class="language-dockerfile"><span class="hljs-keyword">FROM</span> scratch</code></pre><h2 id="bm-31">Alpine vs Slim vs Scratch</h2>
 
-* 똥집이라는 단어가 편하지만 어감상 근위라고 표현하겠다.</code></pre>
-<p><img src="https://ballboyDev.github.io/assets/img/79_1.jpeg" alt="이미지 준비중"></p>
-<blockquote>
-<p>난이도 ✭✭✭</p>
-<ul>
-<li>역시 냄새 잡는게 제일 관건이다.</li>
-</ul>
-</blockquote>
-<h2 id="bm-8">재료</h2>
-<h3 id="bm-9">재료</h3>
-<ol>
-<li>닭 근위 / 250g</li>
-<li>마늘 / 8쪽</li>
-<li>양파 / 1/4알</li>
-<li>붉은 고추 or 페퍼론치노 / 적당량</li>
-</ol>
-<h3 id="bm-12">양념 / 조미료</h3>
-<ol>
-<li>밀가루 / 4sp</li>
-<li>소주 / 반컵</li>
-<li>통 후추 / 0.5sp</li>
-<li>맛소금 / 0.5sp</li>
-<li>후추 / 0.5sp</li>
-<li>양조간장 / 2sp</li>
-<li>참기름 / 1sp</li>
-</ol>
-<h2 id="bm-15">레시피</h2>
-<ol>
-<li><p>닭 근위에 밀가루를 뿌리고 강하게 여러번 문지르며 주물러 준 다음 찬물에 헹구면서도 계속 강하게 문지르며 근위를 씻어준다.</p>
-</li>
-<li><p>끓는 물에 소주와 통후추, 씻은 근위를 넣고 3분정도 삶은 다음 찬물에 헹궈 체에 받쳐 둔다.</p>
-<ul>
-<li>사용해보지는 않았지만 월계수잎을 넣으면 냄새를 잡는데 도움이 된다고 한다.</li>
-</ul>
-</li>
-<li><p>삶은 근위는 먹기 좋게 손질하는데 식감을 위해 근위를 세로로 썰어준다.</p>
-</li>
-<li><p>펜에 기름을 4sp 정도 두르고 근위와 마늘을 넣고 볶아 준다.</p>
-<ul>
-<li>다진 마늘 1sp과 통마늘 또는 편마늘을 넉넉히 넣어준다.</li>
-</ul>
-</li>
-<li><p>마늘이 읶기 시작하면 깍뚝썬 양파, 붉은 고추 또는 페퍼론치노, 양조간장, 맛소금, 후추를 넣고 볶아 준다.</p>
-<ul>
-<li>난 볶으면서 냄새가 다 빠지지 않은거 같아 향이 있는 양조간장 대신 유자 폰즈 소스를 3sp 정도 넣어 줬다.</li>
-</ul>
-</li>
-<li><p>강한 불에 계속 볶으며 근위를 익혀 준다.</p>
-</li>
-<li><p>마지막으로 참기름을 뿌린다.</p>
-</li>
-<li><p>맛있게 먹어야 되는데...</p>
-<ul>
-<li>먹는데 문제는 없지만 아주 약하게 냄새가 남아 있는거 같다.</li>
-</ul>
-</li>
-</ol>
-<pre><code class="language-plaintext"}>>> 자취생 평가 <<
-
-맥주 안주, 밥 반찬으로 최고였다.
-냄새 빼는 방법은 더 고민해 봐야겠다.</code></pre>
-<h2 id="bm-20">추가 내용</h2>
-<ul>
-<li>2025-06-17<ul>
-<li>근위를 밀가루로 닦고 삶기 위한 물이 끓기 전까지 맛술이나 소주에 담궈두니 냄새가 잘 빠지는거 같았다.<ul>
-<li>미림 + 후추 + 큐민 가루 조합</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
+        <table>
+            <thead><tr><th align="left"></th>
+<th align="left">Alpine</th>
+<th align="left">Slim</th>
+<th align="left">Scratch</th>
+</tr></thead>
+            <tbody><tr><td align="left">용량</td>
+<td align="left">매우 작음(약 5MB)</td>
+<td align="left">작은 편(20~40MB)</td>
+<td align="left">0MB</td>
+</tr>
+<tr><td align="left">기본 유틸</td>
+<td align="left">최소 제공(apk, 쉘 등)</td>
+<td align="left">대부분 제공</td>
+<td align="left">없음</td>
+</tr>
+<tr><td align="left">패키지 설치</td>
+<td align="left">apk</td>
+<td align="left">apt</td>
+<td align="left">불가</td>
+</tr>
+<tr><td align="left">디버깅</td>
+<td align="left">어려움</td>
+<td align="left">가능</td>
+<td align="left">불가</td>
+</tr>
+<tr><td align="left">사용 예</td>
+<td align="left">경량 이미지가 필요한 경우</td>
+<td align="left">경량 + 호환성이 필요한 경우</td>
+<td align="left">정적 빌드 실행, 보안/최소 크기가 필요한 경우</td>
+</tr></tbody>
+        </table>
+        
+        <table>
+            
+            <tbody><tr><td align="center">Alpine</td>
+<td align="left">이미지 크기를 줄이고, 패키지 호환성이 큰 이슈가 아닐 경우</td>
+</tr>
+<tr><td align="center">Slim</td>
+<td align="left">이미지 크기는 줄이되, glibc와의 호환성 등 안정성도 필요한 경우</td>
+</tr>
+<tr><td align="center">Scratch</td>
+<td align="left">Go, Rust 등 정적 링크된 바이너리를 최종적으로 실행할 경우</td>
+</tr></tbody>
+        </table>
+        
 
                         </div>
 

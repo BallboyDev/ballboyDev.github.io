@@ -23,7 +23,7 @@
             </style>
             <script id="data" type="application/json">
             {
-                "fold": ["5","51"]
+                "fold": ["5","52"]
             }
             </script>
 
@@ -152,9 +152,9 @@
 </ul>
 
 </ul>
-<li id="dt-3" onclick="foldNavi(3)">----- Infra ----- (8)</li>
+<li id="dt-3" onclick="foldNavi(3)">----- Infra ----- (9)</li>
 <ul id="dc-3" class='dc-all' style="display: none;">
-<li id="dt-31" onclick="foldNavi(31)">Docker (8)</li>
+<li id="dt-31" onclick="foldNavi(31)">Docker (9)</li>
 <ul id="dc-31" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/77">
 <li id="p-77">• docker mariadb setting</li>
@@ -167,6 +167,9 @@
 </a>
 <a href="https://ballboyDev.github.io/post/90">
 <li id="p-90">• docker compose</li>
+</a>
+<a href="https://ballboyDev.github.io/post/94">
+<li id="p-94">• docker 경량 컨테이너 베이스</li>
 </a>
 <li id="dt-311" onclick="foldNavi(311)">Docker 기본 명령어 정리 (4)</li>
 <ul id="dc-311" class='dc-all' style="display: none;">
@@ -261,10 +264,26 @@
 </ul>
 
 </ul>
-<li id="dt-5" onclick="foldNavi(5)">심심한 개발자의 취미 개발 (12)</li>
+<li id="dt-5" onclick="foldNavi(5)">심심한 개발자의 취미 개발 (14)</li>
 <ul id="dc-5" class='dc-all' style="display: none;">
-<li id="dt-51" onclick="foldNavi(51)">간단 블로그 만들기 (8)</li>
+<li id="dt-51" onclick="foldNavi(51)">개발 팁 (4)</li>
 <ul id="dc-51" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/3">
+<li id="p-3">• vim 에디터 정리</li>
+</a>
+<a href="https://ballboyDev.github.io/post/58">
+<li id="p-58">• 자주쓰는 git/git-flow 명령어</li>
+</a>
+<a href="https://ballboyDev.github.io/post/69">
+<li id="p-69">• curl 명령어 사용법 정리</li>
+</a>
+<a href="https://ballboyDev.github.io/post/80">
+<li id="p-80">• 터미널 이미지 형식 변환(sips)</li>
+</a>
+
+</ul>
+<li id="dt-52" onclick="foldNavi(52)">간단 블로그 만들기 (8)</li>
+<ul id="dc-52" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/1">
 <li id="p-1">• 블로그 개발 기획, 배포 일지</li>
 </a>
@@ -291,19 +310,13 @@
 </a>
 
 </ul>
-<li id="dt-52" onclick="foldNavi(52)">개발 팁 (4)</li>
-<ul id="dc-52" class='dc-all' style="display: none;">
-<a href="https://ballboyDev.github.io/post/3">
-<li id="p-3">• vim 에디터 정리</li>
+<li id="dt-53" onclick="foldNavi(53)">온라인 코딩 테스트 시스템 (2)</li>
+<ul id="dc-53" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/92">
+<li id="p-92">• 온라인 코테 시스템 배포 일지</li>
 </a>
-<a href="https://ballboyDev.github.io/post/58">
-<li id="p-58">• 자주쓰는 git/git-flow 명령어</li>
-</a>
-<a href="https://ballboyDev.github.io/post/69">
-<li id="p-69">• curl 명령어 사용법 정리</li>
-</a>
-<a href="https://ballboyDev.github.io/post/80">
-<li id="p-80">• 터미널 이미지 형식 변환(sips)</li>
+<a href="https://ballboyDev.github.io/post/93">
+<li id="p-93">• 0. 온라인 코테 시스템 만들기 - 시작하며</li>
 </a>
 
 </ul>
@@ -441,22 +454,22 @@
             </div>
 
             <div class="title t2">
-                <div><a href="#bm-6">## 블로그의 설계</a></div>
+                <div><a href="#bm-7">## 블로그의 설계</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t2">
-                <div><a href="#bm-9">## 기능</a></div>
+                <div><a href="#bm-10">## 기능</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t3">
-                <div><a href="#bm-10">### 필수 기능</a></div>
+                <div><a href="#bm-11">### 필수 기능</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t3">
-                <div><a href="#bm-13">### 추가 기능</a></div>
+                <div><a href="#bm-14">### 추가 기능</a></div>
                 <p>•</p>
             </div></div>
                         
@@ -480,9 +493,24 @@
 앞으로 이 블로그를 기반으로 하나하나 기능을 추가 하며 발전 시켜 보겠다.</p>
 <blockquote>
 <p>테마
-마크다운으로 작성ㅎ고 폴더 구조 기반의 웹 페이지 제작</p>
+마크다운으로 작성하고 폴더 구조 기반의 웹 페이지 제작</p>
 </blockquote>
-<h2 id="bm-6">블로그의 설계</h2>
+
+        <table>
+            <thead><tr><th align="center"></th>
+<th align="left">Github repo</th>
+<th align="left"></th>
+</tr></thead>
+            <tbody><tr><td align="center">1</td>
+<td align="left"><a href="https://github.com/BallboyDev/ballboyDev.github.io">https://github.com/BallboyDev/ballboyDev.github.io</a></td>
+<td align="left">운영 Repo</td>
+</tr>
+<tr><td align="center">2</td>
+<td align="left"><a href="https://github.com/BallboyDev/static-site-generator">https://github.com/BallboyDev/static-site-generator</a></td>
+<td align="left">다양한 버전의 테스트 Repo</td>
+</tr></tbody>
+        </table>
+        <h2 id="bm-7">블로그의 설계</h2>
 <ol>
 <li>디자인은 jekyll과 티스토리 스킨, vscode 등에서 디자인을 참고 하였다.</li>
 <li>포스팅은 마크다운으로 작성하고 마크다운을 HTML로 변환하는 방식을 사용한다.</li>
@@ -493,8 +521,8 @@
 <li>반응형 블로그 디자인을 목표로 한다.</li>
 <li>개발은 node.js 기반으로 진행하며 마크다운에서 변환된 HTML 파일을 github.io에 직접 올리는 방식으로 포스팅을 진행한다.</li>
 </ol>
-<h2 id="bm-9">기능</h2>
-<h3 id="bm-10">필수 기능</h3>
+<h2 id="bm-10">기능</h2>
+<h3 id="bm-11">필수 기능</h3>
 <ol>
 <li>마크 다운 to HTML 변환</li>
 <li>포스트 폴더 구조를 트리 구조로 변환하여 Navigator 구현 및 Accordion 기능</li>
@@ -503,7 +531,7 @@
 <li>카테고리별 포스트 개수</li>
 <li>블로그 환경 설정 기능</li>
 </ol>
-<h3 id="bm-13">추가 기능</h3>
+<h3 id="bm-14">추가 기능</h3>
 <ol>
 <li>이전 글, 다음 글 이동 기능</li>
 <li>생성, 수정 기록 표시</li>

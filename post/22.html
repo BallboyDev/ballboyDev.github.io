@@ -152,9 +152,9 @@
 </ul>
 
 </ul>
-<li id="dt-3" onclick="foldNavi(3)">----- Infra ----- (8)</li>
+<li id="dt-3" onclick="foldNavi(3)">----- Infra ----- (9)</li>
 <ul id="dc-3" class='dc-all' style="display: none;">
-<li id="dt-31" onclick="foldNavi(31)">Docker (8)</li>
+<li id="dt-31" onclick="foldNavi(31)">Docker (9)</li>
 <ul id="dc-31" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/77">
 <li id="p-77">• docker mariadb setting</li>
@@ -167,6 +167,9 @@
 </a>
 <a href="https://ballboyDev.github.io/post/90">
 <li id="p-90">• docker compose</li>
+</a>
+<a href="https://ballboyDev.github.io/post/94">
+<li id="p-94">• docker 경량 컨테이너 베이스</li>
 </a>
 <li id="dt-311" onclick="foldNavi(311)">Docker 기본 명령어 정리 (4)</li>
 <ul id="dc-311" class='dc-all' style="display: none;">
@@ -261,10 +264,26 @@
 </ul>
 
 </ul>
-<li id="dt-5" onclick="foldNavi(5)">심심한 개발자의 취미 개발 (12)</li>
+<li id="dt-5" onclick="foldNavi(5)">심심한 개발자의 취미 개발 (14)</li>
 <ul id="dc-5" class='dc-all' style="display: none;">
-<li id="dt-51" onclick="foldNavi(51)">간단 블로그 만들기 (8)</li>
+<li id="dt-51" onclick="foldNavi(51)">개발 팁 (4)</li>
 <ul id="dc-51" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/3">
+<li id="p-3">• vim 에디터 정리</li>
+</a>
+<a href="https://ballboyDev.github.io/post/58">
+<li id="p-58">• 자주쓰는 git/git-flow 명령어</li>
+</a>
+<a href="https://ballboyDev.github.io/post/69">
+<li id="p-69">• curl 명령어 사용법 정리</li>
+</a>
+<a href="https://ballboyDev.github.io/post/80">
+<li id="p-80">• 터미널 이미지 형식 변환(sips)</li>
+</a>
+
+</ul>
+<li id="dt-52" onclick="foldNavi(52)">간단 블로그 만들기 (8)</li>
+<ul id="dc-52" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/1">
 <li id="p-1">• 블로그 개발 기획, 배포 일지</li>
 </a>
@@ -291,19 +310,13 @@
 </a>
 
 </ul>
-<li id="dt-52" onclick="foldNavi(52)">개발 팁 (4)</li>
-<ul id="dc-52" class='dc-all' style="display: none;">
-<a href="https://ballboyDev.github.io/post/3">
-<li id="p-3">• vim 에디터 정리</li>
+<li id="dt-53" onclick="foldNavi(53)">온라인 코딩 테스트 시스템 (2)</li>
+<ul id="dc-53" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/92">
+<li id="p-92">• 온라인 코테 시스템 배포 일지</li>
 </a>
-<a href="https://ballboyDev.github.io/post/58">
-<li id="p-58">• 자주쓰는 git/git-flow 명령어</li>
-</a>
-<a href="https://ballboyDev.github.io/post/69">
-<li id="p-69">• curl 명령어 사용법 정리</li>
-</a>
-<a href="https://ballboyDev.github.io/post/80">
-<li id="p-80">• 터미널 이미지 형식 변환(sips)</li>
+<a href="https://ballboyDev.github.io/post/93">
+<li id="p-93">• 0. 온라인 코테 시스템 만들기 - 시작하며</li>
 </a>
 
 </ul>
@@ -495,95 +508,90 @@
 <li>조건부로 렌더링 되는 콘텐츠는 <code>{#if}</code> 블록으로 감쌀 수 있습니다. </li>
 <li>추가 조건은 <code>{:else if}</code>으로 추가할 수 있으며, 선택적으로 <code>{:else}</code> 절로 끝납니다.</li>
 </ul>
-<pre><code class="language-plaintext"}>{#if expression}
-    <!-- Code1 -->
-{:else if expression}
-    <!-- Code2 -->
-{:else}
-    <!-- Code3 -->
-{/if}</code></pre>
-<h3 id="bm-9">{#each expression}</h3>
+<pre class="theme-atom-one-dark"><code class="language-js">{#<span class="hljs-keyword">if</span> expression}
+    &lt;!-- <span class="hljs-title class_">Code1</span> --&gt;
+{:<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> expression}
+    &lt;!-- <span class="hljs-title class_">Code2</span> --&gt;
+{:<span class="hljs-keyword">else</span>}
+    &lt;!-- <span class="hljs-title class_">Code3</span> --&gt;
+{/<span class="hljs-keyword">if</span>}</code></pre><h3 id="bm-9">{#each expression}</h3>
 <ul>
 <li><code>#each</code> 에서 배열과 같은 값에 대한 반복 작업을 수행할 수 있습니다. </li>
 <li>각 목록 항목을 고유하게 식별해야 하는 키 식을 제공하면 Svelte는 마지막에 항목을 추가하거나 제거하는 대신 이를 사용하여 데이터가 변경될 때 목록을 확신합니다.</li>
 <li><code>#each</code> 에는 목록이 비어 있는 경우 렌더링이 되는 <code>{:else}</code> 절을 사용할 수 있다.</li>
 </ul>
-<pre><code class="language-plaintext"}>{#each expression as name, index (key)}
-    <!-- repeat Code -->
+<pre class="theme-atom-one-dark"><code class="language-js">{#each expression <span class="hljs-keyword">as</span> name, <span class="hljs-title function_">index</span> (key)}
+    &lt;!-- repeat <span class="hljs-title class_">Code</span> --&gt;
 {/each}
 
-{#each expression as {item, ...rest}, i, {key}}
-    <!-- repeat Code -->
+{#each expression <span class="hljs-keyword">as</span> {item, ...rest}, i, {key}}
+    &lt;!-- repeat <span class="hljs-title class_">Code</span> --&gt;
 {/each}
 
 {#each expression, index}
-    <!-- repeat Code -->
+    &lt;!-- repeat <span class="hljs-title class_">Code</span> --&gt;
 {/each}
 
-{#each expression as name, index (key)}
-    <!-- repeat Code -->
-{:else}
-    <!-- empty Code -->
-{/each}</code></pre>
-<h3 id="bm-14">{#key expression}</h3>
+{#each expression <span class="hljs-keyword">as</span> name, <span class="hljs-title function_">index</span> (key)}
+    &lt;!-- repeat <span class="hljs-title class_">Code</span> --&gt;
+{:<span class="hljs-keyword">else</span>}
+    &lt;!-- empty <span class="hljs-title class_">Code</span> --&gt;
+{/each}</code></pre><h3 id="bm-14">{#key expression}</h3>
 <ul>
 <li><code>#key</code> 블록은 식의 값이 변경되면 내용을 파괴하고 다시 생성합니다. </li>
 <li>구성 요소 주변에 사용하면 구성 요소가 다시 복원되고 다시 초기화 됩니다.</li>
 </ul>
-<pre><code class="language-plaintext"}>{#key expression}
-    <!-- Code -->
-{/key}</code></pre>
-<h3 id="bm-19">{#await expression}</h3>
+<pre class="theme-atom-one-dark"><code class="language-js">{#key expression}
+    &lt;!-- <span class="hljs-title class_">Code</span> --&gt;
+{/key}</code></pre><h3 id="bm-19">{#await expression}</h3>
 <ul>
 <li><code>#await</code> 블록을 사용하면 대기 중, 완료, 거부 세 가지 상태를 분기할 수 있습니다.</li>
 <li><code>:then</code> 블록과 <code>:catch</code> 블록은 생략 가능합니다.</li>
 </ul>
-<pre><code class="language-plaintext"}>{#await expression}
-    <!-- Waiting Code -->
+<pre class="theme-atom-one-dark"><code class="language-js">{#<span class="hljs-keyword">await</span> expression}
+    &lt;!-- <span class="hljs-title class_">Waiting</span> <span class="hljs-title class_">Code</span> --&gt;
 {:then name} 
-    <!-- response Code -->
-{:catch name}
-    <!-- reject Code -->
-{/await}
+    &lt;!-- response <span class="hljs-title class_">Code</span> --&gt;
+{:<span class="hljs-keyword">catch</span> name}
+    &lt;!-- reject <span class="hljs-title class_">Code</span> --&gt;
+{/<span class="hljs-keyword">await</span>}
 
-{#await expression}
-    <!-- Waiting Code -->
+{#<span class="hljs-keyword">await</span> expression}
+    &lt;!-- <span class="hljs-title class_">Waiting</span> <span class="hljs-title class_">Code</span> --&gt;
 {:then name}
-    <!-- response Code -->
-{/await}
+    &lt;!-- response <span class="hljs-title class_">Code</span> --&gt;
+{/<span class="hljs-keyword">await</span>}
 
-{#await expression then name}
-    <!-- response Code -->
-{/await}
+{#<span class="hljs-keyword">await</span> expression then name}
+    &lt;!-- response <span class="hljs-title class_">Code</span> --&gt;
+{/<span class="hljs-keyword">await</span>}
 
-{#await expression catch name}
-    <!-- reject Code -->
-{/await}</code></pre>
-<h3 id="bm-24">{#snippet expression}</h3>
+{#<span class="hljs-keyword">await</span> expression <span class="hljs-keyword">catch</span> name}
+    &lt;!-- reject <span class="hljs-title class_">Code</span> --&gt;
+{/<span class="hljs-keyword">await</span>}</code></pre><h3 id="bm-24">{#snippet expression}</h3>
 <ul>
 <li><code>#snippet</code> 블록과 렌더링 태그는 컴포넌트 내부에 재사용 가능한 마크업 코드를 만드는 방법입니다.</li>
 <li><code>#snippet</code> 블록과 렌더링 태그는 기본 스코프 문법을 따릅니다.</li>
 <li><code>#snippet</code> 블록은 템플릿 내에서 객체로 다루어 지기에 컴포넌트에 속성 값이나 props 값으로 전달이 가능합니다.</li>
 <li>스니펫 문법은 createRawSnippet API를 사용하여 프로그래밍 방식으로 생성할 수 있습니다.</li>
 </ul>
-<pre><code class="language-plaintext"}>{#snippet name1()}
-    <!-- Code1 -->
+<pre class="theme-atom-one-dark"><code class="language-js">{#snippet <span class="hljs-title function_">name1</span>()}
+    &lt;!-- <span class="hljs-title class_">Code1</span> --&gt;
 {/snippet}
 
-{#snippet name2(param)}
-    <!-- Code2 -->
+{#snippet <span class="hljs-title function_">name2</span>(param)}
+    &lt;!-- <span class="hljs-title class_">Code2</span> --&gt;
 {/snippet}
 
-{#snippet name3(param)}
-    <!-- Code3 -->
+{#snippet <span class="hljs-title function_">name3</span>(param)}
+    &lt;!-- <span class="hljs-title class_">Code3</span> --&gt;
 {/snippet}
 
-{@render name1()}
-{@render name2(param)}
+{@render <span class="hljs-title function_">name1</span>()}
+{@render <span class="hljs-title function_">name2</span>(param)}
 {@render name3?.(param)}
 
-<Component header={name1} row={name2}/></code></pre>
-<h3 id="bm-29">기타 블럭 문법</h3>
+&lt;<span class="hljs-title class_">Component</span> header={name1} row={name2}/&gt;</code></pre><h3 id="bm-29">기타 블럭 문법</h3>
 <ul>
 <li>{@render ...}<ul>
 <li>snippet 문법을 렌더링 하기 위해 사용됩니다.</li>
@@ -603,33 +611,32 @@
 </ul>
 </li>
 </ul>
-<pre><code class="language-plaintext"}><!-- {@render ...} -->
-{#snippet name1()}
-    <p>name1</p>
+<pre class="theme-atom-one-dark"><code class="language-js">&lt;!-- {@render ...} --&gt;
+{#snippet <span class="hljs-title function_">name1</span>()}
+    &lt;p&gt;name1&lt;/p&gt;
 {/snippet}
-{#snippet name2()}
-    <p>name2</p>
+{#snippet <span class="hljs-title function_">name2</span>()}
+    &lt;p&gt;name2&lt;/p&gt;
 {/snippet}
 
-{@render (value ? name1 : name2)()}
+{@<span class="hljs-title function_">render</span> (value ? name1 : name2)()}
 {@render name2?.()}
 
-<!-- {@heml ...} -->
-<article>
+&lt;!-- {@heml ...} --&gt;
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">article</span>&gt;</span>
     {@html content}
-</article>
+<span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span></span>
 
-<!-- {@const ...} -->
-{#each boxes as box}
-    {@const area = box.width * box.height}
-    {box.width} * {box.height} = {area}
+&lt;!-- {@<span class="hljs-keyword">const</span> ...} --&gt;
+{#each boxes <span class="hljs-keyword">as</span> box}
+    {@<span class="hljs-keyword">const</span> area = box.<span class="hljs-property">width</span> * box.<span class="hljs-property">height</span>}
+    {box.<span class="hljs-property">width</span>} * {box.<span class="hljs-property">height</span>} = {area}
 {/each}
 
-<!-- {@debug ...} -->
+&lt;!-- {@debug ...} --&gt;
 {@debug user}
 {@debug user1, user2, user3}
 </code></pre>
-
 
                         </div>
 
