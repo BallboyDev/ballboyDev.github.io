@@ -1,7 +1,12 @@
 node_modules
+
 _dist
+
 _post/*
 !_post/markdown.md
+
 _test/*
 !_test/test.md
+!_test/docsImg/tempImg.jpeg
+
 .DS_Store
