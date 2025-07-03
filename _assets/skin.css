@@ -183,6 +183,7 @@ body {
 
 #side-bar>.navi a>li {
     color: rgb(189, 197, 203);
+    font-size: smaller;
 }
 
 #side-bar>.link {

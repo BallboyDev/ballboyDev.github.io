@@ -39,7 +39,13 @@ const utils = {
         'index.md',     // index 페이지 마크다운 파일
         'postList.md',  // 포스팅 글 리스트 정리 파일
         'deploy.sh',     // 원격 배포 파일
-    ]
+    ],
+
+    info: {
+        intro: '심심한 개발자의 취미생활',
+        profile: 'profile.jpeg'
+
+    }
 }
 
 

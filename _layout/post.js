@@ -1,3 +1,5 @@
+const utils = require('../config')
+
 const code = {
     assets: (param) => {
         const { assetsUrl, index, fold } = param
@@ -99,7 +101,7 @@ const code = {
                             alt="" srcset="">
                         <div class="title">심심한 개발자의 취미생활</div>
                         <img class="img"
-                            src="${data.url}/assets/img/profile.jpeg"
+                            src="${data.url}/assets/img/${utils.info.profile}"
                             alt="" srcset="">
                     </div>
                     <div id="side-bar">
@@ -107,9 +109,8 @@ const code = {
                             src="${data.url}/assets/img/close.svg"
                             alt="" srcset="">
                         <div class="profile">
-                            <img class="img" src="${data.url}/assets/img/profile.jpeg" alt="" srcset="">
-                            <p>심심한 개발자의 취미생활</p>
-                            <p>환영합니다.</p>
+                            <img class="img" src="${data.url}/assets/img/${utils.info.profile}" alt="" srcset="">
+                            <p>${utils.info.intro || '심심한 개발자의 취미생활'}</p>
                         </div>
                         <hr />
                         <h3 class="home"><a href="${data.url}${data.env === 'dev' ? '/index.html' : ''}">HOME</a></h3>
