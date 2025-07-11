@@ -17,19 +17,19 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
             <style>
-                #p-61 {
+                #p-99 {
                     color: rgb(76, 193, 237) !important;
                 }
             </style>
             <script id="data" type="application/json">
             {
-                "fold": ["1","12","123"]
+                "fold": ["2","23"]
             }
             </script>
 
             <script src="https://ballboyDev.github.io/assets/skin.js"></script>
 
-                <title>3. Model1 (JSP Controller)</title>
+                <title>2. 온코테 시스템 만들기 - Backend</title>
             </head>
 
             <body>
@@ -483,179 +483,146 @@
                         <div class="bookmark">
 
             <div class="title t1">
-                <div><a href="#bm-3"># Model1 - JSP Controller</a></div>
+                <div><a href="#bm-1"># 1. 온라인 코딩 테스트 시스템 Backend 만들기</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t2">
-                <div><a href="#bm-4">## 방명록 페이지 개요</a></div>
+                <div><a href="#bm-4">## 기능과 기본 구조</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t3">
-                <div><a href="#bm-11">### Controller - JSP 작성</a></div>
+                <div><a href="#bm-7">### 모듈 통합과 </a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-12">### 코드 제출 (exam.module)</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-16">### 컨테이너 관리 (container.module)</a></div>
                 <p>•</p>
             </div></div>
                         
                         
-            <a href="https://ballboyDev.github.io/post/60.html" class="prev post">
+            <a href="https://ballboyDev.github.io/post/98.html" class="prev post">
                 <img src="https://ballboyDev.github.io/assets/img/prev.svg" alt="" srcset="">
             </a>
                         
                         
-            <a href="https://ballboyDev.github.io/post/62.html" class="next post">
-                <img src="https://ballboyDev.github.io/assets/img/next.svg" alt="" srcset="">
-            </a>
                         
                         <div class="main markdown-body">
 
-                            <blockquote>
-<p>본 글은 <a href="https://victorydntmd.tistory.com/category/%EC%9B%B9%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/JSP%20%26%20Servlet">victolee</a>님의 포스팅을 보고 따라 학습하며 내용을 정리한 포스팅 입니다.</p>
-</blockquote>
-<h1 id="bm-3">Model1 - JSP Controller</h1>
-<h2 id="bm-4">방명록 페이지 개요</h2>
-<ul>
-<li>방명록을 작성하는 입력 form 페이지</li>
-<li>게시글 리스트 페잊</li>
-<li>삭제하기 위해 비밀번호를 입력하는 페이지</li>
-</ul>
-<pre class="theme-atom-one-dark"><code class="language-sql"><span class="hljs-keyword">CREATE TABLE</span> GUESTBOOK (
-    <span class="hljs-keyword">NO</span> <span class="hljs-type">INT</span> <span class="hljs-keyword">PRIMARY KEY</span> AUTO_INCREMENT,
-    NAME <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">50</span>),
-    PWD <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">60</span>),
-    CONTENT <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">9999</span>),
-    REG_DATE DATETIME
-)</code></pre><ul>
-<li>Dao, Vo 작성 과정 생략</li>
-</ul>
-<h3 id="bm-11">Controller - JSP 작성</h3>
-<ul>
-<li>index.jsp</li>
-</ul>
-<pre class="theme-atom-one-dark"><code class="language-html">&lt;%@page import=&quot;guestbook_Model1.GuestBookVo&quot; %&gt;
-&lt;%@page import=&quot;guestbook_Model1.GuestBookDao&quot; %&gt;
-&lt;%@page import=&quot;java.util.List&quot; %&gt;
-&lt;%@page import=&quot;java.util.ArrayList&quot; %&gt;
-&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot; pageEncoding=&quot;UTF-8&quot;%&gt;
+                            <h1 id="bm-1">1. 온라인 코딩 테스트 시스템 Backend 만들기</h1>
+<p>이 프로젝트의 중심은 backend이다.
+내가 이 프로젝트를 진행하기 위한 목적은 과거 아쉬웠던 경험을 기억하며 다시 한번 되돌아 보는 기회를 가지는것과 함께 인프라적으로 학습했던 Docker와 backend 중심의 개발을 학습해보기 위해서이다.
+프로젝트의 중심인 Backend에 대하여 정리 해보겠다.</p>
+<h2 id="bm-4">기능과 기본 구조</h2>
+<p>onCoTe-backend의 핵심 기능은 제출과 실행의 관리이다.
+frontend에서 코드를 작성하여 제출을 하면 backend에서는 제출된 코드를 파일 데이터로 가공 후 저장을 위한 storage 서버로 전달을 하고 저장된 파일을 기반으로 언어 컨테이너를 실행 시켜 코드의 결과값을 도출한다.</p>
+<h3 id="bm-7">모듈 통합과</h3>
+<pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">/** exam.controller.ts / submit */</span>
 
-&lt;%
-List<span class="hljs-tag">&lt;<span class="hljs-name">GuestBookVo</span>&gt;</span> list = new ArrayList<span class="hljs-tag">&lt;<span class="hljs-name">GuestBookVo</span>&gt;</span>();
-GuestBookDao dao = new GuestBookDao();
+<span class="hljs-keyword">const</span> saveResult = <span class="hljs-keyword">await</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">examService</span>.<span class="hljs-title function_">submit</span>(body.<span class="hljs-property">lang</span>, body.<span class="hljs-property">code</span>)
+<span class="hljs-keyword">const</span> {id, file, ext, msg} = saveResult
 
-list = dao.getList();
-%&gt;
-<span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;Content-Type&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;text/html; charset=UTF-8&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>GuestBook<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;/guestbook_Model1/add.jsp&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">border</span>=<span class="hljs-string">&#x27;1&#x27;</span> <span class="hljs-attr">width</span>=<span class="hljs-string">&#x27;500&#x27;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>이름<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&#x27;text&#x27;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&#x27;name&#x27;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>비밀번호<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&#x27;password&#x27;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&#x27;pwd&#x27;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">colspan</span>=<span class="hljs-string">4</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&#x27;content&#x27;</span> <span class="hljs-attr">cols</span>=<span class="hljs-string">60</span> <span class="hljs-attr">rows</span>=<span class="hljs-string">5</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">colspan</span>=<span class="hljs-string">4</span> <span class="hljs-attr">align</span>=<span class="hljs-string">right</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&#x27;submit&#x27;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&#x27;check&#x27;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
-&lt;%   
-	if(list != null){
-        for(GuestBookVo vo : list){
-%&gt;
-            <span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">width</span>=<span class="hljs-string">&#x27;510&#x27;</span> <span class="hljs-attr">border</span>=<span class="hljs-string">&#x27;1&#x27;</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>&lt;%= vo.getNo() %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>&lt;%= vo.getName() %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>&lt;%= vo.getRegDate() %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/guestbook_Model1/deleteform.jsp?no=&lt;%= vo.getNo() %&gt;&quot;</span>&gt;</span>삭제<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>&lt;%= vo.getContent() %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
-&lt;%
+<span class="hljs-keyword">const</span> executeResult = <span class="hljs-keyword">await</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">containerService</span>.<span class="hljs-title function_">runContainer</span>(<span class="hljs-string">`container_<span class="hljs-subst">${ext}</span>:latest`</span>, fileName)</code></pre><pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">/** container.provider.ts */</span>
+<span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> <span class="hljs-title class_">Docker</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;dockerode&#x27;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title class_">ContainerProvider</span> = {
+    <span class="hljs-attr">provide</span>: <span class="hljs-title class_">Docker</span>,
+    <span class="hljs-comment">// Docker 클래스의 새 인스턴스를 생성</span>
+    <span class="hljs-comment">// socketPath는 도커 데몬과 통신하기 위한 유닉스 소켓의 경로를 지정</span>
+    <span class="hljs-attr">useFactory</span>: <span class="hljs-function">() =&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Docker</span>({ <span class="hljs-attr">socketPath</span>: <span class="hljs-string">&#x27;/var/run/docker.sock&#x27;</span> })
+}</code></pre><h3 id="bm-12">코드 제출 (exam.module)</h3>
+<ul>
+<li>클라이언트로부터 받은 소스코드를 다른 서버(storage server)에 업로드</li>
+</ul>
+<pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">/** exam.service.ts */</span>
+<span class="hljs-keyword">async</span> <span class="hljs-title function_">submit</span>(<span class="hljs-params">lang, code</span>){
+    <span class="hljs-comment">// 언어별 확장자 설정</span>
+    <span class="hljs-keyword">const</span> fileExtension = <span class="hljs-string">&#x27;언어별 확장자 설정&#x27;</span>
+
+    <span class="hljs-comment">// storage 저장 파일 이름</span>
+    <span class="hljs-keyword">const</span> fileName = <span class="hljs-string">&#x27;제출자 ID_제출 시간&#x27;</span>
+
+    <span class="hljs-comment">// 파일 데이터 생성 (FormData 생성)</span>
+    <span class="hljs-keyword">const</span> formData = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FormData</span>()
+    formData.<span class="hljs-title function_">append</span>(<span class="hljs-string">&#x27;file&#x27;</span>, <span class="hljs-keyword">new</span> <span class="hljs-title class_">Blob</span>([code], {<span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;text/plain&#x27;</span>}), fileName)
+
+    <span class="hljs-comment">// HTTP PORT 요청 전송</span>
+    <span class="hljs-keyword">const</span> res = <span class="hljs-keyword">await</span> <span class="hljs-title function_">firstValueFrom</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">httpService</span>.<span class="hljs-title function_">post</span>(<span class="hljs-string">&#x27;uploadURL&#x27;</span>, formData, {
+        <span class="hljs-attr">headers</span>: {
+            <span class="hljs-string">&#x27;content-Type&#x27;</span>: <span class="hljs-string">&#x27;multipart/form-data&#x27;</span>
+        }
+    }))
+
+    <span class="hljs-comment">// 성공 응답 처리</span>
+    <span class="hljs-keyword">const</span> {id, fileName, ext} = res.<span class="hljs-property">data</span>
+    <span class="hljs-keyword">return</span> {
+        <span class="hljs-attr">id</span>: id,
+        <span class="hljs-attr">fileName</span>: fileName,
+        <span class="hljs-attr">ext</span>: ext,
+        <span class="hljs-attr">msg</span>: <span class="hljs-string">&#x27;upload success&#x27;</span>
+    }
+}</code></pre><h3 id="bm-16">컨테이너 관리 (container.module)</h3>
+<ul>
+<li>주어진 도커 이미지를 사용하여 컨테이너를 생성 및 실행하고, 실행 결과를 반환</li>
+</ul>
+<pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">/** container.service.ts */</span>
+<span class="hljs-keyword">async</span> <span class="hljs-title function_">runContainer</span>(<span class="hljs-params">image, fileName</span>) {
+    <span class="hljs-keyword">let</span> output = <span class="hljs-string">&#x27;&#x27;</span>
+    <span class="hljs-comment">// 컨테이너의 표준 출력과 표준 에러를 수신하여 output 변수에 저장</span>
+    <span class="hljs-keyword">const</span> outputStream = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Writable</span>({
+        <span class="hljs-title function_">write</span>(<span class="hljs-params">chunk, encoding, callback</span>) {
+            output += chunk.<span class="hljs-title function_">toString</span>()
+            <span class="hljs-title function_">callback</span>()
+        }
+    })
+
+    <span class="hljs-comment">// 컨테이너 생성 옵션 설정</span>
+    <span class="hljs-keyword">const</span> options = { <span class="hljs-comment">// docker run --rm -v vol-onCoTe-storage:/exam container_lang:latest [fileName]</span>
+        <span class="hljs-comment">// 생성할 컨테이너 도커 이미지</span>
+        <span class="hljs-title class_">Image</span>: image,
+        <span class="hljs-comment">// 컨테이너가 시작 될때 실행할 명령어 / 실행할 파일명 전달</span>
+        <span class="hljs-title class_">Cmd</span>: [fileName],
+
+        <span class="hljs-title class_">HostConfig</span>: {
+            <span class="hljs-comment">// 컨테이너의 실행이 완료되면 자동으로 컨테이너 삭제</span>
+            <span class="hljs-title class_">AutoRemove</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-comment">// 저장된 storage 서버의 파일에 접근하기 위한 볼륨 마운트</span>
+            <span class="hljs-title class_">Binds</span>: [
+                <span class="hljs-string">&quot;vol-onCoTe-storage:/exam&quot;</span>
+            ]
         }
     }
-%&gt;
-<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre><ul>
-<li>add.jsp</li>
-</ul>
-<pre class="theme-atom-one-dark"><code class="language-html">&lt;%@ page import=&quot;guestbook_Model1.GuestBookVo&quot; %&gt;
-&lt;%@ page import=&quot;guestbook_Model1.GuestBookDao&quot; %&gt;
-&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot; pageEncoding=&quot;UTF-8&quot;%&gt;
-&lt;%
-    request.setCharacterEncoding(&quot;utf-8&quot;);
 
-    String name = request.getParameter(&quot;name&quot;);
-    String pwd = request.getParameter(&quot;pwd&quot;);
-    String content = request.getParameter(&quot;content&quot;);
-    
-    GuestBookVo vo = new GuestBookVo();
-    vo.setName(name);
-    vo.setPwd(pwd);
-    vo.setContent(content);
+    <span class="hljs-comment">// 정의된 옵션으로 새로운 컨테이너 생성</span>
+    <span class="hljs-keyword">const</span> container = <span class="hljs-keyword">await</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">docker</span>.<span class="hljs-title function_">createContainer</span>(options)
 
-    GuestBookDao dao = new GuestBookDao();
-    dao.insert(vo);
+    <span class="hljs-comment">// 컨테이너의 입출력 스트림 연결 </span>
+    <span class="hljs-keyword">const</span> stream = <span class="hljs-keyword">await</span> container.<span class="hljs-title function_">attach</span>({
+        <span class="hljs-attr">stream</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">stdout</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">stderr</span>: <span class="hljs-literal">true</span>
+    })
 
-    response.sendRedirect(&quot;/guestbook_Model1&quot;);
-%&gt;</code></pre><ul>
-<li>deleteform.jsp</li>
-</ul>
-<pre class="theme-atom-one-dark"><code class="language-html">&lt;%@ page import=&quot;guestbook_Model1.GuestBookVo&quot; %&gt;
-&lt;%@ page import=&quot;guestbook_Model1.GuestBookDao&quot; %&gt;
-&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
-    pageEncoding=&quot;UTF-8&quot;%&gt;
-    
-&lt;% String no = request.getParameter(&quot;no&quot;); %&gt;
-<span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Guest Book delete form<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-	<span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;/guestbook_Model1/delete.jsp&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span>&gt;</span>
-		<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&#x27;hidden&#x27;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&#x27;no&#x27;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&#x27;&lt;%= no %&gt;&#x27;</span>&gt;</span>
-		<span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">border</span>=<span class="hljs-string">&#x27;1&#x27;</span> <span class="hljs-attr">width</span>=<span class="hljs-string">&#x27;200&#x27;</span>&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-				<span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span> NO <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>&lt;%= no %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-				<span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span> PWD <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&#x27;password&#x27;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&#x27;pwd&#x27;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-				<span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&#x27;submit&#x27;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&#x27;check&#x27;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-			<span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-		<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
-	<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre><ul>
-<li>delete.jsp</li>
-</ul>
-<pre class="theme-atom-one-dark"><code class="language-html">&lt;%@ page import=&quot;guestbook_Model1.GuestBookVo&quot; %&gt;
-&lt;%@ page import=&quot;guestbook_Model1.GuestBookDao&quot; %&gt;
-&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot; pageEncoding=&quot;UTF-8&quot;%&gt;
-&lt;%
-    request.setCharacterEncoding(&quot;utf-8&quot;);
+    <span class="hljs-comment">// 도커 스트림에서 오는 데이터를 outputStream 전송</span>
+    container.<span class="hljs-property">modem</span>.<span class="hljs-title function_">demuxStream</span>(stream, outputStream, outputStream)
 
-    String no = request.getParameter(&quot;no&quot;);
-    String pwd = request.getParameter(&quot;pwd&quot;);
-    
-    GuestBookVo vo = new GuestBookVo();
-    vo.setNo(no);
-    vo.setPwd(pwd);
-    
-    GuestBookDao dao = new GuestBookDao();
-    dao.delete(vo);
-    
-    response.sendRedirect(&quot;/guestbook_Model1&quot;);
-%&gt;</code></pre>
+    <span class="hljs-comment">// 컨테이너 시작과 컨테이너 내부의 프로세스가 종료될 때까지 대기</span>
+    <span class="hljs-keyword">await</span> container.<span class="hljs-title function_">start</span>()
+    <span class="hljs-keyword">await</span> container.<span class="hljs-title function_">wait</span>()
+
+    <span class="hljs-comment">// 결과 반환</span>
+    <span class="hljs-keyword">return</span> {
+        <span class="hljs-attr">id</span>: container.<span class="hljs-property">id</span>,
+        <span class="hljs-attr">msg</span>: output
+    }
+}</code></pre>
 
                         </div>
 
