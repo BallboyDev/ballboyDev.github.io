@@ -17,19 +17,19 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
             <style>
-                #p-50 {
+                #p-100 {
                     color: rgb(76, 193, 237) !important;
                 }
             </style>
             <script id="data" type="application/json">
             {
-                "fold": ["1","14","142"]
+                "fold": ["2","23"]
             }
             </script>
 
             <script src="https://ballboyDev.github.io/assets/skin.js"></script>
 
-                <title>6. 날짜 연산 및 날짜 함수</title>
+                <title>3. 온코테 시스템 만들기 - Storage</title>
             </head>
 
             <body>
@@ -489,111 +489,91 @@
                         <div class="bookmark">
 
             <div class="title t1">
-                <div><a href="#bm-1"># 날짜 연산 및 날짜 함수</a></div>
+                <div><a href="#bm-1"># 3. 온라인 코딩 테스트 Storage 시스템 만들기</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t2">
-                <div><a href="#bm-2">## 기본 날짜 계산</a></div>
+                <div><a href="#bm-4">## 기능과 기본 구조</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t2">
-                <div><a href="#bm-8">## 날짜 함수 사용하기</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t2">
-                <div><a href="#bm-10">## EXTRACT</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t2">
-                <div><a href="#bm-13">## INTERVAL</a></div>
+                <div><a href="#bm-9">## 개선 방향</a></div>
                 <p>•</p>
             </div></div>
                         
                         
-            <a href="https://ballboyDev.github.io/post/49.html" class="prev post">
+            <a href="https://ballboyDev.github.io/post/99.html" class="prev post">
                 <img src="https://ballboyDev.github.io/assets/img/prev.svg" alt="" srcset="">
             </a>
                         
                         
-            <a href="https://ballboyDev.github.io/post/51.html" class="next post">
-                <img src="https://ballboyDev.github.io/assets/img/next.svg" alt="" srcset="">
-            </a>
                         
                         <div class="main markdown-body">
 
-                            <h1 id="bm-1">날짜 연산 및 날짜 함수</h1>
-<h2 id="bm-2">기본 날짜 계산</h2>
-<ul>
-<li>오라클 데이터 베이스는 세기, 연도, 월, 일 시, 분, 초 형태의 내부 숫자 형식으로 날짜를 저장함</li>
-<li>기본 Date Format 설정에 따라 화면에 표시됨</li>
-<li>날짜 표시 Format을 변경하고 싶은 경우 다음 명령을 사용한다.<ul>
-<li>alter session set nls_date_format = &#39;yyyy-mm-dd:hh24:mi:ss&#39;;</li>
-</ul>
-</li>
-<li>날짜에 숫자를 더하거나 빼서 날짜 값을 계산할 수 있음</li>
-<li>날짜형 데이터 간 뺄셈을 수항 할 수 있음</li>
-</ul>
+                            <h1 id="bm-1">3. 온라인 코딩 테스트 Storage 시스템 만들기</h1>
+<p>스토리지 시스템은 제출된 코드를 저장하고 bind된 컨테이너에 데이터를 제공하는 역할을 한다.
+아직 구축되지 않은 DB도 사용할 예정이지만 기본적으로 코드 관리는 File로 관리하고 테스트와 실행을 위한 Code 데이터를 제공하는 역할을 한다.
+장기적으로는 본 프로젝트에서 타이핑 기록이나 문제 제공 기능으로 확장 되지 않을까 예상 해본다.</p>
+<h2 id="bm-4">기능과 기본 구조</h2>
+<p>storage 서버의 핵심은 파일 데이터의 저장이다.
+그래서 express.js 와 같은 가볍고 쉽게 서버 작성이 가능한 라이브러리를 사용하였고 작성된 코드 역시 최소화 되어 있다.</p>
+<pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">/** server.js **/</span>
 
-        <table>
-            <thead><tr><th align="left">함수</th>
-<th align="left">내용</th>
-</tr></thead>
-            <tbody><tr><td align="left">DATE + NUMBER</td>
-<td align="left">- 날짜에 해당 일수를 더한 날짜를 리턴</td>
-</tr>
-<tr><td align="left">DATE - NUMBER</td>
-<td align="left">- 날짜에 해당 일수를 뺀 날짜를 리턴</td>
-</tr>
-<tr><td align="left">DATE1 - DATE2</td>
-<td align="left">- 두 날짜 사이의 경과 일수를 숫자로 리턴</td>
-</tr></tbody>
-        </table>
-        <pre class="theme-atom-one-dark"><code class="language-SQL"><span class="hljs-comment">-- 현재 날짜/시간</span>
-<span class="hljs-keyword">SELECT</span> SYSDATE <span class="hljs-keyword">FROM</span> DUAL;</code></pre><h2 id="bm-8">날짜 함수 사용하기</h2>
+<span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;express&#x27;</span>)
+<span class="hljs-keyword">const</span> multer = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;multer&#x27;</span>)
+<span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs&#x27;</span>)
+<span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;path&#x27;</span>)
 
-        <table>
-            <thead><tr><th align="left">함수</th>
-<th align="left">내용</th>
-</tr></thead>
-            <tbody><tr><td align="left">ADD_MONTHS(D1, N)</td>
-<td align="left">- D1날짜에 N개월을 더함</td>
-</tr>
-<tr><td align="left">MONTHS_BETWEEN(D1, D2)</td>
-<td align="left">- D1, D2 두 날짜 간의 경과 개월 수</td>
-</tr>
-<tr><td align="left">LAST_DAY</td>
-<td align="left">- 해당 월의 마지막 날짜를 리턴</td>
-</tr>
-<tr><td align="left">ROUND</td>
-<td align="left">- 날짜를 년, 월 단위로 반올림</td>
-</tr>
-<tr><td align="left">TRUNC</td>
-<td align="left">- 날짜를 년, 월 단위로 버림</td>
-</tr></tbody>
-        </table>
-        <h2 id="bm-10">EXTRACT</h2>
-<ul>
-<li>날짜에서 지정한 날짜 필드 값을 추출하여 반환함</li>
-</ul>
-<h2 id="bm-13">INTERVAL</h2>
-<ul>
-<li>날짜에서 지정한 날짜 필드 값을 더하거나 뺄 수 있음</li>
-<li>사용 예시<ul>
-<li>날짜 + (INTERVAL &#39;1&#39; YEAR) -&gt; 1년 더하기</li>
-<li>날짜 + (INTERVAL &#39;1&#39; MONTH) -&gt; 1개월 더하기</li>
-<li>날짜 + (INTERVAL &#39;1&#39; DAY) -&gt; 1일 더하기</li>
-<li>날짜 + (INTERVAL &#39;1&#39; HOUR) -&gt; 1시간 더하기</li>
-<li>날짜 + (INTERVAL &#39;1&#39; MINUTE) -&gt; 1분 더하기</li>
-<li>날짜 + (INTERVAL &#39;1&#39; SECONT) -&gt; 1초 더하기</li>
-<li>날짜 + (INTERVAL &#39;1&#39; &#39;02:10&#39; HOUR TO MINUTE) -&gt; 2시간 10분 더하기</li>
-<li>날짜 + (INTERVAL &#39;1&#39; &#39;01:30&#39; MINUTE TO SECOND) -&gt; 1분 30초 더하기</li>
-</ul>
-</li>
-</ul>
+<span class="hljs-keyword">const</span> app = <span class="hljs-title function_">express</span>()
+
+<span class="hljs-keyword">const</span> port = <span class="hljs-number">3100</span>
+
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">customFileFilter</span> = (<span class="hljs-params">req, file, cb</span>) =&gt; {
+    <span class="hljs-title function_">cb</span>(<span class="hljs-literal">true</span>)
+}
+
+<span class="hljs-comment">// 파일 업로드를 위한 Multer 설정</span>
+<span class="hljs-keyword">const</span> upload = <span class="hljs-title function_">multer</span>({
+    <span class="hljs-comment">// 파일 저장 방식 설정</span>
+    <span class="hljs-attr">storage</span>: multer.<span class="hljs-title function_">diskStorage</span>({
+        <span class="hljs-comment">// 파일 저장된 목적지</span>
+        <span class="hljs-attr">destination</span>: <span class="hljs-function">(<span class="hljs-params">req, file, cb</span>) =&gt;</span> {
+            <span class="hljs-comment">// exam/ 디렉토리에 파일을 저장한다.</span>
+            <span class="hljs-comment">// exam/ 폴더는 컨테이너 생성시 &#x27;vol-onCoTe-storage&#x27; 볼륨으로 마운트 되어 언어 실행 컨테이너와 함께 공유폴더로 사용된다 </span>
+            <span class="hljs-title function_">cb</span>(<span class="hljs-literal">null</span>, <span class="hljs-string">&#x27;exam/&#x27;</span>) 
+        },
+        <span class="hljs-comment">// 파일이 저장될 이름 설정</span>
+        <span class="hljs-attr">filename</span>: <span class="hljs-function">(<span class="hljs-params">req, file, cb</span>) =&gt;</span> {
+            <span class="hljs-title function_">cb</span>(<span class="hljs-literal">null</span>, <span class="hljs-string">`loginId-<span class="hljs-subst">${<span class="hljs-built_in">Date</span>.now()}</span><span class="hljs-subst">${path.extname(file.originalname)}</span>`</span>)
+        },
+
+    }),
+    <span class="hljs-comment">// fileFilter: customFileFilter,</span>
+    <span class="hljs-attr">limits</span>: { <span class="hljs-attr">fileSize</span>: <span class="hljs-number">5</span> * <span class="hljs-number">1024</span> * <span class="hljs-number">1024</span> }
+})
+
+<span class="hljs-comment">// curl -F &quot;file=@file&quot; localhost:3000/upload</span>
+app.<span class="hljs-title function_">post</span>(<span class="hljs-string">&#x27;/upload&#x27;</span>, upload.<span class="hljs-title function_">any</span>(), <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+
+    res.<span class="hljs-title function_">json</span>({
+        <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;loginId&#x27;</span>,
+        <span class="hljs-attr">fileName</span>: req.<span class="hljs-property">files</span>[<span class="hljs-number">0</span>].<span class="hljs-property">filename</span>,
+        <span class="hljs-attr">ext</span>: path.<span class="hljs-title function_">extname</span>(req.<span class="hljs-property">files</span>[<span class="hljs-number">0</span>].<span class="hljs-property">filename</span>).<span class="hljs-title function_">replace</span>(<span class="hljs-string">&#x27;.&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>),
+    })
+})
+
+app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;/&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+    res.<span class="hljs-title function_">send</span>(<span class="hljs-string">&#x27;simple express server&#x27;</span>)
+})
+
+app.<span class="hljs-title function_">listen</span>(port, <span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`Start server http://localhost:<span class="hljs-subst">${port}</span>`</span>)
+})</code></pre><h2 id="bm-9">개선 방향</h2>
+<p>공유 스토리지 디렉토리를 관리하는 서버 역할로서 개선 방향은 코딩의 목적인 해결해야 하는 문제, 퀴즈 관련 데이터를 저장하고 관리하는 방향으로 계선이 가능하다.
+여기서 중요한 부분은 대규모의 파일의 복사, 생성, 삭제 작업은 서버의 작업 효율에 큰 영향을 미쳐 함께 다른 서비스에 제공되는 기능의 정상작동 또는 성능에 이슈가 발생 할 수 있다.
+해당 부분에 대한 해결 방법이 필요하다.</p>
 
 
                         </div>
