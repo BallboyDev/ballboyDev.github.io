@@ -520,34 +520,41 @@
 <li>사실 어려운 스크립트는 아니다. 스크립트를 실행하며 넘긴 파라미터와 npm의 --prefix 옵션을 활용하여 경로 이동없이 명령어를 실행한다는 점만 이해하면 된다.</li>
 </ul>
 <pre class="theme-atom-one-dark"><code class="language-sh">&gt;&gt; ./deploy.sh 
+&gt;&gt; ./deploy.sh 100
 &gt;&gt; ./deploy.sh build
 &gt;&gt; ./deploy.sh deploy
 
 <span class="hljs-comment">#!/bin/bash</span>
 
-TARGET_DIR=<span class="hljs-string">&quot;~/project/ballboyDev.github.io/&quot;</span>
+TARGET_DIR=<span class="hljs-string">&quot;/Users/ballboy/workspace/project/ballboyDev.github.io/&quot;</span>
+ARG1=<span class="hljs-string">&quot;<span class="hljs-variable">${1:-dev}</span>&quot;</span>
 
-<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Running npm run build in <span class="hljs-variable">${TARGET_DIR}</span>&quot;</span>
-npm --prefix <span class="hljs-string">&quot;<span class="hljs-variable">${TARGET_DIR}</span>&quot;</span> run app:<span class="hljs-variable">${1:-dev}</span>
+<span class="hljs-comment"># Check if the first argument is a number</span>
+<span class="hljs-keyword">if</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$ARG1</span>&quot;</span> =~ ^[0-9]+$ ]]; <span class="hljs-keyword">then</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Running npm run build in <span class="hljs-variable">${TARGET_DIR}</span>&quot;</span>
+    npm --prefix <span class="hljs-string">&quot;<span class="hljs-variable">${TARGET_DIR}</span>&quot;</span> run app:dev
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Opening post number <span class="hljs-variable">${ARG1}</span>&quot;</span>
+    open <span class="hljs-string">&quot;<span class="hljs-variable">${TARGET_DIR}</span>_dist/post/<span class="hljs-variable">${ARG1}</span>.html&quot;</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Done.&quot;</span>
+    <span class="hljs-built_in">exit</span> 0
+<span class="hljs-keyword">fi</span>
 
-<span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">${1:-dev}</span>&quot;</span> = <span class="hljs-string">&quot;build&quot;</span> ]; <span class="hljs-keyword">then</span>
+<span class="hljs-comment"># If the argument is not a number, proceed with the original logic</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Running npm run app:<span class="hljs-variable">${ARG1}</span> in <span class="hljs-variable">${TARGET_DIR}</span>&quot;</span>
+npm --prefix <span class="hljs-string">&quot;<span class="hljs-variable">${TARGET_DIR}</span>&quot;</span> run app:<span class="hljs-variable">${ARG1}</span>
 
+<span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">${ARG1}</span>&quot;</span> = <span class="hljs-string">&quot;build&quot;</span> ]; <span class="hljs-keyword">then</span>
     <span class="hljs-built_in">read</span> -p <span class="hljs-string">&quot;Do you want to deploy? (y/n): &quot;</span> a1
-
     <span class="hljs-keyword">if</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">${a1}</span>&quot;</span> == [Yy]* ]]; <span class="hljs-keyword">then</span>
         <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Deploying...&quot;</span>
         npm --prefix <span class="hljs-string">&quot;<span class="hljs-variable">${TARGET_DIR}</span>&quot;</span> run app:deploy
     <span class="hljs-keyword">fi</span>
-
-<span class="hljs-keyword">elif</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">${1:-dev}</span>&quot;</span> = <span class="hljs-string">&quot;dev&quot;</span> ]; <span class="hljs-keyword">then</span>
-
+<span class="hljs-keyword">elif</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">${ARG1}</span>&quot;</span> = <span class="hljs-string">&quot;dev&quot;</span> ]; <span class="hljs-keyword">then</span>
     <span class="hljs-built_in">read</span> -p <span class="hljs-string">&quot;Do you want to open built page? (y/n): &quot;</span> a2
-
     <span class="hljs-keyword">if</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">${a2}</span>&quot;</span> == [Yy]* ]]; <span class="hljs-keyword">then</span>
         <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;open index page&quot;</span>
-        open <span class="hljs-string">&quot;<span class="hljs-variable">${TARGET_DIR}</span>/_dist/index.html&quot;</span>
+        open <span class="hljs-string">&quot;<span class="hljs-variable">${TARGET_DIR}</span>_dist/index.html&quot;</span>
     <span class="hljs-keyword">fi</span>
-
 <span class="hljs-keyword">fi</span>
 
 <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Done.&quot;</span>
