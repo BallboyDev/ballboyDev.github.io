@@ -199,7 +199,7 @@ const app = {
 
                     if (type === 'dir') {
                         tagList.push(`<li id="dt-${num}" onclick="foldNavi(${num})">${root[v].title} (${root[v].count})</li>`)
-                        tagList.push(`<ul id="dc-${num}" class='dc-all' style="display: none;">`)
+                        tagList.push(`<ul id="dc-${num}" class='dc-all' style="display: ${parseInt(num) === 1 ? 'block' : 'none'};">`)
                         tagList.push(recursion(root[v].children))
                         tagList.push('</ul>')
                     } else {
@@ -349,7 +349,7 @@ const app = {
             }
 
             fs.writeFileSync(`${utils.path[!!process.env.TEST ? 'mdTest' : 'post']}/postList.md`, posting.join('\n'))
-            // fs.writeFileSync(`${utils.path.dist}/postList.html`, marked.parse(posting.join('\n')))
+            fs.writeFileSync(`${utils.path.dist}/postList.html`, marked.parse(posting.join('\n')))
 
             fs.writeFileSync(`${utils.path.dist}/sitemap.xml`, `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${sitemap.join('\n')}</urlset>`)
             fs.writeFileSync(`${utils.path.dist}/robots.txt`, `User-agent: *\nAllow: /\n\nSitemap: https://ballboyDev.github.io/sitemap.xml`)

@@ -10,3 +10,4 @@ _test/*
 !_test/docsImg/tempImg.jpeg
 
 .DS_Store
+.gemini

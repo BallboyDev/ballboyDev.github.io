@@ -162,8 +162,12 @@ body {
     margin-bottom: 2rem;
 }
 
-#side-bar>.navi ul {
+#side-bar>.navi>.root {
     margin-left: 1rem;
+}
+
+#side-bar>.navi ul {
+    margin-left: 0.8rem;
     margin-right: 0.5rem;
 }
 
