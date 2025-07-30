@@ -526,22 +526,7 @@
 <blockquote>
 <p>가볍게 구경하고 댓글 남겨주시면 하나하나 소중하게 여기며 의견을 나눌수 있는 공간이 되었으면 좋겠습니다. 🍀</p>
 </blockquote>
-<script>
-    window.onload = async () => {
-        const res = await fetch("https://ballboydev.github.io/recentPost.json")
-        const data = await res.json()
 
-        console.log(data)
-
-        const tag = document.getElementById("recentPost")
-        tag.innerHTML
-
-        data.map((v) => {
-            tag.innerHTML += `<li>${v}</li>`
-        })
-    }
-
-</script>
 
                         </div>
 

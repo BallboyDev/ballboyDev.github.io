@@ -1,4 +1,4 @@
-window.onload = () => {
+window.onload = async () => {
     console.log('run skin.js')
 
     // const categoryList = []
@@ -39,6 +39,12 @@ window.onload = () => {
         document.getElementById(`dc-${v}`).style.display = "block"
     })
 
+    const res = await fetch("https://ballboydev.github.io/recentPost.json")
+    const data = await res.json()
+
+    const tag = document.getElementById("recentPost")
+
+    data.map((v) => { tag.innerHTML += `<li>${v}</li>` })
 
 };
 
