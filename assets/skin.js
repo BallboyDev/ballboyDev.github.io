@@ -22,9 +22,9 @@ window.onload = async () => {
 
     // 베이스 데이터 조회 (최근 올라온 글 등)
     // console.log(window.location.pathname)
-    if (window.location.pathname.indexOf('index') >= 0) {
-        await getBaseData()
-    }
+    // if (window.location.pathname.indexOf('index') >= 0) {
+    await getBaseData()
+    // }
 
 
 };
