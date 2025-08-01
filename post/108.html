@@ -502,8 +502,7 @@
                         <div class="bookmark">
 
             <div class="title t1">
-                <div><a href="#bm-1"># Backend 학습 로드맵
-</a></div>
+                <div><a href="#bm-1"># Backend 학습 로드맵</a></div>
                 <p>•</p>
             </div></div>
                         
@@ -514,153 +513,167 @@
                         <div class="main markdown-body">
 
                             <h1 id="bm-1">Backend 학습 로드맵</h1>
+<blockquote>
+<p>&#39;Nest.js 로 배우는 백엔드 프로그래밍&#39;과 나의 경험, 다양한 정보를 참고하여 만들어진 로드맵 으로 시간과 개발 트렌드에 따라 로드맵이 변할 수 있다.</p>
+</blockquote>
+<ul>
+<li>&#39;Backend 개발&#39;은 사용자가 직접 보지는 않지만 웹 사이트나 애플리케이션이 제대로 작동하도록 서버, 데이터 베이스, API 등을 설계하고 개발하는 일을 의미한다. 좀더 상세한 Backend 개발 분야를 보면 아래와 같다.<ol>
+<li>서버 개발</li>
+<li>데이터 베이스 설계 및 관리</li>
+<li>API 개발</li>
+<li>보안 및 인증 처리</li>
+<li>성능 최적화와 확장성 고려</li>
+</ol>
+</li>
+<li>규모가 있는 IT 기업에서는 서버 운영, 배포 자동화, 모니터링/로그 수집, 가상화, 네트워크 구성 등의 업무를 인프라(SRE) 팀에서 진행하기도 하지만 Backend 개발과 Infra개발은 서로 밀접하게 연결되어 있고 많은 기술 영역을 공유하고 있어 스타트업이나 비IT전문 기업에서는 Backend 개발자가 담당하여 진행하기도 한다.</li>
+</ul>
 <pre><code class="language-plaintext"}><canvas id="roadmap" width="1000" height="1800"></canvas>
 <script>
     const node = {
-        root: { type: 'root', x: 445, y: 30, text: 'Backend' },
-        a0: { root: 'root', type: 'main', x: 445, y: 88, text: 'Internet' },
-        a01: { root: 'a0', type: 'leaf', x: 242, y: 37, text: '인터넷 작동 방식' },
-        a02: { root: 'a0', type: 'leaf', x: 243, y: 75, text: 'HTTP란?' },
-        a03: { root: 'a0', type: 'leaf', x: 243, y: 113, text: '브라우저의 작동 방식' },
-        a04: { root: 'a0', type: 'leaf', x: 626, y: 45, text: 'Domain Name / DNS 작동 방식' },
-        a05: { root: 'a0', type: 'leaf', x: 626, y: 79, text: 'Hosting' },
+        root: { type: 'root', x: 445, y: 30, text: 'Backend', post: null },
+        a0: { root: 'root', type: 'main', x: 445, y: 88, text: 'Internet', post: null },
+        a01: { root: 'a0', type: 'leaf', x: 242, y: 37, text: '인터넷 작동 방식', post: null },
+        a02: { root: 'a0', type: 'leaf', x: 243, y: 75, text: 'HTTP란?', post: null },
+        a03: { root: 'a0', type: 'leaf', x: 243, y: 113, text: '브라우저의 작동 방식', post: null },
+        a04: { root: 'a0', type: 'leaf', x: 626, y: 45, text: 'Domain Name / DNS 작동 방식', post: null },
+        a05: { root: 'a0', type: 'leaf', x: 626, y: 79, text: 'Hosting', post: null },
 
-        b0: { root: 'a0', type: 'main', x: 468, y: 144, text: 'Frontend 기초' },
-        b01: { root: 'b0', type: 'leaf', x: 243, y: 157, text: 'HTML/css' },
-        b02: { root: 'b0', type: 'leaf', x: 626, y: 156, text: 'js/jQuery' },
+        b0: { root: 'a0', type: 'main', x: 468, y: 144, text: 'Frontend 기초', post: null },
+        b01: { root: 'b0', type: 'leaf', x: 243, y: 157, text: 'HTML/CSS', post: null },
+        b02: { root: 'b0', type: 'leaf', x: 626, y: 156, text: 'JS/jQuery', post: null },
 
-        c0: { root: 'b0', type: 'main', x: 425, y: 263, text: 'OS / 기초 지식' },
-        c01: { root: 'c0', type: 'leaf', x: 211, y: 267, text: 'Threads / 동시성' },
-        c02: { root: 'c0', type: 'leaf', x: 211, y: 306, text: 'I/O Device' },
-        c03: { root: 'c0', type: 'leaf', x: 246, y: 340, text: '네트워킹' },
-        c04: { root: 'c0', type: 'leaf', x: 580, y: 205, text: '기초 Terminal 사용법' },
-        c041: { root: 'c04', type: 'leaf', x: 717, y: 204, text: '기초 명령어 / vi editor' },
-        c06: { root: 'c0', type: 'leaf', x: 640, y: 234, text: 'OS 작동 원리' },
-        c07: { root: 'c0', type: 'leaf', x: 595, y: 266, text: 'Process 관리' },
-        c08: { root: 'c0', type: 'leaf', x: 623, y: 298, text: 'Memory 관리' },
-        c09: { root: 'c0', type: 'leaf', x: 580, y: 330, text: 'POSIX 기초' },
-        c1: { root: 'c0', type: 'sub', x: 266, y: 218, text: 'Server OS' },
-        c11: { root: 'c1', type: 'leaf', x: 134, y: 205, text: 'Linux 계열' },
-        c12: { root: 'c1', type: 'leaf', x: 133, y: 235, text: 'Windows 계열' },
+        c0: { root: 'b0', type: 'main', x: 425, y: 263, text: 'OS / 기초 지식', post: null },
+        c01: { root: 'c0', type: 'leaf', x: 211, y: 267, text: 'Threads / 동시성', post: null },
+        c02: { root: 'c0', type: 'leaf', x: 211, y: 306, text: 'I/O Device', post: null },
+        c03: { root: 'c0', type: 'leaf', x: 246, y: 340, text: '네트워킹', post: null },
+        c04: { root: 'c0', type: 'leaf', x: 580, y: 205, text: '기초 Terminal 사용법', post: null },
+        c041: { root: 'c04', type: 'leaf', x: 717, y: 204, text: '기초 vi editor 사용법', post: 3 },
+        c06: { root: 'c0', type: 'leaf', x: 640, y: 234, text: 'OS 작동 원리', post: null },
+        c07: { root: 'c0', type: 'leaf', x: 595, y: 266, text: 'Process 관리', post: null },
+        c08: { root: 'c0', type: 'leaf', x: 623, y: 298, text: 'Memory 관리', post: null },
+        c09: { root: 'c0', type: 'leaf', x: 580, y: 330, text: 'POSIX 기초', post: null },
+        c1: { root: 'c0', type: 'sub', x: 266, y: 218, text: 'Server OS', post: null },
+        c11: { root: 'c1', type: 'leaf', x: 134, y: 205, text: 'Linux 계열', post: null },
+        c12: { root: 'c1', type: 'leaf', x: 133, y: 235, text: 'Windows 계열', post: null },
 
-        d0: { root: 'c0', type: 'main', x: 417, y: 400, text: 'Language' },
-        d1: { root: 'd0', type: 'sub', x: 562, y: 404, text: '형상관리' },
-        d11: { root: 'd1', type: 'leaf', x: 698, y: 363, text: 'Git / Github' },
-        d12: { root: 'd1', type: 'leaf', x: 750, y: 401, text: 'GitLab' },
-        d13: { root: 'd1', type: 'leaf', x: 750, y: 437, text: 'SVN' },
-        d14: { root: 'd1', type: 'leaf', x: 698, y: 471, text: 'MS Source Safe' },
+        d0: { root: 'c0', type: 'main', x: 417, y: 400, text: 'Language', post: null },
+        d1: { root: 'd0', type: 'sub', x: 562, y: 404, text: '형상관리', post: null },
+        d11: { root: 'd1', type: 'leaf', x: 698, y: 363, text: 'Git / Github', post: null },
+        d12: { root: 'd1', type: 'leaf', x: 750, y: 401, text: 'GitLab', post: null },
+        d13: { root: 'd1', type: 'leaf', x: 750, y: 437, text: 'SVN', post: null },
+        d14: { root: 'd1', type: 'leaf', x: 698, y: 471, text: 'MS Source Safe', post: null },
 
-        e0: { root: 'd0', type: 'main', x: 417, y: 429, text: 'Framework' },
-        e1: { root: 'e0', type: 'sub', x: 247, y: 389, text: 'JAVA/Kotlin (JVM)' },
-        e11: { root: 'e1', type: 'leaf', x: 47, y: 364, text: 'JPA/Sevlet' },
-        e12: { root: 'e1', type: 'leaf', x: 47, y: 396, text: 'Spring (MVC, Boot)' },
-        e2: { root: 'e0', type: 'sub', x: 247, y: 441, text: 'JS (Node.js)' },
-        e21: { root: 'e2', type: 'leaf', x: 99, y: 427, text: 'Express.js' },
-        e22: { root: 'e2', type: 'leaf', x: 99, y: 457, text: 'Nest.js' },
-        e3: { root: 'e0', type: 'sub', x: 247, y: 480, text: 'Python' },
-        e31: { root: 'e3', type: 'leaf', x: 47, y: 490, text: 'Django' },
-        e32: { root: 'e3', type: 'leaf', x: 48, y: 521, text: 'FastAPI' },
+        e0: { root: 'd0', type: 'main', x: 417, y: 429, text: 'Framework', post: null },
+        e1: { root: 'e0', type: 'sub', x: 247, y: 389, text: 'JAVA/Kotlin (JVM)', post: null },
+        e11: { root: 'e1', type: 'leaf', x: 47, y: 364, text: 'JPA/Sevlet', post: null },
+        e12: { root: 'e1', type: 'leaf', x: 47, y: 396, text: 'Spring (MVC, Boot)', post: null },
+        e2: { root: 'e0', type: 'sub', x: 247, y: 441, text: 'JS (Node.js)', post: null },
+        e21: { root: 'e2', type: 'leaf', x: 99, y: 427, text: 'Express.js', post: null },
+        e22: { root: 'e2', type: 'leaf', x: 99, y: 457, text: 'Nest.js', post: null },
+        e3: { root: 'e0', type: 'sub', x: 247, y: 480, text: 'Python', post: null },
+        e31: { root: 'e3', type: 'leaf', x: 47, y: 490, text: 'Django', post: null },
+        e32: { root: 'e3', type: 'leaf', x: 48, y: 521, text: 'FastAPI', post: null },
 
-        f0: { root: 'e0', type: 'main', x: 430, y: 575, text: 'Database' },
-        f1: { root: 'f0', type: 'sub', x: 614, y: 551, text: 'RDBMS' },
-        f11: { root: 'f1', type: 'leaf', x: 717, y: 506, text: 'MySQL' },
-        f12: { root: 'f1', type: 'leaf', x: 837, y: 506, text: 'MariaDB' },
-        f13: { root: 'f1', type: 'leaf', x: 869, y: 553, text: 'Oracle' },
-        f14: { root: 'f1', type: 'leaf', x: 717, y: 601, text: 'PostgreSQL' },
-        f15: { root: 'f1', type: 'leaf', x: 838, y: 602, text: 'MSSQL' },
-        f2: { root: 'f0', type: 'sub', x: 256, y: 624, text: 'Database 심화지식' },
-        f21: { root: 'f2', type: 'leaf', x: 194, y: 540, text: 'Indexing' },
-        f22: { root: 'f2', type: 'leaf', x: 90, y: 574, text: 'N+1 문제' },
-        f23: { root: 'f2', type: 'leaf', x: 52, y: 607, text: 'Transactions' },
-        f24: { root: 'f2', type: 'leaf', x: 52, y: 640, text: 'ACID' },
-        f25: { root: 'f2', type: 'leaf', x: 52, y: 673, text: 'Data Replication' },
-        f26: { root: 'f2', type: 'leaf', x: 122, y: 706, text: 'Sharding' },
-        f27: { root: 'f2', type: 'leaf', x: 212, y: 739, text: 'CAP Theorem' },
-        f3: { root: 'f0', type: 'sub', x: 606, y: 640, text: 'NoSQL' },
-        f31: { root: 'f3', type: 'leaf', x: 757, y: 641, text: 'MongoDB' },
+        f0: { root: 'e0', type: 'main', x: 430, y: 575, text: 'Database', post: null },
+        f1: { root: 'f0', type: 'sub', x: 614, y: 551, text: 'RDBMS', post: null },
+        f11: { root: 'f1', type: 'leaf', x: 717, y: 506, text: 'MySQL', post: null },
+        f12: { root: 'f1', type: 'leaf', x: 837, y: 506, text: 'MariaDB', post: null },
+        f13: { root: 'f1', type: 'leaf', x: 869, y: 553, text: 'Oracle', post: null },
+        f14: { root: 'f1', type: 'leaf', x: 717, y: 601, text: 'PostgreSQL', post: null },
+        f15: { root: 'f1', type: 'leaf', x: 838, y: 602, text: 'MSSQL', post: null },
+        f2: { root: 'f0', type: 'sub', x: 256, y: 624, text: 'Database 심화지식', post: null },
+        f21: { root: 'f2', type: 'leaf', x: 194, y: 540, text: 'Indexing', post: null },
+        f22: { root: 'f2', type: 'leaf', x: 90, y: 574, text: 'N+1 문제', post: null },
+        f23: { root: 'f2', type: 'leaf', x: 52, y: 607, text: 'Transactions', post: null },
+        f24: { root: 'f2', type: 'leaf', x: 52, y: 640, text: 'ACID', post: null },
+        f25: { root: 'f2', type: 'leaf', x: 52, y: 673, text: 'Data Replication', post: null },
+        f26: { root: 'f2', type: 'leaf', x: 122, y: 706, text: 'Sharding', post: null },
+        f27: { root: 'f2', type: 'leaf', x: 212, y: 739, text: 'CAP Theorem', post: null },
+        f3: { root: 'f0', type: 'sub', x: 606, y: 640, text: 'NoSQL', post: null },
+        f31: { root: 'f3', type: 'leaf', x: 757, y: 641, text: 'MongoDB', post: null },
 
-        g0: { root: 'f0', type: 'main', x: 521, y: 773, text: 'API' },
-        g01: { root: 'g0', type: 'leaf', x: 675, y: 695, text: 'RESTAPI' },
-        g02: { root: 'g0', type: 'leaf', x: 714, y: 733, text: 'JSON' },
-        g03: { root: 'g0', type: 'leaf', x: 720, y: 773, text: 'SOAP' },
-        g04: { root: 'g0', type: 'leaf', x: 707, y: 813, text: 'Open API / Swagger' },
-        g1: { root: 'g0', type: 'sub', x: 358, y: 848, text: '인증/인가' },
-        g11: { root: 'g1', type: 'leaf', x: 265, y: 775, text: 'Cookie' },
-        g12: { root: 'g1', type: 'leaf', x: 145, y: 813, text: 'OAuth' },
-        g13: { root: 'g1', type: 'leaf', x: 136, y: 847, text: 'Basic Authentication' },
-        g14: { root: 'g1', type: 'leaf', x: 136, y: 881, text: 'Token Authentication' },
-        g15: { root: 'g1', type: 'leaf', x: 146, y: 917, text: 'JWT' },
-        g16: { root: 'g1', type: 'leaf', x: 233, y: 957, text: 'SAML' },
+        g0: { root: 'f0', type: 'main', x: 521, y: 773, text: 'API', post: null },
+        g01: { root: 'g0', type: 'leaf', x: 675, y: 695, text: 'RESTAPI', post: null },
+        g02: { root: 'g0', type: 'leaf', x: 714, y: 733, text: 'JSON', post: null },
+        g03: { root: 'g0', type: 'leaf', x: 720, y: 773, text: 'SOAP', post: null },
+        g04: { root: 'g0', type: 'leaf', x: 707, y: 813, text: 'Open API / Swagger', post: null },
+        g1: { root: 'g0', type: 'sub', x: 358, y: 848, text: '인증/인가', post: null },
+        g11: { root: 'g1', type: 'leaf', x: 265, y: 775, text: 'Cookie', post: null },
+        g12: { root: 'g1', type: 'leaf', x: 145, y: 813, text: 'OAuth', post: null },
+        g13: { root: 'g1', type: 'leaf', x: 136, y: 847, text: 'Basic Authentication', post: null },
+        g14: { root: 'g1', type: 'leaf', x: 136, y: 881, text: 'Token Authentication', post: null },
+        g15: { root: 'g1', type: 'leaf', x: 146, y: 917, text: 'JWT', post: null },
+        g16: { root: 'g1', type: 'leaf', x: 233, y: 957, text: 'SAML', post: null },
 
-        h0: { root: 'g0', type: 'main', x: 461, y: 933, text: 'Caching' },
-        h01: { root: 'h0', type: 'leaf', x: 653, y: 885, text: 'CDN' },
-        h02: { root: 'h0', type: 'leaf', x: 666, y: 930, text: 'Server Side' },
-        h021: { root: 'h02', type: 'leaf', x: 802, y: 905, text: 'Redis' },
-        h022: { root: 'h02', type: 'leaf', x: 802, y: 950, text: 'Memcached' },
-        h03: { root: 'h0', type: 'leaf', x: 653, y: 976, text: 'Client Side' },
+        h0: { root: 'g0', type: 'main', x: 461, y: 933, text: 'Caching', post: null },
+        h01: { root: 'h0', type: 'leaf', x: 653, y: 885, text: 'CDN', post: null },
+        h02: { root: 'h0', type: 'leaf', x: 666, y: 930, text: 'Server Side', post: null },
+        h021: { root: 'h02', type: 'leaf', x: 802, y: 905, text: 'Redis', post: null },
+        h022: { root: 'h02', type: 'leaf', x: 802, y: 950, text: 'Memcached', post: null },
+        h03: { root: 'h0', type: 'leaf', x: 653, y: 976, text: 'Client Side', post: null },
 
-        i0: { root: 'h0', type: 'main', x: 425, y: 1060, text: 'Web 보안' },
-        i1: { root: 'i0', type: 'sub', x: 261, y: 1072, text: '통신보안' },
-        i11: { root: 'i1', type: 'leaf', x: 136, y: 1010, text: 'HTTPS' },
-        i12: { root: 'i1', type: 'leaf', x: 59, y: 1042, text: 'CORS' },
-        i13: { root: 'i1', type: 'leaf', x: 58, y: 1072, text: 'SSL/TLS' },
-        i14: { root: 'i1', type: 'leaf', x: 58, y: 1104, text: 'CSP (Content Security Policy)' },
-        i15: { root: 'i1', type: 'leaf', x: 136, y: 1135, text: 'OWASP Security Risks' },
-        i2: { root: 'i0', type: 'sub', x: 595, y: 1082, text: '암호화' },
-        i21: { root: 'i2', type: 'leaf', x: 760, y: 1025, text: 'MD5' },
-        i22: { root: 'i2', type: 'leaf', x: 784, y: 1062, text: 'SHA' },
-        i23: { root: 'i2', type: 'leaf', x: 784, y: 1097, text: 'SCrypt' },
-        i24: { root: 'i2', type: 'leaf', x: 760, y: 1131, text: 'BCrypt' },
+        i0: { root: 'h0', type: 'main', x: 425, y: 1060, text: 'Web 보안', post: null },
+        i1: { root: 'i0', type: 'sub', x: 261, y: 1072, text: '통신보안', post: null },
+        i11: { root: 'i1', type: 'leaf', x: 136, y: 1010, text: 'HTTPS', post: null },
+        i12: { root: 'i1', type: 'leaf', x: 59, y: 1042, text: 'CORS', post: null },
+        i13: { root: 'i1', type: 'leaf', x: 58, y: 1072, text: 'SSL/TLS', post: null },
+        i14: { root: 'i1', type: 'leaf', x: 58, y: 1104, text: 'CSP (Content Security Policy)', post: null },
+        i15: { root: 'i1', type: 'leaf', x: 136, y: 1135, text: 'OWASP Security Risks', post: null },
+        i2: { root: 'i0', type: 'sub', x: 595, y: 1082, text: '암호화', post: null },
+        i21: { root: 'i2', type: 'leaf', x: 760, y: 1025, text: 'MD5', post: null },
+        i22: { root: 'i2', type: 'leaf', x: 784, y: 1062, text: 'SHA', post: null },
+        i23: { root: 'i2', type: 'leaf', x: 784, y: 1097, text: 'SCrypt', post: null },
+        i24: { root: 'i2', type: 'leaf', x: 760, y: 1131, text: 'BCrypt', post: null },
 
-        j0: { root: 'i0', type: 'main', x: 412, y: 1147, text: 'Testing' },
-        j01: { root: 'j0', type: 'leaf', x: 595, y: 1136, text: 'Intergration Testing' },
-        j02: { root: 'j0', type: 'leaf', x: 595, y: 1175, text: 'Unit Testing' },
-        j03: { root: 'j0', type: 'leaf', x: 595, y: 1211, text: 'Functional Testing' },
+        j0: { root: 'i0', type: 'main', x: 412, y: 1147, text: 'Testing', post: null },
+        j01: { root: 'j0', type: 'leaf', x: 595, y: 1136, text: 'Intergration Testing', post: null },
+        j02: { root: 'j0', type: 'leaf', x: 595, y: 1175, text: 'Unit Testing', post: null },
+        j03: { root: 'j0', type: 'leaf', x: 595, y: 1211, text: 'Functional Testing', post: null },
 
-        k0: { root: 'j0', type: 'main', x: 364, y: 1221, text: 'CI/CD' },
-        k01: { root: 'k0', type: 'leaf', x: 193, y: 1206, text: 'Jenkins' },
-        k02: { root: 'k0', type: 'leaf', x: 194, y: 1246, text: 'Github Action' },
+        k0: { root: 'j0', type: 'main', x: 364, y: 1221, text: 'CI/CD', post: null },
+        k01: { root: 'k0', type: 'leaf', x: 193, y: 1206, text: 'Jenkins', post: null },
+        k02: { root: 'k0', type: 'leaf', x: 194, y: 1246, text: 'Github Action', post: null },
 
-        l0: { root: 'k0', type: 'main', x: 392, y: 1361, text: 'Software Design' },
-        l1: { root: 'l0', type: 'sub', x: 614, y: 1297, text: 'Development Methodologies' },
-        l11: { root: 'l1', type: 'leaf', x: 829, y: 1279, text: 'TDD' },
-        l12: { root: 'l1', type: 'leaf', x: 829, y: 1316, text: 'DDD' },
-        l2: { root: 'l0', type: 'sub', x: 193, y: 1322, text: 'Design Patterns' },
-        l21: { root: 'l2', type: 'leaf', x: 46, y: 1289, text: 'GOF' },
-        l22: { root: 'l2', type: 'leaf', x: 46, y: 1321, text: 'MVC' },
-        l23: { root: 'l2', type: 'leaf', x: 46, y: 1354, text: 'MVVM' },
-        l3: { root: 'l0', type: 'sub', x: 589, y: 1437, text: 'Design Principles' },
-        l31: { root: 'l3', type: 'leaf', x: 768, y: 1395, text: 'SOLID' },
-        l32: { root: 'l3', type: 'leaf', x: 768, y: 1426, text: 'KISS' },
-        l33: { root: 'l3', type: 'leaf', x: 767, y: 1457, text: 'YAGNI' },
-        l34: { root: 'l3', type: 'leaf', x: 768, y: 1488, text: 'DRY' },
-        l4: { root: 'l0', type: 'sub', x: 194, y: 1468, text: 'Architectural Patterns' },
-        l41: { root: 'l4', type: 'leaf', x: 44, y: 1407, text: 'Monolithic Apps' },
-        l42: { root: 'l4', type: 'leaf', x: 21, y: 1438, text: 'Microservices' },
-        l43: { root: 'l4', type: 'leaf', x: 22, y: 1469, text: 'SOA' },
-        l44: { root: 'l4', type: 'leaf', x: 22, y: 1499, text: 'CQRS and Event Sourcing' },
-        l45: { root: 'l4', type: 'leaf', x: 44, y: 1530, text: 'Serverless' },
+        l0: { root: 'k0', type: 'main', x: 392, y: 1361, text: 'Software Design', post: null },
+        l1: { root: 'l0', type: 'sub', x: 614, y: 1297, text: 'Development Methodologies', post: null },
+        l11: { root: 'l1', type: 'leaf', x: 829, y: 1279, text: 'TDD', post: null },
+        l12: { root: 'l1', type: 'leaf', x: 829, y: 1316, text: 'DDD', post: null },
+        l2: { root: 'l0', type: 'sub', x: 193, y: 1322, text: 'Design Patterns', post: null },
+        l21: { root: 'l2', type: 'leaf', x: 46, y: 1289, text: 'GOF', post: null },
+        l22: { root: 'l2', type: 'leaf', x: 46, y: 1321, text: 'MVC', post: null },
+        l23: { root: 'l2', type: 'leaf', x: 46, y: 1354, text: 'MVVM', post: null },
+        l3: { root: 'l0', type: 'sub', x: 589, y: 1437, text: 'Design Principles', post: null },
+        l31: { root: 'l3', type: 'leaf', x: 768, y: 1395, text: 'SOLID', post: null },
+        l32: { root: 'l3', type: 'leaf', x: 768, y: 1426, text: 'KISS', post: null },
+        l33: { root: 'l3', type: 'leaf', x: 767, y: 1457, text: 'YAGNI', post: null },
+        l34: { root: 'l3', type: 'leaf', x: 768, y: 1488, text: 'DRY', post: null },
+        l4: { root: 'l0', type: 'sub', x: 194, y: 1468, text: 'Architectural Patterns', post: null },
+        l41: { root: 'l4', type: 'leaf', x: 44, y: 1407, text: 'Monolithic Apps', post: null },
+        l42: { root: 'l4', type: 'leaf', x: 21, y: 1438, text: 'Microservices', post: null },
+        l43: { root: 'l4', type: 'leaf', x: 22, y: 1469, text: 'SOA', post: null },
+        l44: { root: 'l4', type: 'leaf', x: 22, y: 1499, text: 'CQRS and Event Sourcing', post: null },
+        l45: { root: 'l4', type: 'leaf', x: 44, y: 1530, text: 'Serverless', post: null },
 
-        m0: { root: 'l0', type: 'main', x: 411, y: 1527, text: 'Search Engines' },
-        m01: { root: 'm0', type: 'leaf', x: 574, y: 1509, text: 'ElasticSearch' },
-        m02: { root: 'm0', type: 'leaf', x: 574, y: 1556, text: 'Solr' },
+        m0: { root: 'l0', type: 'main', x: 411, y: 1527, text: 'Search Engines', post: null },
+        m01: { root: 'm0', type: 'leaf', x: 574, y: 1509, text: 'ElasticSearch', post: null },
+        m02: { root: 'm0', type: 'leaf', x: 574, y: 1556, text: 'Solr', post: null },
 
-        n0: { root: 'm0', type: 'main', x: 371, y: 1591, text: 'Message Brokers' },
-        n01: { root: 'n0', type: 'leaf', x: 223, y: 1560, text: 'RebbitMQ' },
-        n02: { root: 'n0', type: 'leaf', x: 223, y: 1607, text: 'Kafka' },
+        n0: { root: 'm0', type: 'main', x: 371, y: 1591, text: 'Message Brokers', post: null },
+        n01: { root: 'n0', type: 'leaf', x: 223, y: 1560, text: 'RebbitMQ', post: null },
+        n02: { root: 'n0', type: 'leaf', x: 223, y: 1607, text: 'Kafka', post: null },
 
-        o0: { root: 'n0', type: 'main', x: 478, y: 1649, text: '컨테이너화' },
-        o01: { root: 'o0', type: 'leaf', x: 634, y: 1597, text: 'Docker' },
-        o02: { root: 'o0', type: 'leaf', x: 662, y: 1626, text: 'Containerd' },
-        o03: { root: 'o0', type: 'leaf', x: 661, y: 1655, text: 'rkt' },
-        o04: { root: 'o0', type: 'leaf', x: 662, y: 1684, text: 'LXC' },
-        o05: { root: 'o0', type: 'leaf', x: 635, y: 1715, text: 'kubernetes' },
+        o0: { root: 'n0', type: 'main', x: 478, y: 1649, text: '컨테이너화', post: null },
+        o01: { root: 'o0', type: 'leaf', x: 634, y: 1597, text: 'Docker', post: null },
+        o02: { root: 'o0', type: 'leaf', x: 662, y: 1626, text: 'Containerd', post: null },
+        o03: { root: 'o0', type: 'leaf', x: 661, y: 1655, text: 'rkt', post: null },
+        o04: { root: 'o0', type: 'leaf', x: 662, y: 1684, text: 'LXC', post: null },
+        o05: { root: 'o0', type: 'leaf', x: 635, y: 1715, text: 'kubernetes', post: null },
 
-        p0: { root: 'o0', type: 'main', x: 392, y: 1725, text: 'Web Server' },
-        p01: { root: 'p0', type: 'leaf', x: 201, y: 1669, text: 'Nginx' },
-        p02: { root: 'p0', type: 'leaf', x: 174, y: 1698, text: 'Apache' },
-        p03: { root: 'p0', type: 'leaf', x: 174, y: 1727, text: 'IIS' },
-        p04: { root: 'p0', type: 'leaf', x: 201, y: 1757, text: 'Caddy' },
+        p0: { root: 'o0', type: 'main', x: 392, y: 1725, text: 'Web Server', post: null },
+        p01: { root: 'p0', type: 'leaf', x: 201, y: 1669, text: 'Nginx', post: null },
+        p02: { root: 'p0', type: 'leaf', x: 174, y: 1698, text: 'Apache', post: null },
+        p03: { root: 'p0', type: 'leaf', x: 174, y: 1727, text: 'IIS', post: null },
+        p04: { root: 'p0', type: 'leaf', x: 201, y: 1757, text: 'Caddy', post: null },
 
     }
     const nodeType = {
@@ -680,20 +693,39 @@
         const { clientX, clientY, offsetX, offsetY } = e
 
         Object.keys(node).some((v) => {
-            const { x, y, text } = node[v]
+            const { x, y, text, post } = node[v]
 
             if (x < offsetX && offsetX < x + 110 && y < offsetY && offsetY < y + 25) {
-                console.log(text)
-                // location.href = 'https://www.naver.com'
+                console.log(text, post)
+                console.log(`https://ballboydev.github.io/post/${post}`)
+                location.href = `https://ballboydev.github.io/post/${post}`
                 return true
             }
         })
     })
 
+    canvas.addEventListener('mousemove', (e) => {
+        // 노드 위에서 마우스 포인터 변경
+        const { offsetX, offsetY } = e;
+        let onNode = false;
+
+        Object.keys(node).forEach((v) => {
+            const { x, y, post } = node[v];
+            if (x < offsetX && offsetX < x + 110 && y < offsetY && offsetY < y + 25 && !!post) {
+                onNode = true;
+            }
+        });
+        if (onNode) {
+            canvas.style.cursor = 'pointer';
+        } else {
+            canvas.style.cursor = 'default';
+        }
+    });
+
     const ctx = canvas.getContext('2d')
 
     const drawNode = (item) => {
-        const { x, y, text, type } = item
+        const { x, y, text, type, post } = item
         ctx.beginPath();
         ctx.rect(x, y, 110, 25);
         ctx.fillStyle = nodeType[type];
@@ -708,6 +740,14 @@
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
         ctx.fillText(text, x + 55, y + 12.5);
+
+        if (!!post) {
+            ctx.beginPath();
+            ctx.arc(x, y, 5, 0, 2 * Math.PI)
+            ctx.fillStyle = "red";
+            ctx.fill();
+        }
+
     }
 
     const drawLine = (item) => {
