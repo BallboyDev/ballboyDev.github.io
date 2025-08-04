@@ -93,6 +93,7 @@ const app = {
                         const [title, index] = path.basename(v, path.extname(v)).split('_');
 
                         if (parseInt(index) !== 0) {
+                            // if (env === 'dev' || (env === 'build' && index !== 0)) {
                             const [child, json] = recursion(`${root}/${v}`, [...fold, index]);
                             const count = Object.keys(child).reduce((a, b) => {
                                 const [type, index] = b.split('_');
@@ -302,6 +303,7 @@ const app = {
         try {
             const posting = [`# Posting List (${dayjs().format("YYYY.MM.DD")})\n`, '||index|title|date|prev|next|url|', '|:-:|:-:|:--|:-:|:-:|:-:|:--|']
             const sitemap = []
+            const recentPost = []
             let index = 1;
 
             for (let i = 0; i < utils.contents.length; i++) {
@@ -325,6 +327,16 @@ const app = {
 
                 const text2 = item.index !== 0 && !!status ? `<url><loc>${utils.path.build}/post/${item.index}</loc><lastmod>${dayjs(item.mtime).format('YYYY-MM-DD')}</lastmod><changefreq>monthly</changefreq></url>` : ''
                 sitemap.push(text2)
+
+
+                if (item.index !== 0 && !!item.upload) {
+                    const text3 = `<a href="${utils.path.build}/post/${item.index}${env === 'dev' ? '.html' : ''}">${item?.title || item?.file}</a>`
+                    recentPost.push(text3)
+
+                    if (recentPost.length > 3) {
+                        recentPost.shift()
+                    }
+                }
 
                 if (parseInt(item.index)) {
                     index++
@@ -353,6 +365,7 @@ const app = {
 
             fs.writeFileSync(`${utils.path.dist}/sitemap.xml`, `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${sitemap.join('\n')}</urlset>`)
             fs.writeFileSync(`${utils.path.dist}/robots.txt`, `User-agent: *\nAllow: /\n\nSitemap: https://ballboyDev.github.io/sitemap.xml`)
+            fs.writeFileSync(`${utils.path.dist}/recentPost.json`, JSON.stringify(recentPost))
 
         } catch (err) {
             console.log(err)

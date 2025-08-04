@@ -3,10 +3,10 @@ const dayjs = require('dayjs')
 const utils = {
     path: {
         // index.md 파일 위치
-        index: '/Users/ballboy/Documents/blog/index.md', // _post/index.md
+        index: '/Users/ballboy/workspace/project/blog/index.md', // _post/index.md
 
         // 포스팅 글 저장 위치
-        post: '/Users/ballboy/Documents/blog', // _post
+        post: '/Users/ballboy/workspace/project/blog', // _post
 
         // 배포 위치
         dist: '_dist',
@@ -39,7 +39,9 @@ const utils = {
         'index.md',     // index 페이지 마크다운 파일
         'postList.md',  // 포스팅 글 리스트 정리 파일
         'deploy.sh',     // 원격 배포 파일
-	'.gemini',	// gemini cli 설정 파일
+        '.gemini',	// gemini cli 설정 파일
+        '.git',         // git 정보
+        '.DS_Store'     // 맥 파일 시스템 데이터
     ],
 
     info: {

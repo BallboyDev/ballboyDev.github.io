@@ -1,25 +1,5 @@
-window.onload = () => {
+window.onload = async () => {
     console.log('run skin.js')
-
-    // const categoryList = []
-    // const liList = document.getElementsByClassName('cate')
-
-    // for (let i = 0; i < liList.length; i++) {
-    //     categoryList.push(liList[i].getAttribute('id').split('-')[1])
-    // }
-
-    // categoryList.map((v) => {
-    //     const item = document.getElementById(`t-${v}`)
-    //     item.onclick = () => {
-    //         const category = document.getElementById(`c-${v}`)
-    //         if (category.style.display === 'none') {
-    //             category.style.display = 'block'
-    //         } else {
-    //             category.style.display = 'none'
-    //         }
-
-    //     }
-    // })
 
     const contents = document.getElementById('contents')
     const navi = document.getElementById('side-bar')
@@ -40,7 +20,24 @@ window.onload = () => {
     })
 
 
+    // 베이스 데이터 조회 (최근 올라온 글 등)
+    // console.log(window.location.pathname)
+    // if (window.location.pathname.indexOf('index') >= 0) {
+    await getBaseData()
+    // }
+
+
 };
+
+const getBaseData = async () => {
+    // console.log('getBaseData')
+    const res = await fetch("https://ballboydev.github.io/recentPost.json")
+    const data = await res.json()
+
+    const tag = document.getElementById("recentPost")
+
+    data.map((v) => { tag.innerHTML += `<li>${v}</li>` })
+}
 
 const foldNavi = (num = 0) => {
 
