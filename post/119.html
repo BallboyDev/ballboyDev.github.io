@@ -1,0 +1,815 @@
+
+            <!DOCTYPE html>
+            <html lang="en">
+
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta name="google-site-verification" content="jrh7qB1kgowvnvE0P3KqlhI-iNmw9CvGJF4dQsaCTAk" />
+                <meta name="naver-site-verification" content="6fe49ccdb8613221b89ae2d580300c63a91af446" />
+                
+                
+            <link rel="icon" href="https://ballboyDev.github.io/assets/img/bDev.ico">
+            <link rel="stylesheet" href="https://ballboyDev.github.io/assets/markdown.css">
+            <link rel="stylesheet" href="https://ballboyDev.github.io/assets/skin.css">
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+
+            <style>
+                #p-119 {
+                    color: rgb(76, 193, 237) !important;
+                }
+            </style>
+            <script id="data" type="application/json">
+            {
+                "fold": ["1","12","122"]
+            }
+            </script>
+
+            <script src="https://ballboyDev.github.io/assets/skin.js"></script>
+
+                <title>데이터 로드</title>
+            </head>
+
+            <body>
+                <div id="wrapper">
+                    <!-- side bar component -->
+                    <div id="head-bar">
+                        <img id="openNavi" class="menu"
+                            src="https://ballboyDev.github.io/assets/img/menu.svg"
+                            alt="" srcset="">
+                        <div class="title">심심한 개발자의 취미생활</div>
+                        <img class="img"
+                            src="https://ballboyDev.github.io/assets/img/profile.jpeg"
+                            alt="" srcset="">
+                    </div>
+                    <div id="side-bar">
+                        <img id="closeNavi" class="close"
+                            src="https://ballboyDev.github.io/assets/img/close.svg"
+                            alt="" srcset="">
+                        <div class="profile">
+                            <img class="img" src="https://ballboyDev.github.io/assets/img/profile.jpeg" alt="" srcset="">
+                            <p>심심한 개발자의 취미생활</p>
+                        </div>
+                        <hr />
+                        <h3 class="home"><a href="https://ballboyDev.github.io">HOME</a></h3>
+                        <hr />
+                        
+                        <h3 class="category" onclick="foldNavi()">카테고리</h3>
+                        <div class="navi">
+                            <ul class="root">
+
+                                <li id="dt-1" onclick="foldNavi(1)">심심한 개발자의 개발 공부 (23)</li>
+<ul id="dc-1" class='dc-all' style="display: block;">
+<a href="https://ballboyDev.github.io/post/108">
+<li id="p-108">• Backend 학습 로드맵</li>
+</a>
+<li id="dt-11" onclick="foldNavi(11)">개발 정보 정리 (10)</li>
+<ul id="dc-11" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/3">
+<li id="p-3">• vim 에디터 정리</li>
+</a>
+<a href="https://ballboyDev.github.io/post/31">
+<li id="p-31">• json객체와 Map()의 비교</li>
+</a>
+<a href="https://ballboyDev.github.io/post/32">
+<li id="p-32">• 배열 생성 성능 비교</li>
+</a>
+<a href="https://ballboyDev.github.io/post/36">
+<li id="p-36">• console 객체 활용하기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/58">
+<li id="p-58">• 자주쓰는 git/git-flow 명령어</li>
+</a>
+<a href="https://ballboyDev.github.io/post/69">
+<li id="p-69">• curl 명령어 사용법 정리</li>
+</a>
+<a href="https://ballboyDev.github.io/post/73">
+<li id="p-73">• node 내장 객체와 내장 모듈 사용하기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/80">
+<li id="p-80">• 터미널 이미지 형식 변환(sips)</li>
+</a>
+<a href="https://ballboyDev.github.io/post/107">
+<li id="p-107">• Shell Script 기초 문법 정리</li>
+</a>
+<a href="https://ballboyDev.github.io/post/116">
+<li id="p-116">• Cookie, Session, JWT, OAuth 개념</li>
+</a>
+
+</ul>
+<li id="dt-12" onclick="foldNavi(12)">svelte, sveltekit (12)</li>
+<ul id="dc-12" class='dc-all' style="display: none;">
+<li id="dt-121" onclick="foldNavi(121)">svelte (8)</li>
+<ul id="dc-121" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/18">
+<li id="p-18">• svelte Basic</li>
+</a>
+<a href="https://ballboyDev.github.io/post/19">
+<li id="p-19">• svelte 속성</li>
+</a>
+<a href="https://ballboyDev.github.io/post/20">
+<li id="p-20">• life cycle</li>
+</a>
+<a href="https://ballboyDev.github.io/post/21">
+<li id="p-21">• runes</li>
+</a>
+<a href="https://ballboyDev.github.io/post/22">
+<li id="p-22">• template Syntax</li>
+</a>
+<a href="https://ballboyDev.github.io/post/23">
+<li id="p-23">• Directive</li>
+</a>
+<a href="https://ballboyDev.github.io/post/24">
+<li id="p-24">• Runtime</li>
+</a>
+<a href="https://ballboyDev.github.io/post/68">
+<li id="p-68">• setting svelte.config.js</li>
+</a>
+
+</ul>
+<li id="dt-122" onclick="foldNavi(122)">sveltekit (4)</li>
+<ul id="dc-122" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/117">
+<li id="p-117">• sveltekit 기본구조</li>
+</a>
+<a href="https://ballboyDev.github.io/post/118">
+<li id="p-118">• 파일 시스템 기반 라우팅</li>
+</a>
+<a href="https://ballboyDev.github.io/post/119">
+<li id="p-119">• 데이터 로드</li>
+</a>
+<a href="https://ballboyDev.github.io/post/120">
+<li id="p-120">• sveltekit API 요청</li>
+</a>
+
+</ul>
+
+</ul>
+
+</ul>
+<li id="dt-2" onclick="foldNavi(2)">심심한 개발자의 개발 취미 (14)</li>
+<ul id="dc-2" class='dc-all' style="display: none;">
+<li id="dt-22" onclick="foldNavi(22)">간단 블로그 만들기 (8)</li>
+<ul id="dc-22" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/1">
+<li id="p-1">• 블로그 개발 기획, 배포 일지</li>
+</a>
+<a href="https://ballboyDev.github.io/post/10">
+<li id="p-10">• 0. 블로그 만들기 - 시작하며</li>
+</a>
+<a href="https://ballboyDev.github.io/post/13">
+<li id="p-13">• 1. 블로그 만들기 - 폴더 탐색</li>
+</a>
+<a href="https://ballboyDev.github.io/post/16">
+<li id="p-16">• 2. 블로그 만들기 - 마크다운 변환</li>
+</a>
+<a href="https://ballboyDev.github.io/post/17">
+<li id="p-17">• 3. 블로그 만들기 - 리펙토링</li>
+</a>
+<a href="https://ballboyDev.github.io/post/34">
+<li id="p-34">• 1. 블로그 만들기 외전 - 애플 단축어 활용</li>
+</a>
+<a href="https://ballboyDev.github.io/post/35">
+<li id="p-35">• 2. 블로그 만들기 외전 - 외부 빌드 스크립트 만들기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/71">
+<li id="p-71">• 4. 블로그 만들기 - 목차</li>
+</a>
+
+</ul>
+<li id="dt-23" onclick="foldNavi(23)">온라인 코딩 테스트 시스템 (6)</li>
+<ul id="dc-23" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/92">
+<li id="p-92">• 온라인 코딩 테스트 시스템 배포 일지</li>
+</a>
+<a href="https://ballboyDev.github.io/post/93">
+<li id="p-93">• 0. 온코테 시스템 만들기 - 시작하며</li>
+</a>
+<a href="https://ballboyDev.github.io/post/98">
+<li id="p-98">• 1. 온코테 시스템 만들기 - 기초 설계</li>
+</a>
+<a href="https://ballboyDev.github.io/post/99">
+<li id="p-99">• 2. 온코테 시스템 만들기 - Backend</li>
+</a>
+<a href="https://ballboyDev.github.io/post/100">
+<li id="p-100">• 3. 온코테 시스템 만들기 - Storage</li>
+</a>
+<a href="https://ballboyDev.github.io/post/101">
+<li id="p-101">• 4. 온코테 시스템 만들기 - Container</li>
+</a>
+
+</ul>
+<li id="dt-24" onclick="foldNavi(24)">로드맵(chart) 제작 (0)</li>
+<ul id="dc-24" class='dc-all' style="display: none;">
+
+</ul>
+
+</ul>
+<li id="dt-3" onclick="foldNavi(3)">자취생 밥 만들어 먹기 (28)</li>
+<ul id="dc-3" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/27">
+<li id="p-27">• 내돈 내산 양념/조미료 사용 후기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/33">
+<li id="p-33">• 전자레인지로 밥 짓기</li>
+</a>
+<li id="dt-31" onclick="foldNavi(31)">5첩 반상을 위한 밑반찬 (3)</li>
+<ul id="dc-31" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/5">
+<li id="p-5">• 겉절이 김치</li>
+</a>
+<a href="https://ballboyDev.github.io/post/7">
+<li id="p-7">• 고추다대기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/11">
+<li id="p-11">• 김짱아치</li>
+</a>
+
+</ul>
+<li id="dt-32" onclick="foldNavi(32)">밥의 영혼의 단짝 국, 소스 (6)</li>
+<ul id="dc-32" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/2">
+<li id="p-2">• 미역국</li>
+</a>
+<a href="https://ballboyDev.github.io/post/4">
+<li id="p-4">• 양배추 강된장</li>
+</a>
+<a href="https://ballboyDev.github.io/post/6">
+<li id="p-6">• 진한 카레</li>
+</a>
+<a href="https://ballboyDev.github.io/post/9">
+<li id="p-9">• 계란국</li>
+</a>
+<a href="https://ballboyDev.github.io/post/14">
+<li id="p-14">• 짜장소스</li>
+</a>
+<a href="https://ballboyDev.github.io/post/74">
+<li id="p-74">• 냉이 된장찌개</li>
+</a>
+
+</ul>
+<li id="dt-33" onclick="foldNavi(33)">삶의 에너지 고기(육식) (7)</li>
+<ul id="dc-33" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/8">
+<li id="p-8">• 국물 두루치기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/12">
+<li id="p-12">• 삼겹살 덮밥</li>
+</a>
+<a href="https://ballboyDev.github.io/post/26">
+<li id="p-26">• 전자레인지 대패 삼겹살 솥밥</li>
+</a>
+<a href="https://ballboyDev.github.io/post/30">
+<li id="p-30">• 멍게 비빔밥</li>
+</a>
+<a href="https://ballboyDev.github.io/post/37">
+<li id="p-37">• 제육볶음</li>
+</a>
+<a href="https://ballboyDev.github.io/post/72">
+<li id="p-72">• 멍게 무침</li>
+</a>
+<a href="https://ballboyDev.github.io/post/79">
+<li id="p-79">• 닭근위 볶음</li>
+</a>
+
+</ul>
+<li id="dt-34" onclick="foldNavi(34)">면 러버의 면 사랑 요리 (10)</li>
+<ul id="dc-34" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/25">
+<li id="p-25">• 내 멋대로 알리오 올리오</li>
+</a>
+<a href="https://ballboyDev.github.io/post/28">
+<li id="p-28">• 라면 요리 - 마요네즈 비빔 라면</li>
+</a>
+<a href="https://ballboyDev.github.io/post/29">
+<li id="p-29">• 들기름 막국수</li>
+</a>
+<a href="https://ballboyDev.github.io/post/38">
+<li id="p-38">• 고추 기름 비빔면</li>
+</a>
+<a href="https://ballboyDev.github.io/post/70">
+<li id="p-70">• 라면 요리 - 마늘 해장 라면</li>
+</a>
+<a href="https://ballboyDev.github.io/post/76">
+<li id="p-76">• 라면 요리 - 대파 해장 라면</li>
+</a>
+<a href="https://ballboyDev.github.io/post/85">
+<li id="p-85">• 라면 요리 - 라면밥</li>
+</a>
+<a href="https://ballboyDev.github.io/post/87">
+<li id="p-87">• 이열치냉 - 냉 미역 국수</li>
+</a>
+<a href="https://ballboyDev.github.io/post/105">
+<li id="p-105">• 이열치냉 - 간단 야식 냉면</li>
+</a>
+<a href="https://ballboyDev.github.io/post/106">
+<li id="p-106">• 라면 요리 - 윤남노 사천 짜파게티</li>
+</a>
+
+</ul>
+
+</ul>
+<li id="dt-4" onclick="foldNavi(4)">의식의 흐름대로 (4)</li>
+<ul id="dc-4" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/86">
+<li id="p-86">• 내돈 내산 심심한 개발자의 데스크 셋업</li>
+</a>
+<a href="https://ballboyDev.github.io/post/88">
+<li id="p-88">• 심심한 개발자의 볼링 취미 볼백 탐방기</li>
+</a>
+<li id="dt-41" onclick="foldNavi(41)">일상 회고록 (2)</li>
+<ul id="dc-41" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/103">
+<li id="p-103">• 2025년 상반기 회고 (ver. ChatGPT)</li>
+</a>
+<a href="https://ballboyDev.github.io/post/104">
+<li id="p-104">• 2025년 상반기 회고</li>
+</a>
+
+</ul>
+
+</ul>
+
+                            </ul>
+                        </div>
+
+                        <div class="copyright">
+                            <img class="img"
+                                src="https://ballboyDev.github.io/assets/img/github-mark-white.svg"
+                                alt="" srcset="">
+                            <a href="https://github.com/BallboyDev/ballboyDev.github.io" target="_blank">Designed by ballboyDev</a>
+                        </div>
+
+                    </div>
+
+                    <!-- contents component -->
+                    <div id="contents">
+
+                        <div class="bookmark">
+
+            <div class="title t1">
+                <div><a href="#bm-1"># 데이터 로드</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-4">## Page data</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-15">## Layout data</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-24">## page.data</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-31">## 부모 데이터의 사용</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-41">### `parent()`의 기본 동작</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-44">### '투명한 통로'와 '가려짐(shadowing)' 현상</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-49">### 성능 최적화</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-55">## Universal vs server</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-58">### 구조의 분리</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-61">### Argument Input</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-70">### Output</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-83">## URL Data</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-86">### params</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-91">### URL</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-98">### route</a></div>
+                <p>•</p>
+            </div></div>
+                        
+                        
+            <a href="https://ballboyDev.github.io/post/118.html" class="prev post">
+                <img src="https://ballboyDev.github.io/assets/img/prev.svg" alt="" srcset="">
+            </a>
+                        
+                        
+            <a href="https://ballboyDev.github.io/post/120.html" class="next post">
+                <img src="https://ballboyDev.github.io/assets/img/next.svg" alt="" srcset="">
+            </a>
+                        
+                        <div class="main markdown-body">
+
+                            <h1 id="bm-1">데이터 로드</h1>
+<ul>
+<li><code>+page.svelte</code> 컴포넌트를 렌더링하기 전에 <code>+layout.svelte</code> 데이터를 가져와야 하는 경우가 많다. 이는 <code>load</code> 함수를 정의하여 수행된다.</li>
+</ul>
+<h2 id="bm-4">Page data</h2>
+<ul>
+<li><code>+page.svelte</code> 파일은 로드 함수를 내보내는 형제 파일이 있을 수 있으며, 반환 값은 <code>$props()</code>를 통해 페이지에서 사용할 수 있다.</li>
+</ul>
+<pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">// src/routes/blog/[slug]/+page.ts</span>
+<span class="hljs-keyword">import</span> type { <span class="hljs-title class_">PageLoad</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./$types&#x27;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-attr">load</span>: <span class="hljs-title class_">PageLoad</span> = <span class="hljs-function">(<span class="hljs-params">{ params }</span>) =&gt;</span> {
+	<span class="hljs-keyword">return</span> {
+		<span class="hljs-attr">post</span>: {
+			<span class="hljs-attr">title</span>: <span class="hljs-string">`Title for <span class="hljs-subst">${params.slug}</span> goes here`</span>,
+			<span class="hljs-attr">content</span>: <span class="hljs-string">`Content for <span class="hljs-subst">${params.slug}</span> goes here`</span>
+		}
+	};
+};</code></pre><pre class="theme-atom-one-dark"><code class="language-js">&lt;!-- src/routes/blog/[slug]/+page.<span class="hljs-property">svelte</span> --&gt;
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;ts&quot;</span>&gt;</span><span class="language-javascript">
+	<span class="hljs-keyword">import</span> type { <span class="hljs-title class_">PageProps</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./$types&#x27;</span>;
+
+	<span class="hljs-keyword">let</span> { data }: <span class="hljs-title class_">PageProps</span> = $props();
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
+
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>{data.post.title}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>{@html data.post.content}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></code></pre><ul>
+<li><code>+page.ts</code> 파일 내의 <code>load</code> 함수는 서버와 브라우저에서 모두 실행된다. (<code>export const ssr = false</code>가 설정 된 경우는 브라우저에서만 실행된다.)</li>
+<li><code>load</code>함수가 항상 서버에서만 실행되어야 하는 경우는 동일한 경로의 <code>+page.server.ts</code> 파일에 작성한다.</li>
+</ul>
+<pre class="theme-atom-one-dark"><code class="language-ts"><span class="hljs-comment">// src/routes/blog/[slug]/+page.server.ts</span>
+<span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> db <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;$lib/server/database&#x27;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">type</span> { <span class="hljs-title class_">PageServerLoad</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./$types&#x27;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-attr">load</span>: <span class="hljs-title class_">PageServerLoad</span> = <span class="hljs-title function_">async</span> ({ params }) =&gt; {
+	<span class="hljs-keyword">return</span> {
+		<span class="hljs-attr">post</span>: <span class="hljs-keyword">await</span> db.<span class="hljs-title function_">getPost</span>(params.<span class="hljs-property">slug</span>)
+	};
+};</code></pre><ul>
+<li>서버 함수가 추가 인수에 접근할 수 있으므로 <code>PageLoad</code>형에서 <code>PageServerLoad</code>로 변경된다.</li>
+</ul>
+<h2 id="bm-15">Layout data</h2>
+<ul>
+<li><code>+layout.ts</code>파일 또는 <code>+layout.server.ts</code>파일은 <code>+layout.svelte</code> 를 통해 데이터를 로드할 수 있다.</li>
+</ul>
+<pre class="theme-atom-one-dark"><code class="language-ts"><span class="hljs-comment">// src/routes/blog/[slug]/+layout.server.ts</span>
+<span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> db <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;$lib/server/database&#x27;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">type</span> { <span class="hljs-title class_">LayoutServerLoad</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./$types&#x27;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-attr">load</span>: <span class="hljs-title class_">LayoutServerLoad</span> = <span class="hljs-title function_">async</span> () =&gt; {
+	<span class="hljs-keyword">return</span> {
+		<span class="hljs-attr">posts</span>: <span class="hljs-keyword">await</span> db.<span class="hljs-title function_">getPostSummaries</span>()
+	};
+};</code></pre><pre class="theme-atom-one-dark"><code class="language-js">&lt;script lang=<span class="hljs-string">&quot;ts&quot;</span>&gt;
+	<span class="hljs-keyword">import</span> type { <span class="hljs-title class_">LayoutProps</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./$types&#x27;</span>;
+
+	<span class="hljs-keyword">let</span> { data, children }: <span class="hljs-title class_">LayoutProps</span> = $props();
+&lt;/script&gt;
+
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">main</span>&gt;</span>
+	<span class="hljs-comment">&lt;!-- +page.svelte is `@render`ed here --&gt;</span>
+	{@render children()}
+<span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span></span>
+
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">aside</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>More posts<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+		{#each data.posts as post}
+			<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/blog/{post.slug}&quot;</span>&gt;</span>
+					{post.title}
+				<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+			<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+		{/each}
+	<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">aside</span>&gt;</span></span></code></pre><ul>
+<li>layout에서 <code>load</code> 함수를 통해 리턴된 데이터는 하위 <code>+layout.svelte</code>와 <code>+page.svelte</code> 구성 요소 뿐만 아니라 해당 구성 요소가 속하는 레이아웃에서도 사용할 수 있다.</li>
+<li><code>layout</code>과 <code>page</code>에서 동일한 변수 명으로 반환한 데이터는 <code>page</code>에서 반환된 데이터로 출력된다.</li>
+</ul>
+<h2 id="bm-24">page.data</h2>
+<ul>
+<li><code>+page.svelte</code>와 <code>+layout.svelte</code>는 </li>
+<li>자식은 부모의 데이터에 접근 할 수 있지만, 그 반대는 기본적을 불가능 하다. 하지만 때로는 상향식으로 데이터가 필요한 경우가 있는데 이러한 데이터 흐름의 역전을 가능하게 해주는 것이 바로 <code>$page</code>스토어 이다.</li>
+<li>sveltekit은 앱의 현재 페이지 상태에 대한 정보를 담고 있는 <code>$page</code>라는 특별한 스토어를 제공하는데 이 스토어 안에는 여러 유용한 정보가 있다. 그중 <code>$page.data</code> 는 현재 활성화된 라우트에 대한 모든 <code>load</code> 함수의 반환 값을 합친 객체이다.</li>
+</ul>
+<pre class="theme-atom-one-dark"><code class="language-ts"><span class="hljs-comment">// src/routes/sub/+page.js</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">load</span> = (<span class="hljs-params"></span>) =&gt; {
+    <span class="hljs-keyword">const</span> post = {
+        <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;load test title&#x27;</span>,
+        <span class="hljs-attr">content</span>: <span class="hljs-string">&#x27;load test content&#x27;</span>
+    }
+
+    <span class="hljs-keyword">return</span> {
+        <span class="hljs-attr">title</span>: post.<span class="hljs-property">title</span>,
+		<span class="hljs-attr">post</span>: post
+    }
+}</code></pre><pre class="theme-atom-one-dark"><code class="language-js">&lt;!-- src/routes/+layout.<span class="hljs-property">js</span> --&gt;
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;ts&quot;</span>&gt;</span><span class="language-javascript">
+	<span class="hljs-keyword">import</span> { page } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;$app/state&quot;</span>;
+	<span class="hljs-keyword">import</span> { onMount } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;svelte&quot;</span>;
+
+	<span class="hljs-keyword">let</span> { children } = $props();
+
+	<span class="hljs-title function_">onMount</span>(<span class="hljs-function">() =&gt;</span> {
+		<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;main &gt;&gt;&quot;</span>, page);
+	});
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
+
+&lt;!-- sub/+page.<span class="hljs-property">svelte</span> 페이지 로딩시 &lt;h1&gt;load test title&lt;/h1&gt; 출력 --&gt;
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>{page.data.title}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
+
+{@render children?.()}</code></pre><h2 id="bm-31">부모 데이터의 사용</h2>
+<ul>
+<li><code>await parent()</code>를 사용하면 자식 <code>load</code>함수에서 부모 <code>load</code>함수의 데이터에 엑세스 할 수 있다.</li>
+</ul>
+<pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">// src/routes/+layout.ts</span>
+<span class="hljs-keyword">import</span> type { <span class="hljs-title class_">LayoutLoad</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./$types&#x27;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-attr">load</span>: <span class="hljs-title class_">LayoutLoad</span> = <span class="hljs-function">() =&gt;</span> {
+	<span class="hljs-keyword">return</span> { <span class="hljs-attr">a</span>: <span class="hljs-number">1</span> };
+};</code></pre><pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">// src/routes/item/+layout.ts</span>
+<span class="hljs-keyword">import</span> type { <span class="hljs-title class_">LayoutLoad</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./$types&#x27;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-attr">load</span>: <span class="hljs-title class_">LayoutLoad</span> = <span class="hljs-title function_">async</span> ({ parent }) =&gt; {
+	<span class="hljs-keyword">const</span> { a } = <span class="hljs-keyword">await</span> <span class="hljs-title function_">parent</span>();
+	<span class="hljs-keyword">return</span> { <span class="hljs-attr">b</span>: a + <span class="hljs-number">1</span> };
+};</code></pre><pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">// src/routes/item/+page.ts</span>
+<span class="hljs-keyword">import</span> type { <span class="hljs-title class_">PageLoad</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./$types&#x27;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-attr">load</span>: <span class="hljs-title class_">PageLoad</span> = <span class="hljs-title function_">async</span> ({ parent }) =&gt; {
+	<span class="hljs-keyword">const</span> { a, b } = <span class="hljs-keyword">await</span> <span class="hljs-title function_">parent</span>();
+	<span class="hljs-keyword">return</span> { <span class="hljs-attr">c</span>: a + b };
+};</code></pre><pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">// src/routes/item/+page.svelte</span>
+&lt;script lang=<span class="hljs-string">&quot;ts&quot;</span>&gt;
+	<span class="hljs-keyword">import</span> type { <span class="hljs-title class_">PageProps</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./$types&#x27;</span>;
+
+	<span class="hljs-keyword">let</span> { data }: <span class="hljs-title class_">PageProps</span> = $props();
+&lt;/script&gt;
+
+&lt;!-- renders <span class="hljs-string">`1 + 2 = 3`</span> --&gt;
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{data.a} + {data.b} = {data.c}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span></code></pre><h3 id="bm-41">`parent()`의 기본 동작</h3>
+<ul>
+<li><code>parent()</code> 함수는 server파일과 universal 파일에서 각각 다르게 동작하며, 서로의 데이터 체인을 침범하지 않는 것이 기본 원칙이다.<ul>
+<li><code>+layout.server.ts</code> =&gt; <code>+layout.server.ts</code> =&gt; <code>+page.server.ts</code> =&gt; <code>load - parent()</code></li>
+<li><code>+layout.ts</code> =&gt; <code>+layout.ts</code> =&gt; <code>+page.ts</code> =&gt; <code>load - parent()</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="bm-44">'투명한 통로'와 '가려짐(shadowing)' 현상</h3>
+<ul>
+<li>sveltekit은 중간에 <code>+layout.ts</code> 파일이 없으면 그 위치에 서버에서 온 데이터를 그대로 통과 시키는 투명한 함수 <code>({ data }) =&gt; data</code>가 있다고 간주 한다.</li>
+</ul>
+<pre><code class="language-plaintext"}>src/routes/
+└── sales/
+    ├── +layout.server.ts  // (A)
+    └── report/
+        ├── +layout.ts     // (B)
+        └── +page.server.ts  // (C)</code></pre>
+<ul>
+<li>데이터 흐름<ul>
+<li><code>sales/+layout.server.ts</code> =&gt; <code>report/+page.server.ts (C)</code> =&gt; <code>load - parent()</code></li>
+<li><code>sales/+layout.server.ts (A)</code> =&gt; <code>sales/({data}) =&gt; data (투명한 통로)</code> =&gt; <code>report/+layout.ts (B)</code> =&gt; <code>load - parent()</code></li>
+</ul>
+</li>
+<li>만약 <code>sales/+layout.ts</code> 파일을 추가한다면 <code>report/+layout.ts</code>에서 <code>parent()</code> 호출 할 경우 새로 생신 <code>sales/+layout.ts</code>에서 <code>load</code>함수가 반환하는 값을 받게 된다. <code>sales/+layout.ts</code>의 <code>load</code>에서 다른 서버 데이터를 가공하거나 다른 값을 반환 한다면 <code>sales/+layout.server.ts (A)</code>의 데이터는 <code>report/+layout.ts (B)</code>에 직접 도달하지 못하고 &#39;가려 지게&#39;된다.</li>
+</ul>
+<h3 id="bm-49">성능 최적화</h3>
+<ul>
+<li><code>parent()</code>함수는 부모 <code>load</code>함수들이 모두 실행 될 때까지 기다려야 하므로 시간이 걸릴 수 있다.</li>
+</ul>
+<pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">// 잘못된 패턴 - parent가 완료 될 때까지 getData()를 시작하지 못한다.</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">load</span> = <span class="hljs-keyword">async</span> (<span class="hljs-params"></span>) =&gt; {
+	<span class="hljs-comment">// 1. 부모 데이터가 올때까지 대기</span>
+	<span class="hljs-keyword">const</span> parentData = <span class="hljs-keyword">await</span> <span class="hljs-title function_">parent</span>();
+	<span class="hljs-comment">// 2. 부모 데이터가 수신 되어야 데이터를 가져오기 시작</span>
+	<span class="hljs-keyword">const</span> myData = <span class="hljs-keyword">await</span> <span class="hljs-title function_">getData</span>(params)
+	<span class="hljs-keyword">return</span> {...parentData, myData}
+}</code></pre><pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">// 올바른 패턴 - parent()의 결과에 의존하지 않는 비동기 작업은 미리 시작해서 병렬로 실행해야 한다.</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">load</span> = <span class="hljs-keyword">async</span> (<span class="hljs-params"></span>) =&gt; {
+	<span class="hljs-comment">// 1. 데이터를 가져 오는 작업을 즉시 시작 (Promise를 변수에 저장)</span>
+	<span class="hljs-keyword">const</span> myData = <span class="hljs-title function_">getData</span>(params)
+	<span class="hljs-comment">// 2. 부모 데이터를 기다리는 동안, myData를 백그라운드에서 실행</span>
+	<span class="hljs-keyword">const</span> parentData = <span class="hljs-keyword">await</span> <span class="hljs-title function_">parent</span>();
+	<span class="hljs-comment">// 3. 두 작업이 모두 완료 되기를 기다림</span>
+	<span class="hljs-keyword">return</span> {...parentData, <span class="hljs-attr">myData</span>: <span class="hljs-keyword">await</span> myData}
+}</code></pre><h2 id="bm-55">Universal vs server</h2>
+<ul>
+<li><code>load</code> 함수는 서버와 브라우저 모두에서 실행되는 <code>+page.ts</code>, <code>+layout.ts</code>와 서버에서만 실행되는 <code>+page.server.ts</code>, <code>+layout.server.ts</code> 두 가지가 있다.
+기본적으로는 범용 <code>load</code>함수는 사용자가 페이지를 처음 방문할 때 SSR 중에 서버에서 실행된다. 그런 다음 하이드 레이션 중에 다시 실행 되어 페치 요청의 응답을 재사용한다. 이후 모든 범용 함수는 브라우저에서 실행된다.</li>
+<li>다만 페이지 옵션을 통해 서버측 렌더링을 비활성화 하면 <code>load</code> 범용 함수는 항상 클라이언트에서 실행된다.</li>
+<li>유니버설과 서버 <code>load</code> 기능이 모두 포함된 경우라면 서버 <code>load</code>가 먼저 실행 된다.</li>
+<li><code>load</code>는 일반적으로 런타임에 호출 되지만, 페이지를 미리 렌더링 하는 경우에는 빌드 시점에 호출 된다.</li>
+</ul>
+<h3 id="bm-58">구조의 분리</h3>
+<ul>
+<li><code>load</code>함수가 실행 환경에 따라 분리 되는 구조는 관심사의 분리를 가능하게 한다.<ul>
+<li><code>Server load</code>는 <code>어떻게</code> 데이터를 안전하게 가져올 것인가?</li>
+<li><code>Universal load</code>는 <code>무엇을</code> 페이지에 보여줄 것인가?</li>
+<li><code>Server load</code>는 데이터의 원천 소스를 다루고 <code>Universal load</code>는 그 데이터를 받아 최종적으로 프론트 엔드에 전달할 데이터를 가공하고 필터링 하는 <code>게이트 웨이</code> 역할을 하는 것이다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="bm-61">Argument Input</h3>
+<ul>
+<li>두 실행 환경의 <code>load</code> 함수가 한 페이지에 동시에 존재할 경우 <code>Server load</code> 함수의 반환 값은 <code>Universal load</code>함수 인자의 data 속성이 된다.</li>
+<li>두 실행 환경의 <code>load</code> 함수는 대부분의 인자를 공유하지만 실행 환경에 따라 특별한 인자를 가진다.</li>
+</ul>
+<h4 id="bm-64">공통 인자</h4>
+<ul>
+<li><code>Universal Load</code> 함수는 <code>Server Load</code> 함수의 대부분의 인자를 공유하고 이 인자 들은 <code>LoadEvent (Universal)</code>와 <code>ServerLoadEvent (Server)</code>객체에 포함되어 있다.<ul>
+<li><code>params</code> : 라우트 파라미터 객체</li>
+<li><code>route</code> : 현재 라우트에 대한 정보 객체</li>
+<li><code>url</code> : 현재 페이지의 URL에 대한 정보를 담고 있는 표준 URL 객체</li>
+<li><code>fetch</code> : 서버와 클라이언트 양쪽에서 모두 동작하는 fetch 함수. 일반 fetch와 달리 서버에서 실행될 때도 상대 경로를 사용할 수 있고, 쿠키와 같은 인증 정보를 자동으로 처리해준다.</li>
+<li><code>setHeaders</code> : 응답 헤더를 설정하는 함수, 주로 캐싱 제어에 사용된다.</li>
+<li><code>parent</code> : 부모 <code>load</code>함수에서 반환된 데이터를 가져오는 함수 <code>const data = await parent()</code> 와 같이 사용된다.</li>
+<li><code>depends</code> : 특정 데이터에 대한 의존성을 수동으로 등록하는 함수, 데이터 무효화 및 재실행을 제어할 때 사용한다.</li>
+<li><code>untrack</code> : <code>load</code>함수 내에서 반응성 추적을 피하고 싶을 때 사용하는 함수.</li>
+</ul>
+</li>
+</ul>
+<h4 id="bm-67">`Server Load` 에만 있는 인자들</h4>
+<ul>
+<li><code>ServerLoadEvent</code>는 <code>LoadEvent</code>의 모든 속성을 상속 받으며, 서버에서만 접근 가능하고 절대 브라우저에 노출 되어서는 안 되는 민감한 정보들을 추가로 가진다.<ul>
+<li><code>clientAddress</code> : 사용자의 IP 주소</li>
+<li><code>cookies</code> : 들어오는 요청의 쿠키를 읽거나 나가는 응답에 쿠키를 설정할 수 있는 헬퍼. <code>cookies.get('sessionId')</code>, <code>cookies.set('theme', 'dark')</code></li>
+<li><code>locals</code> : 미들웨어에서 요청에 추가한 커스텀 데이터. 주로 인증된 사용자 정보등을 담는 데 사용된다.</li>
+<li><code>platform</code> : Vercel, Netlify, Cloudflare Workers 등 배포 환경에 따른 컨텍스트 정보.</li>
+<li><code>request</code> : SvelteKit에 의해 가공되기 전의 원시 표준 Request 객체</li>
+</ul>
+</li>
+</ul>
+<h3 id="bm-70">Output</h3>
+<ul>
+<li><code>Universal load</code>와 <code>Server load</code> 함수의 반환 값은 각 함수가 실행되는 환경과 네트워크 경계의 존재의 유무 때문에 차이가 발생한다.<ul>
+<li><code>Universal load</code>: 서버와 브라우저, 즉 데이터를 소비하는 컴포넌트와 같은 공간에서 실행되 수 있어, 네트워크 전송을 위한 <code>직렬화</code> 과정이 필요 없기에 거의 모든 유형의 값을 반환할 수 있다.</li>
+<li><code>Server load</code>: 오직 서버에서만 실행되며, 그 결과는 네트워크를 통해 브라우저로 전송된다. 따라서 반환 값은 반드시 네트워크로 전송 가능한 형태, 즉 <code>직렬화</code>가 가능한 데이터여야만 한다.</li>
+</ul>
+</li>
+<li>만약 <code>devalue</code>가 지원하지 않는 커스텀 타입을 꼭 네트워크로 전송해야 한다면, Transport Hooks(hooks.server.ts에 정의)를 사용하여 해당 타입을 어떻게 직렬화 하고 역 직렬화를 할지 sveltekit에 직접 설정할 수 있다.</li>
+</ul>
+<h4 id="bm-73">`Universal load`함수의 반환 값</h4>
+<ul>
+<li><code>Universal load</code> 함수는 반환 값에 거의 제약이 없다. 서버 렌더링 시에는 <code>load</code> 함수와 페이지 컴포넌트는 동일한 서버 프로세스 내에서 중간에 네트워크를 거치지 않는다. 클라이언트 렌더링 시에는 사용자가 페이지를 이동할 때 <code>Universal load</code> 함수와 페이지 컨포넌트는 동일한 브라우저 환경 내에서 실행되므로 여기서도 값을 직접 전달할 수 있다.<ul>
+<li>일반적인 JSON 데이터</li>
+<li>Date, Map, Set, RegExp 객체</li>
+<li>커스텀 클래스의 인스턴스 (new MyClass())</li>
+<li>svelte 컴포넌트 생성자</li>
+<li>함수</li>
+</ul>
+</li>
+</ul>
+<h4 id="bm-76">`Server load`함수의 반환 값</h4>
+<ul>
+<li><code>Server load</code>는 서버에서 실행되고, 그 결과는 네트워크를 통해 브라우저로 전송된다. 이 과정에서 메모리에 있는 복잡한 데이터 구조는 네트워크로 보낼 수 있는 텍스트 형태로 변환되어야 하는데, 이 변환 과정을 직렬화 라고 한다.</li>
+<li>sveltekit은 JSON.stringify 보다 강력한 <code>devalue</code>라는 라이브러리를 사용하여 직렬화를 수행한다.<ul>
+<li>JSON 으로 표현 가능한 모든 것</li>
+<li>BitInt</li>
+<li>Date</li>
+<li>Map</li>
+<li>Set</li>
+<li>RegExp</li>
+<li>순환 참조 또는 반복 참조가 있는 객체</li>
+<li>undefined</li>
+<li>Promise</li>
+</ul>
+</li>
+</ul>
+<pre class="theme-atom-one-dark"><code class="language-ts"><span class="hljs-comment">// src/routes/+page.server.ts</span>
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">type</span> { <span class="hljs-title class_">PageServerLoad</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./$types&#x27;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-attr">load</span>: <span class="hljs-title class_">PageServerLoad</span> = <span class="hljs-title function_">async</span> () =&gt; {
+	<span class="hljs-keyword">return</span> {
+		<span class="hljs-attr">serverMessage</span>: <span class="hljs-string">&#x27;hello from server load function&#x27;</span>
+	};
+};</code></pre><pre class="theme-atom-one-dark"><code class="language-ts"><span class="hljs-comment">// src/routes/+page.ts</span>
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">type</span> { <span class="hljs-title class_">PageLoad</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./$types&#x27;</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-attr">load</span>: <span class="hljs-title class_">PageLoad</span> = <span class="hljs-title function_">async</span> ({ data }) =&gt; {
+	<span class="hljs-keyword">return</span> {
+		<span class="hljs-attr">serverMessage</span>: data.<span class="hljs-property">serverMessage</span>,
+		<span class="hljs-attr">universalMessage</span>: <span class="hljs-string">&#x27;hello from universal load function&#x27;</span>
+	};
+};</code></pre><h2 id="bm-83">URL Data</h2>
+<ul>
+<li><code>load</code> 함수는 URL에 따라 기능이 달라 질수 있다. 이를 위해 <code>load</code>함수는 <code>url</code>, <code>route</code>, <code>params</code> 데이터를 제공한다.</li>
+</ul>
+<h3 id="bm-86">params</h3>
+<ul>
+<li>params는 동적 라우트 세그먼트의 값을 담고 있는 객체이다. 파일이나 폴더 이름을 대괄호로 묶어 생성한 동적 경로의 실제 값에 접근할 때 사용한다.</li>
+<li>주요 사용 사례<ul>
+<li>특정 ID에 해당 하는 데이터를 가져올 때.</li>
+</ul>
+</li>
+</ul>
+<pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">// 파일 경로 : src/routes/blog/[post]/+page.js</span>
+<span class="hljs-comment">// 사용자 접속 URL : /blog/posting1</span>
+
+<span class="hljs-comment">// params 객체</span>
+{
+	<span class="hljs-string">&#x27;post&#x27;</span>: <span class="hljs-string">&#x27;posting1&#x27;</span>
+}
+---
+
+<span class="hljs-comment">// 파일 경로 : src/route/blog/[post]/[...tag]</span>
+<span class="hljs-comment">// 사용자 접속 URL : /blog/posting2/js/svelte</span>
+
+<span class="hljs-comment">// params 객체</span>
+{
+	<span class="hljs-string">&#x27;post&#x27;</span>: <span class="hljs-string">&#x27;posting2&#x27;</span>,
+	<span class="hljs-string">&#x27;tag&#x27;</span>: <span class="hljs-string">&#x27;js/svelte&#x27;</span>
+}</code></pre><h3 id="bm-91">URL</h3>
+<ul>
+<li>현재 페이지의 URL에 대한 모든 정보를 담고 있는 Javascript <code>URL</code> 객체 이다. <code>params</code>가 경로의 일부만 제공하는 것과 달리 url은 URL에 대한 접근을 제공한다.</li>
+<li>주요 사용 사례<ul>
+<li>쿼리 파라미터 가져오기 <code>(url.searchParams(...))</code></li>
+<li>전체 경로가 필요한 경우</li>
+</ul>
+</li>
+<li>URL 객체</li>
+</ul>
+<pre><code class="language-plaintext"}>URL {
+  	href: 'http://localhost:5173/test?a=1&b=2',
+  	origin: 'http://localhost:5173',
+  	protocol: 'http:',
+  	username: '',
+  	password: '',
+  	host: 'localhost:5173',
+  	hostname: 'localhost',
+  	port: '5173',
+  	pathname: '/test',
+  	search: '?a=1&b=2',
+  	searchParams: URLSearchParams { 'a' => '1', 'b' => '2' },
+  	hash: ''
+}</code></pre>
+<pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">// 파일 경로 : src/route/post/+page.ts</span>
+<span class="hljs-comment">// 사용자 접속 URL : /post?category=javascript&amp;limit=10</span>
+
+url.<span class="hljs-property">searchParams</span>.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;category&#x27;</span>) <span class="hljs-comment">// javascript</span>
+url.<span class="hljs-property">searchParams</span>.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;limit&#x27;</span>) <span class="hljs-comment">// 10</span></code></pre><h3 id="bm-98">route</h3>
+<ul>
+<li>route는 현재 요청과 일치하는 sveltekit의 라우트 패턴 정보를 담고 있는 객체이다. 실제 URL 경로가 아닌, sveltekit이 내부적으로 사용하는 라우드 ID에 접근할 때 사용한다.</li>
+<li>주요 사용 사례<ul>
+<li>캐싱(caching) : 라우트 기반으로 캐시 키를 생성할 때</li>
+<li>분석(analytics) : 어떤 라우트 패턴이 사용되었는지 추적할 때</li>
+<li>레이아웃 분기 처리 : 특정 라우트 그룹에 따라 다른 레이아웃 로직을 적용하고 싶을 때</li>
+<li><code>params</code>나 <code>url</code>에 비해 사용 빈도는 낮지만, 고급 제어가 필요할 때 유용하다.</li>
+</ul>
+</li>
+</ul>
+<pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">// 파일 경로 : src/route/blog/[slug]/+page.js</span>
+<span class="hljs-comment">// 사용자 접속 URL : /blog/posting1</span>
+
+{
+	<span class="hljs-string">&#x27;id&#x27;</span>: <span class="hljs-string">&#x27;/blog/[slug]&#x27;</span>
+}</code></pre>
+
+                        </div>
+
+                        
+            <script src="https://utteranc.es/client.js"
+                repo="ballboyDev/personal-storage"
+                issue-term="pathname"
+                label="comments"
+                theme="github-dark"
+                crossorigin="anonymous"
+                async>
+            </script>
+
+                    </div>
+                </div>
+            </body>
+            </html>

@@ -1,0 +1,706 @@
+
+            <!DOCTYPE html>
+            <html lang="en">
+
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta name="google-site-verification" content="jrh7qB1kgowvnvE0P3KqlhI-iNmw9CvGJF4dQsaCTAk" />
+                <meta name="naver-site-verification" content="6fe49ccdb8613221b89ae2d580300c63a91af446" />
+                
+                
+            <link rel="icon" href="https://ballboyDev.github.io/assets/img/bDev.ico">
+            <link rel="stylesheet" href="https://ballboyDev.github.io/assets/markdown.css">
+            <link rel="stylesheet" href="https://ballboyDev.github.io/assets/skin.css">
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+
+            <style>
+                #p-118 {
+                    color: rgb(76, 193, 237) !important;
+                }
+            </style>
+            <script id="data" type="application/json">
+            {
+                "fold": ["1","12","122"]
+            }
+            </script>
+
+            <script src="https://ballboyDev.github.io/assets/skin.js"></script>
+
+                <title>파일 시스템 기반 라우팅</title>
+            </head>
+
+            <body>
+                <div id="wrapper">
+                    <!-- side bar component -->
+                    <div id="head-bar">
+                        <img id="openNavi" class="menu"
+                            src="https://ballboyDev.github.io/assets/img/menu.svg"
+                            alt="" srcset="">
+                        <div class="title">심심한 개발자의 취미생활</div>
+                        <img class="img"
+                            src="https://ballboyDev.github.io/assets/img/profile.jpeg"
+                            alt="" srcset="">
+                    </div>
+                    <div id="side-bar">
+                        <img id="closeNavi" class="close"
+                            src="https://ballboyDev.github.io/assets/img/close.svg"
+                            alt="" srcset="">
+                        <div class="profile">
+                            <img class="img" src="https://ballboyDev.github.io/assets/img/profile.jpeg" alt="" srcset="">
+                            <p>심심한 개발자의 취미생활</p>
+                        </div>
+                        <hr />
+                        <h3 class="home"><a href="https://ballboyDev.github.io">HOME</a></h3>
+                        <hr />
+                        
+                        <h3 class="category" onclick="foldNavi()">카테고리</h3>
+                        <div class="navi">
+                            <ul class="root">
+
+                                <li id="dt-1" onclick="foldNavi(1)">심심한 개발자의 개발 공부 (23)</li>
+<ul id="dc-1" class='dc-all' style="display: block;">
+<a href="https://ballboyDev.github.io/post/108">
+<li id="p-108">• Backend 학습 로드맵</li>
+</a>
+<li id="dt-11" onclick="foldNavi(11)">개발 정보 정리 (10)</li>
+<ul id="dc-11" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/3">
+<li id="p-3">• vim 에디터 정리</li>
+</a>
+<a href="https://ballboyDev.github.io/post/31">
+<li id="p-31">• json객체와 Map()의 비교</li>
+</a>
+<a href="https://ballboyDev.github.io/post/32">
+<li id="p-32">• 배열 생성 성능 비교</li>
+</a>
+<a href="https://ballboyDev.github.io/post/36">
+<li id="p-36">• console 객체 활용하기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/58">
+<li id="p-58">• 자주쓰는 git/git-flow 명령어</li>
+</a>
+<a href="https://ballboyDev.github.io/post/69">
+<li id="p-69">• curl 명령어 사용법 정리</li>
+</a>
+<a href="https://ballboyDev.github.io/post/73">
+<li id="p-73">• node 내장 객체와 내장 모듈 사용하기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/80">
+<li id="p-80">• 터미널 이미지 형식 변환(sips)</li>
+</a>
+<a href="https://ballboyDev.github.io/post/107">
+<li id="p-107">• Shell Script 기초 문법 정리</li>
+</a>
+<a href="https://ballboyDev.github.io/post/116">
+<li id="p-116">• Cookie, Session, JWT, OAuth 개념</li>
+</a>
+
+</ul>
+<li id="dt-12" onclick="foldNavi(12)">svelte, sveltekit (12)</li>
+<ul id="dc-12" class='dc-all' style="display: none;">
+<li id="dt-121" onclick="foldNavi(121)">svelte (8)</li>
+<ul id="dc-121" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/18">
+<li id="p-18">• svelte Basic</li>
+</a>
+<a href="https://ballboyDev.github.io/post/19">
+<li id="p-19">• svelte 속성</li>
+</a>
+<a href="https://ballboyDev.github.io/post/20">
+<li id="p-20">• life cycle</li>
+</a>
+<a href="https://ballboyDev.github.io/post/21">
+<li id="p-21">• runes</li>
+</a>
+<a href="https://ballboyDev.github.io/post/22">
+<li id="p-22">• template Syntax</li>
+</a>
+<a href="https://ballboyDev.github.io/post/23">
+<li id="p-23">• Directive</li>
+</a>
+<a href="https://ballboyDev.github.io/post/24">
+<li id="p-24">• Runtime</li>
+</a>
+<a href="https://ballboyDev.github.io/post/68">
+<li id="p-68">• setting svelte.config.js</li>
+</a>
+
+</ul>
+<li id="dt-122" onclick="foldNavi(122)">sveltekit (4)</li>
+<ul id="dc-122" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/117">
+<li id="p-117">• sveltekit 기본구조</li>
+</a>
+<a href="https://ballboyDev.github.io/post/118">
+<li id="p-118">• 파일 시스템 기반 라우팅</li>
+</a>
+<a href="https://ballboyDev.github.io/post/119">
+<li id="p-119">• 데이터 로드</li>
+</a>
+<a href="https://ballboyDev.github.io/post/120">
+<li id="p-120">• sveltekit API 요청</li>
+</a>
+
+</ul>
+
+</ul>
+
+</ul>
+<li id="dt-2" onclick="foldNavi(2)">심심한 개발자의 개발 취미 (14)</li>
+<ul id="dc-2" class='dc-all' style="display: none;">
+<li id="dt-22" onclick="foldNavi(22)">간단 블로그 만들기 (8)</li>
+<ul id="dc-22" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/1">
+<li id="p-1">• 블로그 개발 기획, 배포 일지</li>
+</a>
+<a href="https://ballboyDev.github.io/post/10">
+<li id="p-10">• 0. 블로그 만들기 - 시작하며</li>
+</a>
+<a href="https://ballboyDev.github.io/post/13">
+<li id="p-13">• 1. 블로그 만들기 - 폴더 탐색</li>
+</a>
+<a href="https://ballboyDev.github.io/post/16">
+<li id="p-16">• 2. 블로그 만들기 - 마크다운 변환</li>
+</a>
+<a href="https://ballboyDev.github.io/post/17">
+<li id="p-17">• 3. 블로그 만들기 - 리펙토링</li>
+</a>
+<a href="https://ballboyDev.github.io/post/34">
+<li id="p-34">• 1. 블로그 만들기 외전 - 애플 단축어 활용</li>
+</a>
+<a href="https://ballboyDev.github.io/post/35">
+<li id="p-35">• 2. 블로그 만들기 외전 - 외부 빌드 스크립트 만들기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/71">
+<li id="p-71">• 4. 블로그 만들기 - 목차</li>
+</a>
+
+</ul>
+<li id="dt-23" onclick="foldNavi(23)">온라인 코딩 테스트 시스템 (6)</li>
+<ul id="dc-23" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/92">
+<li id="p-92">• 온라인 코딩 테스트 시스템 배포 일지</li>
+</a>
+<a href="https://ballboyDev.github.io/post/93">
+<li id="p-93">• 0. 온코테 시스템 만들기 - 시작하며</li>
+</a>
+<a href="https://ballboyDev.github.io/post/98">
+<li id="p-98">• 1. 온코테 시스템 만들기 - 기초 설계</li>
+</a>
+<a href="https://ballboyDev.github.io/post/99">
+<li id="p-99">• 2. 온코테 시스템 만들기 - Backend</li>
+</a>
+<a href="https://ballboyDev.github.io/post/100">
+<li id="p-100">• 3. 온코테 시스템 만들기 - Storage</li>
+</a>
+<a href="https://ballboyDev.github.io/post/101">
+<li id="p-101">• 4. 온코테 시스템 만들기 - Container</li>
+</a>
+
+</ul>
+<li id="dt-24" onclick="foldNavi(24)">로드맵(chart) 제작 (0)</li>
+<ul id="dc-24" class='dc-all' style="display: none;">
+
+</ul>
+
+</ul>
+<li id="dt-3" onclick="foldNavi(3)">자취생 밥 만들어 먹기 (28)</li>
+<ul id="dc-3" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/27">
+<li id="p-27">• 내돈 내산 양념/조미료 사용 후기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/33">
+<li id="p-33">• 전자레인지로 밥 짓기</li>
+</a>
+<li id="dt-31" onclick="foldNavi(31)">5첩 반상을 위한 밑반찬 (3)</li>
+<ul id="dc-31" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/5">
+<li id="p-5">• 겉절이 김치</li>
+</a>
+<a href="https://ballboyDev.github.io/post/7">
+<li id="p-7">• 고추다대기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/11">
+<li id="p-11">• 김짱아치</li>
+</a>
+
+</ul>
+<li id="dt-32" onclick="foldNavi(32)">밥의 영혼의 단짝 국, 소스 (6)</li>
+<ul id="dc-32" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/2">
+<li id="p-2">• 미역국</li>
+</a>
+<a href="https://ballboyDev.github.io/post/4">
+<li id="p-4">• 양배추 강된장</li>
+</a>
+<a href="https://ballboyDev.github.io/post/6">
+<li id="p-6">• 진한 카레</li>
+</a>
+<a href="https://ballboyDev.github.io/post/9">
+<li id="p-9">• 계란국</li>
+</a>
+<a href="https://ballboyDev.github.io/post/14">
+<li id="p-14">• 짜장소스</li>
+</a>
+<a href="https://ballboyDev.github.io/post/74">
+<li id="p-74">• 냉이 된장찌개</li>
+</a>
+
+</ul>
+<li id="dt-33" onclick="foldNavi(33)">삶의 에너지 고기(육식) (7)</li>
+<ul id="dc-33" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/8">
+<li id="p-8">• 국물 두루치기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/12">
+<li id="p-12">• 삼겹살 덮밥</li>
+</a>
+<a href="https://ballboyDev.github.io/post/26">
+<li id="p-26">• 전자레인지 대패 삼겹살 솥밥</li>
+</a>
+<a href="https://ballboyDev.github.io/post/30">
+<li id="p-30">• 멍게 비빔밥</li>
+</a>
+<a href="https://ballboyDev.github.io/post/37">
+<li id="p-37">• 제육볶음</li>
+</a>
+<a href="https://ballboyDev.github.io/post/72">
+<li id="p-72">• 멍게 무침</li>
+</a>
+<a href="https://ballboyDev.github.io/post/79">
+<li id="p-79">• 닭근위 볶음</li>
+</a>
+
+</ul>
+<li id="dt-34" onclick="foldNavi(34)">면 러버의 면 사랑 요리 (10)</li>
+<ul id="dc-34" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/25">
+<li id="p-25">• 내 멋대로 알리오 올리오</li>
+</a>
+<a href="https://ballboyDev.github.io/post/28">
+<li id="p-28">• 라면 요리 - 마요네즈 비빔 라면</li>
+</a>
+<a href="https://ballboyDev.github.io/post/29">
+<li id="p-29">• 들기름 막국수</li>
+</a>
+<a href="https://ballboyDev.github.io/post/38">
+<li id="p-38">• 고추 기름 비빔면</li>
+</a>
+<a href="https://ballboyDev.github.io/post/70">
+<li id="p-70">• 라면 요리 - 마늘 해장 라면</li>
+</a>
+<a href="https://ballboyDev.github.io/post/76">
+<li id="p-76">• 라면 요리 - 대파 해장 라면</li>
+</a>
+<a href="https://ballboyDev.github.io/post/85">
+<li id="p-85">• 라면 요리 - 라면밥</li>
+</a>
+<a href="https://ballboyDev.github.io/post/87">
+<li id="p-87">• 이열치냉 - 냉 미역 국수</li>
+</a>
+<a href="https://ballboyDev.github.io/post/105">
+<li id="p-105">• 이열치냉 - 간단 야식 냉면</li>
+</a>
+<a href="https://ballboyDev.github.io/post/106">
+<li id="p-106">• 라면 요리 - 윤남노 사천 짜파게티</li>
+</a>
+
+</ul>
+
+</ul>
+<li id="dt-4" onclick="foldNavi(4)">의식의 흐름대로 (4)</li>
+<ul id="dc-4" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/86">
+<li id="p-86">• 내돈 내산 심심한 개발자의 데스크 셋업</li>
+</a>
+<a href="https://ballboyDev.github.io/post/88">
+<li id="p-88">• 심심한 개발자의 볼링 취미 볼백 탐방기</li>
+</a>
+<li id="dt-41" onclick="foldNavi(41)">일상 회고록 (2)</li>
+<ul id="dc-41" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/103">
+<li id="p-103">• 2025년 상반기 회고 (ver. ChatGPT)</li>
+</a>
+<a href="https://ballboyDev.github.io/post/104">
+<li id="p-104">• 2025년 상반기 회고</li>
+</a>
+
+</ul>
+
+</ul>
+
+                            </ul>
+                        </div>
+
+                        <div class="copyright">
+                            <img class="img"
+                                src="https://ballboyDev.github.io/assets/img/github-mark-white.svg"
+                                alt="" srcset="">
+                            <a href="https://github.com/BallboyDev/ballboyDev.github.io" target="_blank">Designed by ballboyDev</a>
+                        </div>
+
+                    </div>
+
+                    <!-- contents component -->
+                    <div id="contents">
+
+                        <div class="bookmark">
+
+            <div class="title t1">
+                <div><a href="#bm-1"># 파일 시스템 기반 라우팅</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-4">## `+page`
+</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-5">### `+page.svelte`</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-14">### `+page.ts`</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-20">### `+page.server.ts`</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-25">## `+error`
+</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-26">### `+error.svelte`</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-30">## `+layout`</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-33">### `+layout.svelte`</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-40">### `+layout.ts`</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-45">### `+layout.server.ts`</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-48">## `+server.ts`</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-53">### Fallback method handler</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-56">### 경로 충돌</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-59">## `$types`
+</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-60">## 괄호 라우팅</a></div>
+                <p>•</p>
+            </div></div>
+                        
+                        
+            <a href="https://ballboyDev.github.io/post/117.html" class="prev post">
+                <img src="https://ballboyDev.github.io/assets/img/prev.svg" alt="" srcset="">
+            </a>
+                        
+                        
+            <a href="https://ballboyDev.github.io/post/119.html" class="next post">
+                <img src="https://ballboyDev.github.io/assets/img/next.svg" alt="" srcset="">
+            </a>
+                        
+                        <div class="main markdown-body">
+
+                            <h1 id="bm-1">파일 시스템 기반 라우팅</h1>
+<ul>
+<li>sveltekit의 팩심은 파일 시스템 기반 라우팅이다. 앱의 경로, 즉 사용자가 액세스 할 수 있는 경로는 <code>/src/routes</code> 안의 코드 베이스의 디렉터리에 의해 정의 된다.</li>
+<li>각 경로 디렉토리에는 접두사(<code>+</code>)로 식별 할 수 있는 하나 이상의 경로 파일이 포함되어 있어야 한다.<ul>
+<li>모든 파일은 서버에서 실행 될 수 있다.</li>
+<li><code>+server</code>파일을 제외한 모든 파일은 클라이언트에서 실행된다.</li>
+<li><code>+layout</code>, <code>+error</code>파일은 해당 파일이 있는 디렉토리 뿐만 아니라 하위 디렉토리에서도 적용된다.</li>
+</ul>
+</li>
+</ul>
+<h2 id="bm-4">`+page`</h2>
+<h3 id="bm-5">`+page.svelte`</h3>
+<ul>
+<li><code>+page.svelte</code>파일은 앱의 페이지를 정의한다. 기본적으로 페이지는 최초 요청 시에는 서버(SSR)에서 렌더링 되고, 이후 탐색 시에는 브라우저(CSR)에서 렌더링 된다.</li>
+</ul>
+<pre class="theme-atom-one-dark"><code class="language-javascript">&lt;!-- src/routes/+page.<span class="hljs-property">svelte</span> --&gt;
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>main page<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/about&quot;</span>&gt;</span>about<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></span></code></pre><pre class="theme-atom-one-dark"><code class="language-javascript">&lt;!-- src/routes/about/+page.<span class="hljs-property">svelte</span> --&gt;
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>about page<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>contents<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/&quot;</span>&gt;</span>main<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></span></code></pre><ul>
+<li>sveltekit은 <code>&lt;Link&gt;</code> 구성 요소가 아닌 <code>&lt;a&gt;</code>태그를 사용하여 경로간 탐색을 한다.</li>
+</ul>
+<h3 id="bm-14">`+page.ts`</h3>
+<ul>
+<li>페이지가 렌더링 되기 전에 데이터를 로드 해야 경우에는 <code>+page.ts</code> 모듈에서 <code>load</code>함수를 사용한다.</li>
+</ul>
+<pre class="theme-atom-one-dark"><code class="language-ts"><span class="hljs-keyword">import</span> { error } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@sveltejs/kit&#x27;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">type</span> { <span class="hljs-title class_">PageLoad</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./$types&#x27;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-attr">load</span>: <span class="hljs-title class_">PageLoad</span> = <span class="hljs-function">(<span class="hljs-params">{ params }</span>) =&gt;</span> {
+	<span class="hljs-keyword">if</span> (params.<span class="hljs-property">slug</span> === <span class="hljs-string">&#x27;hello-world&#x27;</span>) {
+		<span class="hljs-keyword">return</span> {
+			<span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Hello world!&#x27;</span>,
+			<span class="hljs-attr">content</span>: <span class="hljs-string">&#x27;Welcome to our blog. Lorem ipsum dolor sit amet...&#x27;</span>
+		};
+	}
+
+	<span class="hljs-title function_">error</span>(<span class="hljs-number">404</span>, <span class="hljs-string">&#x27;Not found&#x27;</span>);
+};</code></pre><ul>
+<li>이 함수는 <code>+page.svelte</code>와 함께 실행된다. SSR 시에는 서버에서 실행되고, CSR 시에는 브라우저에서 실행된다.</li>
+<li>또한 <code>load</code>, <code>+page.ts</code>의 동작을 구성하는 값을 내보낼 수 있다.<ul>
+<li><code>export const prerender = true (false, 'auto')</code></li>
+<li><code>export const ssr = true (false)</code></li>
+<li><code>export const csr = true (false)</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="bm-20">`+page.server.ts`</h3>
+<ul>
+<li><code>+page.ts</code>와 역할은 동일하지만 브라우저에는 코드가 전송되지 않고 오직 서버에서만 실행된다.</li>
+<li>직접적인 데이터 베이스 접근이나 서버의 파일시스템 접근, 비공개 키값 사용 등 보안이 중요한 작업 수행을 작성한다.</li>
+</ul>
+<pre class="theme-atom-one-dark"><code class="language-javascript"><span class="hljs-keyword">import</span> { error } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@sveltejs/kit&#x27;</span>;
+<span class="hljs-keyword">import</span> type { <span class="hljs-title class_">PageServerLoad</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./$types&#x27;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-attr">load</span>: <span class="hljs-title class_">PageServerLoad</span> = <span class="hljs-title function_">async</span> ({ params }) =&gt; {
+	<span class="hljs-keyword">const</span> post = <span class="hljs-keyword">await</span> <span class="hljs-title function_">getPostFromDatabase</span>(params.<span class="hljs-property">slug</span>);
+
+	<span class="hljs-keyword">if</span> (post) {
+		<span class="hljs-keyword">return</span> post;
+	}
+
+	<span class="hljs-title function_">error</span>(<span class="hljs-number">404</span>, <span class="hljs-string">&#x27;Not found&#x27;</span>);
+};</code></pre><h2 id="bm-25">`+error`</h2>
+<h3 id="bm-26">`+error.svelte`</h3>
+<ul>
+<li><code>load</code>함수 수행중 오류가 발생하면 sveltekit은 기본 오류 페이지를 렌더링한다. 하지만 <code>+error.svelte</code> 파일을 추가하여 경로 별로 이 오류페이지를 사용자가 지정할 수 있다.</li>
+</ul>
+<pre class="theme-atom-one-dark"><code class="language-javascript">&lt;script lang=<span class="hljs-string">&quot;ts&quot;</span>&gt;
+	<span class="hljs-keyword">import</span> { page } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;$app/state&#x27;</span>;
+&lt;/script&gt;
+
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>{page.status}: {page.error.message}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span></code></pre><h2 id="bm-30">`+layout`</h2>
+<ul>
+<li><code>+layout</code>은 여러 페이지에 걸쳐 공통적으로 사용되는 템플릿을 정의한다. 여러 페이지에 동일한 헤더, 네비게이션 바, 푸터 등을 표시하고자 할 때 <code>+layout</code>에 작성한다.</li>
+</ul>
+<h3 id="bm-33">`+layout.svelte`</h3>
+<ul>
+<li>모든 페이지에 적용되는 레이아웃을 만들려면 <code>src/routes/+layout.svelte</code> 파일을 생성하고 기본 레이아웃을 작성한다.</li>
+</ul>
+<pre class="theme-atom-one-dark"><code class="language-javascript">&lt;!-- +layout.<span class="hljs-property">svelte</span> --&gt;
+&lt;!-- 작성된 레이아웃이 없을 경우 sveltekit의 기본 레이아웃 내용 --&gt;
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
+	<span class="hljs-keyword">let</span> { children } = $props();
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
+
+{@render <span class="hljs-title function_">children</span>()}</code></pre><ul>
+<li>하위 페이지에만 따로 layout을 적용하고 싶다면 하위 디렉토리에 추가 적인 <code>+layout.svelte</code> 파일을 작성한다.</li>
+</ul>
+<pre class="theme-atom-one-dark"><code class="language-javascript">&lt;!-- src/routes/settings/+layout.<span class="hljs-property">svelte</span> --&gt;
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;ts&quot;</span>&gt;</span><span class="language-javascript">
+	<span class="hljs-keyword">import</span> type { <span class="hljs-title class_">LayoutProps</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./$types&#x27;</span>;
+
+	<span class="hljs-keyword">let</span> { data, children }: <span class="hljs-title class_">LayoutProps</span> = $props();
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
+
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Settings<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
+
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;submenu&quot;</span>&gt;</span>
+	{#each data.sections as section}
+		<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/settings/{section.slug}&quot;</span>&gt;</span>{section.title}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+	{/each}
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+
+{@render <span class="hljs-title function_">children</span>()}</code></pre><h3 id="bm-40">`+layout.ts`</h3>
+<ul>
+<li><code>+page.ts</code>를 통해<code>+page.svelte</code>에서 데이터를 로드하는 것과 마찬가지로 <code>+layout.svelte</code>는 <code>+layout.ts</code>의 <code>load</code> 함수를 통해 데이터를 로드 할수 있다.</li>
+<li><code>+layout.ts</code>가 페이지 옵션(프리렌더, SSR 및 CSR)을 내보내면 하위 페이지의 기본값으로 사용된다.</li>
+</ul>
+<pre class="theme-atom-one-dark"><code class="language-javascript"><span class="hljs-keyword">import</span> type { <span class="hljs-title class_">LayoutLoad</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./$types&#x27;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-attr">load</span>: <span class="hljs-title class_">LayoutLoad</span> = <span class="hljs-function">() =&gt;</span> {
+	<span class="hljs-keyword">return</span> {
+		<span class="hljs-attr">sections</span>: [
+			{ <span class="hljs-attr">slug</span>: <span class="hljs-string">&#x27;profile&#x27;</span>, <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Profile&#x27;</span> },
+			{ <span class="hljs-attr">slug</span>: <span class="hljs-string">&#x27;notifications&#x27;</span>, <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Notifications&#x27;</span> }
+		]
+	};
+};</code></pre><h3 id="bm-45">`+layout.server.ts`</h3>
+<ul>
+<li><code>+page.server.ts</code>와 역할이 동일하다. 단 데이터 사용을 위해선 <code>LayoutServerLoad</code>로 형식을 변경해야 한다.</li>
+</ul>
+<h2 id="bm-48">`+server.ts`</h2>
+<ul>
+<li><code>+server.ts</code> 파일은 커스텀 API 앤드포인트를 만드는 데 사용된다. <code>+server.ts</code> 파일은 서버에서만 작동하며 svelte 컴포넌트를 렌더링하는 대신, HTTP 요청(Request)을 직접 처리하고 응답(Response)을 반환하는 서버 사이드 로직을 작성한다.</li>
+<li><code>+page.server.ts</code>가 특정 페이지를 위한 데이터를 준비한다면, <code>+server.ts</code>는 페이지와 독립적인 재사용 가능한 API 라우트를 생성한다.</li>
+<li>파일 안에서 <code>GET</code>, <code>POST</code>, <code>POST</code>, <code>PATCH</code>, <code>DELETE</code> 등 HTTP 메소드 이름으로 함수를 export 하면, 해당 메소드의 요청을 처리하는 핸들러가 된다.</li>
+<li>파일의 위치가 곧 API URL 경로가 되는 파일 기반 라우팅 기능을 지원한다.<ul>
+<li><code>src/routes/api/posts/+server.ts</code> =&gt; <code>/api/posts</code></li>
+<li><code>src/routes/api/posts/[id]/+server.ts</code> =&gt; <code>/api/posts/[id]</code></li>
+</ul>
+</li>
+<li><code>+server.ts</code>는 sveltekit 프로젝트 내에서 완전한 기능의 백엔드 API 서버를 구축할 수 있는 강력한 기능 도구 이다. 페이지 렌더링과 무관하게 순수한 데이터나 로직을 HTTP를 통해 제공하고 싶을 떄 사용된다.</li>
+</ul>
+<pre class="theme-atom-one-dark"><code class="language-javascript"><span class="hljs-keyword">import</span> { error } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@sveltejs/kit&#x27;</span>;
+<span class="hljs-keyword">import</span> type { <span class="hljs-title class_">RequestHandler</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./$types&#x27;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-attr">GET</span>: <span class="hljs-title class_">RequestHandler</span> = <span class="hljs-function">(<span class="hljs-params">{ url }</span>) =&gt;</span> {
+	<span class="hljs-keyword">const</span> min = <span class="hljs-title class_">Number</span>(url.<span class="hljs-property">searchParams</span>.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;min&#x27;</span>) ?? <span class="hljs-string">&#x27;0&#x27;</span>);
+	<span class="hljs-keyword">const</span> max = <span class="hljs-title class_">Number</span>(url.<span class="hljs-property">searchParams</span>.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;max&#x27;</span>) ?? <span class="hljs-string">&#x27;1&#x27;</span>);
+
+	<span class="hljs-keyword">const</span> d = max - min;
+
+	<span class="hljs-keyword">if</span> (<span class="hljs-built_in">isNaN</span>(d) || d &lt; <span class="hljs-number">0</span>) {
+		<span class="hljs-title function_">error</span>(<span class="hljs-number">400</span>, <span class="hljs-string">&#x27;min and max must be numbers, and min must be less than max&#x27;</span>);
+	}
+
+	<span class="hljs-keyword">const</span> random = min + <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * d;
+
+	<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(<span class="hljs-title class_">String</span>(random));
+};
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-attr">POST</span>: <span class="hljs-title class_">RequestHandler</span> = <span class="hljs-title function_">async</span> ({ request }) =&gt; {
+	<span class="hljs-keyword">const</span> { a, b } = <span class="hljs-keyword">await</span> request.<span class="hljs-title function_">json</span>();
+	<span class="hljs-keyword">return</span> <span class="hljs-title function_">json</span>(a + b);
+};
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-attr">fallback</span>: <span class="hljs-title class_">RequestHandler</span> = <span class="hljs-title function_">async</span> ({ request }) =&gt; {
+	<span class="hljs-keyword">return</span> <span class="hljs-title function_">text</span>(<span class="hljs-string">`I caught your <span class="hljs-subst">${request.method}</span> request!`</span>);
+};</code></pre><h3 id="bm-53">Fallback method handler</h3>
+<ul>
+<li>API 요청 메소드에 해당되는 작성된 핸들러가 없다면 <code>fallback</code> 메서드가 처리하게 된다.</li>
+</ul>
+<h3 id="bm-56">경로 충돌</h3>
+<ul>
+<li><code>+server.ts</code> 파일은 <code>+page</code>파일과 동일한 경로에 배치 될 수 있으며, 이를 통해 동일한 경로가 페이지 로드 또는 API 앤드 포인트가 될수 있다. sveltekit은 다음과 같은 규칙으로 어떤 경로를 사용할지 정한다.<ul>
+<li><code>PUT</code>, <code>PATCH</code>, <code>DELETE</code>, <code>OPTIONS</code> 요청은 페이지 로딩에 적용되지 않으므로 <code>+server.ts</code> 경로가 선택된다.</li>
+<li>요청이 <code>text/html</code>일 경우(브라우저 페이지 요청)는 페이지 로드 요청이 선택되고, 그렇지 않을 경우 <code>+server.ts</code> 경로가 선택된다.</li>
+<li><code>GET</code>요청에 대한 응답에는 브라우저가 HTML/JSON을 선택할 수 있도록 <code>Vary: Accept</code>헤더가 포함된다.</li>
+</ul>
+</li>
+</ul>
+<h2 id="bm-59">`$types`</h2>
+<h2 id="bm-60">괄호 라우팅</h2>
+<ul>
+<li>sveltekit에서는 폴더명 이나 파일명을 괄호로 묶어 라우팅을 제어하거나 파라미터 입력을 받는 기능을 제공한다.</li>
+</ul>
+<ol>
+<li><p>동적 라우트 - <code>[파라미터_이름]</code></p>
+<ul>
+<li>가장 흔하게 사용되는 형태로, URL 일부를 변수(파라미터)로 만들고 싶을때 사용한다.</li>
+<li>예시<ul>
+<li>파일 경로 : src/routes/shop/products/[id]/+page.svelte</li>
+<li>매칭 URL : /shop/products/123 , /shop/products/abc</li>
+<li>load 함수의 params.id은 123, abc</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>라우트 그룹 - <code>(그룹_이름)</code></p>
+<ul>
+<li>폴더명을 일반 괄호로 감사면, 관련 라우트 들을 그룹으로 묶을 수 있지만 URL 경로에는 영향을 주지 않는다.</li>
+<li>예시1<ul>
+<li>파일 경로 : src/routes/(marketing)/about/+page.svelte</li>
+<li>매칭 URL : /about <ul>
+<li>(marketing)은 무시됨</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>예시2<ul>
+<li>파일 경로 : src/routes/(app)/dashboard/+page.svelte</li>
+<li>매칭 URL : /dashboard <ul>
+<li>(app)은 무시됨</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>선택적 파라미터 - <code>[[]]</code></p>
+<ul>
+<li>동적 라우트 세그먼트가 있어도 되고 없어도 되는 경우에 사용한다.</li>
+<li>예시1<ul>
+<li>파일 경로 : src/routes/[[lang]]/contact/+page.svelte</li>
+<li>매칭 URL1 : /contact<ul>
+<li>load 함수에서 params.lang은 undefined</li>
+</ul>
+</li>
+<li>매칭 URL2 : /en/contact<ul>
+<li>load 함수에서 params.lang은 &#39;en&#39;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>나머지 파라미터 - <code>[... ]</code></p>
+<ul>
+<li>특정 지점 부터 나머지 모든 URL 경로를 하나의 파라미터로 잡을 때 사용한다.</li>
+<li>예시<ul>
+<li>파일 경로 : src/routes/docs/[...slug]/+page.svelte</li>
+<li>매칭 URL : /docs/a/b/c<ul>
+<li>load 함수에서 params.slug의 값은 &#39;a/b/c&#39;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+
+                        </div>
+
+                        
+            <script src="https://utteranc.es/client.js"
+                repo="ballboyDev/personal-storage"
+                issue-term="pathname"
+                label="comments"
+                theme="github-dark"
+                crossorigin="anonymous"
+                async>
+            </script>
+
+                    </div>
+                </div>
+            </body>
+            </html>

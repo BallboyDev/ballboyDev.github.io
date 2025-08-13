@@ -1,0 +1,724 @@
+
+            <!DOCTYPE html>
+            <html lang="en">
+
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta name="google-site-verification" content="jrh7qB1kgowvnvE0P3KqlhI-iNmw9CvGJF4dQsaCTAk" />
+                <meta name="naver-site-verification" content="6fe49ccdb8613221b89ae2d580300c63a91af446" />
+                
+                
+            <link rel="icon" href="https://ballboyDev.github.io/assets/img/bDev.ico">
+            <link rel="stylesheet" href="https://ballboyDev.github.io/assets/markdown.css">
+            <link rel="stylesheet" href="https://ballboyDev.github.io/assets/skin.css">
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+
+            <style>
+                #p-120 {
+                    color: rgb(76, 193, 237) !important;
+                }
+            </style>
+            <script id="data" type="application/json">
+            {
+                "fold": ["1","12","122"]
+            }
+            </script>
+
+            <script src="https://ballboyDev.github.io/assets/skin.js"></script>
+
+                <title>sveltekit API 요청</title>
+            </head>
+
+            <body>
+                <div id="wrapper">
+                    <!-- side bar component -->
+                    <div id="head-bar">
+                        <img id="openNavi" class="menu"
+                            src="https://ballboyDev.github.io/assets/img/menu.svg"
+                            alt="" srcset="">
+                        <div class="title">심심한 개발자의 취미생활</div>
+                        <img class="img"
+                            src="https://ballboyDev.github.io/assets/img/profile.jpeg"
+                            alt="" srcset="">
+                    </div>
+                    <div id="side-bar">
+                        <img id="closeNavi" class="close"
+                            src="https://ballboyDev.github.io/assets/img/close.svg"
+                            alt="" srcset="">
+                        <div class="profile">
+                            <img class="img" src="https://ballboyDev.github.io/assets/img/profile.jpeg" alt="" srcset="">
+                            <p>심심한 개발자의 취미생활</p>
+                        </div>
+                        <hr />
+                        <h3 class="home"><a href="https://ballboyDev.github.io">HOME</a></h3>
+                        <hr />
+                        
+                        <h3 class="category" onclick="foldNavi()">카테고리</h3>
+                        <div class="navi">
+                            <ul class="root">
+
+                                <li id="dt-1" onclick="foldNavi(1)">심심한 개발자의 개발 공부 (23)</li>
+<ul id="dc-1" class='dc-all' style="display: block;">
+<a href="https://ballboyDev.github.io/post/108">
+<li id="p-108">• Backend 학습 로드맵</li>
+</a>
+<li id="dt-11" onclick="foldNavi(11)">개발 정보 정리 (10)</li>
+<ul id="dc-11" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/3">
+<li id="p-3">• vim 에디터 정리</li>
+</a>
+<a href="https://ballboyDev.github.io/post/31">
+<li id="p-31">• json객체와 Map()의 비교</li>
+</a>
+<a href="https://ballboyDev.github.io/post/32">
+<li id="p-32">• 배열 생성 성능 비교</li>
+</a>
+<a href="https://ballboyDev.github.io/post/36">
+<li id="p-36">• console 객체 활용하기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/58">
+<li id="p-58">• 자주쓰는 git/git-flow 명령어</li>
+</a>
+<a href="https://ballboyDev.github.io/post/69">
+<li id="p-69">• curl 명령어 사용법 정리</li>
+</a>
+<a href="https://ballboyDev.github.io/post/73">
+<li id="p-73">• node 내장 객체와 내장 모듈 사용하기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/80">
+<li id="p-80">• 터미널 이미지 형식 변환(sips)</li>
+</a>
+<a href="https://ballboyDev.github.io/post/107">
+<li id="p-107">• Shell Script 기초 문법 정리</li>
+</a>
+<a href="https://ballboyDev.github.io/post/116">
+<li id="p-116">• Cookie, Session, JWT, OAuth 개념</li>
+</a>
+
+</ul>
+<li id="dt-12" onclick="foldNavi(12)">svelte, sveltekit (12)</li>
+<ul id="dc-12" class='dc-all' style="display: none;">
+<li id="dt-121" onclick="foldNavi(121)">svelte (8)</li>
+<ul id="dc-121" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/18">
+<li id="p-18">• svelte Basic</li>
+</a>
+<a href="https://ballboyDev.github.io/post/19">
+<li id="p-19">• svelte 속성</li>
+</a>
+<a href="https://ballboyDev.github.io/post/20">
+<li id="p-20">• life cycle</li>
+</a>
+<a href="https://ballboyDev.github.io/post/21">
+<li id="p-21">• runes</li>
+</a>
+<a href="https://ballboyDev.github.io/post/22">
+<li id="p-22">• template Syntax</li>
+</a>
+<a href="https://ballboyDev.github.io/post/23">
+<li id="p-23">• Directive</li>
+</a>
+<a href="https://ballboyDev.github.io/post/24">
+<li id="p-24">• Runtime</li>
+</a>
+<a href="https://ballboyDev.github.io/post/68">
+<li id="p-68">• setting svelte.config.js</li>
+</a>
+
+</ul>
+<li id="dt-122" onclick="foldNavi(122)">sveltekit (4)</li>
+<ul id="dc-122" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/117">
+<li id="p-117">• sveltekit 기본구조</li>
+</a>
+<a href="https://ballboyDev.github.io/post/118">
+<li id="p-118">• 파일 시스템 기반 라우팅</li>
+</a>
+<a href="https://ballboyDev.github.io/post/119">
+<li id="p-119">• 데이터 로드</li>
+</a>
+<a href="https://ballboyDev.github.io/post/120">
+<li id="p-120">• sveltekit API 요청</li>
+</a>
+
+</ul>
+
+</ul>
+
+</ul>
+<li id="dt-2" onclick="foldNavi(2)">심심한 개발자의 개발 취미 (14)</li>
+<ul id="dc-2" class='dc-all' style="display: none;">
+<li id="dt-22" onclick="foldNavi(22)">간단 블로그 만들기 (8)</li>
+<ul id="dc-22" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/1">
+<li id="p-1">• 블로그 개발 기획, 배포 일지</li>
+</a>
+<a href="https://ballboyDev.github.io/post/10">
+<li id="p-10">• 0. 블로그 만들기 - 시작하며</li>
+</a>
+<a href="https://ballboyDev.github.io/post/13">
+<li id="p-13">• 1. 블로그 만들기 - 폴더 탐색</li>
+</a>
+<a href="https://ballboyDev.github.io/post/16">
+<li id="p-16">• 2. 블로그 만들기 - 마크다운 변환</li>
+</a>
+<a href="https://ballboyDev.github.io/post/17">
+<li id="p-17">• 3. 블로그 만들기 - 리펙토링</li>
+</a>
+<a href="https://ballboyDev.github.io/post/34">
+<li id="p-34">• 1. 블로그 만들기 외전 - 애플 단축어 활용</li>
+</a>
+<a href="https://ballboyDev.github.io/post/35">
+<li id="p-35">• 2. 블로그 만들기 외전 - 외부 빌드 스크립트 만들기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/71">
+<li id="p-71">• 4. 블로그 만들기 - 목차</li>
+</a>
+
+</ul>
+<li id="dt-23" onclick="foldNavi(23)">온라인 코딩 테스트 시스템 (6)</li>
+<ul id="dc-23" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/92">
+<li id="p-92">• 온라인 코딩 테스트 시스템 배포 일지</li>
+</a>
+<a href="https://ballboyDev.github.io/post/93">
+<li id="p-93">• 0. 온코테 시스템 만들기 - 시작하며</li>
+</a>
+<a href="https://ballboyDev.github.io/post/98">
+<li id="p-98">• 1. 온코테 시스템 만들기 - 기초 설계</li>
+</a>
+<a href="https://ballboyDev.github.io/post/99">
+<li id="p-99">• 2. 온코테 시스템 만들기 - Backend</li>
+</a>
+<a href="https://ballboyDev.github.io/post/100">
+<li id="p-100">• 3. 온코테 시스템 만들기 - Storage</li>
+</a>
+<a href="https://ballboyDev.github.io/post/101">
+<li id="p-101">• 4. 온코테 시스템 만들기 - Container</li>
+</a>
+
+</ul>
+<li id="dt-24" onclick="foldNavi(24)">로드맵(chart) 제작 (0)</li>
+<ul id="dc-24" class='dc-all' style="display: none;">
+
+</ul>
+
+</ul>
+<li id="dt-3" onclick="foldNavi(3)">자취생 밥 만들어 먹기 (28)</li>
+<ul id="dc-3" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/27">
+<li id="p-27">• 내돈 내산 양념/조미료 사용 후기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/33">
+<li id="p-33">• 전자레인지로 밥 짓기</li>
+</a>
+<li id="dt-31" onclick="foldNavi(31)">5첩 반상을 위한 밑반찬 (3)</li>
+<ul id="dc-31" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/5">
+<li id="p-5">• 겉절이 김치</li>
+</a>
+<a href="https://ballboyDev.github.io/post/7">
+<li id="p-7">• 고추다대기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/11">
+<li id="p-11">• 김짱아치</li>
+</a>
+
+</ul>
+<li id="dt-32" onclick="foldNavi(32)">밥의 영혼의 단짝 국, 소스 (6)</li>
+<ul id="dc-32" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/2">
+<li id="p-2">• 미역국</li>
+</a>
+<a href="https://ballboyDev.github.io/post/4">
+<li id="p-4">• 양배추 강된장</li>
+</a>
+<a href="https://ballboyDev.github.io/post/6">
+<li id="p-6">• 진한 카레</li>
+</a>
+<a href="https://ballboyDev.github.io/post/9">
+<li id="p-9">• 계란국</li>
+</a>
+<a href="https://ballboyDev.github.io/post/14">
+<li id="p-14">• 짜장소스</li>
+</a>
+<a href="https://ballboyDev.github.io/post/74">
+<li id="p-74">• 냉이 된장찌개</li>
+</a>
+
+</ul>
+<li id="dt-33" onclick="foldNavi(33)">삶의 에너지 고기(육식) (7)</li>
+<ul id="dc-33" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/8">
+<li id="p-8">• 국물 두루치기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/12">
+<li id="p-12">• 삼겹살 덮밥</li>
+</a>
+<a href="https://ballboyDev.github.io/post/26">
+<li id="p-26">• 전자레인지 대패 삼겹살 솥밥</li>
+</a>
+<a href="https://ballboyDev.github.io/post/30">
+<li id="p-30">• 멍게 비빔밥</li>
+</a>
+<a href="https://ballboyDev.github.io/post/37">
+<li id="p-37">• 제육볶음</li>
+</a>
+<a href="https://ballboyDev.github.io/post/72">
+<li id="p-72">• 멍게 무침</li>
+</a>
+<a href="https://ballboyDev.github.io/post/79">
+<li id="p-79">• 닭근위 볶음</li>
+</a>
+
+</ul>
+<li id="dt-34" onclick="foldNavi(34)">면 러버의 면 사랑 요리 (10)</li>
+<ul id="dc-34" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/25">
+<li id="p-25">• 내 멋대로 알리오 올리오</li>
+</a>
+<a href="https://ballboyDev.github.io/post/28">
+<li id="p-28">• 라면 요리 - 마요네즈 비빔 라면</li>
+</a>
+<a href="https://ballboyDev.github.io/post/29">
+<li id="p-29">• 들기름 막국수</li>
+</a>
+<a href="https://ballboyDev.github.io/post/38">
+<li id="p-38">• 고추 기름 비빔면</li>
+</a>
+<a href="https://ballboyDev.github.io/post/70">
+<li id="p-70">• 라면 요리 - 마늘 해장 라면</li>
+</a>
+<a href="https://ballboyDev.github.io/post/76">
+<li id="p-76">• 라면 요리 - 대파 해장 라면</li>
+</a>
+<a href="https://ballboyDev.github.io/post/85">
+<li id="p-85">• 라면 요리 - 라면밥</li>
+</a>
+<a href="https://ballboyDev.github.io/post/87">
+<li id="p-87">• 이열치냉 - 냉 미역 국수</li>
+</a>
+<a href="https://ballboyDev.github.io/post/105">
+<li id="p-105">• 이열치냉 - 간단 야식 냉면</li>
+</a>
+<a href="https://ballboyDev.github.io/post/106">
+<li id="p-106">• 라면 요리 - 윤남노 사천 짜파게티</li>
+</a>
+
+</ul>
+
+</ul>
+<li id="dt-4" onclick="foldNavi(4)">의식의 흐름대로 (4)</li>
+<ul id="dc-4" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/86">
+<li id="p-86">• 내돈 내산 심심한 개발자의 데스크 셋업</li>
+</a>
+<a href="https://ballboyDev.github.io/post/88">
+<li id="p-88">• 심심한 개발자의 볼링 취미 볼백 탐방기</li>
+</a>
+<li id="dt-41" onclick="foldNavi(41)">일상 회고록 (2)</li>
+<ul id="dc-41" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/103">
+<li id="p-103">• 2025년 상반기 회고 (ver. ChatGPT)</li>
+</a>
+<a href="https://ballboyDev.github.io/post/104">
+<li id="p-104">• 2025년 상반기 회고</li>
+</a>
+
+</ul>
+
+</ul>
+
+                            </ul>
+                        </div>
+
+                        <div class="copyright">
+                            <img class="img"
+                                src="https://ballboyDev.github.io/assets/img/github-mark-white.svg"
+                                alt="" srcset="">
+                            <a href="https://github.com/BallboyDev/ballboyDev.github.io" target="_blank">Designed by ballboyDev</a>
+                        </div>
+
+                    </div>
+
+                    <!-- contents component -->
+                    <div id="contents">
+
+                        <div class="bookmark">
+
+            <div class="title t1">
+                <div><a href="#bm-1"># sveltekit API 요청</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-6">## Cookies</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-9">## Headers</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-14">## Errors</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-20">## Redirects</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-25">## Promise 기반 스트리밍</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-32">## 병렬 처리</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-35">## `load`함수 의존성 자동 추적</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-38">### 종속성 추적 해제</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-41">### 수동 의존성 관리 - `depends()`, `invalidate()`</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-44">### `load`함수가 다시 실행되는 경우 정리
+</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-45">## 데이터 로딩시 인증 측면에서의 고려사항</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-48">### 올바른 인층 처리 전략</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-51">## getRequestEvent 사용</a></div>
+                <p>•</p>
+            </div></div>
+                        
+                        
+            <a href="https://ballboyDev.github.io/post/119.html" class="prev post">
+                <img src="https://ballboyDev.github.io/assets/img/prev.svg" alt="" srcset="">
+            </a>
+                        
+                        
+                        
+                        <div class="main markdown-body">
+
+                            <h1 id="bm-1">sveltekit API 요청</h1>
+<ul>
+<li>외부 API 나 <code>+server.ts</code> 핸들러에서 데이터를 가져 오려면 sveltekit에서 제공되는 <code>fetch</code>함수를 사용한다. sveltekit에서 제공된 <code>fetch</code>함수는 몇 가지 추가 기능을 제외하면 기본 웹 fetch API 와 동일하게 작동한다.</li>
+</ul>
+<ol>
+<li><p>서버에서 인증된 요청 가능</p>
+<ul>
+<li>사용자가 브라우저를 통해 페이지를 요청할 때, 브라우저는 Cookie 헤더(로그인 세션 정보 등)나 Authorization 헤더(API 토큰 등)를 함께 보냅니다.
+ <code>load</code> 함수 내에서 fetch를 사용하여 앱 내부의 다른 API 엔드 포인트를 호출하면, sveltekit은 원래의 페이지 요청에 포함되었던 cookie와 Authorization 헤더를 자동으로 복사하여 새로운 요청에 활용한다.</li>
+</ul>
+</li>
+<li><p>서버에서 상대 경로 요청 가능</p>
+<ul>
+<li>일반적으로 API 호출시 <code>https://api.example.com/data</code>와 같이 전체 URL을 명시해야 하지만 sveltekit은 앱의 origin(<a href="http://localhost:5173)%EC%9D%84">http://localhost:5173)을</a> 알고 있기에 fetch(&#39;/api/data&#39;)와 같이 상대 경로를 사용할 수 있다.</li>
+</ul>
+</li>
+<li><p>내부 요청 시 HTTP 오버 헤드 없음</p>
+<ul>
+<li>서버에서 실행되는 <code>load</code> 함수가 자신의 앱 내부에 있는 <code>+server.ts</code> API 라우트를 fetch 할 때, sveltekit은 네트워크 HTTP 요청을 거치지 않고 해당 핸들러 함수(<code>GET</code>, <code>POST</code> 등)을 직접 호출하고 그 결과를 받아 온다.</li>
+</ul>
+</li>
+<li><p>서버 사이드 렌더링시 응답이 HTML 에 포함됨</p>
+<ul>
+<li>서버 사이드 렌더링 과정에서 <code>load</code> 함수가 fetch를 실행하면 sveltekit은 응답을 생성되는 HTML 문서의 <code>&lt;script type="application/json"&gt;</code>과 같은 태그 안에 텍스트 형태로 직접 삽입한다.</li>
+</ul>
+</li>
+<li><p>하이드레이션 시 데이터 재사용</p>
+<ul>
+<li>4번과 관련하여 브라우저가 서버로 부터 받은 HTML과 Javascript를 실행하여 하이드레이션 하는 과정에서 <code>load</code>함수가 실행될 시 4번 과정에서 삽입된 데이터가 있는지 먼저 확인 후 있을 경우 데이터를 활용하고 없을 경우 <code>fetch</code>를 실행한다.</li>
+</ul>
+</li>
+</ol>
+<h2 id="bm-6">Cookies</h2>
+<ul>
+<li><p>서버의 <code>load</code>기능은 <code>cookies</code>를 가져오고 설정할 수 있지만 보안 정책으로 요청을 보내는 대상(host)이 현재 sveltekit 애플리케이션과 동일한 도메인이거나 하위 도매인 (subdomain)일 경우에만 사용자의 쿠키를 자동으로 요청에 포함시켜 전달한다.</p>
+</li>
+<li><p>sveltekit이 <code>https://my.app.com</code>에서 실행 된다면 아래와 같이 정책이 적용된다</p>
+<ul>
+<li><p>쿠키가 전달 되는 경우</p>
+<ol>
+<li>동일한 호스트<ul>
+<li><code>fetch('/api/userinfo') / https://my.app.com/api/userinfo</code></li>
+<li>앱 내부의 API 호출하는 것은 신뢰할 수 있는 통신으로 간주되어 쿠키가 전달된다.</li>
+</ul>
+</li>
+<li>하위 도메인 <ul>
+<li><code>fetch('https://api.my.app.com/data')</code></li>
+<li><code>api.myapp.com</code>은 <code>myapp.com</code>의 하위 도메인이므로, 같은 애플리메이션 인프라의 일부로 간주하여 쿠키가 전달된다.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>쿠키가 전달 되지 않는 경우</p>
+<ol>
+<li>완전히 다른 외부 호스트<ul>
+<li><code>fetch('https://api.your.app.com/data')</code></li>
+<li>제 3자의 도메인에 쿠키 정보를 유출하지 않기 위한 핵심적인 보안 조치로 쿠키가 전달 되지 않는다.</li>
+</ul>
+</li>
+<li>상위 도메인<ul>
+<li><code>fetch('app.com')</code></li>
+<li>더 구체적인 하위 도메인이 아닌 상위 도메인으로의 요청은 다른 서비스로 간주되어 신뢰 경계를 벗어난 것으로 판단, 쿠키가 전달 되지 않는다.</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>만약 외부 API에 인증 정보(API 키 등)를 보내야 한다면 수동으로 명시하여 헤더에 담아 보내야 합니다.</p>
+</li>
+</ul>
+<h2 id="bm-9">Headers</h2>
+<ul>
+<li><code>load</code>함수가 서버에서 실행 될 때, 해당 페이지의 HTTP 응답 헤더를 설정하기 위한 <code>setHeaders</code>함수를 제공합니다.</li>
+<li><code>setHeaders</code>함수는 응답에 헤더를 제어하는 sveltekit의 공식적인 방법이지만 브라우저에서 실행시 아무런 효과가 없습니다.</li>
+<li>주요 사용 사례로는 페이지 캐싱(caching) 제어를 위한 <code>Cache-Control</code> 설정이다.</li>
+</ul>
+<pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-title function_">setHeaders</span>({
+    <span class="hljs-string">&#x27;Cache-Control&#x27;</span>: <span class="hljs-string">&#x27;public, max-age=60&#x27;</span>
+    <span class="hljs-comment">// &#x27;Content-Language&#x27;, &#x27;ETag&#x27; 등</span>
+})</code></pre><ul>
+<li>동일한 헤더를 별도의 <code>load</code>함수에서 여러번 설정하는 경우 에러가 발생한다. setHeaders 함수를 사용하여 한번만 설정 할 수 있다.</li>
+<li><code>set-cookie</code>를 사용하여 헤더를 추가할 수 없다. 대신 <code>cookies.set(name, value, options)</code>를 사용한다.</li>
+</ul>
+<h2 id="bm-14">Errors</h2>
+<ul>
+<li><code>load</code> 함수 실행 중 오류가 발생하면 가장 가까운 <code>+error.svelte</code>가 렌더링 된다.</li>
+<li><code>@sveltejs/kit</code>의 <code>error</code> 헬퍼를 사용하면 HTTP 상태 코드와 상태 메시지를 지정할 수 있다.</li>
+</ul>
+<pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-keyword">import</span> { error } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@sveltejs/kit&#x27;</span>;
+<span class="hljs-keyword">import</span> type { <span class="hljs-title class_">LayoutServerLoad</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./$types&#x27;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-attr">load</span>: <span class="hljs-title class_">LayoutServerLoad</span> = <span class="hljs-function">(<span class="hljs-params">{ locals }</span>) =&gt;</span> {
+	<span class="hljs-keyword">if</span> (!locals.<span class="hljs-property">user</span>) {
+		<span class="hljs-title function_">error</span>(<span class="hljs-number">401</span>, <span class="hljs-string">&#x27;not logged in&#x27;</span>);
+	}
+
+	<span class="hljs-keyword">if</span> (!locals.<span class="hljs-property">user</span>.<span class="hljs-property">isAdmin</span>) {
+		<span class="hljs-title function_">error</span>(<span class="hljs-number">403</span>, <span class="hljs-string">&#x27;not an admin&#x27;</span>);
+	}
+};</code></pre><ul>
+<li>예상 하지 못한 오류가 발생한 경우 sveltekit은 서버 콘솔에 오슈 스택 트레이스를 기록하고 사용자에세는 일반적인 500 error 메시지를 보여준다. 그리고 오류를 최종적으로 처리 하기 전에 <code>src/hooks.server.ts - handleError</code> 함수를 호출한다.<ul>
+<li><code>handleError</code>는 예상 하지 못한 모든 서버 오류에 대한 글로벌 오류 처리기로 이 훅을 사용하여 오류 처리 방식을 커스터 마이징 할 수 있다.</li>
+</ul>
+</li>
+</ul>
+<h2 id="bm-20">Redirects</h2>
+<ul>
+<li>사용자를 리다이렉션 하기위해선 <code>@sveltejs/kit</code>의 <code>redirect</code> 헬퍼를 사용하여 <code>3XX</code>상태 코드와 함께 리다이렉션 위치를 지정한다.</li>
+<li><code>error(...)</code>와 마찬가지로 <code>redirect(...)</code>를 호출하면 예외가 발생하여 내부 헬퍼 함수 내부에서 실행을 쉽게 중지 할 수 있다.</li>
+</ul>
+<pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-keyword">import</span> { redirect } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@sveltejs/kit&#x27;</span>;
+<span class="hljs-keyword">import</span> type { <span class="hljs-title class_">LayoutServerLoad</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./$types&#x27;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-attr">load</span>: <span class="hljs-title class_">LayoutServerLoad</span> = <span class="hljs-function">(<span class="hljs-params">{ locals }</span>) =&gt;</span> {
+	<span class="hljs-keyword">if</span> (!locals.<span class="hljs-property">user</span>) {
+		<span class="hljs-title function_">redirect</span>(<span class="hljs-number">307</span>, <span class="hljs-string">&#x27;/login&#x27;</span>); <span class="hljs-comment">// redirect 함수는 예외 처리 블럭(try - catch) 외부에 작성해야 한다. 내부에서 사용시 catch문이 실행된다.</span>
+	}
+};</code></pre><ul>
+<li>브라우저에서는 <code>$app.navigation</code>의 <code>goto</code> 함수를 사용하여 <code>load</code>함수 외부에서 페이지 이동 및 리다이렉션이 가능하다.</li>
+</ul>
+<h2 id="bm-25">Promise 기반 스트리밍</h2>
+<ul>
+<li>일반적인 SSR에서는 페이지에서 요구하는 모든 데이터가 준비 될때까지 HTML 페이지 렌더링을 대기하다보니 데이터 수신 속도가 느린 데이터로 인해 페이지의 로딩이 지연된다는 문제점이 있었다. sveltekit에서는 이 문제를 해결하기 위해 server <code>load</code>함수에서 Promise를 직접 반환하는 것이 가능하다.</li>
+<li>동작 방식 - <code>+layout.server.ts</code>, <code>+layout.svelte</code>에서도 동일하게 작동한다.<ul>
+<li>서버 (<code>+page.server.ts</code>)의 <code>load</code> 함수 내에서 여러 데이터를 요청할때 빠르고 필수 적인 데이터는 <code>await</code>를 사용하여 즉시 값을 얻고 느리고 부가적인 데이터는 <code>await</code> 없이 <code>Promise 객체</code> 자체를 반환한다. sveltekit은 <code>await</code>된 데이터만 기다린 후, 페이지의 기본 HTML을 브라우저로 전송하고 서버에서 Promise가 완료 되면 브라우저로 HTTP 스트림을 통해 데이터를 streaming 한다.</li>
+<li>클라이언트 (<code>+page.svelte</code>)의 페이지에서는 svelte의 내장 기능은 <code>{#await}</code> 블록을 사용하여 Promise를 처리한다.</li>
+</ul>
+</li>
+</ul>
+<pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">// .server.ts</span>
+<span class="hljs-keyword">return</span> {
+    <span class="hljs-attr">post</span>: <span class="hljs-keyword">await</span> postPromise,
+    <span class="hljs-attr">streamed</span>: {
+        <span class="hljs-attr">comments</span>: commentsPromise
+    }
+}</code></pre><pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">// .svelte</span>
+{#<span class="hljs-keyword">await</span> data.<span class="hljs-property">streamed</span>.<span class="hljs-property">comments</span>}
+    <span class="hljs-comment">// 대기 중 UI</span>
+{:then comments}
+    <span class="hljs-comment">// 수신 완료 시 UI</span>
+{:<span class="hljs-keyword">catch</span> error}
+    <span class="hljs-comment">// 수신 실패 시 UI</span>
+{/<span class="hljs-keyword">await</span>}</code></pre><h2 id="bm-32">병렬 처리</h2>
+<ul>
+<li>클라이언트는 페이지 로딩 또는 이동 - 렌더링시 모든 <code>.server.ts</code>에 요청을 보내지 않고 브라우저에서 서버로 하나의 특별한 요청만 보낸다. </li>
+<li>sveltekit은 페이지를 렌더링 하는데 필요한 모든 <code>load</code> 함수 들을 미리 파악하여 동시에 실행을 시작한다.</li>
+<li>실행이 완료 되면 서버는 모두 모아 하나의 큰 JSON 객체로 묶어 브라우저로 응답한다.</li>
+</ul>
+<h2 id="bm-35">`load`함수 의존성 자동 추적</h2>
+<ul>
+<li>sveltekit은 각 <code>load</code>함수가 어떤 데이터에 의존하는지 자동으로 추적한다. 그리고 네비게인션이 발생했을 때, 의존하는 데이터가 변경된 <code>load</code> 함수만 다시 실행한다.</li>
+<li>sveltekit은 <code>load</code> 함수의 인자로 전달되는 객체들의 사용을 지켜보며 의존성을 파악한다.<ul>
+<li><code>params</code> 객체<ul>
+<li><code>load</code>함수가 <code>param.id</code>를 사용했다면 이 <code>load</code>함수는 id 파라미터에 의존하게 되며 URL 의 id값이 변경될때 다시 실행된다.</li>
+<li>만약 param 객체 전체를 사용했다면 내부 데이터 하나라도 변경될시 다시 실행된다.</li>
+</ul>
+</li>
+<li><code>url</code> 객체<ul>
+<li><code>load</code>함수가 url.searchParams를 사용했다면 URL 의 쿼리 스트링이 변경될 때 다시 실행된다.</li>
+<li><code>url.pathname</code>을 사용했다면, 경로가 변경될 때 다시 실행된다.</li>
+</ul>
+</li>
+<li><code>parent</code> 함수<ul>
+<li><code>load</code>함수가 <code>await parent()</code>를 호출했다면, 부모 <code>load</code>함수의 결과 데이터에 의존하게 되어 부모 <code>load</code>함수가 다시 실행되면 결과 값이 바뀌면 다시 실행된다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="bm-38">종속성 추적 해제</h3>
+<ul>
+<li><code>untrack()</code>함수는 sveltekit의 자동 의존성 추적 시스템에서 의도적으로 특정 의존성을 제외 하고 싶을떄 사용한다.</li>
+<li><code>untrack()</code>함수는 콜백 함수를 인자로 받는데 <code>untrack</code>의 콜백 함수 내에서 접근하는 모든 의존성은 sveltekit의 의존성 추적기에서 무시 된다.</li>
+</ul>
+<h3 id="bm-41">수동 의존성 관리 - `depends()`, `invalidate()`</h3>
+<ul>
+<li>URL에 나타나지 않는 쿠키에 저장된 테마 정보나, 폼 제출(action)을 통해 변경 되는 데이터에 의존하는 경우 sveltekit은 수동으로 의존성을 관리할 수 있다.</li>
+<li><code>depends()</code>와 <code>invalidate()</code>는 하나의 쌍(구독과 발행)으로 함께 사용되며 수동 의존성 관리가 올바르게 동작한다.</li>
+<li><code>depends(식별자)</code><ul>
+<li><code>load</code>함수 내에서 호출하며, <code>load</code>함수가 특정 데이터에 의존한다고 명시적으로 표시한다.</li>
+<li><code>depends('app:theme')</code>나 <code>depends('data:posts')</code>와 같이 자유롭게 정할수 있다.</li>
+</ul>
+</li>
+<li><code>invalidate(식별자)</code><ul>
+<li>주로 <code>+page.svelte</code>컴포넌트 내부나 <code>action</code>의 결과로 호출되며 <code>invalidate('app:theme')</code>가 호출되면, <code>depends('app:theme')</code>를 사용했던 모든 <code>load</code>함수들은 다음 네비게이션 시 강제로 다시 실행된다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="bm-44">`load`함수가 다시 실행되는 경우 정리</h3>
+<h2 id="bm-45">데이터 로딩시 인증 측면에서의 고려사항</h2>
+<ul>
+<li>sveltekit에서는 <code>+layout.server.ts</code>의 <code>load</code> 함수에 인증 로직을 넣는 것만으로는 충분하지 않다.<ol>
+<li>layout의 <code>load</code>함수는 항상 실행되지 않는다.<ul>
+<li><code>load</code>함수는 의존하는 데이터가 변경되지 않으면 성능을 위해 재실행을 하지 않는다. 만약 사용자의 세션이 만료되었더라도, <code>load</code>함수가 재실행되지 않으며 인증 체크 로직을 건너뛰게 되어 보호된 페이지나 데이터에 접근하는 보안 사고가 발생할 수 있다.</li>
+</ul>
+</li>
+<li><code>load</code>함수는 병렬로 실행된다.<ul>
+<li><code>+layout.server.ts</code>의 <code>load</code>가 인증 체크를 실패했을 시 redirect를 throw 하지만 동시에 <code>+page.server.ts</code>의 <code>load</code>가 실행을 시작하며 redirect가 완전치 처리 되기 전에 데이터베이스에서 민감한 정보를 조회할 수 있다.</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="bm-48">올바른 인층 처리 전략</h3>
+<ol>
+<li><p>Hooks 사용 (권장)</p>
+<ul>
+<li>모든 서버 요청에 대해 라우팅 및 <code>load</code>함수가 실행되기 전에 실행되는 중앙 미들웨어 <code>src/hooks.server.ts</code>파일의 handle 함수를 사용한다.<ul>
+<li><code>handle</code> 함수 내에서 사용자의 쿠키를 확인하여 인증 상태를 확인한 후, 보호된 경로에 접근하는데 인증되지 않았다면, <code>load</code>가 실행되기 전에 redirect를 throw하여 처리한다. 인증 되었다면 사용자 정보를 <code>event.locals</code>에 담아 이후 실행될 <code>load</code>함수나 API 엔드 포인트에서 쉽게 사용할 수 있도록 한다.</li>
+</ul>
+</li>
+<li>장점<ul>
+<li>중앙 집중 - 인증 로직이 한 곳에 모여 관리가 편하다.</li>
+<li>완벽한 보호 - 모든 요청에 대해 가장 먼저 실행 되므로, 기존 문제점을 모두 원칙적으로 차단한다.</li>
+<li>효율성 - <code>event.locals</code>를 통해 사용자 정보를 한번만 조회하고 재사용할 수 있다</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>각 <code>+page.server.ts</code>에서 직접 확인</p>
+<ul>
+<li>보호가 필요한 모든 <code>+page.server.ts</code>의 <code>load</code>함수 시작 부분에서 직접 인증 체크 로직을 넣는다.</li>
+<li>장점 - 어떤 페이지가 보호되는지 매우 명시적이고, 특정 페이지에만 특별한 권한을 부여할 경우 유용하다.</li>
+<li>단점 - 코드 중복과 유지보수가 복잡해진다.</li>
+</ul>
+</li>
+<li><p><code>+layout.server.ts</code> + <code>await parent()</code></p>
+<ul>
+<li><code>+layout.server.ts</code>에 인증 체크 로직을 넣고, 그 아래 모든 자식 <code>+page.server.ts</code>들이 <code>load</code>함수 시작 부분에서 <code>await parent()</code>를 반드시 호출 하도록 강제한다.</li>
+<li>장단점 - 설명 안한다</li>
+</ul>
+</li>
+</ol>
+<h2 id="bm-51">getRequestEvent 사용</h2>
+<ul>
+<li><p><code>getRequestEvent</code>는 sveltekit에서 제공하는 고급 기능으로, 서버 측 코드의 어느 곳에서나 현재 요청에 대한 RequestEvent 객체에 접근할 수 있게 해주는 함수이다.</p>
+</li>
+<li><p>일반적으로 <code>RequestEvent</code> 객체는 <code>hooks.server.ts</code>의 <code>handle</code> 함수나 <code>+server.ts</code>의 핸들러, +page.server.ts의 <code>load</code> 및 <code>actions</code> 함수의 인자로 직접 전달된다. 하지만 때로는 이렇게 전달 받은 <code>event</code> 객체를 여러 함수를 거쳐 깊숙한 곳에 있는 유틸리티 함수나 모듈까지 전달해야 하는 <code>prop drilling</code> 문제가 발생하는에 이러한 문제를 해결하기 위해 <code>getRequestEvnet</code> 가 사용된다.</p>
+</li>
+<li><p>제약 사항</p>
+<ul>
+<li>서버 전용 : 서버측 코드에서만 사용할 수 있다.</li>
+<li>요청 생명 주기 내에서만 유효 : 요청 처리의 동기적인 실행 흐름 내에서만 호출되어야 하며 <code>setTimeout</code>이나 <code>setInterval</code>의 콜백 함수 처럼 요청 컨텍스트가 사라진 비동기적인 환경에서는 null이 반환된다.</li>
+</ul>
+</li>
+</ul>
+<pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">// src/lib/server/auth.ts</span>
+<span class="hljs-keyword">import</span> { redirect } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@sveltejs/kit&#x27;</span>;
+<span class="hljs-keyword">import</span> { getRequestEvent } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;$app/server&#x27;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">requireLogin</span>(<span class="hljs-params"></span>) {
+	<span class="hljs-keyword">const</span> { locals, url } = <span class="hljs-title function_">getRequestEvent</span>();
+
+	<span class="hljs-comment">// assume `locals.user` is populated in `handle`</span>
+	<span class="hljs-keyword">if</span> (!locals.<span class="hljs-property">user</span>) {
+		<span class="hljs-keyword">const</span> redirectTo = url.<span class="hljs-property">pathname</span> + url.<span class="hljs-property">search</span>;
+		<span class="hljs-keyword">const</span> params = <span class="hljs-keyword">new</span> <span class="hljs-title class_">URLSearchParams</span>({ redirectTo });
+
+		<span class="hljs-title function_">redirect</span>(<span class="hljs-number">307</span>, <span class="hljs-string">`/login?<span class="hljs-subst">${params}</span>`</span>);
+	}
+
+	<span class="hljs-keyword">return</span> locals.<span class="hljs-property">user</span>;
+}</code></pre><pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">// +page.server.ts</span>
+<span class="hljs-keyword">import</span> { requireLogin } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;$lib/server/auth&#x27;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">load</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-comment">// 유저의 로그인 상태 확인</span>
+	<span class="hljs-keyword">const</span> user = <span class="hljs-title function_">requireLogin</span>();
+
+	<span class="hljs-comment">// `user` is guaranteed to be a user object here, because otherwise</span>
+	<span class="hljs-comment">// `requireLogin` would throw a redirect and we wouldn&#x27;t get here</span>
+	<span class="hljs-keyword">return</span> {
+		<span class="hljs-attr">message</span>: <span class="hljs-string">`hello <span class="hljs-subst">${user.name}</span>!`</span>
+	};
+}</code></pre>
+
+                        </div>
+
+                        
+            <script src="https://utteranc.es/client.js"
+                repo="ballboyDev/personal-storage"
+                issue-term="pathname"
+                label="comments"
+                theme="github-dark"
+                crossorigin="anonymous"
+                async>
+            </script>
+
+                    </div>
+                </div>
+            </body>
+            </html>
