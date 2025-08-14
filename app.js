@@ -90,10 +90,12 @@ const app = {
                     const isDir = fs.statSync(`${root}/${v}`).isDirectory();
 
                     if (isDir) {
-                        const [title, index] = path.basename(v, path.extname(v)).split('_');
+                        const [title, tempIdx] = path.basename(v, path.extname(v)).split('_');
 
-                        if (parseInt(index) !== 0) {
-                            // if (env === 'dev' || (env === 'build' && index !== 0)) {
+                        // 개발 환경에서 디렉토리의 index 값이 0인 경우에도 Navi 표현
+                        const index = parseInt(tempIdx) === 0 ? Math.floor(Math.random() * 9999) : tempIdx
+
+                        if (env === 'dev' || (env === 'build' && parseInt(tempIdx) !== 0)) {
                             const [child, json] = recursion(`${root}/${v}`, [...fold, index]);
                             const count = Object.keys(child).reduce((a, b) => {
                                 const [type, index] = b.split('_');

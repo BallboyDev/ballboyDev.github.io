@@ -40,7 +40,7 @@ const custom = {
             return `<code style="background-color: ${!!colorSet[color[1]] ? colorSet[color[1]] : color[1]};">${text.substring(0, color.index).trim()}</code>`
         }
 
-        return `<code>${text}</code>`
+        return `<code style="color: rgb(255 188 54)">${text}</code>`
     },
     // 테이블 태그 헤드 존재에 따른 디자인 수정
     table: (meta) => {
