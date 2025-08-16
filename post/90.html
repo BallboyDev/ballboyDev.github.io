@@ -17,19 +17,19 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
             <style>
-                #p-35 {
+                #p-90 {
                     color: rgb(76, 193, 237) !important;
                 }
             </style>
             <script id="data" type="application/json">
             {
-                "fold": ["2","22"]
+                "fold": ["1","13"]
             }
             </script>
 
             <script src="https://ballboyDev.github.io/assets/skin.js"></script>
 
-                <title>2. 블로그 만들기 외전 - 외부 빌드 스크립트 만들기</title>
+                <title>docker compose</title>
             </head>
 
             <body>
@@ -388,76 +388,199 @@
                         <div class="bookmark">
 
             <div class="title t1">
-                <div><a href="#bm-1"># 2. 블로그 만들기 외전 - 외부 빌드 스크립트 만들기</a></div>
+                <div><a href="#bm-1"># docker compose </a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-4">### docker-compose.yml 구조</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t2">
-                <div><a href="#bm-4">## 스크립트</a></div>
+                <div><a href="#bm-7">## 기본 명령어</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-10">## docker compose </a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-11">### 네트워크</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-14">### 컨테이너간 dependency</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-17">### Deploy</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-20">### volume</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-23">### restart</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-26">### 빌드 자동화</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-29">### watch</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-32">### command</a></div>
                 <p>•</p>
             </div></div>
                         
                         
-            <a href="https://ballboyDev.github.io/post/34.html" class="prev post">
-                <img src="https://ballboyDev.github.io/assets/img/prev.svg" alt="" srcset="">
-            </a>
                         
                         
                         
                         <div class="main markdown-body">
 
-                            <h1 id="bm-1">2. 블로그 만들기 외전 - 외부 빌드 스크립트 만들기</h1>
-<p>포스팅 글과 블로그 제작 프로젝트를 분리 했다. 처음부터 분리가 가능하도록 기획을 했었기에 어렵지 않게 작업이 진행되었다.
-분리한 이유는 크게 2가지 이다.
-첫번째는 프로젝트의 규모가 커지고 포스팅 파일도 많아 지다보니 원활한 관리 차원에서 분리하는 것이 적절하다고 생각했다.
-두번째는 아이패드와 맥북, 아이폰 어디서든 포스팅 글을 작성 할 수 있도록 iCloud 공유 공간으로의 이동이다.
-프로젝트는 git으로 관리를 하지만 포스팅 글은 iCloud로 관리하여 언제 어디서든 실시간으로 아이디어와 생각을 정리 할 수 있기 위해 분리를 진행했다.
-하지만 문제는 포스팅 글을 빌드 하고 배포하는 과정은 어짜피 맥북 환경이지만 포스팅 글 위치에서 빌드/배포 하기 위해서는 결국 프로젝트 경로로 이동을 해야 한다는 점이다.
-그래서 포스팅 글 공간에서 빌드가 가능하도록 스크립트를 작성했다.</p>
-<h2 id="bm-4">스크립트</h2>
+                            <h1 id="bm-1">docker compose</h1>
+<p>Docker Compose는 여러 개의 컨테이너를 사용하는 애플리케이션을 정의하고 실행하기 위한 컨테이너 관리 도구 입니다.
+복잡한 컨테이너 환경을 YAML 파일 하나로 구성하고 docker-compose 명령어 하나로 서비스 전체의 실행/관리를 진행할 수 있습니다.
+<code style="color: rgb(255 188 54)">docker-compose.yml</code> 설정 파일을 통해 컨테이너의 구성, 네트워크, 볼륨, 환경 변수 등을 선언적으로 정의가 가능하며 명령어 한줄로 모든 서비스를 한번에 관리가 가능합니다.</p>
+<h3 id="bm-4">docker-compose.yml 구조</h3>
+<pre class="theme-atom-one-dark"><code class="language-yml"><span class="hljs-attr">services:</span>
+    <span class="hljs-attr">CONTAINER_NAME1:</span>
+        <span class="hljs-attr">image:</span> <span class="hljs-string">IMAGE_NAME1</span>
+        <span class="hljs-attr">ports:</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">내컴퓨터포트:컨테이너포트</span>
+        <span class="hljs-attr">environment:</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">환경변수1=값</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">환경변수2=값</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">환경변수3=${외부파일값}</span>
+        <span class="hljs-attr">networks:</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">NETWORK_NAME1</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">NETWORK_NAME2</span>
+
+    <span class="hljs-attr">CONTAINER_NAME2:</span>
+        <span class="hljs-attr">image:</span> <span class="hljs-string">IMAGE_NAME2</span>
+        <span class="hljs-attr">ports:</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">내컴퓨터포트:컨테이너포트</span>
+        <span class="hljs-attr">environment:</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">환경변수1=값</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">환경변수2=값</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">환경변수3=${외부파일값}</span>
+        <span class="hljs-attr">depends_on:</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">CONTAINER_NAME1</span>
+        <span class="hljs-attr">networks:</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">NETWORK_NAME1</span>
+
+    <span class="hljs-attr">CONTAINER_NAME3:</span>
+        <span class="hljs-attr">image:</span> <span class="hljs-string">IMAGE_NAME3</span>
+        <span class="hljs-attr">ports:</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">내컴퓨터포트:컨테이너포트</span>
+        <span class="hljs-attr">deploy:</span> 
+            <span class="hljs-attr">mode:</span> <span class="hljs-string">replicated</span>
+            <span class="hljs-attr">replicas:</span> <span class="hljs-number">3</span>
+        <span class="hljs-attr">networks:</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">NETWORK_NAME2</span>
+        <span class="hljs-attr">volumes:</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">VOLUME_NAME:path</span>
+        <span class="hljs-attr">restart:</span> <span class="hljs-string">always</span>
+        <span class="hljs-attr">build:</span> <span class="hljs-string">.</span>
+        <span class="hljs-attr">command:</span> [<span class="hljs-string">&quot;arg1&quot;</span>, <span class="hljs-string">&quot;arg2&quot;</span>]
+        <span class="hljs-attr">develop:</span>
+            <span class="hljs-attr">watch:</span>
+                <span class="hljs-bullet">-</span> <span class="hljs-attr">action:</span> <span class="hljs-string">sync</span>
+                    <span class="hljs-attr">path:</span> <span class="hljs-string">내컴퓨터경로</span>
+                    <span class="hljs-attr">target:</span> <span class="hljs-string">컨테이너경로</span>
+                    <span class="hljs-attr">ignore:</span>
+                        <span class="hljs-bullet">-</span> <span class="hljs-string">반영안할아이템</span>
+                <span class="hljs-bullet">-</span> <span class="hljs-attr">action:</span> <span class="hljs-string">rebuild</span>
+                    <span class="hljs-attr">path:</span> <span class="hljs-string">package.json</span>
+        
+
+<span class="hljs-attr">networks:</span>
+    <span class="hljs-attr">NETWORK_NAME1:</span>
+    <span class="hljs-attr">NETWORK_NAME2:</span>
+
+<span class="hljs-attr">volumes:</span>
+    <span class="hljs-attr">VOLUME_NAME:</span>
+        <span class="hljs-attr">external:</span> <span class="hljs-literal">true</span></code></pre><h2 id="bm-7">기본 명령어</h2>
 <ul>
-<li>사실 어려운 스크립트는 아니다. 스크립트를 실행하며 넘긴 파라미터와 npm의 --prefix 옵션을 활용하여 경로 이동없이 명령어를 실행한다는 점만 이해하면 된다.</li>
+<li><p>컨테이너 생성 및 실행</p>
+<ul>
+<li><code style="color: rgb(255 188 54)">docker compose up -d</code></li>
 </ul>
-<pre class="theme-atom-one-dark"><code class="language-sh">&gt;&gt; ./deploy.sh 
-&gt;&gt; ./deploy.sh 100
-&gt;&gt; ./deploy.sh build
-&gt;&gt; ./deploy.sh deploy
+</li>
+<li><p>컨테이너(서비스) 중지</p>
+<ul>
+<li><code style="color: rgb(255 188 54)">docker compose stop</code></li>
+</ul>
+</li>
+<li><p>컨테이너, 네트워크 중지 및 삭제</p>
+<ul>
+<li><code style="color: rgb(255 188 54)">docker compose down</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="bm-10">docker compose</h2>
+<h3 id="bm-11">네트워크</h3>
+<ul>
+<li>docker compose의 <code style="color: rgb(255 188 54)">service:</code> 하위 항목에 있는 컨테이너들은 자동으로 하나의 네트워크로 묶이게 된다.</li>
+<li>별도의 네트워크를 선언하고 서비스 별로 네트워크를 지정하면 네트워크를 더 세부적으로 분리할 수 있다.</li>
+</ul>
+<h3 id="bm-14">컨테이너간 dependency</h3>
+<ul>
+<li>컨테이너들을 생성할 때 실행 순서나 컨테이너간의 종속성을 가지게 되는 경우가 있다.
+그럴 경우 <code style="color: rgb(255 188 54)">depends_on:</code> 하위 항목으로 다른 서비스의 이름을 기재하게 되면 기재된 서비스 컨테이너가 먼저 생성 및 실행하고 다음으로 생성된다.</li>
+</ul>
+<h3 id="bm-17">Deploy</h3>
+<ul>
+<li>서비스 배포 전략, 리소스, 복제 등을 설정한다.</li>
+</ul>
+<h3 id="bm-20">volume</h3>
+<ul>
+<li>docker compose 환경에서 <code style="color: rgb(255 188 54)">volume:</code> 설정을 활용하여 컨테이너 별 volume을 관리 할 수 있다</li>
+</ul>
+<h3 id="bm-23">restart</h3>
+<ul>
+<li>컨테이너가 이슈로 인해 종료 되었을 경우 자동으로 재 시작 하기 위해서 설정한다. 다만 docker 명령어나 컨테이너를 직접 정지시켰을 경우에는 자동 재시작은 작동하지 않는다.</li>
+</ul>
+<h3 id="bm-26">빌드 자동화</h3>
+<ul>
+<li>개발 환경을 컨테이너에 구축하고 프로젝트를 진행하는 경우가 자주 있는데 이 경우 <code style="color: rgb(255 188 54)">down</code> -&gt; <code style="color: rgb(255 188 54)">image build</code> -&gt; <code style="color: rgb(255 188 54)">up</code> 과정을 자동화 할 수 있다.</li>
+<li>서비스 내부에 <code style="color: rgb(255 188 54)">build:도커파일경로</code>를 입력하면 <code style="color: rgb(255 188 54)">docker compose up</code> 할 때마다 해당 경로에 있는 도커 파일을 자동으로 build 하여 이미지를 생성하고 컨테이너를 생성한다.</li>
+<li>하지만 자동으로 build를 진행하기 위해서는 <code style="color: rgb(255 188 54)">docker compose up --build</code> 명령어를 사용하여야 한다.</li>
+</ul>
+<h3 id="bm-29">watch</h3>
+<ul>
+<li>watch 기능은 특정 파일 및 폴더가 변경될 때 마다 연결된 컨테이너 경로에 동기/비동기적으로 반영한다.<ul>
+<li><code style="color: rgb(255 188 54)">action:</code><ul>
+<li>sync&lt;+restart&gt; : 동적으로 반영, +restart 는 반영 후 자동 재시작</li>
+<li>rebuild : 반영 후 재 빌드</li>
+</ul>
+</li>
+<li><code style="color: rgb(255 188 54)">path</code> : 내 컴퓨터의 감지랗 폴더 경로</li>
+<li><code style="color: rgb(255 188 54)">target</code> : 반영할 컨테이너의 경로</li>
+<li><code style="color: rgb(255 188 54)">ignore</code> : 변동사항을 적용할 필요가 없는 파일이나 아이템을 작성. dockerignore파일로 대체 가능</li>
+</ul>
+</li>
+</ul>
+<h3 id="bm-32">command</h3>
+<ul>
+<li>compose 파일 내부에 <code style="color: rgb(255 188 54)">command</code> 명령을 사용하면 Dockerfile의 CMD 명령어를 덮어 쓸수 있다.</li>
+</ul>
 
-<span class="hljs-comment">#!/bin/bash</span>
-
-TARGET_DIR=<span class="hljs-string">&quot;/Users/ballboy/workspace/project/ballboyDev.github.io/&quot;</span>
-ARG1=<span class="hljs-string">&quot;<span class="hljs-variable">${1:-dev}</span>&quot;</span>
-
-<span class="hljs-comment"># Check if the first argument is a number</span>
-<span class="hljs-keyword">if</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$ARG1</span>&quot;</span> =~ ^[0-9]+$ ]]; <span class="hljs-keyword">then</span>
-    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Running npm run build in <span class="hljs-variable">${TARGET_DIR}</span>&quot;</span>
-    npm --prefix <span class="hljs-string">&quot;<span class="hljs-variable">${TARGET_DIR}</span>&quot;</span> run app:dev
-    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Opening post number <span class="hljs-variable">${ARG1}</span>&quot;</span>
-    open <span class="hljs-string">&quot;<span class="hljs-variable">${TARGET_DIR}</span>_dist/post/<span class="hljs-variable">${ARG1}</span>.html&quot;</span>
-    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Done.&quot;</span>
-    <span class="hljs-built_in">exit</span> 0
-<span class="hljs-keyword">fi</span>
-
-<span class="hljs-comment"># If the argument is not a number, proceed with the original logic</span>
-<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Running npm run app:<span class="hljs-variable">${ARG1}</span> in <span class="hljs-variable">${TARGET_DIR}</span>&quot;</span>
-npm --prefix <span class="hljs-string">&quot;<span class="hljs-variable">${TARGET_DIR}</span>&quot;</span> run app:<span class="hljs-variable">${ARG1}</span>
-
-<span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">${ARG1}</span>&quot;</span> = <span class="hljs-string">&quot;build&quot;</span> ]; <span class="hljs-keyword">then</span>
-    <span class="hljs-built_in">read</span> -p <span class="hljs-string">&quot;Do you want to deploy? (y/n): &quot;</span> a1
-    <span class="hljs-keyword">if</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">${a1}</span>&quot;</span> == [Yy]* ]]; <span class="hljs-keyword">then</span>
-        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Deploying...&quot;</span>
-        npm --prefix <span class="hljs-string">&quot;<span class="hljs-variable">${TARGET_DIR}</span>&quot;</span> run app:deploy
-    <span class="hljs-keyword">fi</span>
-<span class="hljs-keyword">elif</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">${ARG1}</span>&quot;</span> = <span class="hljs-string">&quot;dev&quot;</span> ]; <span class="hljs-keyword">then</span>
-    <span class="hljs-built_in">read</span> -p <span class="hljs-string">&quot;Do you want to open built page? (y/n): &quot;</span> a2
-    <span class="hljs-keyword">if</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">${a2}</span>&quot;</span> == [Yy]* ]]; <span class="hljs-keyword">then</span>
-        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;open index page&quot;</span>
-        open <span class="hljs-string">&quot;<span class="hljs-variable">${TARGET_DIR}</span>_dist/index.html&quot;</span>
-    <span class="hljs-keyword">fi</span>
-<span class="hljs-keyword">fi</span>
-
-<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Done.&quot;</span>
-</code></pre>
 
                         </div>
 

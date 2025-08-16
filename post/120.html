@@ -60,7 +60,7 @@
                         <div class="navi">
                             <ul class="root">
 
-                                <li id="dt-1" onclick="foldNavi(1)">심심한 개발자의 개발 공부 (23)</li>
+                                <li id="dt-1" onclick="foldNavi(1)">심심한 개발자의 개발 공부 (32)</li>
 <ul id="dc-1" class='dc-all' style="display: block;">
 <a href="https://ballboyDev.github.io/post/108">
 <li id="p-108">• Backend 학습 로드맵</li>
@@ -147,6 +147,41 @@
 </ul>
 
 </ul>
+<li id="dt-13" onclick="foldNavi(13)">Docker (9)</li>
+<ul id="dc-13" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/77">
+<li id="p-77">• docker mariadb setting</li>
+</a>
+<a href="https://ballboyDev.github.io/post/78">
+<li id="p-78">• docker mongodb setting</li>
+</a>
+<a href="https://ballboyDev.github.io/post/89">
+<li id="p-89">• docker network, volume</li>
+</a>
+<a href="https://ballboyDev.github.io/post/90">
+<li id="p-90">• docker compose</li>
+</a>
+<a href="https://ballboyDev.github.io/post/94">
+<li id="p-94">• docker 경량 컨테이너 베이스</li>
+</a>
+<li id="dt-131" onclick="foldNavi(131)">Docker 기본 명령어 정리 (4)</li>
+<ul id="dc-131" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/81">
+<li id="p-81">• Docker image 관련 명령어</li>
+</a>
+<a href="https://ballboyDev.github.io/post/82">
+<li id="p-82">• Docker container 관련 명령어</li>
+</a>
+<a href="https://ballboyDev.github.io/post/83">
+<li id="p-83">• Docker run 명령어 관련 옵션</li>
+</a>
+<a href="https://ballboyDev.github.io/post/84">
+<li id="p-84">• Dockerfile 명령어 정리</li>
+</a>
+
+</ul>
+
+</ul>
 
 </ul>
 <li id="dt-2" onclick="foldNavi(2)">심심한 개발자의 개발 취미 (14)</li>
@@ -207,7 +242,7 @@
 </ul>
 
 </ul>
-<li id="dt-3" onclick="foldNavi(3)">자취생 밥 만들어 먹기 (28)</li>
+<li id="dt-3" onclick="foldNavi(3)">자취생 밥 만들어 먹기 (29)</li>
 <ul id="dc-3" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/27">
 <li id="p-27">• 내돈 내산 양념/조미료 사용 후기</li>
@@ -275,7 +310,7 @@
 </a>
 
 </ul>
-<li id="dt-34" onclick="foldNavi(34)">면 러버의 면 사랑 요리 (10)</li>
+<li id="dt-34" onclick="foldNavi(34)">면 러버의 면 사랑 요리 (11)</li>
 <ul id="dc-34" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/25">
 <li id="p-25">• 내 멋대로 알리오 올리오</li>
@@ -306,6 +341,9 @@
 </a>
 <a href="https://ballboyDev.github.io/post/106">
 <li id="p-106">• 라면 요리 - 윤남노 사천 짜파게티</li>
+</a>
+<a href="https://ballboyDev.github.io/post/121">
+<li id="p-121">• 알리오 올리오 에 페퍼론치노</li>
 </a>
 
 </ul>
@@ -431,52 +469,52 @@
 
                             <h1 id="bm-1">sveltekit API 요청</h1>
 <ul>
-<li>외부 API 나 <code>+server.ts</code> 핸들러에서 데이터를 가져 오려면 sveltekit에서 제공되는 <code>fetch</code>함수를 사용한다. sveltekit에서 제공된 <code>fetch</code>함수는 몇 가지 추가 기능을 제외하면 기본 웹 fetch API 와 동일하게 작동한다.</li>
+<li>외부 API 나 <code style="color: rgb(255 188 54)">+server.ts</code> 핸들러에서 데이터를 가져 오려면 sveltekit에서 제공되는 <code style="color: rgb(255 188 54)">fetch</code>함수를 사용한다. sveltekit에서 제공된 <code style="color: rgb(255 188 54)">fetch</code>함수는 몇 가지 추가 기능을 제외하면 기본 웹 fetch API 와 동일하게 작동한다.</li>
 </ul>
 <ol>
 <li><p>서버에서 인증된 요청 가능</p>
 <ul>
 <li>사용자가 브라우저를 통해 페이지를 요청할 때, 브라우저는 Cookie 헤더(로그인 세션 정보 등)나 Authorization 헤더(API 토큰 등)를 함께 보냅니다.
- <code>load</code> 함수 내에서 fetch를 사용하여 앱 내부의 다른 API 엔드 포인트를 호출하면, sveltekit은 원래의 페이지 요청에 포함되었던 cookie와 Authorization 헤더를 자동으로 복사하여 새로운 요청에 활용한다.</li>
+ <code style="color: rgb(255 188 54)">load</code> 함수 내에서 fetch를 사용하여 앱 내부의 다른 API 엔드 포인트를 호출하면, sveltekit은 원래의 페이지 요청에 포함되었던 cookie와 Authorization 헤더를 자동으로 복사하여 새로운 요청에 활용한다.</li>
 </ul>
 </li>
 <li><p>서버에서 상대 경로 요청 가능</p>
 <ul>
-<li>일반적으로 API 호출시 <code>https://api.example.com/data</code>와 같이 전체 URL을 명시해야 하지만 sveltekit은 앱의 origin(<a href="http://localhost:5173)%EC%9D%84">http://localhost:5173)을</a> 알고 있기에 fetch(&#39;/api/data&#39;)와 같이 상대 경로를 사용할 수 있다.</li>
+<li>일반적으로 API 호출시 <code style="color: rgb(255 188 54)">https://api.example.com/data</code>와 같이 전체 URL을 명시해야 하지만 sveltekit은 앱의 origin(<a href="http://localhost:5173)%EC%9D%84">http://localhost:5173)을</a> 알고 있기에 fetch(&#39;/api/data&#39;)와 같이 상대 경로를 사용할 수 있다.</li>
 </ul>
 </li>
 <li><p>내부 요청 시 HTTP 오버 헤드 없음</p>
 <ul>
-<li>서버에서 실행되는 <code>load</code> 함수가 자신의 앱 내부에 있는 <code>+server.ts</code> API 라우트를 fetch 할 때, sveltekit은 네트워크 HTTP 요청을 거치지 않고 해당 핸들러 함수(<code>GET</code>, <code>POST</code> 등)을 직접 호출하고 그 결과를 받아 온다.</li>
+<li>서버에서 실행되는 <code style="color: rgb(255 188 54)">load</code> 함수가 자신의 앱 내부에 있는 <code style="color: rgb(255 188 54)">+server.ts</code> API 라우트를 fetch 할 때, sveltekit은 네트워크 HTTP 요청을 거치지 않고 해당 핸들러 함수(<code style="color: rgb(255 188 54)">GET</code>, <code style="color: rgb(255 188 54)">POST</code> 등)을 직접 호출하고 그 결과를 받아 온다.</li>
 </ul>
 </li>
 <li><p>서버 사이드 렌더링시 응답이 HTML 에 포함됨</p>
 <ul>
-<li>서버 사이드 렌더링 과정에서 <code>load</code> 함수가 fetch를 실행하면 sveltekit은 응답을 생성되는 HTML 문서의 <code>&lt;script type="application/json"&gt;</code>과 같은 태그 안에 텍스트 형태로 직접 삽입한다.</li>
+<li>서버 사이드 렌더링 과정에서 <code style="color: rgb(255 188 54)">load</code> 함수가 fetch를 실행하면 sveltekit은 응답을 생성되는 HTML 문서의 <code style="color: rgb(255 188 54)">&lt;script type="application/json"&gt;</code>과 같은 태그 안에 텍스트 형태로 직접 삽입한다.</li>
 </ul>
 </li>
 <li><p>하이드레이션 시 데이터 재사용</p>
 <ul>
-<li>4번과 관련하여 브라우저가 서버로 부터 받은 HTML과 Javascript를 실행하여 하이드레이션 하는 과정에서 <code>load</code>함수가 실행될 시 4번 과정에서 삽입된 데이터가 있는지 먼저 확인 후 있을 경우 데이터를 활용하고 없을 경우 <code>fetch</code>를 실행한다.</li>
+<li>4번과 관련하여 브라우저가 서버로 부터 받은 HTML과 Javascript를 실행하여 하이드레이션 하는 과정에서 <code style="color: rgb(255 188 54)">load</code>함수가 실행될 시 4번 과정에서 삽입된 데이터가 있는지 먼저 확인 후 있을 경우 데이터를 활용하고 없을 경우 <code style="color: rgb(255 188 54)">fetch</code>를 실행한다.</li>
 </ul>
 </li>
 </ol>
 <h2 id="bm-6">Cookies</h2>
 <ul>
-<li><p>서버의 <code>load</code>기능은 <code>cookies</code>를 가져오고 설정할 수 있지만 보안 정책으로 요청을 보내는 대상(host)이 현재 sveltekit 애플리케이션과 동일한 도메인이거나 하위 도매인 (subdomain)일 경우에만 사용자의 쿠키를 자동으로 요청에 포함시켜 전달한다.</p>
+<li><p>서버의 <code style="color: rgb(255 188 54)">load</code>기능은 <code style="color: rgb(255 188 54)">cookies</code>를 가져오고 설정할 수 있지만 보안 정책으로 요청을 보내는 대상(host)이 현재 sveltekit 애플리케이션과 동일한 도메인이거나 하위 도매인 (subdomain)일 경우에만 사용자의 쿠키를 자동으로 요청에 포함시켜 전달한다.</p>
 </li>
-<li><p>sveltekit이 <code>https://my.app.com</code>에서 실행 된다면 아래와 같이 정책이 적용된다</p>
+<li><p>sveltekit이 <code style="color: rgb(255 188 54)">https://my.app.com</code>에서 실행 된다면 아래와 같이 정책이 적용된다</p>
 <ul>
 <li><p>쿠키가 전달 되는 경우</p>
 <ol>
 <li>동일한 호스트<ul>
-<li><code>fetch('/api/userinfo') / https://my.app.com/api/userinfo</code></li>
+<li><code style="color: rgb(255 188 54)">fetch('/api/userinfo') / https://my.app.com/api/userinfo</code></li>
 <li>앱 내부의 API 호출하는 것은 신뢰할 수 있는 통신으로 간주되어 쿠키가 전달된다.</li>
 </ul>
 </li>
 <li>하위 도메인 <ul>
-<li><code>fetch('https://api.my.app.com/data')</code></li>
-<li><code>api.myapp.com</code>은 <code>myapp.com</code>의 하위 도메인이므로, 같은 애플리메이션 인프라의 일부로 간주하여 쿠키가 전달된다.</li>
+<li><code style="color: rgb(255 188 54)">fetch('https://api.my.app.com/data')</code></li>
+<li><code style="color: rgb(255 188 54)">api.myapp.com</code>은 <code style="color: rgb(255 188 54)">myapp.com</code>의 하위 도메인이므로, 같은 애플리메이션 인프라의 일부로 간주하여 쿠키가 전달된다.</li>
 </ul>
 </li>
 </ol>
@@ -484,12 +522,12 @@
 <li><p>쿠키가 전달 되지 않는 경우</p>
 <ol>
 <li>완전히 다른 외부 호스트<ul>
-<li><code>fetch('https://api.your.app.com/data')</code></li>
+<li><code style="color: rgb(255 188 54)">fetch('https://api.your.app.com/data')</code></li>
 <li>제 3자의 도메인에 쿠키 정보를 유출하지 않기 위한 핵심적인 보안 조치로 쿠키가 전달 되지 않는다.</li>
 </ul>
 </li>
 <li>상위 도메인<ul>
-<li><code>fetch('app.com')</code></li>
+<li><code style="color: rgb(255 188 54)">fetch('app.com')</code></li>
 <li>더 구체적인 하위 도메인이 아닌 상위 도메인으로의 요청은 다른 서비스로 간주되어 신뢰 경계를 벗어난 것으로 판단, 쿠키가 전달 되지 않는다.</li>
 </ul>
 </li>
@@ -502,21 +540,21 @@
 </ul>
 <h2 id="bm-9">Headers</h2>
 <ul>
-<li><code>load</code>함수가 서버에서 실행 될 때, 해당 페이지의 HTTP 응답 헤더를 설정하기 위한 <code>setHeaders</code>함수를 제공합니다.</li>
-<li><code>setHeaders</code>함수는 응답에 헤더를 제어하는 sveltekit의 공식적인 방법이지만 브라우저에서 실행시 아무런 효과가 없습니다.</li>
-<li>주요 사용 사례로는 페이지 캐싱(caching) 제어를 위한 <code>Cache-Control</code> 설정이다.</li>
+<li><code style="color: rgb(255 188 54)">load</code>함수가 서버에서 실행 될 때, 해당 페이지의 HTTP 응답 헤더를 설정하기 위한 <code style="color: rgb(255 188 54)">setHeaders</code>함수를 제공합니다.</li>
+<li><code style="color: rgb(255 188 54)">setHeaders</code>함수는 응답에 헤더를 제어하는 sveltekit의 공식적인 방법이지만 브라우저에서 실행시 아무런 효과가 없습니다.</li>
+<li>주요 사용 사례로는 페이지 캐싱(caching) 제어를 위한 <code style="color: rgb(255 188 54)">Cache-Control</code> 설정이다.</li>
 </ul>
 <pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-title function_">setHeaders</span>({
     <span class="hljs-string">&#x27;Cache-Control&#x27;</span>: <span class="hljs-string">&#x27;public, max-age=60&#x27;</span>
     <span class="hljs-comment">// &#x27;Content-Language&#x27;, &#x27;ETag&#x27; 등</span>
 })</code></pre><ul>
-<li>동일한 헤더를 별도의 <code>load</code>함수에서 여러번 설정하는 경우 에러가 발생한다. setHeaders 함수를 사용하여 한번만 설정 할 수 있다.</li>
-<li><code>set-cookie</code>를 사용하여 헤더를 추가할 수 없다. 대신 <code>cookies.set(name, value, options)</code>를 사용한다.</li>
+<li>동일한 헤더를 별도의 <code style="color: rgb(255 188 54)">load</code>함수에서 여러번 설정하는 경우 에러가 발생한다. setHeaders 함수를 사용하여 한번만 설정 할 수 있다.</li>
+<li><code style="color: rgb(255 188 54)">set-cookie</code>를 사용하여 헤더를 추가할 수 없다. 대신 <code style="color: rgb(255 188 54)">cookies.set(name, value, options)</code>를 사용한다.</li>
 </ul>
 <h2 id="bm-14">Errors</h2>
 <ul>
-<li><code>load</code> 함수 실행 중 오류가 발생하면 가장 가까운 <code>+error.svelte</code>가 렌더링 된다.</li>
-<li><code>@sveltejs/kit</code>의 <code>error</code> 헬퍼를 사용하면 HTTP 상태 코드와 상태 메시지를 지정할 수 있다.</li>
+<li><code style="color: rgb(255 188 54)">load</code> 함수 실행 중 오류가 발생하면 가장 가까운 <code style="color: rgb(255 188 54)">+error.svelte</code>가 렌더링 된다.</li>
+<li><code style="color: rgb(255 188 54)">@sveltejs/kit</code>의 <code style="color: rgb(255 188 54)">error</code> 헬퍼를 사용하면 HTTP 상태 코드와 상태 메시지를 지정할 수 있다.</li>
 </ul>
 <pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-keyword">import</span> { error } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@sveltejs/kit&#x27;</span>;
 <span class="hljs-keyword">import</span> type { <span class="hljs-title class_">LayoutServerLoad</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./$types&#x27;</span>;
@@ -530,15 +568,15 @@
 		<span class="hljs-title function_">error</span>(<span class="hljs-number">403</span>, <span class="hljs-string">&#x27;not an admin&#x27;</span>);
 	}
 };</code></pre><ul>
-<li>예상 하지 못한 오류가 발생한 경우 sveltekit은 서버 콘솔에 오슈 스택 트레이스를 기록하고 사용자에세는 일반적인 500 error 메시지를 보여준다. 그리고 오류를 최종적으로 처리 하기 전에 <code>src/hooks.server.ts - handleError</code> 함수를 호출한다.<ul>
-<li><code>handleError</code>는 예상 하지 못한 모든 서버 오류에 대한 글로벌 오류 처리기로 이 훅을 사용하여 오류 처리 방식을 커스터 마이징 할 수 있다.</li>
+<li>예상 하지 못한 오류가 발생한 경우 sveltekit은 서버 콘솔에 오슈 스택 트레이스를 기록하고 사용자에세는 일반적인 500 error 메시지를 보여준다. 그리고 오류를 최종적으로 처리 하기 전에 <code style="color: rgb(255 188 54)">src/hooks.server.ts - handleError</code> 함수를 호출한다.<ul>
+<li><code style="color: rgb(255 188 54)">handleError</code>는 예상 하지 못한 모든 서버 오류에 대한 글로벌 오류 처리기로 이 훅을 사용하여 오류 처리 방식을 커스터 마이징 할 수 있다.</li>
 </ul>
 </li>
 </ul>
 <h2 id="bm-20">Redirects</h2>
 <ul>
-<li>사용자를 리다이렉션 하기위해선 <code>@sveltejs/kit</code>의 <code>redirect</code> 헬퍼를 사용하여 <code>3XX</code>상태 코드와 함께 리다이렉션 위치를 지정한다.</li>
-<li><code>error(...)</code>와 마찬가지로 <code>redirect(...)</code>를 호출하면 예외가 발생하여 내부 헬퍼 함수 내부에서 실행을 쉽게 중지 할 수 있다.</li>
+<li>사용자를 리다이렉션 하기위해선 <code style="color: rgb(255 188 54)">@sveltejs/kit</code>의 <code style="color: rgb(255 188 54)">redirect</code> 헬퍼를 사용하여 <code style="color: rgb(255 188 54)">3XX</code>상태 코드와 함께 리다이렉션 위치를 지정한다.</li>
+<li><code style="color: rgb(255 188 54)">error(...)</code>와 마찬가지로 <code style="color: rgb(255 188 54)">redirect(...)</code>를 호출하면 예외가 발생하여 내부 헬퍼 함수 내부에서 실행을 쉽게 중지 할 수 있다.</li>
 </ul>
 <pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-keyword">import</span> { redirect } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@sveltejs/kit&#x27;</span>;
 <span class="hljs-keyword">import</span> type { <span class="hljs-title class_">LayoutServerLoad</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./$types&#x27;</span>;
@@ -548,14 +586,14 @@
 		<span class="hljs-title function_">redirect</span>(<span class="hljs-number">307</span>, <span class="hljs-string">&#x27;/login&#x27;</span>); <span class="hljs-comment">// redirect 함수는 예외 처리 블럭(try - catch) 외부에 작성해야 한다. 내부에서 사용시 catch문이 실행된다.</span>
 	}
 };</code></pre><ul>
-<li>브라우저에서는 <code>$app.navigation</code>의 <code>goto</code> 함수를 사용하여 <code>load</code>함수 외부에서 페이지 이동 및 리다이렉션이 가능하다.</li>
+<li>브라우저에서는 <code style="color: rgb(255 188 54)">$app.navigation</code>의 <code style="color: rgb(255 188 54)">goto</code> 함수를 사용하여 <code style="color: rgb(255 188 54)">load</code>함수 외부에서 페이지 이동 및 리다이렉션이 가능하다.</li>
 </ul>
 <h2 id="bm-25">Promise 기반 스트리밍</h2>
 <ul>
-<li>일반적인 SSR에서는 페이지에서 요구하는 모든 데이터가 준비 될때까지 HTML 페이지 렌더링을 대기하다보니 데이터 수신 속도가 느린 데이터로 인해 페이지의 로딩이 지연된다는 문제점이 있었다. sveltekit에서는 이 문제를 해결하기 위해 server <code>load</code>함수에서 Promise를 직접 반환하는 것이 가능하다.</li>
-<li>동작 방식 - <code>+layout.server.ts</code>, <code>+layout.svelte</code>에서도 동일하게 작동한다.<ul>
-<li>서버 (<code>+page.server.ts</code>)의 <code>load</code> 함수 내에서 여러 데이터를 요청할때 빠르고 필수 적인 데이터는 <code>await</code>를 사용하여 즉시 값을 얻고 느리고 부가적인 데이터는 <code>await</code> 없이 <code>Promise 객체</code> 자체를 반환한다. sveltekit은 <code>await</code>된 데이터만 기다린 후, 페이지의 기본 HTML을 브라우저로 전송하고 서버에서 Promise가 완료 되면 브라우저로 HTTP 스트림을 통해 데이터를 streaming 한다.</li>
-<li>클라이언트 (<code>+page.svelte</code>)의 페이지에서는 svelte의 내장 기능은 <code>{#await}</code> 블록을 사용하여 Promise를 처리한다.</li>
+<li>일반적인 SSR에서는 페이지에서 요구하는 모든 데이터가 준비 될때까지 HTML 페이지 렌더링을 대기하다보니 데이터 수신 속도가 느린 데이터로 인해 페이지의 로딩이 지연된다는 문제점이 있었다. sveltekit에서는 이 문제를 해결하기 위해 server <code style="color: rgb(255 188 54)">load</code>함수에서 Promise를 직접 반환하는 것이 가능하다.</li>
+<li>동작 방식 - <code style="color: rgb(255 188 54)">+layout.server.ts</code>, <code style="color: rgb(255 188 54)">+layout.svelte</code>에서도 동일하게 작동한다.<ul>
+<li>서버 (<code style="color: rgb(255 188 54)">+page.server.ts</code>)의 <code style="color: rgb(255 188 54)">load</code> 함수 내에서 여러 데이터를 요청할때 빠르고 필수 적인 데이터는 <code style="color: rgb(255 188 54)">await</code>를 사용하여 즉시 값을 얻고 느리고 부가적인 데이터는 <code style="color: rgb(255 188 54)">await</code> 없이 <code style="color: rgb(255 188 54)">Promise 객체</code> 자체를 반환한다. sveltekit은 <code style="color: rgb(255 188 54)">await</code>된 데이터만 기다린 후, 페이지의 기본 HTML을 브라우저로 전송하고 서버에서 Promise가 완료 되면 브라우저로 HTTP 스트림을 통해 데이터를 streaming 한다.</li>
+<li>클라이언트 (<code style="color: rgb(255 188 54)">+page.svelte</code>)의 페이지에서는 svelte의 내장 기능은 <code style="color: rgb(255 188 54)">{#await}</code> 블록을 사용하여 Promise를 처리한다.</li>
 </ul>
 </li>
 </ul>
@@ -574,26 +612,26 @@
     <span class="hljs-comment">// 수신 실패 시 UI</span>
 {/<span class="hljs-keyword">await</span>}</code></pre><h2 id="bm-32">병렬 처리</h2>
 <ul>
-<li>클라이언트는 페이지 로딩 또는 이동 - 렌더링시 모든 <code>.server.ts</code>에 요청을 보내지 않고 브라우저에서 서버로 하나의 특별한 요청만 보낸다. </li>
-<li>sveltekit은 페이지를 렌더링 하는데 필요한 모든 <code>load</code> 함수 들을 미리 파악하여 동시에 실행을 시작한다.</li>
+<li>클라이언트는 페이지 로딩 또는 이동 - 렌더링시 모든 <code style="color: rgb(255 188 54)">.server.ts</code>에 요청을 보내지 않고 브라우저에서 서버로 하나의 특별한 요청만 보낸다. </li>
+<li>sveltekit은 페이지를 렌더링 하는데 필요한 모든 <code style="color: rgb(255 188 54)">load</code> 함수 들을 미리 파악하여 동시에 실행을 시작한다.</li>
 <li>실행이 완료 되면 서버는 모두 모아 하나의 큰 JSON 객체로 묶어 브라우저로 응답한다.</li>
 </ul>
 <h2 id="bm-35">`load`함수 의존성 자동 추적</h2>
 <ul>
-<li>sveltekit은 각 <code>load</code>함수가 어떤 데이터에 의존하는지 자동으로 추적한다. 그리고 네비게인션이 발생했을 때, 의존하는 데이터가 변경된 <code>load</code> 함수만 다시 실행한다.</li>
-<li>sveltekit은 <code>load</code> 함수의 인자로 전달되는 객체들의 사용을 지켜보며 의존성을 파악한다.<ul>
-<li><code>params</code> 객체<ul>
-<li><code>load</code>함수가 <code>param.id</code>를 사용했다면 이 <code>load</code>함수는 id 파라미터에 의존하게 되며 URL 의 id값이 변경될때 다시 실행된다.</li>
+<li>sveltekit은 각 <code style="color: rgb(255 188 54)">load</code>함수가 어떤 데이터에 의존하는지 자동으로 추적한다. 그리고 네비게인션이 발생했을 때, 의존하는 데이터가 변경된 <code style="color: rgb(255 188 54)">load</code> 함수만 다시 실행한다.</li>
+<li>sveltekit은 <code style="color: rgb(255 188 54)">load</code> 함수의 인자로 전달되는 객체들의 사용을 지켜보며 의존성을 파악한다.<ul>
+<li><code style="color: rgb(255 188 54)">params</code> 객체<ul>
+<li><code style="color: rgb(255 188 54)">load</code>함수가 <code style="color: rgb(255 188 54)">param.id</code>를 사용했다면 이 <code style="color: rgb(255 188 54)">load</code>함수는 id 파라미터에 의존하게 되며 URL 의 id값이 변경될때 다시 실행된다.</li>
 <li>만약 param 객체 전체를 사용했다면 내부 데이터 하나라도 변경될시 다시 실행된다.</li>
 </ul>
 </li>
-<li><code>url</code> 객체<ul>
-<li><code>load</code>함수가 url.searchParams를 사용했다면 URL 의 쿼리 스트링이 변경될 때 다시 실행된다.</li>
-<li><code>url.pathname</code>을 사용했다면, 경로가 변경될 때 다시 실행된다.</li>
+<li><code style="color: rgb(255 188 54)">url</code> 객체<ul>
+<li><code style="color: rgb(255 188 54)">load</code>함수가 url.searchParams를 사용했다면 URL 의 쿼리 스트링이 변경될 때 다시 실행된다.</li>
+<li><code style="color: rgb(255 188 54)">url.pathname</code>을 사용했다면, 경로가 변경될 때 다시 실행된다.</li>
 </ul>
 </li>
-<li><code>parent</code> 함수<ul>
-<li><code>load</code>함수가 <code>await parent()</code>를 호출했다면, 부모 <code>load</code>함수의 결과 데이터에 의존하게 되어 부모 <code>load</code>함수가 다시 실행되면 결과 값이 바뀌면 다시 실행된다.</li>
+<li><code style="color: rgb(255 188 54)">parent</code> 함수<ul>
+<li><code style="color: rgb(255 188 54)">load</code>함수가 <code style="color: rgb(255 188 54)">await parent()</code>를 호출했다면, 부모 <code style="color: rgb(255 188 54)">load</code>함수의 결과 데이터에 의존하게 되어 부모 <code style="color: rgb(255 188 54)">load</code>함수가 다시 실행되면 결과 값이 바뀌면 다시 실행된다.</li>
 </ul>
 </li>
 </ul>
@@ -601,33 +639,33 @@
 </ul>
 <h3 id="bm-38">종속성 추적 해제</h3>
 <ul>
-<li><code>untrack()</code>함수는 sveltekit의 자동 의존성 추적 시스템에서 의도적으로 특정 의존성을 제외 하고 싶을떄 사용한다.</li>
-<li><code>untrack()</code>함수는 콜백 함수를 인자로 받는데 <code>untrack</code>의 콜백 함수 내에서 접근하는 모든 의존성은 sveltekit의 의존성 추적기에서 무시 된다.</li>
+<li><code style="color: rgb(255 188 54)">untrack()</code>함수는 sveltekit의 자동 의존성 추적 시스템에서 의도적으로 특정 의존성을 제외 하고 싶을떄 사용한다.</li>
+<li><code style="color: rgb(255 188 54)">untrack()</code>함수는 콜백 함수를 인자로 받는데 <code style="color: rgb(255 188 54)">untrack</code>의 콜백 함수 내에서 접근하는 모든 의존성은 sveltekit의 의존성 추적기에서 무시 된다.</li>
 </ul>
 <h3 id="bm-41">수동 의존성 관리 - `depends()`, `invalidate()`</h3>
 <ul>
 <li>URL에 나타나지 않는 쿠키에 저장된 테마 정보나, 폼 제출(action)을 통해 변경 되는 데이터에 의존하는 경우 sveltekit은 수동으로 의존성을 관리할 수 있다.</li>
-<li><code>depends()</code>와 <code>invalidate()</code>는 하나의 쌍(구독과 발행)으로 함께 사용되며 수동 의존성 관리가 올바르게 동작한다.</li>
-<li><code>depends(식별자)</code><ul>
-<li><code>load</code>함수 내에서 호출하며, <code>load</code>함수가 특정 데이터에 의존한다고 명시적으로 표시한다.</li>
-<li><code>depends('app:theme')</code>나 <code>depends('data:posts')</code>와 같이 자유롭게 정할수 있다.</li>
+<li><code style="color: rgb(255 188 54)">depends()</code>와 <code style="color: rgb(255 188 54)">invalidate()</code>는 하나의 쌍(구독과 발행)으로 함께 사용되며 수동 의존성 관리가 올바르게 동작한다.</li>
+<li><code style="color: rgb(255 188 54)">depends(식별자)</code><ul>
+<li><code style="color: rgb(255 188 54)">load</code>함수 내에서 호출하며, <code style="color: rgb(255 188 54)">load</code>함수가 특정 데이터에 의존한다고 명시적으로 표시한다.</li>
+<li><code style="color: rgb(255 188 54)">depends('app:theme')</code>나 <code style="color: rgb(255 188 54)">depends('data:posts')</code>와 같이 자유롭게 정할수 있다.</li>
 </ul>
 </li>
-<li><code>invalidate(식별자)</code><ul>
-<li>주로 <code>+page.svelte</code>컴포넌트 내부나 <code>action</code>의 결과로 호출되며 <code>invalidate('app:theme')</code>가 호출되면, <code>depends('app:theme')</code>를 사용했던 모든 <code>load</code>함수들은 다음 네비게이션 시 강제로 다시 실행된다.</li>
+<li><code style="color: rgb(255 188 54)">invalidate(식별자)</code><ul>
+<li>주로 <code style="color: rgb(255 188 54)">+page.svelte</code>컴포넌트 내부나 <code style="color: rgb(255 188 54)">action</code>의 결과로 호출되며 <code style="color: rgb(255 188 54)">invalidate('app:theme')</code>가 호출되면, <code style="color: rgb(255 188 54)">depends('app:theme')</code>를 사용했던 모든 <code style="color: rgb(255 188 54)">load</code>함수들은 다음 네비게이션 시 강제로 다시 실행된다.</li>
 </ul>
 </li>
 </ul>
 <h3 id="bm-44">`load`함수가 다시 실행되는 경우 정리</h3>
 <h2 id="bm-45">데이터 로딩시 인증 측면에서의 고려사항</h2>
 <ul>
-<li>sveltekit에서는 <code>+layout.server.ts</code>의 <code>load</code> 함수에 인증 로직을 넣는 것만으로는 충분하지 않다.<ol>
-<li>layout의 <code>load</code>함수는 항상 실행되지 않는다.<ul>
-<li><code>load</code>함수는 의존하는 데이터가 변경되지 않으면 성능을 위해 재실행을 하지 않는다. 만약 사용자의 세션이 만료되었더라도, <code>load</code>함수가 재실행되지 않으며 인증 체크 로직을 건너뛰게 되어 보호된 페이지나 데이터에 접근하는 보안 사고가 발생할 수 있다.</li>
+<li>sveltekit에서는 <code style="color: rgb(255 188 54)">+layout.server.ts</code>의 <code style="color: rgb(255 188 54)">load</code> 함수에 인증 로직을 넣는 것만으로는 충분하지 않다.<ol>
+<li>layout의 <code style="color: rgb(255 188 54)">load</code>함수는 항상 실행되지 않는다.<ul>
+<li><code style="color: rgb(255 188 54)">load</code>함수는 의존하는 데이터가 변경되지 않으면 성능을 위해 재실행을 하지 않는다. 만약 사용자의 세션이 만료되었더라도, <code style="color: rgb(255 188 54)">load</code>함수가 재실행되지 않으며 인증 체크 로직을 건너뛰게 되어 보호된 페이지나 데이터에 접근하는 보안 사고가 발생할 수 있다.</li>
 </ul>
 </li>
-<li><code>load</code>함수는 병렬로 실행된다.<ul>
-<li><code>+layout.server.ts</code>의 <code>load</code>가 인증 체크를 실패했을 시 redirect를 throw 하지만 동시에 <code>+page.server.ts</code>의 <code>load</code>가 실행을 시작하며 redirect가 완전치 처리 되기 전에 데이터베이스에서 민감한 정보를 조회할 수 있다.</li>
+<li><code style="color: rgb(255 188 54)">load</code>함수는 병렬로 실행된다.<ul>
+<li><code style="color: rgb(255 188 54)">+layout.server.ts</code>의 <code style="color: rgb(255 188 54)">load</code>가 인증 체크를 실패했을 시 redirect를 throw 하지만 동시에 <code style="color: rgb(255 188 54)">+page.server.ts</code>의 <code style="color: rgb(255 188 54)">load</code>가 실행을 시작하며 redirect가 완전치 처리 되기 전에 데이터베이스에서 민감한 정보를 조회할 수 있다.</li>
 </ul>
 </li>
 </ol>
@@ -637,42 +675,42 @@
 <ol>
 <li><p>Hooks 사용 (권장)</p>
 <ul>
-<li>모든 서버 요청에 대해 라우팅 및 <code>load</code>함수가 실행되기 전에 실행되는 중앙 미들웨어 <code>src/hooks.server.ts</code>파일의 handle 함수를 사용한다.<ul>
-<li><code>handle</code> 함수 내에서 사용자의 쿠키를 확인하여 인증 상태를 확인한 후, 보호된 경로에 접근하는데 인증되지 않았다면, <code>load</code>가 실행되기 전에 redirect를 throw하여 처리한다. 인증 되었다면 사용자 정보를 <code>event.locals</code>에 담아 이후 실행될 <code>load</code>함수나 API 엔드 포인트에서 쉽게 사용할 수 있도록 한다.</li>
+<li>모든 서버 요청에 대해 라우팅 및 <code style="color: rgb(255 188 54)">load</code>함수가 실행되기 전에 실행되는 중앙 미들웨어 <code style="color: rgb(255 188 54)">src/hooks.server.ts</code>파일의 handle 함수를 사용한다.<ul>
+<li><code style="color: rgb(255 188 54)">handle</code> 함수 내에서 사용자의 쿠키를 확인하여 인증 상태를 확인한 후, 보호된 경로에 접근하는데 인증되지 않았다면, <code style="color: rgb(255 188 54)">load</code>가 실행되기 전에 redirect를 throw하여 처리한다. 인증 되었다면 사용자 정보를 <code style="color: rgb(255 188 54)">event.locals</code>에 담아 이후 실행될 <code style="color: rgb(255 188 54)">load</code>함수나 API 엔드 포인트에서 쉽게 사용할 수 있도록 한다.</li>
 </ul>
 </li>
 <li>장점<ul>
 <li>중앙 집중 - 인증 로직이 한 곳에 모여 관리가 편하다.</li>
 <li>완벽한 보호 - 모든 요청에 대해 가장 먼저 실행 되므로, 기존 문제점을 모두 원칙적으로 차단한다.</li>
-<li>효율성 - <code>event.locals</code>를 통해 사용자 정보를 한번만 조회하고 재사용할 수 있다</li>
+<li>효율성 - <code style="color: rgb(255 188 54)">event.locals</code>를 통해 사용자 정보를 한번만 조회하고 재사용할 수 있다</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>각 <code>+page.server.ts</code>에서 직접 확인</p>
+<li><p>각 <code style="color: rgb(255 188 54)">+page.server.ts</code>에서 직접 확인</p>
 <ul>
-<li>보호가 필요한 모든 <code>+page.server.ts</code>의 <code>load</code>함수 시작 부분에서 직접 인증 체크 로직을 넣는다.</li>
+<li>보호가 필요한 모든 <code style="color: rgb(255 188 54)">+page.server.ts</code>의 <code style="color: rgb(255 188 54)">load</code>함수 시작 부분에서 직접 인증 체크 로직을 넣는다.</li>
 <li>장점 - 어떤 페이지가 보호되는지 매우 명시적이고, 특정 페이지에만 특별한 권한을 부여할 경우 유용하다.</li>
 <li>단점 - 코드 중복과 유지보수가 복잡해진다.</li>
 </ul>
 </li>
-<li><p><code>+layout.server.ts</code> + <code>await parent()</code></p>
+<li><p><code style="color: rgb(255 188 54)">+layout.server.ts</code> + <code style="color: rgb(255 188 54)">await parent()</code></p>
 <ul>
-<li><code>+layout.server.ts</code>에 인증 체크 로직을 넣고, 그 아래 모든 자식 <code>+page.server.ts</code>들이 <code>load</code>함수 시작 부분에서 <code>await parent()</code>를 반드시 호출 하도록 강제한다.</li>
+<li><code style="color: rgb(255 188 54)">+layout.server.ts</code>에 인증 체크 로직을 넣고, 그 아래 모든 자식 <code style="color: rgb(255 188 54)">+page.server.ts</code>들이 <code style="color: rgb(255 188 54)">load</code>함수 시작 부분에서 <code style="color: rgb(255 188 54)">await parent()</code>를 반드시 호출 하도록 강제한다.</li>
 <li>장단점 - 설명 안한다</li>
 </ul>
 </li>
 </ol>
 <h2 id="bm-51">getRequestEvent 사용</h2>
 <ul>
-<li><p><code>getRequestEvent</code>는 sveltekit에서 제공하는 고급 기능으로, 서버 측 코드의 어느 곳에서나 현재 요청에 대한 RequestEvent 객체에 접근할 수 있게 해주는 함수이다.</p>
+<li><p><code style="color: rgb(255 188 54)">getRequestEvent</code>는 sveltekit에서 제공하는 고급 기능으로, 서버 측 코드의 어느 곳에서나 현재 요청에 대한 RequestEvent 객체에 접근할 수 있게 해주는 함수이다.</p>
 </li>
-<li><p>일반적으로 <code>RequestEvent</code> 객체는 <code>hooks.server.ts</code>의 <code>handle</code> 함수나 <code>+server.ts</code>의 핸들러, +page.server.ts의 <code>load</code> 및 <code>actions</code> 함수의 인자로 직접 전달된다. 하지만 때로는 이렇게 전달 받은 <code>event</code> 객체를 여러 함수를 거쳐 깊숙한 곳에 있는 유틸리티 함수나 모듈까지 전달해야 하는 <code>prop drilling</code> 문제가 발생하는에 이러한 문제를 해결하기 위해 <code>getRequestEvnet</code> 가 사용된다.</p>
+<li><p>일반적으로 <code style="color: rgb(255 188 54)">RequestEvent</code> 객체는 <code style="color: rgb(255 188 54)">hooks.server.ts</code>의 <code style="color: rgb(255 188 54)">handle</code> 함수나 <code style="color: rgb(255 188 54)">+server.ts</code>의 핸들러, +page.server.ts의 <code style="color: rgb(255 188 54)">load</code> 및 <code style="color: rgb(255 188 54)">actions</code> 함수의 인자로 직접 전달된다. 하지만 때로는 이렇게 전달 받은 <code style="color: rgb(255 188 54)">event</code> 객체를 여러 함수를 거쳐 깊숙한 곳에 있는 유틸리티 함수나 모듈까지 전달해야 하는 <code style="color: rgb(255 188 54)">prop drilling</code> 문제가 발생하는에 이러한 문제를 해결하기 위해 <code style="color: rgb(255 188 54)">getRequestEvnet</code> 가 사용된다.</p>
 </li>
 <li><p>제약 사항</p>
 <ul>
 <li>서버 전용 : 서버측 코드에서만 사용할 수 있다.</li>
-<li>요청 생명 주기 내에서만 유효 : 요청 처리의 동기적인 실행 흐름 내에서만 호출되어야 하며 <code>setTimeout</code>이나 <code>setInterval</code>의 콜백 함수 처럼 요청 컨텍스트가 사라진 비동기적인 환경에서는 null이 반환된다.</li>
+<li>요청 생명 주기 내에서만 유효 : 요청 처리의 동기적인 실행 흐름 내에서만 호출되어야 하며 <code style="color: rgb(255 188 54)">setTimeout</code>이나 <code style="color: rgb(255 188 54)">setInterval</code>의 콜백 함수 처럼 요청 컨텍스트가 사라진 비동기적인 환경에서는 null이 반환된다.</li>
 </ul>
 </li>
 </ul>

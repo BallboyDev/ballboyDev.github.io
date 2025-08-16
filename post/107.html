@@ -60,7 +60,7 @@
                         <div class="navi">
                             <ul class="root">
 
-                                <li id="dt-1" onclick="foldNavi(1)">심심한 개발자의 개발 공부 (23)</li>
+                                <li id="dt-1" onclick="foldNavi(1)">심심한 개발자의 개발 공부 (32)</li>
 <ul id="dc-1" class='dc-all' style="display: block;">
 <a href="https://ballboyDev.github.io/post/108">
 <li id="p-108">• Backend 학습 로드맵</li>
@@ -147,6 +147,41 @@
 </ul>
 
 </ul>
+<li id="dt-13" onclick="foldNavi(13)">Docker (9)</li>
+<ul id="dc-13" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/77">
+<li id="p-77">• docker mariadb setting</li>
+</a>
+<a href="https://ballboyDev.github.io/post/78">
+<li id="p-78">• docker mongodb setting</li>
+</a>
+<a href="https://ballboyDev.github.io/post/89">
+<li id="p-89">• docker network, volume</li>
+</a>
+<a href="https://ballboyDev.github.io/post/90">
+<li id="p-90">• docker compose</li>
+</a>
+<a href="https://ballboyDev.github.io/post/94">
+<li id="p-94">• docker 경량 컨테이너 베이스</li>
+</a>
+<li id="dt-131" onclick="foldNavi(131)">Docker 기본 명령어 정리 (4)</li>
+<ul id="dc-131" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/81">
+<li id="p-81">• Docker image 관련 명령어</li>
+</a>
+<a href="https://ballboyDev.github.io/post/82">
+<li id="p-82">• Docker container 관련 명령어</li>
+</a>
+<a href="https://ballboyDev.github.io/post/83">
+<li id="p-83">• Docker run 명령어 관련 옵션</li>
+</a>
+<a href="https://ballboyDev.github.io/post/84">
+<li id="p-84">• Dockerfile 명령어 정리</li>
+</a>
+
+</ul>
+
+</ul>
 
 </ul>
 <li id="dt-2" onclick="foldNavi(2)">심심한 개발자의 개발 취미 (14)</li>
@@ -207,7 +242,7 @@
 </ul>
 
 </ul>
-<li id="dt-3" onclick="foldNavi(3)">자취생 밥 만들어 먹기 (28)</li>
+<li id="dt-3" onclick="foldNavi(3)">자취생 밥 만들어 먹기 (29)</li>
 <ul id="dc-3" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/27">
 <li id="p-27">• 내돈 내산 양념/조미료 사용 후기</li>
@@ -275,7 +310,7 @@
 </a>
 
 </ul>
-<li id="dt-34" onclick="foldNavi(34)">면 러버의 면 사랑 요리 (10)</li>
+<li id="dt-34" onclick="foldNavi(34)">면 러버의 면 사랑 요리 (11)</li>
 <ul id="dc-34" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/25">
 <li id="p-25">• 내 멋대로 알리오 올리오</li>
@@ -306,6 +341,9 @@
 </a>
 <a href="https://ballboyDev.github.io/post/106">
 <li id="p-106">• 라면 요리 - 윤남노 사천 짜파게티</li>
+</a>
+<a href="https://ballboyDev.github.io/post/121">
+<li id="p-121">• 알리오 올리오 에 페퍼론치노</li>
 </a>
 
 </ul>
@@ -470,11 +508,11 @@
 <h2 id="bm-2">기본 구조</h2>
 <ul>
 <li>Shebang <ul>
-<li><code>#!</code> 스크립트의 가장 첫 줄에 작성하며, 이 스크립트를 실행할 인터프리터를 지정한다.</li>
+<li><code style="color: rgb(255 188 54)">#!</code> 스크립트의 가장 첫 줄에 작성하며, 이 스크립트를 실행할 인터프리터를 지정한다.</li>
 </ul>
 </li>
 <li>주석 <ul>
-<li><code>#</code> 기호 뒤에 오는 모든 내용은 주석으로 처리되어 실행되지 않는다.</li>
+<li><code style="color: rgb(255 188 54)">#</code> 기호 뒤에 오는 모든 내용은 주석으로 처리되어 실행되지 않는다.</li>
 </ul>
 </li>
 </ul>
@@ -485,11 +523,11 @@
 <h3 id="bm-8">변수</h3>
 <ul>
 <li>선언 및 할당<ul>
-<li><code>=</code> 기호를 사용하며, 기호 앞뒤에 공백이 없어야 한다.</li>
+<li><code style="color: rgb(255 188 54)">=</code> 기호를 사용하며, 기호 앞뒤에 공백이 없어야 한다.</li>
 </ul>
 </li>
 <li>사용 <ul>
-<li>변수 이름 앞에 <code>$</code> 를 붙여 사용한다. 문자열고 함께 사용할 때는 중괄호 <code>{}</code>로 감싸는 것이 안전한다.</li>
+<li>변수 이름 앞에 <code style="color: rgb(255 188 54)">$</code> 를 붙여 사용한다. 문자열고 함께 사용할 때는 중괄호 <code style="color: rgb(255 188 54)">{}</code>로 감싸는 것이 안전한다.</li>
 </ul>
 </li>
 </ul>
@@ -502,22 +540,22 @@
             <thead><tr><th align="left">매개변수</th>
 <th align="left">설명</th>
 </tr></thead>
-            <tbody><tr><td align="left"><code>$0</code></td>
+            <tbody><tr><td align="left"><code style="color: rgb(255 188 54)">$0</code></td>
 <td align="left">스크립트(또는 쉘)의 이름</td>
 </tr>
-<tr><td align="left"><code>$1</code>, <code>$2</code>, ...</td>
+<tr><td align="left"><code style="color: rgb(255 188 54)">$1</code>, <code style="color: rgb(255 188 54)">$2</code>, ...</td>
 <td align="left">첫 번째, 두번째, ... 인자</td>
 </tr>
-<tr><td align="left"><code>$#</code></td>
+<tr><td align="left"><code style="color: rgb(255 188 54)">$#</code></td>
 <td align="left">전달된 총 인자의 개수</td>
 </tr>
-<tr><td align="left"><code>$@</code></td>
+<tr><td align="left"><code style="color: rgb(255 188 54)">$@</code></td>
 <td align="left">모든 인자를 각각의 문자열로 취급 (&quot;$1&quot;, &quot;$2&quot;, ...)</td>
 </tr>
-<tr><td align="left"><code>$*</code></td>
+<tr><td align="left"><code style="color: rgb(255 188 54)">$*</code></td>
 <td align="left">모든 인자를 하나의 문자열로 취급 (&quot;$1 $2 $3 ...&quot;)</td>
 </tr>
-<tr><td align="left"><code>$?</code></td>
+<tr><td align="left"><code style="color: rgb(255 188 54)">$?</code></td>
 <td align="left">마지막으로 실행된 명령어의 종료 코드 (0은 성공, 0이 아니면 실패)</td>
 </tr></tbody>
         </table>
@@ -537,9 +575,9 @@
 <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">${user_name}</span>&quot;</span></code></pre><h2 id="bm-22">연산</h2>
 <h3 id="bm-23">산술 연산 (정수)</h3>
 <ul>
-<li>이중 소괄호<code>(())</code>를 사용 산술 연산을 수행하며 괄호 안의 변수에는 <code>$</code>를 붙이지 않는다.</li>
+<li>이중 소괄호<code style="color: rgb(255 188 54)">(())</code>를 사용 산술 연산을 수행하며 괄호 안의 변수에는 <code style="color: rgb(255 188 54)">$</code>를 붙이지 않는다.</li>
 <li>프로그래밍 언어와 유사한 연산자를 사용한다.(+, -, *, /, %, ++, --, += 등)</li>
-<li>그 외 <code>let</code>, <code>expr</code> 명령어를 사용하여 산술 연산을 수행할 수 있으나 최근에는 잘 사용되지 않는다.</li>
+<li>그 외 <code style="color: rgb(255 188 54)">let</code>, <code style="color: rgb(255 188 54)">expr</code> 명령어를 사용하여 산술 연산을 수행할 수 있으나 최근에는 잘 사용되지 않는다.</li>
 </ul>
 <pre class="theme-atom-one-dark"><code class="language-sh">a=5
 b=3
@@ -560,7 +598,7 @@ result=$(<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot
 <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$result</span>&quot;</span> <span class="hljs-comment"># 출력 : 7.7</span></code></pre><h3 id="bm-33">문자열 조합</h3>
 <ul>
 <li>변수나 문자열을 단순히 나열하여 붙일 수 있다.</li>
-<li>변수 이름 뒤에 다른 문자가 바로 이어져 변수 이름의 경계가 모호해질 수 있으므로 중괄호<code>{}</code>로 감싸주어야 한다.</li>
+<li>변수 이름 뒤에 다른 문자가 바로 이어져 변수 이름의 경계가 모호해질 수 있으므로 중괄호<code style="color: rgb(255 188 54)">{}</code>로 감싸주어야 한다.</li>
 </ul>
 <pre class="theme-atom-one-dark"><code class="language-sh">str1=<span class="hljs-string">&quot;Hello&quot;</span>
 str2=<span class="hljs-string">&quot;ballboy&quot;</span>
@@ -574,12 +612,12 @@ message+=<span class="hljs-string">&quot;, &quot;</span>
 message+=<span class="hljs-string">&quot;world!&quot;</span>
 <span class="hljs-built_in">echo</span> <span class="hljs-variable">${message}</span> <span class="hljs-comment"># 출력 : Hello, world!</span></code></pre><h3 id="bm-37">문자열 길이</h3>
 <ul>
-<li>문자열의 길이는 변수명 앞에 <code>#</code>를 붙인다.</li>
+<li>문자열의 길이는 변수명 앞에 <code style="color: rgb(255 188 54)">#</code>를 붙인다.</li>
 </ul>
 <pre class="theme-atom-one-dark"><code class="language-sh">str=<span class="hljs-string">&quot;abcdef&quot;</span>
 <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;length : <span class="hljs-variable">${#str}</span>&quot;</span> <span class="hljs-comment"># 출력 : length : 5</span></code></pre><h3 id="bm-41">문자열 자르기</h3>
 <ul>
-<li>기본 형태 : <code>${변수명:시작위치:길이}</code></li>
+<li>기본 형태 : <code style="color: rgb(255 188 54)">${변수명:시작위치:길이}</code></li>
 <li>시작 위지는 0부터 이다.</li>
 </ul>
 <pre class="theme-atom-one-dark"><code class="language-sh">str=<span class="hljs-string">&quot;Hello, world&quot;</span>
@@ -587,8 +625,8 @@ sub_str=<span class="hljs-variable">${str:7:5}</span>
 <span class="hljs-built_in">echo</span> <span class="hljs-variable">$sub_str</span> <span class="hljs-comment"># 출력 : world</span></code></pre><h3 id="bm-45">문자열 치환</h3>
 <ul>
 <li>기본 형태<ul>
-<li>처음 일치하는 하나만 변경 : <code>${변수명/찾을패턴/바꿀문자열}</code></li>
-<li>일치하는 모든 패턴을 변경 : <code>${변수명//찾을패턴/바꿀문자열}</code></li>
+<li>처음 일치하는 하나만 변경 : <code style="color: rgb(255 188 54)">${변수명/찾을패턴/바꿀문자열}</code></li>
+<li>일치하는 모든 패턴을 변경 : <code style="color: rgb(255 188 54)">${변수명//찾을패턴/바꿀문자열}</code></li>
 </ul>
 </li>
 </ul>
@@ -609,29 +647,29 @@ dashed_path=<span class="hljs-variable">${path//\//-}</span>
 <th align="left">설명</th>
 <th align="left">예시</th>
 </tr></thead>
-            <tbody><tr><td align="left"><code>-eq</code></td>
+            <tbody><tr><td align="left"><code style="color: rgb(255 188 54)">-eq</code></td>
 <td align="left">같음 (equal)</td>
-<td align="left"><code>[ "$a" -eq "$b" ]</code></td>
+<td align="left"><code style="color: rgb(255 188 54)">[ "$a" -eq "$b" ]</code></td>
 </tr>
-<tr><td align="left"><code>-ne</code></td>
+<tr><td align="left"><code style="color: rgb(255 188 54)">-ne</code></td>
 <td align="left">다름 (not equal)</td>
-<td align="left"><code>[ "$a" -ne "$b" ]</code></td>
+<td align="left"><code style="color: rgb(255 188 54)">[ "$a" -ne "$b" ]</code></td>
 </tr>
-<tr><td align="left"><code>-gt</code></td>
+<tr><td align="left"><code style="color: rgb(255 188 54)">-gt</code></td>
 <td align="left">초과 (greater than)</td>
-<td align="left"><code>[ "$a" -gt "$b" ]</code></td>
+<td align="left"><code style="color: rgb(255 188 54)">[ "$a" -gt "$b" ]</code></td>
 </tr>
-<tr><td align="left"><code>-lt</code></td>
+<tr><td align="left"><code style="color: rgb(255 188 54)">-lt</code></td>
 <td align="left">미만 (less than)</td>
-<td align="left"><code>[ "$a" -lt "$b" ]</code></td>
+<td align="left"><code style="color: rgb(255 188 54)">[ "$a" -lt "$b" ]</code></td>
 </tr>
-<tr><td align="left"><code>-ge</code></td>
+<tr><td align="left"><code style="color: rgb(255 188 54)">-ge</code></td>
 <td align="left">크거나 같음 (greater or equal)</td>
-<td align="left"><code>[ "$a" -ge "$b" ]</code></td>
+<td align="left"><code style="color: rgb(255 188 54)">[ "$a" -ge "$b" ]</code></td>
 </tr>
-<tr><td align="left"><code>-le</code></td>
+<tr><td align="left"><code style="color: rgb(255 188 54)">-le</code></td>
 <td align="left">작거나 같음 (less or equal)</td>
-<td align="left"><code>[ "$a" -le "$b" ]</code></td>
+<td align="left"><code style="color: rgb(255 188 54)">[ "$a" -le "$b" ]</code></td>
 </tr></tbody>
         </table>
         </li>
@@ -642,21 +680,21 @@ dashed_path=<span class="hljs-variable">${path//\//-}</span>
 <th align="left">설명</th>
 <th align="left">예시</th>
 </tr></thead>
-            <tbody><tr><td align="left"><code>==</code> or <code>=</code></td>
+            <tbody><tr><td align="left"><code style="color: rgb(255 188 54)">==</code> or <code style="color: rgb(255 188 54)">=</code></td>
 <td align="left">두 문자열이 같음</td>
-<td align="left"><code>[ "$a" == "$b" ]</code></td>
+<td align="left"><code style="color: rgb(255 188 54)">[ "$a" == "$b" ]</code></td>
 </tr>
-<tr><td align="left"><code>!=</code></td>
+<tr><td align="left"><code style="color: rgb(255 188 54)">!=</code></td>
 <td align="left">두 문자열이 다름</td>
-<td align="left"><code>[ "$a" != "$b" ]</code></td>
+<td align="left"><code style="color: rgb(255 188 54)">[ "$a" != "$b" ]</code></td>
 </tr>
-<tr><td align="left"><code>-z</code></td>
+<tr><td align="left"><code style="color: rgb(255 188 54)">-z</code></td>
 <td align="left">문자열이 비어있음</td>
-<td align="left"><code>[ -z "$a" ]</code></td>
+<td align="left"><code style="color: rgb(255 188 54)">[ -z "$a" ]</code></td>
 </tr>
-<tr><td align="left"><code>-n</code></td>
+<tr><td align="left"><code style="color: rgb(255 188 54)">-n</code></td>
 <td align="left">문자열이 비어있지 않음</td>
-<td align="left"><code>[ -n "$a" ]</code></td>
+<td align="left"><code style="color: rgb(255 188 54)">[ -n "$a" ]</code></td>
 </tr></tbody>
         </table>
         </li>
@@ -667,28 +705,28 @@ dashed_path=<span class="hljs-variable">${path//\//-}</span>
 <th align="left">설명</th>
 <th align="left">예시</th>
 </tr></thead>
-            <tbody><tr><td align="left"><code>-f</code></td>
+            <tbody><tr><td align="left"><code style="color: rgb(255 188 54)">-f</code></td>
 <td align="left">파일이 존재하고 일반 파일임</td>
-<td align="left"><code>[ -f "file.txt" ]</code></td>
+<td align="left"><code style="color: rgb(255 188 54)">[ -f "file.txt" ]</code></td>
 </tr>
-<tr><td align="left"><code>-d</code></td>
+<tr><td align="left"><code style="color: rgb(255 188 54)">-d</code></td>
 <td align="left">파일이 존재하고 디렉터리임</td>
-<td align="left"><code>[ -d "dir" ]</code></td>
+<td align="left"><code style="color: rgb(255 188 54)">[ -d "dir" ]</code></td>
 </tr>
-<tr><td align="left"><code>-e</code></td>
+<tr><td align="left"><code style="color: rgb(255 188 54)">-e</code></td>
 <td align="left">파일 또는 디렉터리가 존재함</td>
-<td align="left"><code>[ -e "some/path" ]</code></td>
+<td align="left"><code style="color: rgb(255 188 54)">[ -e "some/path" ]</code></td>
 </tr>
-<tr><td align="left"><code>-s</code></td>
+<tr><td align="left"><code style="color: rgb(255 188 54)">-s</code></td>
 <td align="left">파일이 존재하고 크기가 0보다 큼</td>
-<td align="left"><code>[ -s "file.txt" ]</code></td>
+<td align="left"><code style="color: rgb(255 188 54)">[ -s "file.txt" ]</code></td>
 </tr></tbody>
         </table>
         </li>
 </ul>
 <h3 id="bm-54">조건문</h3>
 <ul>
-<li>조건식은 대괄호 <code>[]</code>또는 이중 대괄호 <code>[[]]</code>안에 작성하며, 각 요소 사이에 공백이 필수이다.</li>
+<li>조건식은 대괄호 <code style="color: rgb(255 188 54)">[]</code>또는 이중 대괄호 <code style="color: rgb(255 188 54)">[[]]</code>안에 작성하며, 각 요소 사이에 공백이 필수이다.</li>
 </ul>
 <pre class="theme-atom-one-dark"><code class="language-sh"><span class="hljs-keyword">if</span> [ 조건 ]; <span class="hljs-keyword">then</span>
   <span class="hljs-comment"># 참일 때</span>
@@ -746,41 +784,41 @@ greet2 <span class="hljs-string">&quot;Franciscus&quot;</span> <span class="hljs
 <h3 id="bm-72">명령어 치환</h3>
 <ul>
 <li>명령어의 실행 결과를 변수에 저장하거나 다른 명령어의 인자로 사용</li>
-<li>백틱<code>`</code>도 사용 가능하지만, <code>$()</code> 사용이 권장됨</li>
+<li>백틱<code style="color: rgb(255 188 54)">`</code>도 사용 가능하지만, <code style="color: rgb(255 188 54)">$()</code> 사용이 권장됨</li>
 </ul>
 <pre class="theme-atom-one-dark"><code class="language-sh">current_date=$(<span class="hljs-built_in">date</span> +%Y-%m-%d)
 <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Today is <span class="hljs-variable">${current_date}</span>&quot;</span>
 
 FILE_LIST=`<span class="hljs-built_in">ls</span>`</code></pre><h3 id="bm-77">입출력 리다이렉션</h3>
 <ul>
-<li><p><code>&gt;</code> : 표준 출력을 파일로 리다이렉션 (덮어쓰기)</p>
+<li><p><code style="color: rgb(255 188 54)">&gt;</code> : 표준 출력을 파일로 리다이렉션 (덮어쓰기)</p>
 <ul>
-<li><code>ls -l &gt; file_list.txt</code><ul>
-<li><code>ls -l</code>의 결과를 <code>file_list.txt</code>에 덮어씀</li>
+<li><code style="color: rgb(255 188 54)">ls -l &gt; file_list.txt</code><ul>
+<li><code style="color: rgb(255 188 54)">ls -l</code>의 결과를 <code style="color: rgb(255 188 54)">file_list.txt</code>에 덮어씀</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p><code>&gt;&gt;</code> : 표준 출력을 파일로 리다이렉션 (이어쓰기)</p>
+<li><p><code style="color: rgb(255 188 54)">&gt;&gt;</code> : 표준 출력을 파일로 리다이렉션 (이어쓰기)</p>
 <ul>
-<li><code>echo "New line" &gt;&gt; file_list.txt</code><ul>
+<li><code style="color: rgb(255 188 54)">echo "New line" &gt;&gt; file_list.txt</code><ul>
 <li>파일 끝에 내용 추가</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p><code>&lt;</code> : 파일의 내용을 표준 입력으로 사용</p>
+<li><p><code style="color: rgb(255 188 54)">&lt;</code> : 파일의 내용을 표준 입력으로 사용</p>
 <ul>
-<li><code>sort &lt; file_list.txt</code><ul>
+<li><code style="color: rgb(255 188 54)">sort &lt; file_list.txt</code><ul>
 <li>파일을 정렬하여 출력</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p><code>|</code> : 한 명령어의 출력을 다른 명령어의 입력으로 연결 (파이프)</p>
+<li><p><code style="color: rgb(255 188 54)">|</code> : 한 명령어의 출력을 다른 명령어의 입력으로 연결 (파이프)</p>
 <ul>
-<li><code>ls -l | grep ".txt"</code><ul>
-<li><code>ls</code> 결과 중 <code>.txt</code>를 포함하는 라인만 필터링</li>
+<li><code style="color: rgb(255 188 54)">ls -l | grep ".txt"</code><ul>
+<li><code style="color: rgb(255 188 54)">ls</code> 결과 중 <code style="color: rgb(255 188 54)">.txt</code>를 포함하는 라인만 필터링</li>
 </ul>
 </li>
 </ul>
@@ -788,7 +826,7 @@ FILE_LIST=`<span class="hljs-built_in">ls</span>`</code></pre><h3 id="bm-77">입
 </ul>
 <h3 id="bm-80">Exit & 에러 처리</h3>
 <ul>
-<li><code>exit</code> 명령어는 스크립트를 즉시 종료시키는 데 사용된다. 이 때, 스크립트 전체의 종료 상태를 직접 지정할 수 있다.<ul>
+<li><code style="color: rgb(255 188 54)">exit</code> 명령어는 스크립트를 즉시 종료시키는 데 사용된다. 이 때, 스크립트 전체의 종료 상태를 직접 지정할 수 있다.<ul>
 <li>0: 성공 <ul>
 <li>명령어가 문제 없이 정상 적으로 실행되었음</li>
 </ul>
@@ -805,8 +843,8 @@ FILE_LIST=`<span class="hljs-built_in">ls</span>`</code></pre><h3 id="bm-77">입
 
 <span class="hljs-built_in">command</span> || <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;에러 발생&quot;</span>
 <span class="hljs-built_in">command</span> &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;성공&quot;</span></code></pre><ul>
-<li>에러 감지 특수 변수 : <code>$?</code><ul>
-<li><code>$?</code>는 바로 직전에 실행된 명령어의 종료 상태를 담고 있는 변수</li>
+<li>에러 감지 특수 변수 : <code style="color: rgb(255 188 54)">$?</code><ul>
+<li><code style="color: rgb(255 188 54)">$?</code>는 바로 직전에 실행된 명령어의 종료 상태를 담고 있는 변수</li>
 </ul>
 </li>
 </ul>
@@ -817,11 +855,11 @@ FILE_LIST=`<span class="hljs-built_in">ls</span>`</code></pre><h3 id="bm-77">입
 <span class="hljs-comment"># 실행 실패 명령어 (존해하지 않는 파일/디렉토리)</span>
 <span class="hljs-built_in">ls</span> /non_existent_dir
 <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;$?&quot;</span> <span class="hljs-comment"># 출력: 0이 아닌 값 (보통 1 or 2)</span></code></pre><ul>
-<li>자동 에러 처리 <code>set</code> 명령어<ul>
-<li><code>set</code> 명령어를 스크립트 상단에 선언하면 스크립트의 동작 방식을 더 안전하게 바꿀 수 있다.<ul>
-<li><code>-e</code> : 명령어가 0이 아닌 종료 상태를 반환하면 즉시 스크립트 실행을 중단</li>
-<li><code>-u</code> : 선언 되지 않은 변수를 사용하려고 할 때 에러로 간주하고 스크립트를 중단, 변수 이름의 오타 등을 방지</li>
-<li><code>-o pipefail</code> : 파이프라인 <code>|</code>으로 연결된 명령어들 중 하나라도 실패하면 전체 파이프 라인을 실패로 간주</li>
+<li>자동 에러 처리 <code style="color: rgb(255 188 54)">set</code> 명령어<ul>
+<li><code style="color: rgb(255 188 54)">set</code> 명령어를 스크립트 상단에 선언하면 스크립트의 동작 방식을 더 안전하게 바꿀 수 있다.<ul>
+<li><code style="color: rgb(255 188 54)">-e</code> : 명령어가 0이 아닌 종료 상태를 반환하면 즉시 스크립트 실행을 중단</li>
+<li><code style="color: rgb(255 188 54)">-u</code> : 선언 되지 않은 변수를 사용하려고 할 때 에러로 간주하고 스크립트를 중단, 변수 이름의 오타 등을 방지</li>
+<li><code style="color: rgb(255 188 54)">-o pipefail</code> : 파이프라인 <code style="color: rgb(255 188 54)">|</code>으로 연결된 명령어들 중 하나라도 실패하면 전체 파이프 라인을 실패로 간주</li>
 </ul>
 </li>
 </ul>

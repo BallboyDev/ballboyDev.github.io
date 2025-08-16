@@ -60,7 +60,7 @@
                         <div class="navi">
                             <ul class="root">
 
-                                <li id="dt-1" onclick="foldNavi(1)">심심한 개발자의 개발 공부 (23)</li>
+                                <li id="dt-1" onclick="foldNavi(1)">심심한 개발자의 개발 공부 (32)</li>
 <ul id="dc-1" class='dc-all' style="display: block;">
 <a href="https://ballboyDev.github.io/post/108">
 <li id="p-108">• Backend 학습 로드맵</li>
@@ -147,6 +147,41 @@
 </ul>
 
 </ul>
+<li id="dt-13" onclick="foldNavi(13)">Docker (9)</li>
+<ul id="dc-13" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/77">
+<li id="p-77">• docker mariadb setting</li>
+</a>
+<a href="https://ballboyDev.github.io/post/78">
+<li id="p-78">• docker mongodb setting</li>
+</a>
+<a href="https://ballboyDev.github.io/post/89">
+<li id="p-89">• docker network, volume</li>
+</a>
+<a href="https://ballboyDev.github.io/post/90">
+<li id="p-90">• docker compose</li>
+</a>
+<a href="https://ballboyDev.github.io/post/94">
+<li id="p-94">• docker 경량 컨테이너 베이스</li>
+</a>
+<li id="dt-131" onclick="foldNavi(131)">Docker 기본 명령어 정리 (4)</li>
+<ul id="dc-131" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/81">
+<li id="p-81">• Docker image 관련 명령어</li>
+</a>
+<a href="https://ballboyDev.github.io/post/82">
+<li id="p-82">• Docker container 관련 명령어</li>
+</a>
+<a href="https://ballboyDev.github.io/post/83">
+<li id="p-83">• Docker run 명령어 관련 옵션</li>
+</a>
+<a href="https://ballboyDev.github.io/post/84">
+<li id="p-84">• Dockerfile 명령어 정리</li>
+</a>
+
+</ul>
+
+</ul>
 
 </ul>
 <li id="dt-2" onclick="foldNavi(2)">심심한 개발자의 개발 취미 (14)</li>
@@ -207,7 +242,7 @@
 </ul>
 
 </ul>
-<li id="dt-3" onclick="foldNavi(3)">자취생 밥 만들어 먹기 (28)</li>
+<li id="dt-3" onclick="foldNavi(3)">자취생 밥 만들어 먹기 (29)</li>
 <ul id="dc-3" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/27">
 <li id="p-27">• 내돈 내산 양념/조미료 사용 후기</li>
@@ -275,7 +310,7 @@
 </a>
 
 </ul>
-<li id="dt-34" onclick="foldNavi(34)">면 러버의 면 사랑 요리 (10)</li>
+<li id="dt-34" onclick="foldNavi(34)">면 러버의 면 사랑 요리 (11)</li>
 <ul id="dc-34" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/25">
 <li id="p-25">• 내 멋대로 알리오 올리오</li>
@@ -306,6 +341,9 @@
 </a>
 <a href="https://ballboyDev.github.io/post/106">
 <li id="p-106">• 라면 요리 - 윤남노 사천 짜파게티</li>
+</a>
+<a href="https://ballboyDev.github.io/post/121">
+<li id="p-121">• 알리오 올리오 에 페퍼론치노</li>
 </a>
 
 </ul>
@@ -375,7 +413,7 @@
 
                             <h1 id="bm-1">setting svelte.config.js</h1>
 <ul>
-<li>프로젝트의 구성과 설정은 <code>svelte.config.js</code> 파일을 통하여 이루어집니다. <code>svelte.config.js</code>는 svelteKit 외에도 편집기 확장과 같은 Svelte와 통합되는 다른 도구에서도 사용됩니다.</li>
+<li>프로젝트의 구성과 설정은 <code style="color: rgb(255 188 54)">svelte.config.js</code> 파일을 통하여 이루어집니다. <code style="color: rgb(255 188 54)">svelte.config.js</code>는 svelteKit 외에도 편집기 확장과 같은 Svelte와 통합되는 다른 도구에서도 사용됩니다.</li>
 </ul>
 <pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">// base code</span>
 <span class="hljs-keyword">import</span> adapter <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@sveltejs/adapter-auto&#x27;</span>;
@@ -389,34 +427,34 @@
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> config;</code></pre><h2 id="bm-6">Config (`interface Config {...}`)</h2>
 <ul>
-<li><p><code>compilerOptions?: CompileOptions;</code></p>
+<li><p><code style="color: rgb(255 188 54)">compilerOptions?: CompileOptions;</code></p>
 <ul>
-<li>DEFAULT <code>{}</code></li>
-<li>옵션이 <code>svelte.compile</code>로 전달됩니다.</li>
+<li>DEFAULT <code style="color: rgb(255 188 54)">{}</code></li>
+<li>옵션이 <code style="color: rgb(255 188 54)">svelte.compile</code>로 전달됩니다.</li>
 </ul>
 </li>
-<li><p><code>extensions?: string[];</code></p>
+<li><p><code style="color: rgb(255 188 54)">extensions?: string[];</code></p>
 <ul>
-<li>DEFAULT <code>[".svelte"]</code></li>
+<li>DEFAULT <code style="color: rgb(255 188 54)">[".svelte"]</code></li>
 <li>Svelte 파일로 처리해야 하는 파일 확장자 목록입니다.</li>
 </ul>
 </li>
-<li><p><code>kit?: KitConfig;</code></p>
+<li><p><code style="color: rgb(255 188 54)">kit?: KitConfig;</code></p>
 <ul>
 <li>SvelteKit 옵션</li>
 </ul>
 </li>
-<li><p><code>preprocess?: any;</code></p>
+<li><p><code style="color: rgb(255 188 54)">preprocess?: any;</code></p>
 <ul>
 <li>전처리기 옵션이 있는 경우. 또한 Vite의 전처리 기능을 통해 전처리를 수행할 수도 있습니다.</li>
 </ul>
 </li>
-<li><p><code>vitePlugin?: PluginOptions</code></p>
+<li><p><code style="color: rgb(255 188 54)">vitePlugin?: PluginOptions</code></p>
 <ul>
-<li><code>vite-plugin-svelte</code> 플러그인 옵션</li>
+<li><code style="color: rgb(255 188 54)">vite-plugin-svelte</code> 플러그인 옵션</li>
 </ul>
 </li>
-<li><p><code>[key: string]: any</code></p>
+<li><p><code style="color: rgb(255 188 54)">[key: string]: any</code></p>
 <ul>
 <li>스벨트 개발 툴에 필요한 추가 옵션</li>
 </ul>
@@ -425,17 +463,17 @@
 <hr>
 <h2 id="bm-10">KitConfig</h2>
 <ul>
-<li><p><code>svelte.config.js</code>파일의 <code>config.kit</code> 속성은 SvelteKit의 옵션을 구성합니다.</p>
+<li><p><code style="color: rgb(255 188 54)">svelte.config.js</code>파일의 <code style="color: rgb(255 188 54)">config.kit</code> 속성은 SvelteKit의 옵션을 구성합니다.</p>
 </li>
-<li><p><code>adapter</code></p>
+<li><p><code style="color: rgb(255 188 54)">adapter</code></p>
 <ul>
-<li>DEFAULT <code>undefined</code></li>
+<li>DEFAULT <code style="color: rgb(255 188 54)">undefined</code></li>
 <li>Vite 빌드를 실행할 때 어댑터가 실행됩니다. 다양한 플랫폼에서 출력이 어떻게 변환되는지를 결정합니다.</li>
 </ul>
 </li>
-<li><p><code>alias</code></p>
+<li><p><code style="color: rgb(255 188 54)">alias</code></p>
 <ul>
-<li>DEFAULT <code>{}</code></li>
+<li>DEFAULT <code style="color: rgb(255 188 54)">{}</code></li>
 <li>import 문에서 값을 대체하는 데 사용되는 0개 이상의 별칭을 포함하는 객체입니다. 이 별칭들은 자동으로 Vite와 TypeScript로 전달 됩니다.</li>
 </ul>
 </li>
@@ -450,25 +488,25 @@
         }
     }
 }</code></pre><ul>
-<li><p><code>appDir</code></p>
+<li><p><code style="color: rgb(255 188 54)">appDir</code></p>
 <ul>
-<li>DEFAULT <code>_app</code></li>
+<li>DEFAULT <code style="color: rgb(255 188 54)">_app</code></li>
 <li>svelteKit이 빌드 시 생성하는 내부 애플리케이션 디렉토리의 이름을 설정하는 옵션입니다.</li>
-<li>만약 <code>paths.assets</code>가 지정되면, 두 개의 앱 디렉토리 <code>${paths.assets}/${appDir}</code>, <code>${paths.base}/${appDir}</code>가 생성 됩니다.</li>
+<li>만약 <code style="color: rgb(255 188 54)">paths.assets</code>가 지정되면, 두 개의 앱 디렉토리 <code style="color: rgb(255 188 54)">${paths.assets}/${appDir}</code>, <code style="color: rgb(255 188 54)">${paths.base}/${appDir}</code>가 생성 됩니다.</li>
 </ul>
 </li>
-<li><p><code>csp</code> ***</p>
+<li><p><code style="color: rgb(255 188 54)">csp</code> ***</p>
 <ul>
 <li><p>CSP(Content Security Policy)는 웹 애플리케이션의 보안을 강화하기 위해 특정 리소스만 허용하도록 규정하는 정책입니다. 이를 통해 XSS(크로스 사이트 스크립팅) 등의 공격을 방지할 수 있습니다.</p>
 </li>
 <li><p>속성 설명</p>
 <ul>
-<li><code>mode?: enum('auto'|'hash')</code><ul>
+<li><code style="color: rgb(255 188 54)">mode?: enum('auto'|'hash')</code><ul>
 <li>auto: SvelteKit이 자동으로 CSP를 생성</li>
 <li>hash: 콘텐츠의 해쉬 값을 생성하여 CSP 정책에 포함</li>
 </ul>
 </li>
-<li><code>directrives?: {}</code><ul>
+<li><code style="color: rgb(255 188 54)">directrives?: {}</code><ul>
 <li>특정 리소스 유형별로 허용할 도메인 또는 정책을 설정</li>
 </ul>
 </li>
@@ -525,13 +563,13 @@
         }
     }
 }</code></pre><ul>
-<li><p><code>csrf</code></p>
+<li><p><code style="color: rgb(255 188 54)">csrf</code></p>
 <ul>
 <li><p>CSRF(Cross-Site Request Forgery) 공격을 방지하는 설정이다.</p>
 </li>
 <li><p>속성 설명</p>
 <ul>
-<li><code>checkOrigin?: boolean</code><ul>
+<li><code style="color: rgb(255 188 54)">checkOrigin?: boolean</code><ul>
 <li>true: 다른 도메인에서의 요청 차단</li>
 </ul>
 </li>
@@ -546,12 +584,12 @@
 </li>
 </ul>
 </li>
-<li><p><code>embedded</code></p>
+<li><p><code style="color: rgb(255 188 54)">embedded</code></p>
 <ul>
-<li>DEFAULT <code>false</code></li>
+<li>DEFAULT <code style="color: rgb(255 188 54)">false</code></li>
 <li>SvelteKit 애플리케이션을 다른 애플리케이션 안에 포함할 수 있도록 허용하는 설정이다.</li>
 <li>속성 설명<ul>
-<li><code>embedded?: boolean</code><ul>
+<li><code style="color: rgb(255 188 54)">embedded?: boolean</code><ul>
 <li>true로 설정하면 앱이 다른 웹 페이지 내에서 iframe을 통해 포함될 수 있습니다.</li>
 </ul>
 </li>
@@ -559,22 +597,22 @@
 </li>
 </ul>
 </li>
-<li><p><code>env</code></p>
+<li><p><code style="color: rgb(255 188 54)">env</code></p>
 <ul>
 <li>kit.env는 svelteKit에서 환경 변수 파일 (.env) 을 로드하는 방식을 설정하는 옵션입니다.</li>
 <li>속성 설명<ul>
-<li><code>dir?: string</code><ul>
-<li>DEFAULT <code>.</code></li>
+<li><code style="color: rgb(255 188 54)">dir?: string</code><ul>
+<li>DEFAULT <code style="color: rgb(255 188 54)">.</code></li>
 <li>환경 변수 파일이 위치할 디렉토리 지정</li>
 </ul>
 </li>
-<li><code>publicPrefix?: string</code><ul>
-<li>DEFAULT <code>PUBLIC_</code></li>
+<li><code style="color: rgb(255 188 54)">publicPrefix?: string</code><ul>
+<li>DEFAULT <code style="color: rgb(255 188 54)">PUBLIC_</code></li>
 <li>환경 변수가 클라이언트 측 코드에 노출되어도 안전하다는 표시를 하는 접두사 입니다.</li>
 </ul>
 </li>
-<li><code>privatePrefix?: string</code><ul>
-<li>DEFAULT <code>""</code></li>
+<li><code style="color: rgb(255 188 54)">privatePrefix?: string</code><ul>
+<li>DEFAULT <code style="color: rgb(255 188 54)">""</code></li>
 <li>환경 변수가 클라이언트 측 코드에 노출되기에 안전하지 않다는 표시를 하는 접두사 입니다.</li>
 <li>공용 접두사나 개인 접두사에 일치하지 않는 환경변수는 모두 폐기 됩니다.</li>
 </ul>

@@ -17,19 +17,19 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
             <style>
-                #p-35 {
+                #p-78 {
                     color: rgb(76, 193, 237) !important;
                 }
             </style>
             <script id="data" type="application/json">
             {
-                "fold": ["2","22"]
+                "fold": ["1","13"]
             }
             </script>
 
             <script src="https://ballboyDev.github.io/assets/skin.js"></script>
 
-                <title>2. 블로그 만들기 외전 - 외부 빌드 스크립트 만들기</title>
+                <title>docker mongodb setting</title>
             </head>
 
             <body>
@@ -388,76 +388,58 @@
                         <div class="bookmark">
 
             <div class="title t1">
-                <div><a href="#bm-1"># 2. 블로그 만들기 외전 - 외부 빌드 스크립트 만들기</a></div>
+                <div><a href="#bm-1"># Docker로 MongoDB community server Setting 하기
+</a></div>
                 <p>•</p>
             </div>
 
-            <div class="title t2">
-                <div><a href="#bm-4">## 스크립트</a></div>
+            <div class="title t3">
+                <div><a href="#bm-2">### MongoDB image 설치</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-5">### MongoDB 컨테이너 생성 및 실행</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-11">### MongoDB 컨테이너 접속</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-14">### DB 접속</a></div>
                 <p>•</p>
             </div></div>
                         
                         
-            <a href="https://ballboyDev.github.io/post/34.html" class="prev post">
-                <img src="https://ballboyDev.github.io/assets/img/prev.svg" alt="" srcset="">
-            </a>
                         
                         
                         
                         <div class="main markdown-body">
 
-                            <h1 id="bm-1">2. 블로그 만들기 외전 - 외부 빌드 스크립트 만들기</h1>
-<p>포스팅 글과 블로그 제작 프로젝트를 분리 했다. 처음부터 분리가 가능하도록 기획을 했었기에 어렵지 않게 작업이 진행되었다.
-분리한 이유는 크게 2가지 이다.
-첫번째는 프로젝트의 규모가 커지고 포스팅 파일도 많아 지다보니 원활한 관리 차원에서 분리하는 것이 적절하다고 생각했다.
-두번째는 아이패드와 맥북, 아이폰 어디서든 포스팅 글을 작성 할 수 있도록 iCloud 공유 공간으로의 이동이다.
-프로젝트는 git으로 관리를 하지만 포스팅 글은 iCloud로 관리하여 언제 어디서든 실시간으로 아이디어와 생각을 정리 할 수 있기 위해 분리를 진행했다.
-하지만 문제는 포스팅 글을 빌드 하고 배포하는 과정은 어짜피 맥북 환경이지만 포스팅 글 위치에서 빌드/배포 하기 위해서는 결국 프로젝트 경로로 이동을 해야 한다는 점이다.
-그래서 포스팅 글 공간에서 빌드가 가능하도록 스크립트를 작성했다.</p>
-<h2 id="bm-4">스크립트</h2>
-<ul>
-<li>사실 어려운 스크립트는 아니다. 스크립트를 실행하며 넘긴 파라미터와 npm의 --prefix 옵션을 활용하여 경로 이동없이 명령어를 실행한다는 점만 이해하면 된다.</li>
+                            <h1 id="bm-1">Docker로 MongoDB community server Setting 하기</h1>
+<h3 id="bm-2">MongoDB image 설치</h3>
+<pre class="theme-atom-one-dark"><code class="language-sh">docker pull mongodb/mongodb-community-server:latest</code></pre><h3 id="bm-5">MongoDB 컨테이너 생성 및 실행</h3>
+<pre class="theme-atom-one-dark"><code class="language-sh"><span class="hljs-comment"># default</span>
+docker run --name dev-mongodb -p 27017:27017 -d mongodb/mongodb-community-server:latest
+
+<span class="hljs-comment"># 5.0 version</span>
+docker run --name mongodb -p 27017:27017 -d mongodb/mongodb-community-server:5.0-ubuntu2004</code></pre><ul>
+<li>Docker 실행 명령에 명령줄 옵션을 추가하여 mongod 명령줄 옵션을 사용할 수 있습니다.
+예를 들어 <code style="color: rgb(255 188 54)">mongod --replSet</code> Docker 명령줄 옵션을 생각할 수 있습니다.</li>
 </ul>
-<pre class="theme-atom-one-dark"><code class="language-sh">&gt;&gt; ./deploy.sh 
-&gt;&gt; ./deploy.sh 100
-&gt;&gt; ./deploy.sh build
-&gt;&gt; ./deploy.sh deploy
+<pre class="theme-atom-one-dark"><code class="language-sh">docker run -p 27017:27017 -d mongodb/mongodb-community-server:latest --name mongodb --replSet myReplicaSet</code></pre><h3 id="bm-11">MongoDB 컨테이너 접속</h3>
+<pre class="theme-atom-one-dark"><code class="language-sh">docker <span class="hljs-built_in">exec</span> -it dev-mongodb /bin/bash</code></pre><h3 id="bm-14">DB 접속</h3>
+<pre class="theme-atom-one-dark"><code class="language-sh"><span class="hljs-comment"># docker에서 DB 접근</span>
+mongosh
 
-<span class="hljs-comment">#!/bin/bash</span>
+<span class="hljs-comment"># mongo 접속 문자열 출력</span>
+db.getMongo()
 
-TARGET_DIR=<span class="hljs-string">&quot;/Users/ballboy/workspace/project/ballboyDev.github.io/&quot;</span>
-ARG1=<span class="hljs-string">&quot;<span class="hljs-variable">${1:-dev}</span>&quot;</span>
-
-<span class="hljs-comment"># Check if the first argument is a number</span>
-<span class="hljs-keyword">if</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$ARG1</span>&quot;</span> =~ ^[0-9]+$ ]]; <span class="hljs-keyword">then</span>
-    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Running npm run build in <span class="hljs-variable">${TARGET_DIR}</span>&quot;</span>
-    npm --prefix <span class="hljs-string">&quot;<span class="hljs-variable">${TARGET_DIR}</span>&quot;</span> run app:dev
-    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Opening post number <span class="hljs-variable">${ARG1}</span>&quot;</span>
-    open <span class="hljs-string">&quot;<span class="hljs-variable">${TARGET_DIR}</span>_dist/post/<span class="hljs-variable">${ARG1}</span>.html&quot;</span>
-    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Done.&quot;</span>
-    <span class="hljs-built_in">exit</span> 0
-<span class="hljs-keyword">fi</span>
-
-<span class="hljs-comment"># If the argument is not a number, proceed with the original logic</span>
-<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Running npm run app:<span class="hljs-variable">${ARG1}</span> in <span class="hljs-variable">${TARGET_DIR}</span>&quot;</span>
-npm --prefix <span class="hljs-string">&quot;<span class="hljs-variable">${TARGET_DIR}</span>&quot;</span> run app:<span class="hljs-variable">${ARG1}</span>
-
-<span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">${ARG1}</span>&quot;</span> = <span class="hljs-string">&quot;build&quot;</span> ]; <span class="hljs-keyword">then</span>
-    <span class="hljs-built_in">read</span> -p <span class="hljs-string">&quot;Do you want to deploy? (y/n): &quot;</span> a1
-    <span class="hljs-keyword">if</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">${a1}</span>&quot;</span> == [Yy]* ]]; <span class="hljs-keyword">then</span>
-        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Deploying...&quot;</span>
-        npm --prefix <span class="hljs-string">&quot;<span class="hljs-variable">${TARGET_DIR}</span>&quot;</span> run app:deploy
-    <span class="hljs-keyword">fi</span>
-<span class="hljs-keyword">elif</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">${ARG1}</span>&quot;</span> = <span class="hljs-string">&quot;dev&quot;</span> ]; <span class="hljs-keyword">then</span>
-    <span class="hljs-built_in">read</span> -p <span class="hljs-string">&quot;Do you want to open built page? (y/n): &quot;</span> a2
-    <span class="hljs-keyword">if</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">${a2}</span>&quot;</span> == [Yy]* ]]; <span class="hljs-keyword">then</span>
-        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;open index page&quot;</span>
-        open <span class="hljs-string">&quot;<span class="hljs-variable">${TARGET_DIR}</span>_dist/index.html&quot;</span>
-    <span class="hljs-keyword">fi</span>
-<span class="hljs-keyword">fi</span>
-
-<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Done.&quot;</span>
-</code></pre>
+<span class="hljs-comment"># local에서 Docker DB로 접근</span>
+mongosh [db.getMongo() 출력 내용]</code></pre>
 
                         </div>
 
