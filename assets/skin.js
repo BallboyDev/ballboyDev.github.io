@@ -1,6 +1,7 @@
 window.onload = async () => {
     console.log('run skin.js')
 
+    // 모바일 환경에서 네비게이션 open/close
     const contents = document.getElementById('contents')
     const navi = document.getElementById('side-bar')
     const openNavi = document.getElementById('openNavi')
@@ -14,11 +15,19 @@ window.onload = async () => {
         contents.style.display = 'block'
     }
 
+    // 현제 페이지 경로대로 네비게이션 아이템 열기
     const { fold } = JSON.parse(document.getElementById("data").text)
     fold.map((v) => {
         document.getElementById(`dc-${v}`).style.display = "block"
     })
 
+
+    if (!!localStorage.getItem('env')) {
+        const temps = document.getElementsByClassName('dt-temp')
+        for (let t of temps) {
+            t.style.display = 'none'
+        }
+    }
 
     // 베이스 데이터 조회 (최근 올라온 글 등)
     // console.log(window.location.pathname)
@@ -39,10 +48,10 @@ const getBaseData = async () => {
     data.map((v) => { tag.innerHTML += `<li>${v}</li>` })
 }
 
-const foldNavi = (num = 0) => {
+const foldNavi = (index = '0') => {
 
-    if (!!num) {
-        const ulTag = document.getElementById(`dc-${num}`)
+    if (index !== '0') {
+        const ulTag = document.getElementById(`dc-${index}`)
         if (ulTag.style.display === "block") {
             ulTag.style.display = "none"
         } else {
