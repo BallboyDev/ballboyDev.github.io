@@ -28,7 +28,6 @@ const app = {
         console.group('\x1b[43m\x1b[30m%s\x1b[0m', '\n##### [ app.init ] #####')
 
         try {
-
             if (fs.existsSync(utils.path.dist)) {
                 fs.rmSync(utils.path.dist, { recursive: true })
             }
@@ -93,7 +92,7 @@ const app = {
                         const [title, tempIdx] = path.basename(v, path.extname(v)).split('_');
 
                         // 개발 환경에서 디렉토리의 index 값이 0인 경우에도 Navi 표현
-                        const index = parseInt(tempIdx) === 0 ? Math.floor(Math.random() * 9999) : tempIdx
+                        const index = parseInt(tempIdx) === 0 ? `T${Math.floor(Math.random() * 9999)}` : tempIdx
 
                         if (env === 'dev' || (env === 'build' && parseInt(tempIdx) !== 0)) {
                             const [child, json] = recursion(`${root}/${v}`, [...fold, index]);
@@ -201,7 +200,7 @@ const app = {
                     const [type, num] = v.split('_')
 
                     if (type === 'dir') {
-                        tagList.push(`<li id="dt-${num}" onclick="foldNavi(${num})">${root[v].title} (${root[v].count})</li>`)
+                        tagList.push(`<li id="dt-${num}" ${num.indexOf('T') >= 0 ? "class='dt-temp'" : ''} onclick="foldNavi('${num}')">${root[v].title} (${root[v].count})</li>`)
                         tagList.push(`<ul id="dc-${num}" class='dc-all' style="display: ${parseInt(num) === 1 ? 'block' : 'none'};">`)
                         tagList.push(recursion(root[v].children))
                         tagList.push('</ul>')
