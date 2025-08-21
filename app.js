@@ -39,6 +39,9 @@ const app = {
             fs.copyFileSync(`${utils.path.assets}/skin.css`, `${utils.path.dist}/assets/skin.css`)
             fs.copyFileSync(`${utils.path.assets}/markdown.css`, `${utils.path.dist}/assets/markdown.css`)
             fs.copyFileSync(`${utils.path.assets}/skin.js`, `${utils.path.dist}/assets/skin.js`)
+            if (env === 'dev') {
+                fs.copyFileSync(`${utils.path.assets}/env.js`, `${utils.path.dist}/assets/env.js`)
+            }
             fs.cpSync(`${utils.path.assets}/img/`, `${utils.path.dist}/assets/img/`, { recursive: true })
             fs.cpSync(`${utils.path[!!process.env.TEST ? 'mdTest' : 'post']}/docsImg/`, `${utils.path.dist}/assets/img/`, { recursive: true })
 
@@ -162,7 +165,7 @@ const app = {
             console.log('ballboy >> utils.json, utils.post, utils.content')
 
             if (env === 'dev' || env === 'test') {
-                fs.writeFileSync(`test.json`, JSON.stringify(utils.post))
+                fs.writeFileSync(`test.json`, JSON.stringify(utils.contents))
             }
 
             fs.writeFileSync(`${utils.path.dist}/post.json`, JSON.stringify(utils.json))
@@ -331,7 +334,10 @@ const app = {
 
 
                 if (item.index !== 0 && !!item.upload) {
-                    const text3 = `<a href="${utils.path.build}/post/${item.index}${env === 'dev' ? '.html' : ''}">${item?.title || item?.file}</a>`
+                    const path = item.path.split('/')
+                    const category = path[path.length - 2].split('_')[0]
+
+                    const text3 = `<a href="${utils.path.build}/post/${item.index}${env === 'dev' ? '.html' : ''}">${category} / ${item?.title || item?.file}</a>`
                     recentPost.push(text3)
 
                     if (recentPost.length > 3) {

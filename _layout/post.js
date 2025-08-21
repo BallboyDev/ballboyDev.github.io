@@ -13,17 +13,15 @@ const code = {
             <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
             <style>
-                #p-${index} {
+                #p-${index || 'index'} {
                     color: rgb(76, 193, 237) !important;
                 }
             </style>
-            <script id="data" type="application/json">
-            {
-                "fold": ${JSON.stringify(fold)}
-            }
-            </script>
+            <script id="data" type="application/json">{ "fold": ${JSON.stringify(fold)} }</script>
 
-            <script src="${assetsUrl}/skin.js"></script>`
+            <script src="${assetsUrl}/skin.js"></script>
+            <script src="${assetsUrl}/env.js"></script>
+            `
 
         return html
     },
@@ -47,6 +45,25 @@ const code = {
             </a>`
 
         return html
+    },
+
+    settings: (param) => {
+        const { url } = param
+        return `
+        <div class="settings">
+            <img id='set-btn'
+                onclick="settingBox()"
+                src="${url}/assets/img/settings.svg"
+                alt="" srcset="">
+            <div id="set-box" style="display: none;">
+                <div class="set">
+                    <div class="title">개발 환경</div>
+                    <div id='env-dev' class="btn">dev</div>
+                    <div id='env-prd' class="btn">prd</div>
+                </div>
+            </div>
+        </div>
+        `
     },
 
     bookmark: (param) => {
@@ -137,6 +154,8 @@ const code = {
                     <!-- contents component -->
                     <div id="contents">
 
+                        ${tag.settings}
+
                         ${tag.bookmark}
                         
                         ${tag.prev}
@@ -170,18 +189,20 @@ const output = (param) => {
             title: param.title,
             url: param.url,
             index: param.index,
-            env: param.env
+            // env: param.env
         },
         tag: {
             assets: code.assets({
                 assetsUrl: env === 'dev' ? `${process.cwd()}/_assets` : `${param.url}/assets`,
                 index: param.index,
-                fold: param.fold
+                fold: param.fold,
+                env: env
             }),
             prev: (parseInt(prev) !== 0) ? code.prev({ url: param.url, prev: prev }) : '',
             next: (parseInt(next) !== 0) ? code.next({ url: param.url, next: next }) : '',
             navi: param.navi.join('\n'),
             bookmark: !!param?.bookmark ? code.bookmark(param.bookmark) : '',
+            settings: env === 'dev' ? code.settings({ url: param.url }) : '',
             contents: param.contents,
             comment: !!param?.comment ? code.comment() : ''
         }

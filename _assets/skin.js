@@ -21,19 +21,17 @@ window.onload = async () => {
         document.getElementById(`dc-${v}`).style.display = "block"
     })
 
-
-    if (!!localStorage.getItem('env')) {
-        const temps = document.getElementsByClassName('dt-temp')
-        for (let t of temps) {
-            t.style.display = 'none'
-        }
+    // 개발 환경에서 프로덕트 테스트 설정 
+    try {
+        setEnvironment()
+    } catch (err) {
+        console.log('product environment')
     }
 
+
+
     // 베이스 데이터 조회 (최근 올라온 글 등)
-    // console.log(window.location.pathname)
-    // if (window.location.pathname.indexOf('index') >= 0) {
     await getBaseData()
-    // }
 
 
 };
