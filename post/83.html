@@ -21,13 +21,11 @@
                     color: rgb(76, 193, 237) !important;
                 }
             </style>
-            <script id="data" type="application/json">
-            {
-                "fold": ["1","13","131"]
-            }
-            </script>
+            <script id="data" type="application/json">{ "fold": ["1","13","131"] }</script>
 
             <script src="https://ballboyDev.github.io/assets/skin.js"></script>
+            <script src="https://ballboyDev.github.io/assets/env.js"></script>
+            
 
                 <title>Docker run 명령어 관련 옵션</title>
             </head>
@@ -245,7 +243,7 @@
 </ul>
 
 </ul>
-<li id="dt-3"  onclick="foldNavi('3')">자취생 밥 만들어 먹기 (29)</li>
+<li id="dt-3"  onclick="foldNavi('3')">자취생 밥 만들어 먹기 (30)</li>
 <ul id="dc-3" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/27">
 <li id="p-27">• 내돈 내산 양념/조미료 사용 후기</li>
@@ -288,7 +286,7 @@
 </a>
 
 </ul>
-<li id="dt-33"  onclick="foldNavi('33')">삶의 에너지 고기(육식) (7)</li>
+<li id="dt-33"  onclick="foldNavi('33')">삶의 에너지 고기(육식) (8)</li>
 <ul id="dc-33" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/8">
 <li id="p-8">• 국물 두루치기</li>
@@ -310,6 +308,9 @@
 </a>
 <a href="https://ballboyDev.github.io/post/79">
 <li id="p-79">• 닭근위 볶음</li>
+</a>
+<a href="https://ballboyDev.github.io/post/124">
+<li id="p-124">• 깐풍 삼겹살</li>
 </a>
 
 </ul>
@@ -388,6 +389,8 @@
                     <!-- contents component -->
                     <div id="contents">
 
+                        
+
                         <div class="bookmark">
 
             <div class="title t1">
@@ -455,65 +458,65 @@
                             <h1 id="bm-1">Docker run 명령어 관련 옵션</h1>
 <ul>
 <li>Docker run 커맨드 기본 포멧<ul>
-<li><code style="color: rgb(255 188 54)">docker run [OPTIONS] IMAGE [COMMAND] [ARG...]</code></li>
+<li><code style="color: #ffbc36">docker run [OPTIONS] IMAGE [COMMAND] [ARG...]</code></li>
 </ul>
 </li>
 </ul>
 <h3 id="bm-4">`-d`, `--detach` option</h3>
 <ul>
 <li>컨테이너를 백그라운드에서 실행합니다. (detach 모드)</li>
-<li><code style="color: rgb(255 188 54)">docker run -d nginx</code></li>
+<li><code style="color: #ffbc36">docker run -d nginx</code></li>
 </ul>
 <h3 id="bm-7">`-i`, `--interactive` option</h3>
 <ul>
 <li>표준 입력을 열어둡니다. 사용자가 입력을 계속할 수 있습니다.</li>
-<li><code style="color: rgb(255 188 54)">docker run -i ubuntu</code></li>
+<li><code style="color: #ffbc36">docker run -i ubuntu</code></li>
 </ul>
 <h3 id="bm-10">`-t`, `--tty` option</h3>
 <ul>
 <li>가상 터미널 (tty)을 할당합니다. 터미널 환경을 제공합니다</li>
-<li><code style="color: rgb(255 188 54)">docker run -t ubuntu</code></li>
+<li><code style="color: #ffbc36">docker run -t ubuntu</code></li>
 </ul>
 <blockquote>
-<p><code style="color: rgb(255 188 54)">-i</code> 와 <code style="color: rgb(255 188 54)">-t</code></p>
+<p><code style="color: #ffbc36">-i</code> 와 <code style="color: #ffbc36">-t</code></p>
 </blockquote>
 <ul>
-<li><code style="color: rgb(255 188 54)">-i</code>옵션과 <code style="color: rgb(255 188 54)">-t</code>옵션은 함께 쓰이면 컨테이너를 종료하지 않은체로, 터미널의 입력을 계속해서 컨테이너로 전달하기 위해서 사용합니다.</li>
+<li><code style="color: #ffbc36">-i</code>옵션과 <code style="color: #ffbc36">-t</code>옵션은 함께 쓰이면 컨테이너를 종료하지 않은체로, 터미널의 입력을 계속해서 컨테이너로 전달하기 위해서 사용합니다.</li>
 </ul>
 <h3 id="bm-16">`--name` option</h3>
 <ul>
 <li>컨테이너 이름을 지정합니다</li>
-<li><code style="color: rgb(255 188 54)">docker run --name my-nginx nginx</code></li>
+<li><code style="color: #ffbc36">docker run --name my-nginx nginx</code></li>
 </ul>
 <h3 id="bm-19">`-e`, `--env` option</h3>
 <ul>
 <li>환경 변수를 컨테이너에 전달합니다.</li>
-<li><code style="color: rgb(255 188 54)">docker run -e DEBUG=true node-app</code></li>
+<li><code style="color: #ffbc36">docker run -e DEBUG=true node-app</code></li>
 </ul>
 <h3 id="bm-22">`-p`, `--publish` option</h3>
 <ul>
-<li>호스트의 포트를 컨테이너의 포트에 바인딩합니다. (-p <code style="color: rgb(255 188 54)">&lt;hostPort&gt;:&lt;containerPort&gt;</code>)</li>
-<li><code style="color: rgb(255 188 54)">docker run -p 8080:80 nginx</code></li>
+<li>호스트의 포트를 컨테이너의 포트에 바인딩합니다. (-p <code style="color: #ffbc36">&lt;hostPort&gt;:&lt;containerPort&gt;</code>)</li>
+<li><code style="color: #ffbc36">docker run -p 8080:80 nginx</code></li>
 </ul>
 <h3 id="bm-25">`-v`, `--volume` option</h3>
 <ul>
-<li>호스트 디렉토리 또는 볼륨을 컨테이너에 마운트 합니다. (-v <code style="color: rgb(255 188 54)">&lt;hostPath&gt;:&lt;containerPath&gt;</code>)</li>
-<li><code style="color: rgb(255 188 54)">docker run -v /host/logs:/app/logs my-app</code></li>
+<li>호스트 디렉토리 또는 볼륨을 컨테이너에 마운트 합니다. (-v <code style="color: #ffbc36">&lt;hostPath&gt;:&lt;containerPath&gt;</code>)</li>
+<li><code style="color: #ffbc36">docker run -v /host/logs:/app/logs my-app</code></li>
 </ul>
 <h3 id="bm-28">`-w`, `--workdir` option</h3>
 <ul>
 <li>컨테이너 내에서 명령을 실행할 작업 디렉토리를 지정합니다.</li>
-<li><code style="color: rgb(255 188 54)">docker run -w /app node npm start</code></li>
+<li><code style="color: #ffbc36">docker run -w /app node npm start</code></li>
 </ul>
 <h3 id="bm-31">`--entrypoint` option</h3>
 <ul>
 <li>이미지의 기본 ENTRYPOINT를 덮어 씁니다.</li>
-<li><code style="color: rgb(255 188 54)">docker run --entrypoint /bin/bash ubuntu</code></li>
+<li><code style="color: #ffbc36">docker run --entrypoint /bin/bash ubuntu</code></li>
 </ul>
 <h3 id="bm-34">`--rm` option</h3>
 <ul>
 <li>컨테이너가 종료되면 자동으로 삭제 합니다.</li>
-<li><code style="color: rgb(255 188 54)">docker run --rm ubuntu echo hello</code></li>
+<li><code style="color: #ffbc36">docker run --rm ubuntu echo hello</code></li>
 </ul>
 
 

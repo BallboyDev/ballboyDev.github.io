@@ -21,13 +21,11 @@
                     color: rgb(76, 193, 237) !important;
                 }
             </style>
-            <script id="data" type="application/json">
-            {
-                "fold": ["1","13","131"]
-            }
-            </script>
+            <script id="data" type="application/json">{ "fold": ["1","13","131"] }</script>
 
             <script src="https://ballboyDev.github.io/assets/skin.js"></script>
+            <script src="https://ballboyDev.github.io/assets/env.js"></script>
+            
 
                 <title>Docker image 관련 명령어</title>
             </head>
@@ -245,7 +243,7 @@
 </ul>
 
 </ul>
-<li id="dt-3"  onclick="foldNavi('3')">자취생 밥 만들어 먹기 (29)</li>
+<li id="dt-3"  onclick="foldNavi('3')">자취생 밥 만들어 먹기 (30)</li>
 <ul id="dc-3" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/27">
 <li id="p-27">• 내돈 내산 양념/조미료 사용 후기</li>
@@ -288,7 +286,7 @@
 </a>
 
 </ul>
-<li id="dt-33"  onclick="foldNavi('33')">삶의 에너지 고기(육식) (7)</li>
+<li id="dt-33"  onclick="foldNavi('33')">삶의 에너지 고기(육식) (8)</li>
 <ul id="dc-33" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/8">
 <li id="p-8">• 국물 두루치기</li>
@@ -310,6 +308,9 @@
 </a>
 <a href="https://ballboyDev.github.io/post/79">
 <li id="p-79">• 닭근위 볶음</li>
+</a>
+<a href="https://ballboyDev.github.io/post/124">
+<li id="p-124">• 깐풍 삼겹살</li>
 </a>
 
 </ul>
@@ -388,6 +389,8 @@
                     <!-- contents component -->
                     <div id="contents">
 
+                        
+
                         <div class="bookmark">
 
             <div class="title t1">
@@ -440,39 +443,39 @@
                             <h1 id="bm-1">Docker image 관련 명령어</h1>
 <h3 id="bm-2">이미지 목록 보기</h3>
 <ul>
-<li><code style="color: rgb(255 188 54)">docker images [OPTIONS] [REPOSITORY[:TAG]]</code></li>
+<li><code style="color: #ffbc36">docker images [OPTIONS] [REPOSITORY[:TAG]]</code></li>
 </ul>
 <h3 id="bm-5">이미지 검색</h3>
 <ul>
-<li><code style="color: rgb(255 188 54)">docker search [OPTIONS] TERM</code></li>
+<li><code style="color: #ffbc36">docker search [OPTIONS] TERM</code></li>
 </ul>
 <h3 id="bm-8">이미지 다운로드</h3>
 <ul>
-<li><code style="color: rgb(255 188 54)">docker pull [OPTIONS] NAME[:TAG | @DIGEST]</code></li>
+<li><code style="color: #ffbc36">docker pull [OPTIONS] NAME[:TAG | @DIGEST]</code></li>
 </ul>
 <h3 id="bm-11">이미지 태그 작성</h3>
 <ul>
-<li><code style="color: rgb(255 188 54)">docker tag IMAGE_NAME[:TAG] REPO_NAME[:TAG]</code></li>
+<li><code style="color: #ffbc36">docker tag IMAGE_NAME[:TAG] REPO_NAME[:TAG]</code></li>
 </ul>
 <h3 id="bm-14">이미지 업로드</h3>
 <ul>
-<li><code style="color: rgb(255 188 54)">docker push [OPTIONS] NAME[:TAG]</code></li>
+<li><code style="color: #ffbc36">docker push [OPTIONS] NAME[:TAG]</code></li>
 </ul>
 <h3 id="bm-17">이미지 제작</h3>
 <ul>
-<li><code style="color: rgb(255 188 54)">docker build -t IMAGE_NAME[:TAG]</code><ul>
+<li><code style="color: #ffbc36">docker build -t IMAGE_NAME[:TAG]</code><ul>
 <li>-t : 빌드된 이미지에 이름과 태그를 지정</li>
 </ul>
 </li>
-<li><code style="color: rgb(255 188 54)">docker build -t nginx:1.0.0 -f Dockerfile_nginx</code><ul>
+<li><code style="color: #ffbc36">docker build -t nginx:1.0.0 -f Dockerfile_nginx</code><ul>
 <li>-f :Dockerfile의 이름이 변경 되었을 경우 변경 파일 지정</li>
 </ul>
 </li>
 </ul>
 <h3 id="bm-20">이미지 삭제</h3>
 <ul>
-<li><code style="color: rgb(255 188 54)">docker rmi IMAGE_ID</code></li>
-<li><code style="color: rgb(255 188 54)">docker rmi -f IMAGE_ID</code><ul>
+<li><code style="color: #ffbc36">docker rmi IMAGE_ID</code></li>
+<li><code style="color: #ffbc36">docker rmi -f IMAGE_ID</code><ul>
 <li>이미지 강제 삭제</li>
 </ul>
 </li>

@@ -236,6 +236,61 @@ body {
     }
 }
 
+#contents>.settings {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-end
+}
+
+#contents>.settings>#set-btn {
+    cursor: pointer;
+
+    /* position: absolute;
+    right: 0; */
+}
+
+#contents>.settings>#set-btn:active {
+    background-color: gray;
+    border-radius: 50%;
+}
+
+#contents>.settings>#set-box {
+    margin: 0 0.5rem;
+    padding: 0.5rem;
+    border: 0.5px solid #4f4f4f;
+    border-radius: 0.5rem;
+    background-color: rgb(31, 31, 34);
+
+}
+
+#contents>.settings>#set-box>.set {
+    display: flex;
+    margin: 0.2rem 0;
+}
+
+#contents>.settings>#set-box>.set>* {
+    line-height: 1.5rem;
+    margin: 0 0.3rem;
+}
+
+#contents>.settings>#set-box>.set>.title {
+    width: 5rem;
+}
+
+#contents>.settings>#set-box>.set>.btn {
+    cursor: pointer;
+    width: 3rem;
+    height: 1.5rem;
+    border: 0.5px solid #4f4f4f;
+    border-radius: 0.5rem;
+    text-align: center;
+    background-color: #0d1117;
+}
+
 #contents>.bookmark {
     padding: 0.5rem;
     margin: 1rem;

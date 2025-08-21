@@ -21,13 +21,11 @@
                     color: rgb(76, 193, 237) !important;
                 }
             </style>
-            <script id="data" type="application/json">
-            {
-                "fold": ["1","12","121"]
-            }
-            </script>
+            <script id="data" type="application/json">{ "fold": ["1","12","121"] }</script>
 
             <script src="https://ballboyDev.github.io/assets/skin.js"></script>
+            <script src="https://ballboyDev.github.io/assets/env.js"></script>
+            
 
                 <title>svelte Basic</title>
             </head>
@@ -245,7 +243,7 @@
 </ul>
 
 </ul>
-<li id="dt-3"  onclick="foldNavi('3')">자취생 밥 만들어 먹기 (29)</li>
+<li id="dt-3"  onclick="foldNavi('3')">자취생 밥 만들어 먹기 (30)</li>
 <ul id="dc-3" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/27">
 <li id="p-27">• 내돈 내산 양념/조미료 사용 후기</li>
@@ -288,7 +286,7 @@
 </a>
 
 </ul>
-<li id="dt-33"  onclick="foldNavi('33')">삶의 에너지 고기(육식) (7)</li>
+<li id="dt-33"  onclick="foldNavi('33')">삶의 에너지 고기(육식) (8)</li>
 <ul id="dc-33" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/8">
 <li id="p-8">• 국물 두루치기</li>
@@ -310,6 +308,9 @@
 </a>
 <a href="https://ballboyDev.github.io/post/79">
 <li id="p-79">• 닭근위 볶음</li>
+</a>
+<a href="https://ballboyDev.github.io/post/124">
+<li id="p-124">• 깐풍 삼겹살</li>
 </a>
 
 </ul>
@@ -388,6 +389,8 @@
                     <!-- contents component -->
                     <div id="contents">
 
+                        
+
                         <div class="bookmark">
 
             <div class="title t2">
@@ -445,8 +448,8 @@ template code
 </li>
 <li><p>동적 컨텐츠</p>
 <ul>
-<li>템플릿 내부에서 <code style="color: rgb(255 188 54)">{ code }</code> 와 같이 사용하면 식의 결과가 표시된다,</li>
-<li><code style="color: rgb(255 188 54)">&lt;div&gt;현재 시간은 {new Date()} 입니다.&lt;/div&gt;</code></li>
+<li>템플릿 내부에서 <code style="color: #ffbc36">{ code }</code> 와 같이 사용하면 식의 결과가 표시된다,</li>
+<li><code style="color: #ffbc36">&lt;div&gt;현재 시간은 {new Date()} 입니다.&lt;/div&gt;</code></li>
 <li>동적 속성<ul>
 <li>DOM 요소의 속성명과 변수 명이 동일할 때는 다음과 같이 생략 할 수 있다.<pre class="theme-atom-one-dark"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
     <span class="hljs-keyword">let</span> href = <span class="hljs-string">&#x27;https://svelte.dev/&#x27;</span>
@@ -463,8 +466,8 @@ template code
 <ul>
 <li><p>스타일 문법</p>
 <ul>
-<li><code style="color: rgb(255 188 54)">&lt;style&gt;</code> 블록에는 일반적인 CSS 문법을 사용한다.</li>
-<li><code style="color: rgb(255 188 54)">&lt;style&gt;</code> 블록에 작성한 스타일은 .svelte 파일에 스코프 범위를 갖는다.</li>
+<li><code style="color: #ffbc36">&lt;style&gt;</code> 블록에는 일반적인 CSS 문법을 사용한다.</li>
+<li><code style="color: #ffbc36">&lt;style&gt;</code> 블록에 작성한 스타일은 .svelte 파일에 스코프 범위를 갖는다.</li>
 <li>스코프 범위를 벗어나서 전역으로 스타일을 적용하시 싶을 때는 :global 수식자를 사용한다.<pre class="theme-atom-one-dark"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-css">
     <span class="hljs-comment">/** 이 스타일은 &lt;body&gt;에 적용됨 */</span>
     :<span class="hljs-built_in">global</span>(body) {
@@ -481,7 +484,7 @@ template code
 <li><p>class 속성을 생략하는 문법</p>
 <ul>
 <li>클래스 속성은 boolean 값에 따른 속성 변경이 일어나는 경우가 잦아 스벨트는 이를 위해 생략 문법을 제공한다.</li>
-<li><code style="color: rgb(255 188 54)">class:클래스명={boolean}</code> 과 같이 사용하면 값이 true d일 때면 클래스명을 class 속성에 추가한다.<pre class="theme-atom-one-dark"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">{active</span> ? &#x27;<span class="hljs-attr">className</span>&#x27; <span class="hljs-attr">:</span> &#x27;&#x27;}&gt;</span>TOP<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<li><code style="color: #ffbc36">class:클래스명={boolean}</code> 과 같이 사용하면 값이 true d일 때면 클래스명을 class 속성에 추가한다.<pre class="theme-atom-one-dark"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">{active</span> ? &#x27;<span class="hljs-attr">className</span>&#x27; <span class="hljs-attr">:</span> &#x27;&#x27;}&gt;</span>TOP<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class:className</span>=<span class="hljs-string">{active}</span>&gt;</span>TOP<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
 
 <span class="hljs-comment">&lt;!-- 변구명과 클래서명이 동일할 때는 다음과 같이 추가 생략도 가능하다. --&gt;</span>
