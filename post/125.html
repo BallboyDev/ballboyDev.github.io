@@ -17,17 +17,17 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
             <style>
-                #p-36 {
+                #p-125 {
                     color: rgb(76, 193, 237) !important;
                 }
             </style>
-            <script id="data" type="application/json">{ "fold": ["1","11"] }</script>
+            <script id="data" type="application/json">{ "fold": ["1","14"] }</script>
 
             <script src="https://ballboyDev.github.io/assets/skin.js"></script>
             <script src="https://ballboyDev.github.io/assets/env.js"></script>
             
 
-                <title>console 객체 활용하기</title>
+                <title>NestJS</title>
             </head>
 
             <body>
@@ -410,198 +410,201 @@
                         <div class="bookmark">
 
             <div class="title t1">
-                <div><a href="#bm-1"># Javascript console 객체 활용하기</a></div>
+                <div><a href="#bm-1"># Nest.js</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t2">
-                <div><a href="#bm-4">## console 객체가 제공하는 유용한 함수</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-7">### log()</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-12">### warn(), error()</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-17">### group(), groupCollapsed(), groupEnd()</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-22">### time(), timeLog(), timeEnd()</a></div>
+                <div><a href="#bm-4">## Nest Project 구축
+</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t2">
-                <div><a href="#bm-27">## 텍스트 꾸미기</a></div>
+                <div><a href="#bm-11">## 기본 구조</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t3">
-                <div><a href="#bm-30">### ANSI escape code</a></div>
+                <div><a href="#bm-20">### Platform</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t3">
-                <div><a href="#bm-33">### 사용 예시</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-40">### `\x1b[<코드>m`의 구조와 의미</a></div>
+                <div><a href="#bm-23">### Nest CLI</a></div>
                 <p>•</p>
             </div></div>
                         
                         
                         
                         
+            <a href="https://ballboyDev.github.io/post/126.html" class="next post">
+                <img src="https://ballboyDev.github.io/assets/img/next.svg" alt="" srcset="">
+            </a>
                         
                         <div class="main markdown-body">
 
-                            <h1 id="bm-1">Javascript console 객체 활용하기</h1>
-<p>node 환경에서 개발을 하다보면 <code style="color: #ffbc36">console.log</code>를 활용하여 값을 찍어 보거나 플로우를 확인하는 경우가 종종 있다.
-디버깅 기능을 활용하여도 되지만 지원하지 않는 환경이거나 로그 자체를 찍고 싶은 경우에는 유용하게 활용이 가능하다.
-그런데 단순히 텍스트를 찍고 값을 확인하는데 사용하는 console 객체는 생각보다 다양하고 유용한 기능을 다수 지원한다.
-개발할때 사용하면 편리한 내가 자주 사용하는 내용을 정리 해본다.</p>
-<h2 id="bm-4">console 객체가 제공하는 유용한 함수</h2>
-<p>정리 내용 말고도 다양한 함수가 존재 하니 알아보고 상황에 맞춰 사용하면 좋다.</p>
-<h3 id="bm-7">log()</h3>
+                            <h1 id="bm-1">Nest.js</h1>
 <ul>
-<li>가장 기본적이며 일반 메시지를 출력하는 메서드</li>
-<li>추가 매개변수와 함께 Object 출력 가능</li>
+<li><code style="color: #ffbc36">Nest</code>는 효율적이고 확장 가능한 Node.js 서버 측 애플리케이션을 구축하기 위한 프레임워크이다.</li>
+<li><code style="color: #ffbc36">Nest</code>는 기본적으로 <code style="color: #ffbc36">Express.js</code>를 기반으로 작동하지만 <code style="color: #ffbc36">Fastify</code>로 변경이 가능하다.</li>
 </ul>
-<p><img src="https://ballboyDev.github.io/assets/img/36_1.jpeg" alt="console log"></p>
-<h3 id="bm-12">warn(), error()</h3>
+<h2 id="bm-4">Nest Project 구축</h2>
+<h4 id="bm-5">NestCLI 스타터 프로젝트</h4>
+<pre class="theme-atom-one-dark"><code class="language-sh">&gt;&gt; npm i -g @nestjs/cli
+&gt;&gt; nest new project-name</code></pre><h4 id="bm-8">Git 기반의 TypeScript 스타터 프로젝트</h4>
+<pre class="theme-atom-one-dark"><code class="language-sh">&gt;&gt; git <span class="hljs-built_in">clone</span> https://github.com/nestjs/typescript-starter.git project
+&gt;&gt; <span class="hljs-built_in">cd</span> project
+&gt;&gt; npm install
+&gt;&gt; npm run start</code></pre><h2 id="bm-11">기본 구조</h2>
+<pre><code class="language-plaintext"}>my-project/
+├ src/
+| ├ app.controller.spec.ts
+| ├ app.controller.ts
+| ├ app.module.ts
+| ├ app.service.ts
+| └ main.ts
+| </code></pre>
 <ul>
-<li>오류 및 경고 메시지 출력</li>
+<li><p><code style="color: #ffbc36">app.controller.ts</code></p>
+<ul>
+<li>단일 경로를 가진 기본 컨트롤러</li>
 </ul>
-<p><img src="https://ballboyDev.github.io/assets/img/36_2.jpeg" alt="console warn, error"></p>
-<h3 id="bm-17">group(), groupCollapsed(), groupEnd()</h3>
+</li>
+<li><p><code style="color: #ffbc36">app.contoller.spec.ts</code></p>
 <ul>
-<li>출력 메시지의 그룹을 생성해 이후 출력을 모두 한단계 들여쓰기 한다.</li>
-<li>group()과 groupCollapsed()는 동일한 기능을 지원하지만 group()과 달리 groupCollapsed()는 출력시 텍스트가 접혀 있다.</li>
-<li>그룹을 종료하기 위해서는 groupEnd()를 사용한다.</li>
+<li>Controller에 대한 단위 테스트</li>
 </ul>
-<p><img src="https://ballboyDev.github.io/assets/img/36_3.jpeg" alt="console group"></p>
-<h3 id="bm-22">time(), timeLog(), timeEnd()</h3>
+</li>
+<li><p><code style="color: #ffbc36">app.module.ts</code></p>
 <ul>
-<li>시간 측정을 위한 타이머를 생성한다. 타이머는 동시에 최대 10000개 까지 생성이 가능하다.</li>
-<li>측정 중간 시간 기록을 찍기위해서는 timeLog()를 사용한다.</li>
+<li>애플리케이션의 루트 모듈</li>
 </ul>
-<p><img src="https://ballboyDev.github.io/assets/img/36_4.jpeg" alt="console time"></p>
-<h2 id="bm-27">텍스트 꾸미기</h2>
-<p>node 환경에서 console 객체 메서드로 출력되는 문자열의 생상을 바꿀 수 있다.
-ANSI escape code를 사용하거나 이를 지원하는 라이브러리를 사용하면 된다.
-이를 통해 좀 더 명확한 로그를 남길 수 있다.</p>
-<h3 id="bm-30">ANSI escape code</h3>
+</li>
+<li><p><code style="color: #ffbc36">app.service.ts</code></p>
 <ul>
-<li>ANSI escape code는 터미널을 제어하는데 사용되는 표준 코드로 현재는 드물에 터미널 출력 스타일을 변경하는데 사용되고 있다.</li>
-<li>대표 색상 및 스타일 코드 표
+<li>단일 방법을 제공하는 기본 서비스</li>
+</ul>
+</li>
+<li><p><code style="color: #ffbc36">main.ts</code></p>
+<ul>
+<li>핵심 기능을 사용하는 애플리케이션의 항목 파일, <code style="color: #ffbc36">NestFactory</code> Nest 애플리케이션 인스턴스를 생성</li>
+</ul>
+</li>
+</ul>
+<pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">// main.ts</span>
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">NestFactory</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@nestjs/core&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">AppModule</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./app.module&#x27;</span>;
+
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">bootstrap</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-comment">// AppModule로 부터 정의된 모든 컨트롤러, 서비스, 다른 모듈들을 종합하여 애플리케이션 객체를 인자로 받아, 애플리케이션을 생성하고 구성한다.</span>
+    <span class="hljs-keyword">const</span> app = <span class="hljs-keyword">await</span> <span class="hljs-title class_">NestFactory</span>.<span class="hljs-title function_">create</span>(<span class="hljs-title class_">AppModule</span>);
+
+    <span class="hljs-comment">// 지정된 포트로 부터 들어오는 HTTP 요청을 수신대기 하며 Nest 애플리케이션은 실행 상태가 되어 API 호출에 응답할 준비를 한다.</span>
+    <span class="hljs-keyword">await</span> app.<span class="hljs-title function_">listen</span>(process.<span class="hljs-property">env</span>.<span class="hljs-property">PORT</span> ?? <span class="hljs-number">3000</span>);
+}
+<span class="hljs-title function_">bootstrap</span>();</code></pre><ul>
+<li><code style="color: #ffbc36">main.ts</code>는 전체 애플리케이션을 시작하는 부트스트랩(bootstrap) 스크립트이다.</li>
+<li><code style="color: #ffbc36">main.ts</code>는 <code style="color: #ffbc36">NestFactory</code>를 사용해 루트 모듈(<code style="color: #ffbc36">AppModule</code>)로 부터 애플리케이션 인스턴스를 받고, 서버를 실행시켜 외부 요청을 받을 준비를 한다.</li>
+</ul>
+<h3 id="bm-20">Platform</h3>
+<ul>
+<li><code style="color: #ffbc36">Nest</code>는 플랫폼에 구애 받지 않느 프레임워크를 목표로 한다.</li>
+<li><code style="color: #ffbc36">Nest</code>에서 지원되는 HTTP 플랫폼은 <code style="color: #ffbc36">express</code>와 <code style="color: #ffbc36">festify</code> 두 가지가 있다.<ul>
+<li><code style="color: #ffbc36">platform-express</code> : <code style="color: #ffbc36">Express</code>는 노드를 위한 유명한 미니멀 리스트 웹 프레임워크이며 <code style="color: #ffbc36">Nest</code>에서 기본 설정으로 지원한다.</li>
+<li><code style="color: #ffbc36">platform-fastify</code> : <code style="color: #ffbc36">fastify</code>는 최고의 효율성과 속도를 제공하는 데 중점을 둔 고성능 및 낮은 오버헤드 프레임워크이다.</li>
+<li><code style="color: #ffbc36">const app = await NestFactory.create&lt;NestExpressApplication&gt;(AppModule);</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="bm-23">Nest CLI</h3>
+<ul>
+<li><code style="color: #ffbc36">nest g [ order | alias ] [ name ]</code></li>
+</ul>
+
         <table>
-            <thead><tr><th align="right">폰트 색상</th>
-<th align="left">코드</th>
-<th align="right">배경 색상</th>
-<th align="left">코드</th>
-<th align="right">스타일</th>
-<th align="left">코드</th>
+            <thead><tr><th align="left">order</th>
+<th align="left">alias</th>
+<th align="left">description</th>
 </tr></thead>
-            <tbody><tr><td align="right">검정</td>
-<td align="left">30</td>
-<td align="right">검정</td>
-<td align="left">40</td>
-<td align="right">초기화</td>
-<td align="left">0</td>
+            <tbody><tr><td align="left">application</td>
+<td align="left">application</td>
+<td align="left">Generate a new application workspace</td>
 </tr>
-<tr><td align="right">빨강</td>
-<td align="left">31</td>
-<td align="right">빨강</td>
-<td align="left">41</td>
-<td align="right">굵게</td>
-<td align="left">1</td>
+<tr><td align="left">class</td>
+<td align="left">cl</td>
+<td align="left">Generate a new class</td>
 </tr>
-<tr><td align="right">초록</td>
-<td align="left">32</td>
-<td align="right">초록</td>
-<td align="left">42</td>
-<td align="right">밑줄</td>
-<td align="left">4</td>
+<tr><td align="left">configuration</td>
+<td align="left">config</td>
+<td align="left">Generate a CLI configuration file</td>
 </tr>
-<tr><td align="right">노랑</td>
-<td align="left">33</td>
-<td align="right">노랑</td>
-<td align="left">43</td>
-<td align="right">반전색</td>
-<td align="left">7</td>
+<tr><td align="left">controller</td>
+<td align="left">co</td>
+<td align="left">Generate a controller declaration</td>
 </tr>
-<tr><td align="right">파랑</td>
-<td align="left">34</td>
-<td align="right">파랑</td>
-<td align="left">44</td>
-<td align="right"></td>
-<td align="left"></td>
+<tr><td align="left">decorator</td>
+<td align="left">d</td>
+<td align="left">Generate a custom decorator</td>
 </tr>
-<tr><td align="right">마젠타</td>
-<td align="left">35</td>
-<td align="right">마젠타</td>
-<td align="left">45</td>
-<td align="right"></td>
-<td align="left"></td>
+<tr><td align="left">filter</td>
+<td align="left">f</td>
+<td align="left">Generate a filter declaration</td>
 </tr>
-<tr><td align="right">시안</td>
-<td align="left">36</td>
-<td align="right">시안</td>
-<td align="left">46</td>
-<td align="right"></td>
-<td align="left"></td>
+<tr><td align="left">gateway</td>
+<td align="left">ga</td>
+<td align="left">Generate a gateway declaration</td>
 </tr>
-<tr><td align="right">흰색</td>
-<td align="left">37</td>
-<td align="right">흰색</td>
-<td align="left">47</td>
-<td align="right"></td>
-<td align="left"></td>
+<tr><td align="left">guard</td>
+<td align="left">gu</td>
+<td align="left">Generate a guard declaration</td>
+</tr>
+<tr><td align="left">interceptor</td>
+<td align="left">itc</td>
+<td align="left">Generate an interceptor declaration</td>
+</tr>
+<tr><td align="left">interface</td>
+<td align="left">itf</td>
+<td align="left">Generate an interface</td>
+</tr>
+<tr><td align="left">library</td>
+<td align="left">lib</td>
+<td align="left">Generate a new library within a monorepo</td>
+</tr>
+<tr><td align="left">middleware</td>
+<td align="left">mi</td>
+<td align="left">Generate a middleware declaration</td>
+</tr>
+<tr><td align="left">module</td>
+<td align="left">mo</td>
+<td align="left">Generate a module declaration</td>
+</tr>
+<tr><td align="left">pipe</td>
+<td align="left">pi</td>
+<td align="left">Generate a pipe declaration</td>
+</tr>
+<tr><td align="left">provider</td>
+<td align="left">pr</td>
+<td align="left">Generate a provider declaration</td>
+</tr>
+<tr><td align="left">resolver</td>
+<td align="left">r</td>
+<td align="left">Generate a GraphQL resolver declaration</td>
+</tr>
+<tr><td align="left">resource</td>
+<td align="left">res</td>
+<td align="left">Generate a new CRUD resource</td>
+</tr>
+<tr><td align="left">service</td>
+<td align="left">s</td>
+<td align="left">Generate a service declaration</td>
+</tr>
+<tr><td align="left">sub-app</td>
+<td align="left">app</td>
+<td align="left">Generate a new application within a monorepo</td>
 </tr></tbody>
         </table>
-        </li>
-</ul>
-<h3 id="bm-33">사용 예시</h3>
-<ul>
-<li><code style="color: #ffbc36">\x1b[&lt;코드&gt;m</code>: &lt;코드&gt;에 원하는 스타일의 코드를 넣어 사용한다.</li>
-</ul>
-<pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;\x1b[32m%s\x1b[0m&#x27;</span>, <span class="hljs-string">&#x27;이 텍스트는 초록색입니다!&#x27;</span>);
-
-<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;\x1b[1m\x1b[31m%s\x1b[0m&#x27;</span>, <span class="hljs-string">&#x27;굵은 빨간 텍스트&#x27;</span>);
-
-<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;\x1b[36m[시안]  \x1b[33m[노랑]  \x1b[31m[빨강]  \x1b[0m[초기화]&#x27;</span>);</code></pre><p><img src="https://ballboyDev.github.io/assets/img/36_5.jpeg" alt="console style"></p>
-<h3 id="bm-40">`\x1b[<코드>m`의 구조와 의미</h3>
-<ul>
-<li><code style="color: #ffbc36">\x1b[&lt;코드&gt;m</code> 이 문자열은 3부분으로 구성되어 있다.</li>
-</ul>
-<ol>
-<li><p><code style="color: #ffbc36">\x1b</code> : <code style="color: #ffbc36">\x1b</code>는 16진수 이스케이프 시퀀스로 ASCII 문자 ESC를 의미 한다.</p>
-<ul>
-<li>역할은 터미널에게 &#39;지금부터 제어 시퀀스가 시작된다&#39;라는 신호룰 보낸다.</li>
-</ul>
-</li>
-<li><p><code style="color: #ffbc36">[</code>(괄호)는 제어 시퀀스의 일부로 <code style="color: #ffbc36">\x1b</code>와 함께 제어 시퀀스가 시작됨을 알리는 표준 접두어 이다.</p>
-</li>
-<li><p><code style="color: #ffbc36">&lt;코드&gt;m</code>는 실제로 어떤 스타일을 지정하는 코드로 m은 SGR코드로 해석 되어야 한다는 뜻이다.</p>
-<ul>
-<li>역할은 &lt;코드&gt;의 값을 SGR 코드로 해석하여 스타일을 지정한다라는 뜻이다.</li>
-</ul>
-</li>
-</ol>
-<blockquote>
-<p>물론 Chalk 라이브러리를 사용하면 더욱 쉽게 스타일을 변경할수 있다.</p>
-</blockquote>
-
+        
 
                         </div>
 

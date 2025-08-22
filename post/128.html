@@ -17,17 +17,17 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
             <style>
-                #p-36 {
+                #p-128 {
                     color: rgb(76, 193, 237) !important;
                 }
             </style>
-            <script id="data" type="application/json">{ "fold": ["1","11"] }</script>
+            <script id="data" type="application/json">{ "fold": ["1","14"] }</script>
 
             <script src="https://ballboyDev.github.io/assets/skin.js"></script>
             <script src="https://ballboyDev.github.io/assets/env.js"></script>
             
 
-                <title>console 객체 활용하기</title>
+                <title>Provider</title>
             </head>
 
             <body>
@@ -410,197 +410,167 @@
                         <div class="bookmark">
 
             <div class="title t1">
-                <div><a href="#bm-1"># Javascript console 객체 활용하기</a></div>
+                <div><a href="#bm-1"># Provider</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t2">
-                <div><a href="#bm-4">## console 객체가 제공하는 유용한 함수</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-7">### log()</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-12">### warn(), error()</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-17">### group(), groupCollapsed(), groupEnd()</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-22">### time(), timeLog(), timeEnd()</a></div>
+                <div><a href="#bm-4">## Provider 정의 : @Injectable()</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t2">
-                <div><a href="#bm-27">## 텍스트 꾸미기</a></div>
+                <div><a href="#bm-8">## 의존성 주입 (Dependency Injection)</a></div>
                 <p>•</p>
             </div>
 
-            <div class="title t3">
-                <div><a href="#bm-30">### ANSI escape code</a></div>
+            <div class="title t2">
+                <div><a href="#bm-13">## Provider 등록</a></div>
                 <p>•</p>
             </div>
 
-            <div class="title t3">
-                <div><a href="#bm-33">### 사용 예시</a></div>
+            <div class="title t2">
+                <div><a href="#bm-20">## Provider Scopes</a></div>
                 <p>•</p>
             </div>
 
-            <div class="title t3">
-                <div><a href="#bm-40">### `\x1b[<코드>m`의 구조와 의미</a></div>
+            <div class="title t2">
+                <div><a href="#bm-23">## 커스텀 프로바이더 (Custom Provider)</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-26">## 선택적 프로바이더 (Optional Provider)</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-29">## 속성 기반 주입 (Property-based Injection)</a></div>
                 <p>•</p>
             </div></div>
                         
                         
+            <a href="https://ballboyDev.github.io/post/126.html" class="prev post">
+                <img src="https://ballboyDev.github.io/assets/img/prev.svg" alt="" srcset="">
+            </a>
                         
                         
+            <a href="https://ballboyDev.github.io/post/129.html" class="next post">
+                <img src="https://ballboyDev.github.io/assets/img/next.svg" alt="" srcset="">
+            </a>
                         
                         <div class="main markdown-body">
 
-                            <h1 id="bm-1">Javascript console 객체 활용하기</h1>
-<p>node 환경에서 개발을 하다보면 <code style="color: #ffbc36">console.log</code>를 활용하여 값을 찍어 보거나 플로우를 확인하는 경우가 종종 있다.
-디버깅 기능을 활용하여도 되지만 지원하지 않는 환경이거나 로그 자체를 찍고 싶은 경우에는 유용하게 활용이 가능하다.
-그런데 단순히 텍스트를 찍고 값을 확인하는데 사용하는 console 객체는 생각보다 다양하고 유용한 기능을 다수 지원한다.
-개발할때 사용하면 편리한 내가 자주 사용하는 내용을 정리 해본다.</p>
-<h2 id="bm-4">console 객체가 제공하는 유용한 함수</h2>
-<p>정리 내용 말고도 다양한 함수가 존재 하니 알아보고 상황에 맞춰 사용하면 좋다.</p>
-<h3 id="bm-7">log()</h3>
+                            <h1 id="bm-1">Provider</h1>
 <ul>
-<li>가장 기본적이며 일반 메시지를 출력하는 메서드</li>
-<li>추가 매개변수와 함께 Object 출력 가능</li>
+<li><code style="color: #ffbc36">Provider</code>는 <code style="color: #ffbc36">NestJS</code> 애플리케이션의 기본적인 구성 요소이며, <code style="color: #ffbc36">의존성 주입(Dependency Injection)</code> 이라는 강력한 디자인 패턴을 통해 서로 연결되고 관리 된다.</li>
+<li><code style="color: #ffbc36">Provider</code>는 <code style="color: #ffbc36">Service</code>, <code style="color: #ffbc36">Repository</code>, <code style="color: #ffbc36">Factory</code>, <code style="color: #ffbc36">Helper</code> 등과 같은 기본적인 Nest 클래스를 의미한다.<ul>
+<li><code style="color: #ffbc36">Provider</code>의 가장 중요한 특징은 의존성으로 주입될 수 있다는 것으로 이를 통해 다양한 객체들이 서로 관계를 맺고 협력할 수 있다.</li>
 </ul>
-<p><img src="https://ballboyDev.github.io/assets/img/36_1.jpeg" alt="console log"></p>
-<h3 id="bm-12">warn(), error()</h3>
+</li>
+</ul>
+<h2 id="bm-4">Provider 정의 : @Injectable()</h2>
 <ul>
-<li>오류 및 경고 메시지 출력</li>
+<li>클래스를 프로바이더로 만들려면 클래스 선언부 위에 <code style="color: #ffbc36">@Injectable()</code> 데코레이터를 붙여야 한다. 본 데코레이터는 해당 클래스가 Nest IoC 컨테이너에 의해 관리 될 수 있음을 표시하는 메타데이터를 첨부한다.</li>
 </ul>
-<p><img src="https://ballboyDev.github.io/assets/img/36_2.jpeg" alt="console warn, error"></p>
-<h3 id="bm-17">group(), groupCollapsed(), groupEnd()</h3>
-<ul>
-<li>출력 메시지의 그룹을 생성해 이후 출력을 모두 한단계 들여쓰기 한다.</li>
-<li>group()과 groupCollapsed()는 동일한 기능을 지원하지만 group()과 달리 groupCollapsed()는 출력시 텍스트가 접혀 있다.</li>
-<li>그룹을 종료하기 위해서는 groupEnd()를 사용한다.</li>
-</ul>
-<p><img src="https://ballboyDev.github.io/assets/img/36_3.jpeg" alt="console group"></p>
-<h3 id="bm-22">time(), timeLog(), timeEnd()</h3>
-<ul>
-<li>시간 측정을 위한 타이머를 생성한다. 타이머는 동시에 최대 10000개 까지 생성이 가능하다.</li>
-<li>측정 중간 시간 기록을 찍기위해서는 timeLog()를 사용한다.</li>
-</ul>
-<p><img src="https://ballboyDev.github.io/assets/img/36_4.jpeg" alt="console time"></p>
-<h2 id="bm-27">텍스트 꾸미기</h2>
-<p>node 환경에서 console 객체 메서드로 출력되는 문자열의 생상을 바꿀 수 있다.
-ANSI escape code를 사용하거나 이를 지원하는 라이브러리를 사용하면 된다.
-이를 통해 좀 더 명확한 로그를 남길 수 있다.</p>
-<h3 id="bm-30">ANSI escape code</h3>
-<ul>
-<li>ANSI escape code는 터미널을 제어하는데 사용되는 표준 코드로 현재는 드물에 터미널 출력 스타일을 변경하는데 사용되고 있다.</li>
-<li>대표 색상 및 스타일 코드 표
-        <table>
-            <thead><tr><th align="right">폰트 색상</th>
-<th align="left">코드</th>
-<th align="right">배경 색상</th>
-<th align="left">코드</th>
-<th align="right">스타일</th>
-<th align="left">코드</th>
-</tr></thead>
-            <tbody><tr><td align="right">검정</td>
-<td align="left">30</td>
-<td align="right">검정</td>
-<td align="left">40</td>
-<td align="right">초기화</td>
-<td align="left">0</td>
-</tr>
-<tr><td align="right">빨강</td>
-<td align="left">31</td>
-<td align="right">빨강</td>
-<td align="left">41</td>
-<td align="right">굵게</td>
-<td align="left">1</td>
-</tr>
-<tr><td align="right">초록</td>
-<td align="left">32</td>
-<td align="right">초록</td>
-<td align="left">42</td>
-<td align="right">밑줄</td>
-<td align="left">4</td>
-</tr>
-<tr><td align="right">노랑</td>
-<td align="left">33</td>
-<td align="right">노랑</td>
-<td align="left">43</td>
-<td align="right">반전색</td>
-<td align="left">7</td>
-</tr>
-<tr><td align="right">파랑</td>
-<td align="left">34</td>
-<td align="right">파랑</td>
-<td align="left">44</td>
-<td align="right"></td>
-<td align="left"></td>
-</tr>
-<tr><td align="right">마젠타</td>
-<td align="left">35</td>
-<td align="right">마젠타</td>
-<td align="left">45</td>
-<td align="right"></td>
-<td align="left"></td>
-</tr>
-<tr><td align="right">시안</td>
-<td align="left">36</td>
-<td align="right">시안</td>
-<td align="left">46</td>
-<td align="right"></td>
-<td align="left"></td>
-</tr>
-<tr><td align="right">흰색</td>
-<td align="left">37</td>
-<td align="right">흰색</td>
-<td align="left">47</td>
-<td align="right"></td>
-<td align="left"></td>
-</tr></tbody>
-        </table>
-        </li>
-</ul>
-<h3 id="bm-33">사용 예시</h3>
-<ul>
-<li><code style="color: #ffbc36">\x1b[&lt;코드&gt;m</code>: &lt;코드&gt;에 원하는 스타일의 코드를 넣어 사용한다.</li>
-</ul>
-<pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;\x1b[32m%s\x1b[0m&#x27;</span>, <span class="hljs-string">&#x27;이 텍스트는 초록색입니다!&#x27;</span>);
+<pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">// cats.service.ts</span>
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">Injectable</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@nestjs/common&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">Cat</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./interfaces/cat.interface&#x27;</span>;
 
-<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;\x1b[1m\x1b[31m%s\x1b[0m&#x27;</span>, <span class="hljs-string">&#x27;굵은 빨간 텍스트&#x27;</span>);
+@<span class="hljs-title class_">Injectable</span>()
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CatsService</span> {
+  private readonly <span class="hljs-attr">cats</span>: <span class="hljs-title class_">Cat</span>[] = [];
 
-<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;\x1b[36m[시안]  \x1b[33m[노랑]  \x1b[31m[빨강]  \x1b[0m[초기화]&#x27;</span>);</code></pre><p><img src="https://ballboyDev.github.io/assets/img/36_5.jpeg" alt="console style"></p>
-<h3 id="bm-40">`\x1b[<코드>m`의 구조와 의미</h3>
+  <span class="hljs-title function_">create</span>(<span class="hljs-params">cat: Cat</span>) {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">cats</span>.<span class="hljs-title function_">push</span>(cat);
+  }
+
+  <span class="hljs-title function_">findAll</span>(): <span class="hljs-title class_">Cat</span>[] {
+    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">cats</span>;
+  }
+}
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">Injactable</span> } <span class="hljs-keyword">from</span> </code></pre><h2 id="bm-8">의존성 주입 (Dependency Injection)</h2>
 <ul>
-<li><code style="color: #ffbc36">\x1b[&lt;코드&gt;m</code> 이 문자열은 3부분으로 구성되어 있다.</li>
+<li><code style="color: #ffbc36">의존성 주입 (Dependency Injectaion)</code>이란, 한 객체가 다른 객체를 사용하는(의존하는) 관계에서, 필요한 객체를 내부에서 직접 생성하는 것이 아니라 외부(컨테이너)로 부터 전달받아 사용하는 디자인 패턴이다.</li>
+<li><code style="color: #ffbc36">Provider</code>의 가장 큰 장점은 의존성 주입으로, <code style="color: #ffbc36">NestJS</code>는 생성자 기반 의존성 주입을 사용한다.</li>
+<li>컨트롤러의 생성자에서 필요한 서비스의 타입을 지정하기만 하면, Nest가 알아서 해당 서비스의 인스턴스를 주입해준다.</li>
 </ul>
-<ol>
-<li><p><code style="color: #ffbc36">\x1b</code> : <code style="color: #ffbc36">\x1b</code>는 16진수 이스케이프 시퀀스로 ASCII 문자 ESC를 의미 한다.</p>
+<pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">// cats.controller.ts</span>
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">Controller</span>, <span class="hljs-title class_">Get</span>, <span class="hljs-title class_">Post</span>, <span class="hljs-title class_">Body</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@nestjs/common&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">CatsService</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./cats.service&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">CreateCatDto</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./dto/create-cat.dto&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">Cat</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./interfaces/cat.interface&#x27;</span>;
+
+@<span class="hljs-title class_">Controller</span>(<span class="hljs-string">&#x27;cats&#x27;</span>)
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CatsController</span> {
+    <span class="hljs-comment">// 생성자에서 CatsService를 주입받는다.</span>
+    <span class="hljs-comment">// private 접근자를 사용하면 멤버 변수로 선언과 초기화가 동시에 이루어진다.</span>
+   <span class="hljs-title function_">constructor</span>(<span class="hljs-params">private catsService: CatsService</span>) {}
+
+    @<span class="hljs-title class_">Post</span>()
+    <span class="hljs-keyword">async</span> <span class="hljs-title function_">create</span>(<span class="hljs-params">@Body() createCatDto: CreateCatDto</span>) {
+        <span class="hljs-variable language_">this</span>.<span class="hljs-property">catsService</span>.<span class="hljs-title function_">create</span>(createCatDto);
+    }
+
+    @<span class="hljs-title class_">Get</span>()
+    <span class="hljs-keyword">async</span> <span class="hljs-title function_">findAll</span>(): <span class="hljs-title class_">Promise</span>&lt;<span class="hljs-title class_">Cat</span>[]&gt; {
+        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">catsService</span>.<span class="hljs-title function_">findAll</span>();
+    }
+ }</code></pre><h2 id="bm-13">Provider 등록</h2>
 <ul>
-<li>역할은 터미널에게 &#39;지금부터 제어 시퀀스가 시작된다&#39;라는 신호룰 보낸다.</li>
+<li><code style="color: #ffbc36">@Injectable()</code>로 정의된 프로바이더는 특정 모듈(Module)에 등록되어야 Nest 전체 애플리케이션에서 인식하고 관리 할 수 있으며 <code style="color: #ffbc36">@Module()</code> 데코레이터 안의 <code style="color: #ffbc36">providers</code> 배열에 추가하면 된다.</li>
+</ul>
+<pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">// app.module.ts</span>
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">Module</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@nestjs/common&#x27;</span>
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">CatsController</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./cats/cats.controller&#x27;</span>
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">CatsService</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./cats/cats.service&#x27;</span>
+
+@<span class="hljs-title class_">Module</span>({
+    <span class="hljs-attr">controller</span>: [<span class="hljs-title class_">CatsController</span>],
+    <span class="hljs-attr">providers</span>: [<span class="hljs-title class_">CatsService</span>] <span class="hljs-comment">// CatsService를 이 모듈의 프로바이더로 등록</span>
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AppModule</span> {}</code></pre><ul>
+<li>위와 같이 프로바이더를 등록하면 <code style="color: #ffbc36">AppModule</code>에 속한 모든 컴포넌트(CatsController)는 <code style="color: #ffbc36">CatsService</code>를 주입받을 수 있게 된다.</li>
+<li>만약 다른 모듈에서도 <code style="color: #ffbc36">CatsService</code>를 사용하고 싶다면, <code style="color: #ffbc36">AppModule</code>의 <code style="color: #ffbc36">exports</code> 배열에 <code style="color: #ffbc36">CatsService</code>를 추가하여 다른 모듈에서 <code style="color: #ffbc36">AppModule</code>을 <code style="color: #ffbc36">imports</code>하여 사용할 수 있다.</li>
+</ul>
+<h2 id="bm-20">Provider Scopes</h2>
+<ul>
+<li>프로바이더는 인스턴스가 생성되고 공유되는 방식에 따라 다른 <code style="color: #ffbc36">스코프 (Scope)</code>를 가질 수 있다.<ul>
+<li><strong>싱글톤 (Singleton, default)</strong><ul>
+<li>애플리케이션이 시작될 때 프로바이터의 인스턴스가 하나만 생성되고, 애플리케이션이 실행되는 동안 해당 인스턴스가 계속 공유된다.</li>
 </ul>
 </li>
-<li><p><code style="color: #ffbc36">[</code>(괄호)는 제어 시퀀스의 일부로 <code style="color: #ffbc36">\x1b</code>와 함께 제어 시퀀스가 시작됨을 알리는 표준 접두어 이다.</p>
-</li>
-<li><p><code style="color: #ffbc36">&lt;코드&gt;m</code>는 실제로 어떤 스타일을 지정하는 코드로 m은 SGR코드로 해석 되어야 한다는 뜻이다.</p>
-<ul>
-<li>역할은 &lt;코드&gt;의 값을 SGR 코드로 해석하여 스타일을 지정한다라는 뜻이다.</li>
+<li><strong>요청 스코프 (Request-scoped)</strong><ul>
+<li>들어오는 각 요청(Request)마다 프로바이터의 새로운 인스턴스가 생성되며, 요청 처리가 끝나면 <code style="color: #ffbc36">Garbage Collector</code>에 의해 수거된다.</li>
+<li>사용자별 데이터 캐싱 등 특정 요청에 한정된 상태를 관리할 때 유용하다.</li>
 </ul>
 </li>
-</ol>
-<blockquote>
-<p>물론 Chalk 라이브러리를 사용하면 더욱 쉽게 스타일을 변경할수 있다.</p>
-</blockquote>
+<li><strong>트랜지언트 (Transient)</strong><ul>
+<li>프로바디어틀 주입 받는 각 컴포넌트마다 새로운 인스턴스가 생성된다. 즉 여러 컴포넌트가 동일한 트랜지언트 프로바이더를 주입 받아도 모두 다른 인스턴스를 갖게 된다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="bm-23">커스텀 프로바이더 (Custom Provider)</h2>
+<ul>
+<li><code style="color: #ffbc36">NestJS</code>는 클래스 자체를 프로바이더로 사용하는 것 외에도, 더 유연한 방법으로 프로바이더를 정의할 수 있는 <code style="color: #ffbc36">Custom Provider</code> 기능을 제공한다.</li>
+<li>이는 일반 값, 기존 클래서, 또는 동적 팩토리 함수를 프로바이더로 사용하고 싶을 때 유용하다.<ul>
+<li><code style="color: #ffbc36">useValue</code> : 특정 상수 값(설정 객체 등)을 주입 하고 싶을 때 사용</li>
+<li><code style="color: #ffbc36">useClass</code> : 특정 조건에 따라 다른 클래스를 동적으로 주입 하고 싶을 때 사용</li>
+<li><code style="color: #ffbc36">useFactory</code> : 다른 프로바이더를 조합하거나 비동기 작업이 필요한 복잡한 객체를 생성하여 주입하고 싶을 때 사용</li>
+</ul>
+</li>
+</ul>
+<h2 id="bm-26">선택적 프로바이더 (Optional Provider)</h2>
+<ul>
+<li>때로는 특정 의존성이 반드시 존재하지 않아도 되는 경우가 있는데, 이럴 때 생성자에서 <code style="color: #ffbc36">@Optional()</code> 데코레이터를 사용하면, 해당 프로바이더가 등록되어 있지 않아도 Nest가 오류를 발생시키지 않고 <code style="color: #ffbc36">undefined</code>를 주입한다.</li>
+</ul>
+<h2 id="bm-29">속성 기반 주입 (Property-based Injection)</h2>
+<ul>
+<li>생성자 주입이 가장 일반적이지만, 클래스의 속성(Property)에 직접 의존성을 주입할 수 있는데, <code style="color: #ffbc36">@inject()</code> 데코레이터를 사용하여 특정 프로바이더를 속성에 주입할 수 있다.</li>
+<li>이 방법은 테스트가 어려워지는 등 단점이 있어 일반적으로는 생성자 주입이 권장된다.</li>
+</ul>
 
 
                         </div>
