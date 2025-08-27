@@ -17,17 +17,17 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
             <style>
-                #p-22 {
+                #p-130 {
                     color: rgb(76, 193, 237) !important;
                 }
             </style>
-            <script id="data" type="application/json">{ "fold": ["1","12","121"] }</script>
+            <script id="data" type="application/json">{ "fold": ["1","14"] }</script>
 
             <script src="https://ballboyDev.github.io/assets/skin.js"></script>
             <script src="https://ballboyDev.github.io/assets/env.js"></script>
             
 
-                <title>template Syntax</title>
+                <title>Middleware</title>
             </head>
 
             <body>
@@ -426,195 +426,147 @@
 
                         <div class="bookmark">
 
+            <div class="title t1">
+                <div><a href="#bm-1"># Middleware</a></div>
+                <p>•</p>
+            </div>
+
             <div class="title t2">
-                <div><a href="#bm-1">## Template Syntax</a></div>
+                <div><a href="#bm-4">## Middleware 구현</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-7">## Middleware 적용</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t3">
-                <div><a href="#bm-4">### {#if expression}</a></div>
+                <div><a href="#bm-12">### Middleware 조건부 적용</a></div>
                 <p>•</p>
             </div>
 
-            <div class="title t3">
-                <div><a href="#bm-9">### {#each expression}</a></div>
+            <div class="title t2">
+                <div><a href="#bm-29">## 전역 (Global) 미들웨어</a></div>
                 <p>•</p>
             </div>
 
-            <div class="title t3">
-                <div><a href="#bm-14">### {#key expression}</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-19">### {#await expression}</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-24">### {#snippet expression}</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-29">### 기타 블럭 문법 </a></div>
+            <div class="title t2">
+                <div><a href="#bm-34">## 의존성 주입 (Dependency Injection)</a></div>
                 <p>•</p>
             </div></div>
                         
                         
-            <a href="https://ballboyDev.github.io/post/21.html" class="prev post">
+            <a href="https://ballboyDev.github.io/post/129.html" class="prev post">
                 <img src="https://ballboyDev.github.io/assets/img/prev.svg" alt="" srcset="">
             </a>
                         
                         
-            <a href="https://ballboyDev.github.io/post/23.html" class="next post">
+            <a href="https://ballboyDev.github.io/post/131.html" class="next post">
                 <img src="https://ballboyDev.github.io/assets/img/next.svg" alt="" srcset="">
             </a>
                         
                         <div class="main markdown-body">
 
-                            <h2 id="bm-1">Template Syntax</h2>
+                            <h1 id="bm-1">Middleware</h1>
 <ul>
-<li><strong>Block</strong><ul>
-<li>스벨트의 템플릿에서는 조건 분기나 반복문과 같은 문법을 제공한다.</li>
-<li>블록 문법은 모두 <code style="color: #ffbc36">{#...}</code> 에서 <code style="color: #ffbc36">{/...}</code>으로 끝나는 구조를 가진다.</li>
+<li><code style="color: #ffbc36">Middleware</code>는 라우트 핸들러가 실행되기 전에 호출되는 함수이다.</li>
+<li><code style="color: #ffbc36">Express</code>의 미들웨어와 기본적으로 동일하며, 요청(Request) 및 응답(Response) 객체와 애플리케이션의 요청-응답 주기에서 그 다음의 미들웨어 함수(<code style="color: #ffbc36">next()</code>) 접근할 수 있다.</li>
 </ul>
+<h2 id="bm-4">Middleware 구현</h2>
+<ul>
+<li><code style="color: #ffbc36">NestJS</code>에서 <code style="color: #ffbc36">Middleware</code>는 두 가지 방식으로 구현할 수 있다.<ol>
+<li><p><strong>클래스(Class) 기반 미들웨어</strong></p>
+<ul>
+<li><code style="color: #ffbc36">@Injectable()</code> 데코레이터가 적용된 클래스로 구현하며 이 클래스는 NestMiddleware 인터페이스를 구현해야 한다.</li>
+</ul>
+<pre class="theme-atom-one-dark"><code class="language-js"> <span class="hljs-comment">// logger.middleware.ts</span>
+ <span class="hljs-keyword">import</span> { <span class="hljs-title class_">Injectable</span>, <span class="hljs-title class_">NestMiddleware</span>} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@nestjs/common&#x27;</span>
+ <span class="hljs-keyword">import</span> { <span class="hljs-title class_">Request</span>, <span class="hljs-title class_">Response</span>, <span class="hljs-title class_">NestFunction</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;express&#x27;</span>
+
+ @<span class="hljs-title class_">Injectable</span>()
+ <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LoggerMiddleware</span> implements <span class="hljs-title class_">NestMiddleware</span> {
+     <span class="hljs-title function_">use</span>(<span class="hljs-params">req: Request, res: Response, next: NextFunction</span>) {
+         <span class="hljs-comment">// 수행 내용</span>
+         <span class="hljs-title function_">next</span>();
+     }
+ }</code></pre></li>
+<li><p><strong>함수(Functional) 기반 미들웨어</strong></p>
+<ul>
+<li>특별한 요구사항 없이 간단한 함수로 구현 가능하며, 의존성 주입이 필요 없는 간단한 미들웨어에 적합하다.</li>
+</ul>
+<pre class="theme-atom-one-dark"><code class="language-js"> <span class="hljs-comment">// logger.middleware.ts</span>
+ <span class="hljs-keyword">import</span> { <span class="hljs-title class_">Request</span>, <span class="hljs-title class_">Response</span>, <span class="hljs-title class_">NestFunction</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;express&#x27;</span>
+
+ <span class="hljs-keyword">export</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">logger</span>(<span class="hljs-params">req: Request, res: Response, next: NextFunction</span>){
+     <span class="hljs-comment">// 수행 내용</span>
+     <span class="hljs-title function_">next</span>();
+ }</code></pre></li>
+</ol>
 </li>
 </ul>
-<h3 id="bm-4">{#if expression}</h3>
+<h2 id="bm-7">Middleware 적용</h2>
 <ul>
-<li>조건부로 렌더링 되는 콘텐츠는 <code style="color: #ffbc36">{#if}</code> 블록으로 감쌀 수 있습니다. </li>
-<li>추가 조건은 <code style="color: #ffbc36">{:else if}</code>으로 추가할 수 있으며, 선택적으로 <code style="color: #ffbc36">{:else}</code> 절로 끝납니다.</li>
+<li><code style="color: #ffbc36">Middleware</code>는 <code style="color: #ffbc36">@Module()</code> 데코레이터에서 설정하는 것이 아니라, 모듈 클래스의 <code style="color: #ffbc36">configure()</code>메서드를 사용하여 설정한다. 미들웨어를 포함하는 모듈은 <code style="color: #ffbc36">NestModule</code> 인터페이스를 구현해야 한다.</li>
+<li><code style="color: #ffbc36">MiddlewareConsumer</code>는 미들웨어 관리를 돕는 헬퍼 클래스이며, <code style="color: #ffbc36">apply()</code>와 <code style="color: #ffbc36">forRoutes()</code> 같은 메서드를 제공한다.</li>
 </ul>
-<pre class="theme-atom-one-dark"><code class="language-js">{#<span class="hljs-keyword">if</span> expression}
-    &lt;!-- <span class="hljs-title class_">Code1</span> --&gt;
-{:<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> expression}
-    &lt;!-- <span class="hljs-title class_">Code2</span> --&gt;
-{:<span class="hljs-keyword">else</span>}
-    &lt;!-- <span class="hljs-title class_">Code3</span> --&gt;
-{/<span class="hljs-keyword">if</span>}</code></pre><h3 id="bm-9">{#each expression}</h3>
+<pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">// app.module.ts</span>
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">Module</span>, <span class="hljs-title class_">NestModule</span>, <span class="hljs-title class_">MiddlewareConsumer</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@nestjs/common&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">LoggerMiddleware</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./common/middleware/logger.middleware&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">CatsModule</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./cats/cats.module&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">CatsController</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./cats/cats.controller&#x27;</span>;
+
+@<span class="hljs-title class_">Module</span>({
+    <span class="hljs-attr">imports</span>: [<span class="hljs-title class_">CatsModule</span>],
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AppModule</span> implements <span class="hljs-title class_">NestModule</span> {
+    <span class="hljs-title function_">configure</span>(<span class="hljs-params">consumer: MiddlewareConsumer</span>) {
+        consumer
+            .<span class="hljs-title function_">apply</span>(<span class="hljs-title class_">LoggerMiddleware</span>)        <span class="hljs-comment">// 적용할 미들웨어</span>
+            .<span class="hljs-title function_">forRoutes</span>(<span class="hljs-title class_">CatsController</span>);     <span class="hljs-comment">// 특정 컨트롤러의 모든 라우트에 적용</span>
+    }
+}</code></pre><h3 id="bm-12">Middleware 조건부 적용</h3>
+<h4 id="bm-13">특정 라우트 적용</h4>
 <ul>
-<li><code style="color: #ffbc36">#each</code> 에서 배열과 같은 값에 대한 반복 작업을 수행할 수 있습니다. </li>
-<li>각 목록 항목을 고유하게 식별해야 하는 키 식을 제공하면 Svelte는 마지막에 항목을 추가하거나 제거하는 대신 이를 사용하여 데이터가 변경될 때 목록을 확신합니다.</li>
-<li><code style="color: #ffbc36">#each</code> 에는 목록이 비어 있는 경우 렌더링이 되는 <code style="color: #ffbc36">{:else}</code> 절을 사용할 수 있다.</li>
+<li><code style="color: #ffbc36">forRoutes()</code> 메서드에 문자열로 된 경로를 전달하여 특정 라우트에만 미들웨어를 적용할 수 있다. 특정 HTTP 요청 메서드에만 적용할려면 경로와 메서드를 포함한 객체를 전달한다.</li>
 </ul>
-<pre class="theme-atom-one-dark"><code class="language-js">{#each expression <span class="hljs-keyword">as</span> name, <span class="hljs-title function_">index</span> (key)}
-    &lt;!-- repeat <span class="hljs-title class_">Code</span> --&gt;
-{/each}
-
-{#each expression <span class="hljs-keyword">as</span> {item, ...rest}, i, {key}}
-    &lt;!-- repeat <span class="hljs-title class_">Code</span> --&gt;
-{/each}
-
-{#each expression, index}
-    &lt;!-- repeat <span class="hljs-title class_">Code</span> --&gt;
-{/each}
-
-{#each expression <span class="hljs-keyword">as</span> name, <span class="hljs-title function_">index</span> (key)}
-    &lt;!-- repeat <span class="hljs-title class_">Code</span> --&gt;
-{:<span class="hljs-keyword">else</span>}
-    &lt;!-- empty <span class="hljs-title class_">Code</span> --&gt;
-{/each}</code></pre><h3 id="bm-14">{#key expression}</h3>
+<pre class="theme-atom-one-dark"><code class="language-js">consumer
+    .<span class="hljs-title function_">apply</span>(<span class="hljs-title class_">LoggerMiddleware</span>)
+    .<span class="hljs-title function_">forRoutes</span>({ <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;cats&#x27;</span>, <span class="hljs-attr">method</span>: <span class="hljs-title class_">RequestMethod</span>.<span class="hljs-property">GET</span> }) <span class="hljs-comment">// &#x27;cats&#x27; 경로의 GET 요청에만 적용</span></code></pre><h4 id="bm-17">라우트 와일드 카드</h4>
 <ul>
-<li><code style="color: #ffbc36">#key</code> 블록은 식의 값이 변경되면 내용을 파괴하고 다시 생성합니다. </li>
-<li>구성 요소 주변에 사용하면 구성 요소가 다시 복원되고 다시 초기화 됩니다.</li>
+<li>경로에 와일드 카드(<code style="color: #ffbc36">*</code>)를 사용하여 패턴 기반으로 라우트를 지정할 수 있다.</li>
 </ul>
-<pre class="theme-atom-one-dark"><code class="language-js">{#key expression}
-    &lt;!-- <span class="hljs-title class_">Code</span> --&gt;
-{/key}</code></pre><h3 id="bm-19">{#await expression}</h3>
+<pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-title function_">forRoutes</span>({ <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;ab*cd&#x27;</span>, <span class="hljs-attr">method</span>: <span class="hljs-title class_">RequestMethod</span>.<span class="hljs-property">ALL</span> })</code></pre><h4 id="bm-21">특정 라우트 제외</h4>
 <ul>
-<li><code style="color: #ffbc36">#await</code> 블록을 사용하면 대기 중, 완료, 거부 세 가지 상태를 분기할 수 있습니다.</li>
-<li><code style="color: #ffbc36">:then</code> 블록과 <code style="color: #ffbc36">:catch</code> 블록은 생략 가능합니다.</li>
+<li><code style="color: #ffbc36">exclude()</code> 메서드를 사용하면 특정 라우트를 미들웨어 적용 대상에서 제외할 수 있다.</li>
 </ul>
-<pre class="theme-atom-one-dark"><code class="language-js">{#<span class="hljs-keyword">await</span> expression}
-    &lt;!-- <span class="hljs-title class_">Waiting</span> <span class="hljs-title class_">Code</span> --&gt;
-{:then name} 
-    &lt;!-- response <span class="hljs-title class_">Code</span> --&gt;
-{:<span class="hljs-keyword">catch</span> name}
-    &lt;!-- reject <span class="hljs-title class_">Code</span> --&gt;
-{/<span class="hljs-keyword">await</span>}
-
-{#<span class="hljs-keyword">await</span> expression}
-    &lt;!-- <span class="hljs-title class_">Waiting</span> <span class="hljs-title class_">Code</span> --&gt;
-{:then name}
-    &lt;!-- response <span class="hljs-title class_">Code</span> --&gt;
-{/<span class="hljs-keyword">await</span>}
-
-{#<span class="hljs-keyword">await</span> expression then name}
-    &lt;!-- response <span class="hljs-title class_">Code</span> --&gt;
-{/<span class="hljs-keyword">await</span>}
-
-{#<span class="hljs-keyword">await</span> expression <span class="hljs-keyword">catch</span> name}
-    &lt;!-- reject <span class="hljs-title class_">Code</span> --&gt;
-{/<span class="hljs-keyword">await</span>}</code></pre><h3 id="bm-24">{#snippet expression}</h3>
+<pre class="theme-atom-one-dark"><code class="language-js">consumer
+    .<span class="hljs-title function_">apply</span>(<span class="hljs-title class_">LoggerMiddleware</span>)
+    .<span class="hljs-title function_">exclude</span>(
+        { <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;cats&#x27;</span>, <span class="hljs-attr">method</span>: <span class="hljs-title class_">RequestMethod</span>.<span class="hljs-property">GET</span> },    <span class="hljs-comment">// &#x27;cats&#x27; 경로의 GET 요청 제외</span>
+        { <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;cats&#x27;</span>, <span class="hljs-attr">method</span>: <span class="hljs-title class_">RequestMethod</span>.<span class="hljs-property">POST</span> },   <span class="hljs-comment">// &#x27;cats&#x27; 경로의 POST 요청 제외</span>
+    )
+    .<span class="hljs-title function_">forRoutes</span>(<span class="hljs-title class_">CatsController</span>); <span class="hljs-comment">// CatsController의 나머지 라우트에 적용</span></code></pre><h4 id="bm-25">여러 미들웨어 적용</h4>
 <ul>
-<li><code style="color: #ffbc36">#snippet</code> 블록과 렌더링 태그는 컴포넌트 내부에 재사용 가능한 마크업 코드를 만드는 방법입니다.</li>
-<li><code style="color: #ffbc36">#snippet</code> 블록과 렌더링 태그는 기본 스코프 문법을 따릅니다.</li>
-<li><code style="color: #ffbc36">#snippet</code> 블록은 템플릿 내에서 객체로 다루어 지기에 컴포넌트에 속성 값이나 props 값으로 전달이 가능합니다.</li>
-<li>스니펫 문법은 createRawSnippet API를 사용하여 프로그래밍 방식으로 생성할 수 있습니다.</li>
+<li><code style="color: #ffbc36">apply()</code> 메서드에 여러 미들웨어를 쉼표로 구분하여 전달하면 순차적으로 실행되는 여러 미들웨어를 바인딩 할 수 있다.</li>
 </ul>
-<pre class="theme-atom-one-dark"><code class="language-js">{#snippet <span class="hljs-title function_">name1</span>()}
-    &lt;!-- <span class="hljs-title class_">Code1</span> --&gt;
-{/snippet}
-
-{#snippet <span class="hljs-title function_">name2</span>(param)}
-    &lt;!-- <span class="hljs-title class_">Code2</span> --&gt;
-{/snippet}
-
-{#snippet <span class="hljs-title function_">name3</span>(param)}
-    &lt;!-- <span class="hljs-title class_">Code3</span> --&gt;
-{/snippet}
-
-{@render <span class="hljs-title function_">name1</span>()}
-{@render <span class="hljs-title function_">name2</span>(param)}
-{@render name3?.(param)}
-
-&lt;<span class="hljs-title class_">Component</span> header={name1} row={name2}/&gt;</code></pre><h3 id="bm-29">기타 블럭 문법</h3>
+<pre class="theme-atom-one-dark"><code class="language-js">consumer
+    .<span class="hljs-title function_">apply</span>(<span class="hljs-title function_">cors</span>(), <span class="hljs-title function_">helmet</span>(), logger)
+    .<span class="hljs-title function_">forRoutes</span>(<span class="hljs-title class_">CatController</span>);</code></pre><h2 id="bm-29">전역 (Global) 미들웨어</h2>
 <ul>
-<li>{@render ...}<ul>
-<li>snippet 문법을 렌더링 하기 위해 사용됩니다.</li>
+<li>애플리케이션의 모든 라우트에 미들웨어를 한 번에 적용하려면 <code style="color: #ffbc36">main.ts</code> 파일에서 <code style="color: #ffbc36">INestApplication</code> 인스턴스의 <code style="color: #ffbc36">use()</code> 메서드를 사용한다.</li>
 </ul>
-</li>
-<li>{@html ...}<ul>
-<li>svelte 코드에 HTML 주입하기 위해 사용됩니다.</li>
+<pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">// main.ts</span>
+<span class="hljs-keyword">const</span> app = <span class="hljs-keyword">await</span> <span class="hljs-title class_">NestFactory</span>.<span class="hljs-title function_">create</span>(<span class="hljs-title class_">AppModule</span>);
+app.<span class="hljs-title function_">use</span>(logger) <span class="hljs-comment">// &#x27;logger&#x27; 미들웨어를 전역으로 적용</span>
+<span class="hljs-keyword">await</span> app.<span class="hljs-title function_">listen</span>(<span class="hljs-number">3000</span>)</code></pre><ul>
+<li>이 방식으로는 의존성 주입(DI) 컨테이너에 접근할 수 없어, DI가 필요한 경우, 모듈 내에서 <code style="color: #ffbc36">consumer.apply(MyMiddleware).forRoutes('*')</code>와 같이 모든 라우트에 적용하는 방식을 사용해야 한다.</li>
 </ul>
-</li>
-<li>{@const ...}<ul>
-<li>로컬 상수를 정의하기 위해 사용됩니다.</li>
-<li>블록의 직계 하위 항목으로만 허용됩니다.</li>
+<h2 id="bm-34">의존성 주입 (Dependency Injection)</h2>
+<ul>
+<li>클래스 기반 미들웨어는 <code style="color: #ffbc36">NestJS</code>의 다른 구성요소(<code style="color: #ffbc36">Provider</code>, <code style="color: #ffbc36">Controller</code>)와 마찬가지로 의존성 주입을 완벽하게 지원한다. 생성자를 통해 같은 모듈 내에서 사용가능한 의존성을 주입 받을 수 있다.</li>
 </ul>
-</li>
-<li>{@debug ...}<ul>
-<li>특정 변수의 값이 변경 될 때마다 기속되며, 개발 도구가 열려 있는 경우 코드 실행을 일시 중지 합니다.</li>
-</ul>
-</li>
-</ul>
-<pre class="theme-atom-one-dark"><code class="language-js">&lt;!-- {@render ...} --&gt;
-{#snippet <span class="hljs-title function_">name1</span>()}
-    &lt;p&gt;name1&lt;/p&gt;
-{/snippet}
-{#snippet <span class="hljs-title function_">name2</span>()}
-    &lt;p&gt;name2&lt;/p&gt;
-{/snippet}
 
-{@<span class="hljs-title function_">render</span> (value ? name1 : name2)()}
-{@render name2?.()}
-
-&lt;!-- {@heml ...} --&gt;
-<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">article</span>&gt;</span>
-    {@html content}
-<span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span></span>
-
-&lt;!-- {@<span class="hljs-keyword">const</span> ...} --&gt;
-{#each boxes <span class="hljs-keyword">as</span> box}
-    {@<span class="hljs-keyword">const</span> area = box.<span class="hljs-property">width</span> * box.<span class="hljs-property">height</span>}
-    {box.<span class="hljs-property">width</span>} * {box.<span class="hljs-property">height</span>} = {area}
-{/each}
-
-&lt;!-- {@debug ...} --&gt;
-{@debug user}
-{@debug user1, user2, user3}
-</code></pre>
 
                         </div>
 

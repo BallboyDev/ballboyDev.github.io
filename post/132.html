@@ -17,17 +17,17 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
             <style>
-                #p-22 {
+                #p-132 {
                     color: rgb(76, 193, 237) !important;
                 }
             </style>
-            <script id="data" type="application/json">{ "fold": ["1","12","121"] }</script>
+            <script id="data" type="application/json">{ "fold": ["3","32"] }</script>
 
             <script src="https://ballboyDev.github.io/assets/skin.js"></script>
             <script src="https://ballboyDev.github.io/assets/env.js"></script>
             
 
-                <title>template Syntax</title>
+                <title>쯔유 오뎅탕</title>
             </head>
 
             <body>
@@ -426,195 +426,93 @@
 
                         <div class="bookmark">
 
+            <div class="title t1">
+                <div><a href="#bm-1"># 쯔유 오뎅탕 만들기
+</a></div>
+                <p>•</p>
+            </div>
+
             <div class="title t2">
-                <div><a href="#bm-1">## Template Syntax</a></div>
+                <div><a href="#bm-9">## 재료 
+</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t3">
-                <div><a href="#bm-4">### {#if expression}</a></div>
+                <div><a href="#bm-10">### 재료</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t3">
-                <div><a href="#bm-9">### {#each expression}</a></div>
+                <div><a href="#bm-13">### 양념/조미료</a></div>
                 <p>•</p>
             </div>
 
-            <div class="title t3">
-                <div><a href="#bm-14">### {#key expression}</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-19">### {#await expression}</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-24">### {#snippet expression}</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-29">### 기타 블럭 문법 </a></div>
+            <div class="title t2">
+                <div><a href="#bm-17">## 레시피</a></div>
                 <p>•</p>
             </div></div>
                         
                         
-            <a href="https://ballboyDev.github.io/post/21.html" class="prev post">
-                <img src="https://ballboyDev.github.io/assets/img/prev.svg" alt="" srcset="">
-            </a>
                         
                         
-            <a href="https://ballboyDev.github.io/post/23.html" class="next post">
-                <img src="https://ballboyDev.github.io/assets/img/next.svg" alt="" srcset="">
-            </a>
                         
                         <div class="main markdown-body">
 
-                            <h2 id="bm-1">Template Syntax</h2>
+                            <h1 id="bm-1">쯔유 오뎅탕 만들기</h1>
+<pre><code class="language-plaintext"}>최근 며칠 계속 야식으로 기름진것만 먹다 보니 깔끔한 국이 먹고 싶어 졌다.
+계란국을 만들어 먹을까 했는데 아... 계란이 떨어졌네...
+냉동실을 뒤지다 보니 언제 넣었는지 기억이 나지 않는 어묵이 있어 오늘 야식은 오뎅탕이다.
+육수를 만드는데 코인 육수? 치킨스톡? 고민하다가 들기름 막국수 만든다고 사놓은 쯔유를 사용하기로 했다.
+생각해보니 쯔유가 오뎅탕 만드는 간장이잖아...</code></pre>
+<p><img src="https://ballboyDev.github.io/assets/img/132_1.jpeg" alt="이미지 준비중"></p>
+<blockquote>
+<p>난이도 ✭</p>
 <ul>
-<li><strong>Block</strong><ul>
-<li>스벨트의 템플릿에서는 조건 분기나 반복문과 같은 문법을 제공한다.</li>
-<li>블록 문법은 모두 <code style="color: #ffbc36">{#...}</code> 에서 <code style="color: #ffbc36">{/...}</code>으로 끝나는 구조를 가진다.</li>
+<li>어감이 어묵국 보다는 오뎅탕이 더 맛있게 느껴지는건 나만의 생각인가?</li>
+</ul>
+</blockquote>
+<br/>
+
+<h2 id="bm-9">재료</h2>
+<h3 id="bm-10">재료</h3>
+<ol>
+<li>어묵 / 먹을 만큼</li>
+<li>다진 마늘 / 0.5sp</li>
+<li>대파 / 반대</li>
+<li>청양고추 / 1개</li>
+</ol>
+<h3 id="bm-13">양념/조미료</h3>
+<ol>
+<li>쯔유 / 적당량<ul>
+<li>쯔유는 제품별로 농도와 짠맛이 달라 포장지를 보면 요리별로 용량이 적혀 있으니 맞춰 사용하면 된다.</li>
+<li>내가 사용하는 제품에는 오뎅탕을 물:쯔유가 6~8:1 비율로 적혀 있었다.</li>
 </ul>
 </li>
-</ul>
-<h3 id="bm-4">{#if expression}</h3>
+<li>후추 / 적당량</li>
+</ol>
+<br/>
+
+<h2 id="bm-17">레시피</h2>
+<ol>
+<li><p>물 600ml에 쯔유 75ml, 다진 마늘을 넣고 끓여 준다.</p>
 <ul>
-<li>조건부로 렌더링 되는 콘텐츠는 <code style="color: #ffbc36">{#if}</code> 블록으로 감쌀 수 있습니다. </li>
-<li>추가 조건은 <code style="color: #ffbc36">{:else if}</code>으로 추가할 수 있으며, 선택적으로 <code style="color: #ffbc36">{:else}</code> 절로 끝납니다.</li>
-</ul>
-<pre class="theme-atom-one-dark"><code class="language-js">{#<span class="hljs-keyword">if</span> expression}
-    &lt;!-- <span class="hljs-title class_">Code1</span> --&gt;
-{:<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> expression}
-    &lt;!-- <span class="hljs-title class_">Code2</span> --&gt;
-{:<span class="hljs-keyword">else</span>}
-    &lt;!-- <span class="hljs-title class_">Code3</span> --&gt;
-{/<span class="hljs-keyword">if</span>}</code></pre><h3 id="bm-9">{#each expression}</h3>
-<ul>
-<li><code style="color: #ffbc36">#each</code> 에서 배열과 같은 값에 대한 반복 작업을 수행할 수 있습니다. </li>
-<li>각 목록 항목을 고유하게 식별해야 하는 키 식을 제공하면 Svelte는 마지막에 항목을 추가하거나 제거하는 대신 이를 사용하여 데이터가 변경될 때 목록을 확신합니다.</li>
-<li><code style="color: #ffbc36">#each</code> 에는 목록이 비어 있는 경우 렌더링이 되는 <code style="color: #ffbc36">{:else}</code> 절을 사용할 수 있다.</li>
-</ul>
-<pre class="theme-atom-one-dark"><code class="language-js">{#each expression <span class="hljs-keyword">as</span> name, <span class="hljs-title function_">index</span> (key)}
-    &lt;!-- repeat <span class="hljs-title class_">Code</span> --&gt;
-{/each}
-
-{#each expression <span class="hljs-keyword">as</span> {item, ...rest}, i, {key}}
-    &lt;!-- repeat <span class="hljs-title class_">Code</span> --&gt;
-{/each}
-
-{#each expression, index}
-    &lt;!-- repeat <span class="hljs-title class_">Code</span> --&gt;
-{/each}
-
-{#each expression <span class="hljs-keyword">as</span> name, <span class="hljs-title function_">index</span> (key)}
-    &lt;!-- repeat <span class="hljs-title class_">Code</span> --&gt;
-{:<span class="hljs-keyword">else</span>}
-    &lt;!-- empty <span class="hljs-title class_">Code</span> --&gt;
-{/each}</code></pre><h3 id="bm-14">{#key expression}</h3>
-<ul>
-<li><code style="color: #ffbc36">#key</code> 블록은 식의 값이 변경되면 내용을 파괴하고 다시 생성합니다. </li>
-<li>구성 요소 주변에 사용하면 구성 요소가 다시 복원되고 다시 초기화 됩니다.</li>
-</ul>
-<pre class="theme-atom-one-dark"><code class="language-js">{#key expression}
-    &lt;!-- <span class="hljs-title class_">Code</span> --&gt;
-{/key}</code></pre><h3 id="bm-19">{#await expression}</h3>
-<ul>
-<li><code style="color: #ffbc36">#await</code> 블록을 사용하면 대기 중, 완료, 거부 세 가지 상태를 분기할 수 있습니다.</li>
-<li><code style="color: #ffbc36">:then</code> 블록과 <code style="color: #ffbc36">:catch</code> 블록은 생략 가능합니다.</li>
-</ul>
-<pre class="theme-atom-one-dark"><code class="language-js">{#<span class="hljs-keyword">await</span> expression}
-    &lt;!-- <span class="hljs-title class_">Waiting</span> <span class="hljs-title class_">Code</span> --&gt;
-{:then name} 
-    &lt;!-- response <span class="hljs-title class_">Code</span> --&gt;
-{:<span class="hljs-keyword">catch</span> name}
-    &lt;!-- reject <span class="hljs-title class_">Code</span> --&gt;
-{/<span class="hljs-keyword">await</span>}
-
-{#<span class="hljs-keyword">await</span> expression}
-    &lt;!-- <span class="hljs-title class_">Waiting</span> <span class="hljs-title class_">Code</span> --&gt;
-{:then name}
-    &lt;!-- response <span class="hljs-title class_">Code</span> --&gt;
-{/<span class="hljs-keyword">await</span>}
-
-{#<span class="hljs-keyword">await</span> expression then name}
-    &lt;!-- response <span class="hljs-title class_">Code</span> --&gt;
-{/<span class="hljs-keyword">await</span>}
-
-{#<span class="hljs-keyword">await</span> expression <span class="hljs-keyword">catch</span> name}
-    &lt;!-- reject <span class="hljs-title class_">Code</span> --&gt;
-{/<span class="hljs-keyword">await</span>}</code></pre><h3 id="bm-24">{#snippet expression}</h3>
-<ul>
-<li><code style="color: #ffbc36">#snippet</code> 블록과 렌더링 태그는 컴포넌트 내부에 재사용 가능한 마크업 코드를 만드는 방법입니다.</li>
-<li><code style="color: #ffbc36">#snippet</code> 블록과 렌더링 태그는 기본 스코프 문법을 따릅니다.</li>
-<li><code style="color: #ffbc36">#snippet</code> 블록은 템플릿 내에서 객체로 다루어 지기에 컴포넌트에 속성 값이나 props 값으로 전달이 가능합니다.</li>
-<li>스니펫 문법은 createRawSnippet API를 사용하여 프로그래밍 방식으로 생성할 수 있습니다.</li>
-</ul>
-<pre class="theme-atom-one-dark"><code class="language-js">{#snippet <span class="hljs-title function_">name1</span>()}
-    &lt;!-- <span class="hljs-title class_">Code1</span> --&gt;
-{/snippet}
-
-{#snippet <span class="hljs-title function_">name2</span>(param)}
-    &lt;!-- <span class="hljs-title class_">Code2</span> --&gt;
-{/snippet}
-
-{#snippet <span class="hljs-title function_">name3</span>(param)}
-    &lt;!-- <span class="hljs-title class_">Code3</span> --&gt;
-{/snippet}
-
-{@render <span class="hljs-title function_">name1</span>()}
-{@render <span class="hljs-title function_">name2</span>(param)}
-{@render name3?.(param)}
-
-&lt;<span class="hljs-title class_">Component</span> header={name1} row={name2}/&gt;</code></pre><h3 id="bm-29">기타 블럭 문법</h3>
-<ul>
-<li>{@render ...}<ul>
-<li>snippet 문법을 렌더링 하기 위해 사용됩니다.</li>
+<li>간을 보고 짜거나 싱거우면 물이나 쯔유를 추가해 준다.</li>
 </ul>
 </li>
-<li>{@html ...}<ul>
-<li>svelte 코드에 HTML 주입하기 위해 사용됩니다.</li>
-</ul>
+<li><p>물이 끓으면 적당한 크기로 자른 오뎅과 다진 청양 고추를 넣고 끓여준다.</p>
 </li>
-<li>{@const ...}<ul>
-<li>로컬 상수를 정의하기 위해 사용됩니다.</li>
-<li>블록의 직계 하위 항목으로만 허용됩니다.</li>
-</ul>
+<li><p>오뎅이 충분히 끓이고 나면 송송썬 대파를 넣고 후추를 뿌려 준다.</p>
 </li>
-<li>{@debug ...}<ul>
-<li>특정 변수의 값이 변경 될 때마다 기속되며, 개발 도구가 열려 있는 경우 코드 실행을 일시 중지 합니다.</li>
-</ul>
+<li><p>맛있게 먹는다.</p>
 </li>
-</ul>
-<pre class="theme-atom-one-dark"><code class="language-js">&lt;!-- {@render ...} --&gt;
-{#snippet <span class="hljs-title function_">name1</span>()}
-    &lt;p&gt;name1&lt;/p&gt;
-{/snippet}
-{#snippet <span class="hljs-title function_">name2</span>()}
-    &lt;p&gt;name2&lt;/p&gt;
-{/snippet}
+</ol>
+<br/>
 
-{@<span class="hljs-title function_">render</span> (value ? name1 : name2)()}
-{@render name2?.()}
+<pre><code class="language-plaintext"}>>> 자취생 평가 <<
 
-&lt;!-- {@heml ...} --&gt;
-<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">article</span>&gt;</span>
-    {@html content}
-<span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span></span>
+사실 다 넣고 끓여 버리면 되는 매우 쉬운 요리</code></pre>
 
-&lt;!-- {@<span class="hljs-keyword">const</span> ...} --&gt;
-{#each boxes <span class="hljs-keyword">as</span> box}
-    {@<span class="hljs-keyword">const</span> area = box.<span class="hljs-property">width</span> * box.<span class="hljs-property">height</span>}
-    {box.<span class="hljs-property">width</span>} * {box.<span class="hljs-property">height</span>} = {area}
-{/each}
-
-&lt;!-- {@debug ...} --&gt;
-{@debug user}
-{@debug user1, user2, user3}
-</code></pre>
 
                         </div>
 
