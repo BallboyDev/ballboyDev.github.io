@@ -17,17 +17,17 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
             <style>
-                #p-101 {
+                #p-133 {
                     color: rgb(76, 193, 237) !important;
                 }
             </style>
-            <script id="data" type="application/json">{ "fold": ["2","23"] }</script>
+            <script id="data" type="application/json">{ "fold": ["3","33"] }</script>
 
             <script src="https://ballboyDev.github.io/assets/skin.js"></script>
             <script src="https://ballboyDev.github.io/assets/env.js"></script>
             
 
-                <title>4. 온코테 시스템 만들기 - Container</title>
+                <title>매운 삼겹살 찜</title>
             </head>
 
             <body>
@@ -433,42 +433,39 @@
                         <div class="bookmark">
 
             <div class="title t1">
-                <div><a href="#bm-1"># 4. 온라인 코딩 테스트 시스템 실행 Container 제작</a></div>
+                <div><a href="#bm-1"># 매운 삼겹살 찜 만들기
+</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t2">
-                <div><a href="#bm-4">## Container 기본 형태</a></div>
+                <div><a href="#bm-8">## 재료
+</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t3">
-                <div><a href="#bm-7">### C lang</a></div>
+                <div><a href="#bm-9">### 재료</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t3">
-                <div><a href="#bm-12">### java</a></div>
+                <div><a href="#bm-12">### 양념/조미료</a></div>
                 <p>•</p>
             </div>
 
-            <div class="title t3">
-                <div><a href="#bm-15">### javascript</a></div>
+            <div class="title t2">
+                <div><a href="#bm-15">## 레시피</a></div>
                 <p>•</p>
             </div>
 
-            <div class="title t3">
-                <div><a href="#bm-18">### python</a></div>
+            <div class="title t2">
+                <div><a href="#bm-20">## 참고 자료/영상</a></div>
                 <p>•</p>
             </div>
 
-            <div class="title t3">
-                <div><a href="#bm-21">### sql</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-24">### 개선 및 버전 관리</a></div>
+            <div class="title t2">
+                <div><a href="#bm-23">## 추가 내용</a></div>
                 <p>•</p>
             </div></div>
                         
@@ -478,123 +475,87 @@
                         
                         <div class="main markdown-body">
 
-                            <h1 id="bm-1">4. 온라인 코딩 테스트 시스템 실행 Container 제작</h1>
-<p>Container 제작과 관리는 이 프로젝트의 핵심이라고 할 수 있다.
-컨테이너 제작과 생성, 관리를 얼마나 잘 하느냐에 따라 사용자 경험이 달라 지기 때문이다.
-언어별, 버전별, 상황별, 라이브러리별, 목적별 제작되는 컨테이너가 모두 다르고 생성 개수도 많이 때문에 컨테이너를 얼마나 잘 관리하는지 역시 중요하다.</p>
-<h2 id="bm-4">Container 기본 형태</h2>
-<pre class="theme-atom-one-dark"><code class="language-Dockerfile"><span class="hljs-comment"># 컨테이너 기본 구조</span>
-<span class="hljs-keyword">FROM</span> 실행 언어 base 이미지
-
-<span class="hljs-comment"># 실행할 파일이 저장되어 있는 디렉토리 볼륨 마운트</span>
-<span class="hljs-keyword">VOLUME</span><span class="language-bash"> [<span class="hljs-string">&quot;/exam&quot;</span>]</span>
-
-<span class="hljs-comment"># 작업 위치 설정</span>
-<span class="hljs-keyword">WORKDIR</span><span class="language-bash"> /exam</span>
-
-<span class="hljs-comment"># 환경 파일 실행 </span>
-<span class="hljs-keyword">ENTRYPOINT</span><span class="language-bash"> [<span class="hljs-string">&quot;실행 환경&quot;</span>]</span>
-<span class="hljs-comment"># CMD 명령러를 통한 실행 파일명 동적 설정</span>
-<span class="hljs-keyword">CMD</span><span class="language-bash"> [<span class="hljs-string">&quot;test.lang&quot;</span>] </span>
-
-<span class="hljs-comment"># 이미지 생성 / 언어별 Dockerfile 사용</span>
-<span class="hljs-comment"># docker build -t container_lang:latest -f Dockerfile_lang .</span>
-
-<span class="hljs-comment"># 컨테이너 실행 / 공통 storage 연결을 위한 네트워크 설정과 volume 설정, 언어 실행 후 컨테이너 삭제</span>
-<span class="hljs-comment"># docker run --rm --network net-onCoTe -v vol-onCoTe-storage:/exam container_lang:latest test.lang</span></code></pre><h3 id="bm-7">C lang</h3>
-<pre class="theme-atom-one-dark"><code class="language-Dockerfile"><span class="hljs-comment"># Dockerfile_c</span>
-
-<span class="hljs-comment"># 베이스 이미지 설정</span>
-<span class="hljs-keyword">FROM</span> gcc:<span class="hljs-number">12.4</span>.<span class="hljs-number">0</span>-bookworm
-
-<span class="hljs-comment"># 저장소 볼륨 설정</span>
-<span class="hljs-keyword">VOLUME</span><span class="language-bash"> [<span class="hljs-string">&quot;/exam&quot;</span>]</span>
-
-<span class="hljs-comment"># 작업 위치 설정</span>
-<span class="hljs-keyword">WORKDIR</span><span class="language-bash"> /exam</span>
-
-<span class="hljs-comment"># gcc를 사용하여 컴파일을 진행 후 실행하는데 중간 오브젝트 파일이나 최종 실행 파일을 남기지 않기 위해 언어 실행 및 정리 작업을 shell script로 작성</span>
-<span class="hljs-keyword">ENTRYPOINT</span><span class="language-bash"> [<span class="hljs-string">&quot;./run_c.sh&quot;</span>]</span>
-<span class="hljs-keyword">CMD</span><span class="language-bash"> [<span class="hljs-string">&quot;clang.c&quot;</span>]</span>
-
-
-<span class="hljs-comment"># 이미지 생성</span>
-<span class="hljs-comment"># docker build -t container_c:latest -f Dockerfile_c .</span>
-
-<span class="hljs-comment"># 컨테이너 실행</span>
-<span class="hljs-comment"># docker run --rm --network net-onCoTe -v vol-onCoTe-storage:/exam container_c:latest </span></code></pre><pre class="theme-atom-one-dark"><code class="language-sh"><span class="hljs-comment"># run_c.sh</span>
-
-<span class="hljs-comment">#!/bin/sh</span>
-
-<span class="hljs-comment"># 현재 시간을 활용하여 파일명이 겹치지 않도록 임시 파일명 </span>
-TIME=$(<span class="hljs-built_in">date</span> +%s)
-
-<span class="hljs-comment"># 컴파일 / 실행 / 삭제</span>
-gcc <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> -o <span class="hljs-string">&quot;<span class="hljs-variable">$TIME</span>&quot;</span>  &amp;&amp; ./<span class="hljs-string">&quot;<span class="hljs-variable">$TIME</span>&quot;</span> &amp;&amp; <span class="hljs-built_in">rm</span> <span class="hljs-string">&quot;<span class="hljs-variable">$TIME</span>&quot;</span></code></pre><h3 id="bm-12">java</h3>
-<pre class="theme-atom-one-dark"><code class="language-Dockerfile"><span class="hljs-comment"># Dockerfile_java</span>
-
-<span class="hljs-comment"># 베이스 이미지 설정</span>
-<span class="hljs-keyword">FROM</span> openjdk:<span class="hljs-number">17</span>-jdk-slim
-
-<span class="hljs-comment"># 저장소 볼륨 설정</span>
-<span class="hljs-keyword">VOLUME</span><span class="language-bash"> [<span class="hljs-string">&quot;/exam&quot;</span>]</span>
-
-<span class="hljs-comment"># 작업 위치 설정</span>
-<span class="hljs-keyword">WORKDIR</span><span class="language-bash"> /exam</span>
-
-<span class="hljs-keyword">ENTRYPOINT</span><span class="language-bash"> [<span class="hljs-string">&quot;java&quot;</span>]</span>
-<span class="hljs-keyword">CMD</span><span class="language-bash"> [<span class="hljs-string">&quot;java.java&quot;</span>]</span>
-
-
-<span class="hljs-comment"># 이미지 생성</span>
-<span class="hljs-comment"># docker build -t container_java:latest -f Dockerfile_java .</span>
-
-<span class="hljs-comment"># 컨테이너 실행</span>
-<span class="hljs-comment"># docker run --rm --network net-onCoTe -v vol-onCoTe-storage:/exam container_java:latest </span></code></pre><h3 id="bm-15">javascript</h3>
-<pre class="theme-atom-one-dark"><code class="language-Dockerfile"><span class="hljs-comment"># Dockerfile_js</span>
-
-<span class="hljs-comment"># 베이스 이미지 설정</span>
-<span class="hljs-keyword">FROM</span> node:<span class="hljs-number">22</span>-alpine
-
-<span class="hljs-comment"># 저장소 볼륨 설정</span>
-<span class="hljs-keyword">VOLUME</span><span class="language-bash"> [<span class="hljs-string">&quot;/exam&quot;</span>]</span>
-
-<span class="hljs-comment"># 작업 위치 설정</span>
-<span class="hljs-keyword">WORKDIR</span><span class="language-bash"> /exam</span>
-
-<span class="hljs-comment"># COPY ./test.js .</span>
-
-<span class="hljs-keyword">ENTRYPOINT</span><span class="language-bash"> [<span class="hljs-string">&quot;node&quot;</span>]</span>
-<span class="hljs-keyword">CMD</span><span class="language-bash"> [<span class="hljs-string">&quot;javascript.js&quot;</span>]</span>
-
-<span class="hljs-comment"># 이미지 생성</span>
-<span class="hljs-comment"># docker build -t container_js:latest -f Dockerfile_js .</span>
-
-<span class="hljs-comment"># 컨테이너 실행</span>
-<span class="hljs-comment"># docker run --rm --network net-onCoTe -v vol-onCoTe-storage:/exam container_js:latest </span></code></pre><h3 id="bm-18">python</h3>
-<pre class="theme-atom-one-dark"><code class="language-Dockerfile"><span class="hljs-comment"># Dockerfile_py</span>
-
-<span class="hljs-comment"># 베이스 이미지 설정</span>
-<span class="hljs-keyword">FROM</span> python:<span class="hljs-number">3.13</span>.<span class="hljs-number">5</span>-alpine
-
-<span class="hljs-comment"># 저장소 볼륨 설정</span>
-<span class="hljs-keyword">VOLUME</span><span class="language-bash"> [<span class="hljs-string">&quot;/exam&quot;</span>]</span>
-
-<span class="hljs-comment"># 작업 위치 설정</span>
-<span class="hljs-keyword">WORKDIR</span><span class="language-bash"> /exam</span>
-
-<span class="hljs-keyword">ENTRYPOINT</span><span class="language-bash"> [<span class="hljs-string">&quot;python&quot;</span>]</span>
-<span class="hljs-keyword">CMD</span><span class="language-bash"> [<span class="hljs-string">&quot;python.py&quot;</span>]</span>
-
-<span class="hljs-comment"># 이미지 생성</span>
-<span class="hljs-comment"># docker build -t container_py:latest -f Dockerfile_py .</span>
-
-<span class="hljs-comment"># 컨테이너 실행</span>
-<span class="hljs-comment"># docker run --rm --network net-onCoTe -v vol-onCoTe-storage:/exam container_py:latest </span></code></pre><h3 id="bm-21">sql</h3>
-<pre class="theme-atom-one-dark"><code class="language-Dockerfile"><span class="hljs-comment"># 네트워크 환경의 독립적인 SQL 실행 컨테이너 제작중...</span></code></pre><h3 id="bm-24">개선 및 버전 관리</h3>
+                            <h1 id="bm-1">매운 삼겹살 찜 만들기</h1>
+<pre><code class="language-plaintext"}>오늘은 스트레스가 많이 쌓인 하루였던거 같아 저녁으로 매콤한 자극적인 매뉴가 땡긴다.
+제육 볶음이나 두루치기로도 부족한 매운맛.
+오늘은 매운 삼겹살 찜을 만들어 보았다.
+※ 사실 집에 목전지 밖에 없어 목전지 찜이다.</code></pre>
+<blockquote>
+<p>난이도 ✭✭</p>
 <ul>
-<li>언어별 컴파일러 버전 관리를 위한 언어 버전별 베이스 이미지 수정</li>
-<li>커스텀 실행 환경 세팅을 위한 컨테이너 생성 중 library 설치 명령어 작성</li>
+<li>조금 많이 시간이 오래 걸린다.</li>
+</ul>
+</blockquote>
+<p><img src="https://ballboyDev.github.io/assets/img/133_1.jpeg" alt="매운 삼겹살 찜"></p>
+<h2 id="bm-8">재료</h2>
+<h3 id="bm-9">재료</h3>
+<ol>
+<li>삼겹살 / 2 ~ 3줄 (200~300g)</li>
+<li>다진 마늘 / 2sp</li>
+<li>청양고추 / 2개</li>
+<li>대파 / 반대<ul>
+<li>필수 아님</li>
+</ul>
+</li>
+</ol>
+<h3 id="bm-12">양념/조미료</h3>
+<ol>
+<li>고추가루 / 2sp<ul>
+<li>매운거 추천</li>
+</ul>
+</li>
+<li>설탕 / 1sp</li>
+<li>진간장 / 2sp</li>
+<li>굴소스 / 0.5sp</li>
+<li>맛술 / 2sp</li>
+<li>후추 / 적당량</li>
+<li>참기름 / 1sp</li>
+</ol>
+<h2 id="bm-15">레시피</h2>
+<ol>
+<li><p>삼겹살을 적당한 크기로 썰어 펜에 넣고 노릇하게 구워준다.</p>
+</li>
+<li><p>삼겹살이 거의 다 익으면 물을 100ml 정도 부어 준다.</p>
+<ul>
+<li>물을 넣고 끓이면서 부족하다고 생각되면 물을 추가해준다.</li>
+</ul>
+</li>
+<li><p>펜에 고추가루, 설탕, 진간장, 굴소스, 맛술, 후추를 모두 넣어 끓여준다.</p>
+<ul>
+<li>끓이며 중간에 청양고추를 하나는 다지고 하나는 어슷 썰어 넣어준다.</li>
+</ul>
+</li>
+<li><p>중불에 양념을 보글보글 끓이며 저어주고 양념이 적당히 졸아들면 다진 마늘을 크게 2sp과 대파를 넣어 준다.</p>
+<ul>
+<li>대파는 다지거나, 채썰거나, 큼직하게 썰거나 모두 괜찮다.</li>
+</ul>
+</li>
+<li><p>마늘을 넣으면 수분을 빨아 들이며 찜 수준으로 물이 줄어들고 중약불에 고기와 양념을 볶아 준다.</p>
+</li>
+<li><p>마무리로 참기름과 깨를 위에 뿌려준다.</p>
+</li>
+<li><p>맛있게 먹는다.</p>
+</li>
+</ol>
+<pre><code class="language-plaintext"}>>> 자취생 평가 <<
+
+먹고 나니 속이 얼얼해서 야식으로 냉면을 만들어 먹었다.</code></pre>
+<h2 id="bm-20">참고 자료/영상</h2>
+<ul>
+<li><p><a href="https://www.youtube.com/shorts/fLjcJieYQB4">애그미</a></p>
+<ul>
+<li>기본 레시피는 따라갔지만 물양을 주리면서 재료의 양도 조금씩 줄였다.</li>
+</ul>
+</li>
+<li><p><a href="https://www.youtube.com/shorts/r2tY2CHkXfY">김진순 점심시간</a></p>
+</li>
+</ul>
+<h2 id="bm-23">추가 내용</h2>
+<ul>
+<li>2025-09-03<ul>
+<li>물을 졸이는게 너무 오래 걸리고 어려워 새로운 방법을 찾아보았다.</li>
+</ul>
+</li>
 </ul>
 
 
