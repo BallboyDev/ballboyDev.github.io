@@ -17,17 +17,17 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
             <style>
-                #p-36 {
+                #p-134 {
                     color: rgb(76, 193, 237) !important;
                 }
             </style>
-            <script id="data" type="application/json">{ "fold": ["1","11"] }</script>
+            <script id="data" type="application/json">{ "fold": ["3","34"] }</script>
 
             <script src="https://ballboyDev.github.io/assets/skin.js"></script>
             <script src="https://ballboyDev.github.io/assets/env.js"></script>
             
 
-                <title>console 객체 활용하기</title>
+                <title>스리라차 나폴리탄 파스타</title>
             </head>
 
             <body>
@@ -436,52 +436,28 @@
                         <div class="bookmark">
 
             <div class="title t1">
-                <div><a href="#bm-1"># Javascript console 객체 활용하기</a></div>
+                <div><a href="#bm-1"># 스리라차 나폴리탄 파스타
+</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t2">
-                <div><a href="#bm-4">## console 객체가 제공하는 유용한 함수</a></div>
+                <div><a href="#bm-8">## 재료</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t3">
-                <div><a href="#bm-7">### log()</a></div>
+                <div><a href="#bm-9">### 재료</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t3">
-                <div><a href="#bm-12">### warn(), error()</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-17">### group(), groupCollapsed(), groupEnd()</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-22">### time(), timeLog(), timeEnd()</a></div>
+                <div><a href="#bm-12">### 조미료</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t2">
-                <div><a href="#bm-27">## 텍스트 꾸미기</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-30">### ANSI escape code</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-33">### 사용 예시</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-40">### `\x1b[<코드>m`의 구조와 의미</a></div>
+                <div><a href="#bm-15">## 레시피</a></div>
                 <p>•</p>
             </div></div>
                         
@@ -491,142 +467,67 @@
                         
                         <div class="main markdown-body">
 
-                            <h1 id="bm-1">Javascript console 객체 활용하기</h1>
-<p>node 환경에서 개발을 하다보면 <code style="color: #ffbc36">console.log</code>를 활용하여 값을 찍어 보거나 플로우를 확인하는 경우가 종종 있다.
-디버깅 기능을 활용하여도 되지만 지원하지 않는 환경이거나 로그 자체를 찍고 싶은 경우에는 유용하게 활용이 가능하다.
-그런데 단순히 텍스트를 찍고 값을 확인하는데 사용하는 console 객체는 생각보다 다양하고 유용한 기능을 다수 지원한다.
-개발할때 사용하면 편리한 내가 자주 사용하는 내용을 정리 해본다.</p>
-<h2 id="bm-4">console 객체가 제공하는 유용한 함수</h2>
-<p>정리 내용 말고도 다양한 함수가 존재 하니 알아보고 상황에 맞춰 사용하면 좋다.</p>
-<h3 id="bm-7">log()</h3>
+                            <h1 id="bm-1">스리라차 나폴리탄 파스타</h1>
+<pre><code class="language-plaintext"}>난 평소 라면보다도 파스타를 훨씬 많이 만들어 먹는다.
+주로 한국인스러운 마늘이 듬뿍 들어간 알리오 올리오를 만들어 먹는데 
+오일 파스도 충분히 맛있지만 가끔은 역시 세콤달콤매콤한 자극적인 맛이 그리울때가 있다.
+케첩을 넣어서 새콤한 맛을 보충 해본적도 있는데 케첩만으로는 맛이 부족하다는 느낌이 든다.
+그러다 냉.부에서 정호영 셰프님이 만드신 나폴리탄 파스타를 보았고 이거다 라는 생각을 했다.</code></pre>
+<blockquote>
+<p>난이도 ✭✭</p>
 <ul>
-<li>가장 기본적이며 일반 메시지를 출력하는 메서드</li>
-<li>추가 매개변수와 함께 Object 출력 가능</li>
+<li>나의 양념 리스트에 추가된 새로운 양념 스리라차</li>
 </ul>
-<p><img src="https://ballboyDev.github.io/assets/img/36_1.jpeg" alt="console log"></p>
-<h3 id="bm-12">warn(), error()</h3>
-<ul>
-<li>오류 및 경고 메시지 출력</li>
-</ul>
-<p><img src="https://ballboyDev.github.io/assets/img/36_2.jpeg" alt="console warn, error"></p>
-<h3 id="bm-17">group(), groupCollapsed(), groupEnd()</h3>
-<ul>
-<li>출력 메시지의 그룹을 생성해 이후 출력을 모두 한단계 들여쓰기 한다.</li>
-<li>group()과 groupCollapsed()는 동일한 기능을 지원하지만 group()과 달리 groupCollapsed()는 출력시 텍스트가 접혀 있다.</li>
-<li>그룹을 종료하기 위해서는 groupEnd()를 사용한다.</li>
-</ul>
-<p><img src="https://ballboyDev.github.io/assets/img/36_3.jpeg" alt="console group"></p>
-<h3 id="bm-22">time(), timeLog(), timeEnd()</h3>
-<ul>
-<li>시간 측정을 위한 타이머를 생성한다. 타이머는 동시에 최대 10000개 까지 생성이 가능하다.</li>
-<li>측정 중간 시간 기록을 찍기위해서는 timeLog()를 사용한다.</li>
-</ul>
-<p><img src="https://ballboyDev.github.io/assets/img/36_4.jpeg" alt="console time"></p>
-<h2 id="bm-27">텍스트 꾸미기</h2>
-<p>node 환경에서 console 객체 메서드로 출력되는 문자열의 생상을 바꿀 수 있다.
-ANSI escape code를 사용하거나 이를 지원하는 라이브러리를 사용하면 된다.
-이를 통해 좀 더 명확한 로그를 남길 수 있다.</p>
-<h3 id="bm-30">ANSI escape code</h3>
-<ul>
-<li>ANSI escape code는 터미널을 제어하는데 사용되는 표준 코드로 현재는 드물에 터미널 출력 스타일을 변경하는데 사용되고 있다.</li>
-<li>대표 색상 및 스타일 코드 표
-        <table>
-            <thead><tr><th align="right">폰트 색상</th>
-<th align="left">코드</th>
-<th align="right">배경 색상</th>
-<th align="left">코드</th>
-<th align="right">스타일</th>
-<th align="left">코드</th>
-</tr></thead>
-            <tbody><tr><td align="right">검정</td>
-<td align="left">30</td>
-<td align="right">검정</td>
-<td align="left">40</td>
-<td align="right">초기화</td>
-<td align="left">0</td>
-</tr>
-<tr><td align="right">빨강</td>
-<td align="left">31</td>
-<td align="right">빨강</td>
-<td align="left">41</td>
-<td align="right">굵게</td>
-<td align="left">1</td>
-</tr>
-<tr><td align="right">초록</td>
-<td align="left">32</td>
-<td align="right">초록</td>
-<td align="left">42</td>
-<td align="right">밑줄</td>
-<td align="left">4</td>
-</tr>
-<tr><td align="right">노랑</td>
-<td align="left">33</td>
-<td align="right">노랑</td>
-<td align="left">43</td>
-<td align="right">반전색</td>
-<td align="left">7</td>
-</tr>
-<tr><td align="right">파랑</td>
-<td align="left">34</td>
-<td align="right">파랑</td>
-<td align="left">44</td>
-<td align="right"></td>
-<td align="left"></td>
-</tr>
-<tr><td align="right">마젠타</td>
-<td align="left">35</td>
-<td align="right">마젠타</td>
-<td align="left">45</td>
-<td align="right"></td>
-<td align="left"></td>
-</tr>
-<tr><td align="right">시안</td>
-<td align="left">36</td>
-<td align="right">시안</td>
-<td align="left">46</td>
-<td align="right"></td>
-<td align="left"></td>
-</tr>
-<tr><td align="right">흰색</td>
-<td align="left">37</td>
-<td align="right">흰색</td>
-<td align="left">47</td>
-<td align="right"></td>
-<td align="left"></td>
-</tr></tbody>
-        </table>
-        </li>
-</ul>
-<h3 id="bm-33">사용 예시</h3>
-<ul>
-<li><code style="color: #ffbc36">\x1b[&lt;코드&gt;m</code>: &lt;코드&gt;에 원하는 스타일의 코드를 넣어 사용한다.</li>
-</ul>
-<pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;\x1b[32m%s\x1b[0m&#x27;</span>, <span class="hljs-string">&#x27;이 텍스트는 초록색입니다!&#x27;</span>);
-
-<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;\x1b[1m\x1b[31m%s\x1b[0m&#x27;</span>, <span class="hljs-string">&#x27;굵은 빨간 텍스트&#x27;</span>);
-
-<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;\x1b[36m[시안]  \x1b[33m[노랑]  \x1b[31m[빨강]  \x1b[0m[초기화]&#x27;</span>);</code></pre><p><img src="https://ballboyDev.github.io/assets/img/36_5.jpeg" alt="console style"></p>
-<h3 id="bm-40">`\x1b[<코드>m`의 구조와 의미</h3>
-<ul>
-<li><code style="color: #ffbc36">\x1b[&lt;코드&gt;m</code> 이 문자열은 3부분으로 구성되어 있다.</li>
-</ul>
+</blockquote>
+<p><img src="https://ballboyDev.github.io/assets/img/134_1.jpeg" alt="이미지 준비중"></p>
+<h2 id="bm-8">재료</h2>
+<h3 id="bm-9">재료</h3>
 <ol>
-<li><p><code style="color: #ffbc36">\x1b</code> : <code style="color: #ffbc36">\x1b</code>는 16진수 이스케이프 시퀀스로 ASCII 문자 ESC를 의미 한다.</p>
-<ul>
-<li>역할은 터미널에게 &#39;지금부터 제어 시퀀스가 시작된다&#39;라는 신호룰 보낸다.</li>
+<li>링귀니면 / 1인분</li>
+<li>양파 / 작은거 1/2개, 큰거 1/4개</li>
+<li>피망 / 1/2 ~ 1/4개<ul>
+<li>취향것, 난 피망이 없어 오이고추를 길게 썰어 이용했다.</li>
 </ul>
 </li>
-<li><p><code style="color: #ffbc36">[</code>(괄호)는 제어 시퀀스의 일부로 <code style="color: #ffbc36">\x1b</code>와 함께 제어 시퀀스가 시작됨을 알리는 표준 접두어 이다.</p>
-</li>
-<li><p><code style="color: #ffbc36">&lt;코드&gt;m</code>는 실제로 어떤 스타일을 지정하는 코드로 m은 SGR코드로 해석 되어야 한다는 뜻이다.</p>
+<li>양송이 버섯 / 4~5개</li>
+<li>비엔나 소시지 / 8개</li>
+<li>편마늘 / 5알</li>
+</ol>
+<h3 id="bm-12">조미료</h3>
+<ol>
+<li>소금 / 1sp</li>
+<li>올리브유 / 3sp</li>
+<li>치킨스톡 / 0.5sp</li>
+<li>케첩 / 4sp ~ 5sp</li>
+<li>스리라차 / 1sp</li>
+<li>치즈 가루 / 적당량</li>
+<li>후추, 파슬리 / 적당량</li>
+</ol>
+<h2 id="bm-15">레시피</h2>
+<ol>
+<li><p>끓는 소금물에 면을 삶는다.</p>
 <ul>
-<li>역할은 &lt;코드&gt;의 값을 SGR 코드로 해석하여 스타일을 지정한다라는 뜻이다.</li>
+<li>면 삶는 법은 <a href="https://ballboydev.github.io/post/25">(내 멋대로 알리오 올리오)</a>를 참고</li>
 </ul>
+</li>
+<li><p>양파와 피망은 채썰어 준비하고, 양송이 버섯은 4등분, 비엔나 소시지는 썰거나 칼집을 내서 준비한다.</p>
+</li>
+<li><p>펜에 올리브유와 편마늘, 비엔나 소시지를 넣고 강불에 볶아 준다.</p>
+</li>
+<li><p>볶다가 양송이 버섯과 양파, 피망을 넣고 볶아 주다가 치킨스톡 반스푼과 면수를 반컵 정도 넣어 준다.</p>
+</li>
+<li><p>약 70%정도 익은 면을 펜에 넣고 함께 케첩과 스리라차 소스를 넣어준다.</p>
+</li>
+<li><p>볶다가 소스가 너무 되직하다면 면수를 더 추가 해준다.</p>
+</li>
+<li><p>마무리로 후추와 파슬리, 치즈 가루를 뿌려준다.</p>
+</li>
+<li><p>맛있게 먹는다.</p>
 </li>
 </ol>
-<blockquote>
-<p>물론 Chalk 라이브러리를 사용하면 더욱 쉽게 스타일을 변경할수 있다.</p>
-</blockquote>
+<pre><code class="language-plaintext"}>>> 자취생 평가 <<
+
+알리오 올리오와 함께 부족한 부분을 채워주는 훌륭한 조합</code></pre>
 
 
                         </div>
