@@ -17,17 +17,17 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
             <style>
-                #p-28 {
+                #p-148 {
                     color: rgb(76, 193, 237) !important;
                 }
             </style>
-            <script id="data" type="application/json">{ "fold": ["3","34"] }</script>
+            <script id="data" type="application/json">{ "fold": ["1","15"] }</script>
 
             <script src="https://ballboyDev.github.io/assets/skin.js"></script>
             <script src="https://ballboyDev.github.io/assets/env.js"></script>
             
 
-                <title>라면 요리 - 마요네즈 비빔 라면</title>
+                <title>8. Helm</title>
             </head>
 
             <body>
@@ -491,83 +491,134 @@
                         <div class="bookmark">
 
             <div class="title t1">
-                <div><a href="#bm-1"># 마요네즈 비빔 라면 만들기
+                <div><a href="#bm-1"># Helm</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-4">## 헬름이 제공하는 기능</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-7">## 헬름으로 애플리케이션 패키징 하기</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-14">### 헬름 차트 템플릿 구성</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-17">### 헬름의 레포지토리 호스팅</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-20">## 차트 간 의존 관계 모델링</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-23">## 헬름으로 설치한 릴리스의 업그레이드와 롤백
+
 </a></div>
                 <p>•</p>
             </div>
 
             <div class="title t2">
-                <div><a href="#bm-6">## 재료</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-7">### 재료</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-10">### 조미료</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t2">
-                <div><a href="#bm-13">## 레시피</a></div>
+                <div><a href="#bm-24">## 헬름은 어떤 상황에 적합한가.</a></div>
                 <p>•</p>
             </div></div>
                         
                         
+            <a href="https://ballboyDev.github.io/post/147.html" class="prev post">
+                <img src="https://ballboyDev.github.io/assets/img/prev.svg" alt="" srcset="">
+            </a>
                         
                         
-            <a href="https://ballboyDev.github.io/post/70.html" class="next post">
+            <a href="https://ballboyDev.github.io/post/149.html" class="next post">
                 <img src="https://ballboyDev.github.io/assets/img/next.svg" alt="" srcset="">
             </a>
                         
                         <div class="main markdown-body">
 
-                            <h1 id="bm-1">마요네즈 비빔 라면 만들기</h1>
-<pre><code class="language-plaintext"}>라면이 질릴때 한번씩</code></pre>
-<blockquote>
-<p>난이도 ✭</p>
+                            <h1 id="bm-1">Helm</h1>
 <ul>
-<li>라면은 다양한 조리법이 있지</li>
+<li>헬름은 쿠버네티스용 패키지 매니저 이다. 헬름은 쿠버네티스 환경에서 애플리리케이션을 쉽게 관리하게 해주는 도구로, 수십개의 복잡한 yaml 파일들을 하나의 패키지로 묶어 단순한 하나의 명령어로 관련 리소스 전체를 설치 관리할 수 있다. 설정 값들을 변수처럼 관리하여, 개발/스테이지/운영 환경에 맞게 변경할수 있다.</li>
 </ul>
-</blockquote>
-<h2 id="bm-6">재료</h2>
-<h3 id="bm-7">재료</h3>
-<ol>
-<li>라면 / 1봉</li>
-<li>계란 / 1알<ul>
-<li>취향것 후라이나 수란을 만들어 준다,</li>
+<h2 id="bm-4">헬름이 제공하는 기능</h2>
+<ul>
+<li><p>쿠버네티스 애플리케이션은 서로 긴밀히 연결된 여러 개의 yaml 파일 스크립트로 모델링 된다. 그리고 실행 시점에서는 여러 개의 레이블로 관리된다. 쿠버네티스는 여러 개의 리소스를 묶어 &#39;애플리케이션&#39;이라는 개념으로 따로 정립하지 않는다. 헬름이 제공하는 기능이 바로 이런 개념이다.
+명령행 도구의 형태로 리포지터리 서버와 상호 작용하며, 애플리케이션 패키지를 찾아 내려 받고 쿠버네티스 클러스터에 이를 설치하고 관리하는 기능을 한다.</p>
+</li>
+<li><p><code style="color: #ffbc36">chart</code></p>
+<ul>
+<li>헬름의 패키지</li>
 </ul>
 </li>
-<li>대파 or 쪽파 / 적당량</li>
-<li>김가루 / 적당량 / 필수 아님</li>
-<li>참깨 / 적당량 / 필수 아님</li>
-</ol>
-<h3 id="bm-10">조미료</h3>
-<ol>
-<li>양조간장 / 0.5sp</li>
-<li>마요네즈 / 1sp</li>
-<li>참기름 / 1sp</li>
-<li>설탕 / 0.5sp</li>
-</ol>
-<h2 id="bm-13">레시피</h2>
-<ol>
-<li><p>끓는 물에 라면과 건더기 스프를 넣고 익혀준다.</p>
+<li><p><code style="color: #ffbc36">release</code></p>
+<ul>
+<li>차트를 사용하여 클러스터에 실제로 설치된 애플리케이션의 인스턴스</li>
+</ul>
 </li>
-<li><p>그릇에 라면스프 절반과 양조간장, 설탕, 마요네즈, 참기름을 넣고 섞어 준다.</p>
+<li><p><code style="color: #ffbc36">repositody</code></p>
+<ul>
+<li>차트들을 모아 녾은 저장소</li>
+<li>리눅스의 <code style="color: #ffbc36">apt</code>, <code style="color: #ffbc36">yum</code>, 맥OS의 <code style="color: #ffbc36">brew</code>의 레포지토리 처럼, 헬름 레포지토리 주소를 추가해두면 원격에 있는 다양한 차트들을 내 클러스터에 가져와 설치할 수 있다.</li>
+<li><code style="color: #ffbc36">Artifact Hub</code>는 전 세계의 공개 헬름 차트를 검색 할 수 있는 중앙 허브 역할을 한다.</li>
+</ul>
 </li>
-<li><p>면이 익으면 면과 건더기, 면수 3sp 정도를 그릇에 넣어 준다. </p>
-</li>
-<li><p>면 위에 계란과 대파(쪽파), 참깨, 김가루를 뿌리고 잘 섞어 준다.</p>
-</li>
-<li><p>맛있게 먹는다.</p>
-</li>
-</ol>
-<pre><code class="language-plaintext"}>>> 자취생 평가 <<
+</ul>
+<h2 id="bm-7">헬름으로 애플리케이션 패키징 하기</h2>
+<ul>
+<li>헬름 차트는 쿠버네티스 매니페스트 파일이 담긴 디렉토리 또는 압축 파일이다. 애플리케이션의 매니페스트 파일과 파라미터 값을 선정하고, 정의상의 실제 설정값을 템플릿 변수로 수정하면 직접 헬름 차트를 만들 수 있다.</li>
+</ul>
+<pre class="theme-atom-one-dark"><code class="language-yaml"><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">apps/v1</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">Deployment</span>
 
-그래도 역시 한국인은 라면이 필수템</code></pre>
+<span class="hljs-attr">metadata:</span>
+    <span class="hljs-attr">name:</span> {{ <span class="hljs-string">.Release.Name</span> }}       <span class="hljs-comment"># 릴리스 이름의 템플릿 변수</span>
+    <span class="hljs-attr">labels:</span>
+        <span class="hljs-attr">app:</span> {{ <span class="hljs-string">.Values.appName</span> }}  <span class="hljs-comment"># appName 값의 템플릿 변수</span></code></pre><ul>
+<li>템플릿 변수는 두겹 중괄호로 작성되며 여러 출처에서 참조하여 값이 치환된다.<ul>
+<li><code style="color: #ffbc36">Release</code> 객체는 install 또는 upgrade 명령을 실행할 때 관련 정보를 담아 생성된다.</li>
+<li><code style="color: #ffbc36">Values</code> 객체는 차트에 포함된 기본갑에 사용자가 지정한 값을 오버라이드한 정보를 담아 생성된다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="bm-14">헬름 차트 템플릿 구성</h3>
+<ul>
+<li><p><code style="color: #ffbc36">chart.yaml</code> : 차트의 이름이나 버전 등 메타데이터 기록한 파일</p>
+</li>
+<li><p><code style="color: #ffbc36">values.yaml</code> : 파라미터 값의 기본값을 기록한 파일</p>
+</li>
+<li><p><code style="color: #ffbc36">templates 디렉토리</code> : 템플릿 변수가 포함된 쿠버네티스 매니페스트 파일을 담은 디렉토리</p>
+</li>
+<li><p>헬름을 이용해서 얻을 수 있는 가장 큰 이점은 하나의 차트로 동일한 애플리케이션을 여러 벌 시행할 수 있다는 점이다. kubectl로는 리소스 이름이 동일하기 때문에 기존 리소스를 업데이트 할 뿐 여러벌의 애플리케이션은 실행되지 않지만 정의에서 유일값을 갖는 부분을 템플릿 변수로 만들면 헬름을 이용하여 동일한 애플리케이션을 원하는 수만큼 실행 시킬 수 있다.</p>
+</li>
+</ul>
+<h3 id="bm-17">헬름의 레포지토리 호스팅</h3>
+<ul>
+<li><p><code style="color: #ffbc36">ChartMuseum</code></p>
+<ul>
+<li>과거 helm의 초창기에는 stable repository 라고 하는 공식 헬름 저장소를 운영했지만, 운영과 보안, 성능상의 문제롤 현재는 각 프로젝트가 직접 차트를 관리하고 배포하는 모델로 변경되었다.</li>
+<li>차트 뮤지엄 자체도 헬름 차트 형태로 설치할 수 있으므로 조직 내에서 비공개 헬름 레포지토리를 마련할 때 편리하다.</li>
+</ul>
+</li>
+<li><p>차트를 레포지토리에 배포하기 위해선 먼저 패키징을 거쳐야 한다. 먼저 차트를 zip 파일로 압축을 한 후 서버에 압축 파일을 업로드 하고 레포지터리 인덱스에 새로운 차트 정보를 추가해야한다. 인덱스에 차트 정보 추가는 차트 뮤지엄에서 자동으로 진행한다.</p>
+</li>
+</ul>
+<h2 id="bm-20">차트 간 의존 관계 모델링</h2>
+<ul>
+<li><p>차트 간 의존 관계는 유연해야 한다. 상위 차트가 하위 차트를 필요로 하는 관계이며, 하위 차트는 독립된 차트여야 한다. 하위 차트의 정의는 최대한 일반적으로 활용할 수 있도록 템플릿 변수를 사용해야 한다. 또한 특정한 애플리케이션에만 쓸모가 있는 요소라면 해당 요소는 하위 차트가 아니라 애플리케이션 차트에 직접 포함되는 것이 옳다.</p>
+</li>
+<li><p>의존 차트를 사용하기 위해선 상위 차트의 정의에서 해당 차트를 의존 차트 목록에 추가하여 하위 차트로 삼아야 한다. 그 다음 하위 차트의 설정값을 상위 차트의 정의에서 지정한다. 이 때 하위 차트의 설정값을 참조할 때는 설정값 이름 앞에 차트 이름을 붙인다.</p>
+</li>
+</ul>
+<h2 id="bm-23">헬름으로 설치한 릴리스의 업그레이드와 롤백</h2>
+<h2 id="bm-24">헬름은 어떤 상황에 적합한가.</h2>
 
 
                         </div>

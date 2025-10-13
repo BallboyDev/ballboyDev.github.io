@@ -17,17 +17,17 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
             <style>
-                #p-28 {
+                #p-147 {
                     color: rgb(76, 193, 237) !important;
                 }
             </style>
-            <script id="data" type="application/json">{ "fold": ["3","34"] }</script>
+            <script id="data" type="application/json">{ "fold": ["1","15"] }</script>
 
             <script src="https://ballboyDev.github.io/assets/skin.js"></script>
             <script src="https://ballboyDev.github.io/assets/env.js"></script>
             
 
-                <title>라면 요리 - 마요네즈 비빔 라면</title>
+                <title>7. RollOut, RollBack</title>
             </head>
 
             <body>
@@ -491,83 +491,160 @@
                         <div class="bookmark">
 
             <div class="title t1">
-                <div><a href="#bm-1"># 마요네즈 비빔 라면 만들기
+                <div><a href="#bm-1"># RollOut, RollBack
 </a></div>
                 <p>•</p>
             </div>
 
             <div class="title t2">
-                <div><a href="#bm-6">## 재료</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-7">### 재료</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-10">### 조미료</a></div>
+                <div><a href="#bm-2">## 롤링 업데이트</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t2">
-                <div><a href="#bm-13">## 레시피</a></div>
+                <div><a href="#bm-5">## 롤아웃과 롤백을 이용한 디플로이먼트 업데이트</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-8">## 디플로이먼트의 롤링 업데이트 설정</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-11">### 리크리에이트</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-16">### 롤링 업데이트의 설정</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-19">## 데몬셋과 스테이트풀셋의 롤링 업데이트</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-22">## 블루-그린 업데이트 전략</a></div>
                 <p>•</p>
             </div></div>
                         
                         
+            <a href="https://ballboyDev.github.io/post/146.html" class="prev post">
+                <img src="https://ballboyDev.github.io/assets/img/prev.svg" alt="" srcset="">
+            </a>
                         
                         
-            <a href="https://ballboyDev.github.io/post/70.html" class="next post">
+            <a href="https://ballboyDev.github.io/post/148.html" class="next post">
                 <img src="https://ballboyDev.github.io/assets/img/next.svg" alt="" srcset="">
             </a>
                         
                         <div class="main markdown-body">
 
-                            <h1 id="bm-1">마요네즈 비빔 라면 만들기</h1>
-<pre><code class="language-plaintext"}>라면이 질릴때 한번씩</code></pre>
-<blockquote>
-<p>난이도 ✭</p>
+                            <h1 id="bm-1">RollOut, RollBack</h1>
+<h2 id="bm-2">롤링 업데이트</h2>
 <ul>
-<li>라면은 다양한 조리법이 있지</li>
-</ul>
-</blockquote>
-<h2 id="bm-6">재료</h2>
-<h3 id="bm-7">재료</h3>
-<ol>
-<li>라면 / 1봉</li>
-<li>계란 / 1알<ul>
-<li>취향것 후라이나 수란을 만들어 준다,</li>
+<li>기존의 디플로이먼트의 정의를 수정하여 반영하면 쿠버네티스는 <code style="color: #ffbc36">롤아웃</code>을 수행한다. 이 롤아웃은 레플리카셋을 새로 만들어 레플리카 수를 지정된 숫자 만큼 늘린 후 기존 레플리카의 레플리카 수를 0으로 낮추는 식으로 이루어진다.</li>
+<li>디플로이먼트 정의가 변경될 때마다 항상 롤아웃이 일어나는 것은 아니고, 롤아웃은 파드의 정의가 변경될 때만 일어난다. 기존 레플리카 수 등 레플리카셋을 유지하며 반영할 수 있는 변경에는 롤아웃이 일어나지 않는다.</li>
+<li>스테이트풀셋과 같이 파드 생성에 순서가 있는 경우 롤아웃시 스테이트풀셋 생성시 파드 생성 순서와 반대로 파드가 생성이 된다.<ul>
+<li>스테이트풀셋 파드 생성 : pod-0 -&gt; pod-1-&gt; pod-2</li>
+<li>롤아웃 : pod-2 -&gt; pod-1-&gt; pod-0</li>
 </ul>
 </li>
-<li>대파 or 쪽파 / 적당량</li>
-<li>김가루 / 적당량 / 필수 아님</li>
-<li>참깨 / 적당량 / 필수 아님</li>
-</ol>
-<h3 id="bm-10">조미료</h3>
-<ol>
-<li>양조간장 / 0.5sp</li>
-<li>마요네즈 / 1sp</li>
-<li>참기름 / 1sp</li>
-<li>설탕 / 0.5sp</li>
-</ol>
-<h2 id="bm-13">레시피</h2>
-<ol>
-<li><p>끓는 물에 라면과 건더기 스프를 넣고 익혀준다.</p>
+</ul>
+<h2 id="bm-5">롤아웃과 롤백을 이용한 디플로이먼트 업데이트</h2>
+<ul>
+<li>롤아웃시 구체적으로 어떤 변경이 있었고 어느 레플리카셋이 어떤 리비전에 해당하지는 알기 위해서는 버전 번호(또는 Git commit ID)를 넣은 레이블을 정의하여 이를 레플리카셋에 부여한다면 업데이트 내용을 추적하기 수월하다.</li>
+<li>예전에는 <code style="color: #ffbc36">kubectl apply -f [resource] --record</code> 명령어를 사용하여 버전 관리를 하였지만 지금은 <code style="color: #ffbc36">선언적 방식</code>과 <code style="color: #ffbc36">git을 기반으로한 버전관리</code>가 공식적으로 권장 되는 방식이다.<ul>
+<li>resource.yaml 파일을 변경 후 커밋시 커밋 메시지에 변경 사항을 작성한다.</li>
+<li>이러한 방식은 git을 통해 명확한 변경 이력(누가, 언제, 왜)을 관리/추적 할 수 있고, PR 리뷰를 활용한 관리등 git 활용의 장점을 얻을 수 있다.</li>
+<li>롤백시 <code style="color: #ffbc36">git revert</code>와 <code style="color: #ffbc36">kubectl apply</code>를 통하여 특정 버전으로 쉽게 롤백이 가능하다.</li>
+<li>그 밖에는 <code style="color: #ffbc36">annotation</code> 필드를 사용하여 버전 관리가 가능하지만 관리가 번거로울수 있다.</li>
+</ul>
 </li>
-<li><p>그릇에 라면스프 절반과 양조간장, 설탕, 마요네즈, 참기름을 넣고 섞어 준다.</p>
+</ul>
+<h2 id="bm-8">디플로이먼트의 롤링 업데이트 설정</h2>
+<ul>
+<li>디플로이먼트는 두 가지 업데이트 전략을 지원한다. 한가지는 롤링 업데이트이고 다른 하나는 리크리에이트 이다. <ul>
+<li>롤링 업데이트는 기존 레플리카셋의 파드 수를 차츰 줄이며 새로운 레플리카셋의 파드 수를 늘려 나가는 식으로 진행된다. 이는 업데이트 시간이 약간 길어지는 대신 서비스 무중단을 유지할 수 있다.</li>
+<li>리크리에이트 전략은 롤링과 다르게 기존 레플리카셋의 파드 수가 0까지 감소한 후 새 레플리카셋의 파드 수가 증가하기 시작한다.</li>
+</ul>
 </li>
-<li><p>면이 익으면 면과 건더기, 면수 3sp 정도를 그릇에 넣어 준다. </p>
+</ul>
+<h3 id="bm-11">리크리에이트</h3>
+<pre class="theme-atom-one-dark"><code class="language-yaml"><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">apps/v1</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">Deployment</span>
+<span class="hljs-attr">metadata:</span>
+    <span class="hljs-attr">name:</span> <span class="hljs-string">deploy-name</span>
+<span class="hljs-attr">spec:</span>
+    <span class="hljs-attr">replicas:</span> <span class="hljs-number">3</span>
+    <span class="hljs-attr">strategy:</span> 
+        <span class="hljs-attr">type:</span> <span class="hljs-string">Recreate</span>      <span class="hljs-comment"># 기본 값은 롤링 업데이트이다.</span></code></pre><ul>
+<li>리크리에이트 전략을 사용하는 이유는 단순함과 충돌 방지, 서버의 자원 문제 때문이다.<ul>
+<li>업데이트 과정이 매우 직관적이며 변경된 버전에 따른 충돌 위험이 두 버전이 동시제 존재할수 있는 롤링 업데이트 보다는 적다. 그리고 모든 파드를 종료후 새롭게 파드를 생성하기 때문에 서버의 자원의 제한에서 비교적 자유로울수 있다.</li>
+<li>하지만 파드가 모두 종료되고 생성되기까지 파드가 줄어들고 모든 파드가 동작하지 않는 시간이 발생하기 때문에 상용 프로덕트 환경에서는 흔히 사용하지 않는 전략이다.</li>
+</ul>
 </li>
-<li><p>면 위에 계란과 대파(쪽파), 참깨, 김가루를 뿌리고 잘 섞어 준다.</p>
+</ul>
+<h3 id="bm-16">롤링 업데이트의 설정</h3>
+<ul>
+<li><p>롤링 업데이트에서 기존 및 신규 레플리카셋의 파드 스케일링 속도를 다음 두 설정으로 조절할 수 있다.</p>
+<ul>
+<li><code style="color: #ffbc36">maxUnavailable</code><ul>
+<li>기존 레플리카셋의 스케일링 속도를 조절하는 값으로, 업데이트 동안 사용할 수 없는 파드의 최대 수를 설정한다.</li>
+</ul>
 </li>
-<li><p>맛있게 먹는다.</p>
+<li><code style="color: #ffbc36">maxSurge</code><ul>
+<li>새 레플리카셋의 스케일링 속도를 조절하는 값으로, 업데이트 동안 생기는 잉여 파드의 최대 개수이다.</li>
+</ul>
 </li>
-</ol>
-<pre><code class="language-plaintext"}>>> 자취생 평가 <<
-
-그래도 역시 한국인은 라면이 필수템</code></pre>
+<li>롤 아웃시에만 사용되는 설정으로 새 레플리카셋의 파드 수는 <code style="color: #ffbc36">정해진 수(replicas) + maxSurge</code>개까지 증가한 후 기존 파드의 제거를 기다리고, 기존 레플리카셋은 파드의 수를 <code style="color: #ffbc36">정해진 수(replicaas) - maxUnavailable</code>개 까지 감소 시킨 후 새 파드가 준비 상택가 되기를 기다린다.</li>
+</ul>
+</li>
+<li><p>디플로이먼트 정의에서 롤아웃시 파드의 상태를 판단하는 설정이 있다. 두 설정을 통해 파드가 어떻게 업데이트 되는지 지속적으로 확인할 수 있다.</p>
+<ul>
+<li><code style="color: #ffbc36">minReadySeconds</code><ul>
+<li>지정된 값(초)동안 오류로 종료되는 컨테이너가 없어야 파드 상태를 안정적으로 판단한다.</li>
+</ul>
+</li>
+<li><code style="color: #ffbc36">progressDeadlineSeconds</code><ul>
+<li>지정된 값(초)를 초과할 때는 신규 파드의 상태를 실패로 간주한다. 기본값이 600이므로 10분 안에 파드 상태가 안정되지 않는다면 해당 파드의 상태를 실패로 간주한다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="bm-19">데몬셋과 스테이트풀셋의 롤링 업데이트</h2>
+<ul>
+<li><p>데몬셋과 스테이트풀셋엔 롤링 업데이트와 온딜리트, 두 가지 전략이 있다.</p>
+<ul>
+<li>롤링업데이트</li>
+<li>온딜리트<ul>
+<li>온틸리트 전략은 각 파드의 업데이트 시점을 직접 제어해야할 때 사용하는 전략이다. 업데이트를 배치하면 컨트롤러가 기존 파드를 종료하지 않고 그대로 둔 채 파드를 주시한다. 그러다 다른 프로세스가 파드를 삭제하면 새로운 정의를 따른 대체 파다를 생성하는 방식이다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>데몬셋은 클러스터의 모든/일부 노드에 파드를 하니씩만 실행하므로 롤링 업데이트를 할 때 잉여 파드를 만들 수 없으며, 삭제 후 제거 전략만 가능하다. 이때 maxUnavailable값을 1로, minREadySeconds 값을 90으로 설정한다. 그러면 한 번에 한 파드식 업데이트 하면서 그 때마다 90초씩 대기하게 되므로 업데이트된 파드가 안정적인지 확인하 후 다음 파드의 업데이트를 진행하는 효과가 발생한다.</p>
+</li>
+<li><p>스테이트풀셋은 자신이 지정한 순서대로 파드를 생성/관리 하는데, 이 순서는 업데이트에도 적용된다. 마지막 파드부터 롤아웃을 시작해서 첫번째 파드까지 진행된다.</p>
+<ul>
+<li>스테이트풀셋의 업데이트에서는 maxSurge나 maxUnavailable 등 설정은 사용할 수 없다. 동시에 업데이트되는 파드 수는 항상 하나다. 다만 partition 값을 사용하여 전체 파드 중 업데이트해야 하는 파드의 비율은 설정할 수 있다.</li>
+<li>지정된 비율의 파드가 업데이트 되면 롤아웃이 중단된다. 유상태 애플리케이션에서 단계별 롤아웃을 수행할 때 유용하다. 만약 스테이트풀셋에 5개의 레플리카가 있고 업데이트된 정의에 partition=3이 포함되어 있다면 파드 4와 3만 업데이트되고 파드 0, 1, 2는 기존 정의를 유지한다.</li>
+</ul>
+</li>
+<li><p>디플로이먼트와 데몬셋, 스테이트풀셋은 모두 기본적으로 롤링 업데이트를 사용한다. 큰 틀에서 볼 때 이들 리소스에서 롤링 업데이트는 기존 파드를 점진적으로 변경된 정의의 파드로 대체해 나간다는 점에서 비슷하다.</p>
+</li>
+</ul>
+<h2 id="bm-22">블루-그린 업데이트 전략</h2>
+<ul>
+<li>사용자 경험(UX) 등의 이유로 여러 버전을 동시에 실행할 수 없는 상황에서는 <code style="color: #ffbc36">블루-그린</code> 배치 천략을 고려할 수 있다.</li>
+<li><code style="color: #ffbc36">블루-그린</code> 배치 전략이란 구 버전과 신 버전의 애플리케이션을 동시에 배치하되 한쪽만 활성화 시킨다는 간단한 개념이다. 쿠버네티스에서는 서비스에서 트래픽을 전달 대상 파드를 결정하는 레이블 셀렉터를 수정하기만 하면 된다.</li>
+<li><code style="color: #ffbc36">블루-그린</code> 배치를 이용하려면 클러스터 용량이 완전한 애플리케이션 두 벌을 동시에 실행할 수 있어야 한다. 애플리케이션이 웹 애플리케이션이나 API 컴포넌트라면 신 버전은 아직 요청을 처리하지 않으므로 메모리 사용량이 최소 상태일 것이다. 이 상태에서 서비스의 레이블 셀렉터를 수정하면 트래픽이 신 버전으로 전달된다. 모든 파드가 준비된 상태에서 트래픽을 전달받기 때문에 실질적으로는 한 순간에 업데이트가 일어난다. 또한 서비스의 레이블 셀렉터를 되돌리면 롤백 역시 한 순간에 가능하므로 레플리카셋이 스케일링 될 때까지 기다릴 필요가 없다.</li>
+<li><code style="color: #ffbc36">블루-그린</code>배치는 롤링 업데이트에 비하면 비교적 간단하다. 하지만 컴퓨팅 파워를 많이 소모하고, 롤아웃 히스토리가 남지않는 다는 단점이 있다.</li>
+</ul>
 
 
                         </div>

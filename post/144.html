@@ -17,17 +17,17 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
             <style>
-                #p-28 {
+                #p-144 {
                     color: rgb(76, 193, 237) !important;
                 }
             </style>
-            <script id="data" type="application/json">{ "fold": ["3","34"] }</script>
+            <script id="data" type="application/json">{ "fold": ["1","15"] }</script>
 
             <script src="https://ballboyDev.github.io/assets/skin.js"></script>
             <script src="https://ballboyDev.github.io/assets/env.js"></script>
             
 
-                <title>라면 요리 - 마요네즈 비빔 라면</title>
+                <title>4. Scailing, Replicaset</title>
             </head>
 
             <body>
@@ -491,83 +491,70 @@
                         <div class="bookmark">
 
             <div class="title t1">
-                <div><a href="#bm-1"># 마요네즈 비빔 라면 만들기
-</a></div>
+                <div><a href="#bm-1"># Scailing, Replica</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t2">
-                <div><a href="#bm-6">## 재료</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-7">### 재료</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-10">### 조미료</a></div>
+                <div><a href="#bm-4">## 쿠버네티스는 어떻게 애플리케이션을 스케일링하는가</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t2">
-                <div><a href="#bm-13">## 레시피</a></div>
+                <div><a href="#bm-7">## 디플로이먼트와 레플리카셋을 이용한 부하 스케일링</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-10">## 데몬셋을 이용한 스케일링으로 고가용성 확보하기</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-13">## 쿠버네티스의 객체간 오너쉽</a></div>
                 <p>•</p>
             </div></div>
                         
                         
+            <a href="https://ballboyDev.github.io/post/143.html" class="prev post">
+                <img src="https://ballboyDev.github.io/assets/img/prev.svg" alt="" srcset="">
+            </a>
                         
                         
-            <a href="https://ballboyDev.github.io/post/70.html" class="next post">
+            <a href="https://ballboyDev.github.io/post/145.html" class="next post">
                 <img src="https://ballboyDev.github.io/assets/img/next.svg" alt="" srcset="">
             </a>
                         
                         <div class="main markdown-body">
 
-                            <h1 id="bm-1">마요네즈 비빔 라면 만들기</h1>
-<pre><code class="language-plaintext"}>라면이 질릴때 한번씩</code></pre>
-<blockquote>
-<p>난이도 ✭</p>
+                            <h1 id="bm-1">Scailing, Replica</h1>
+<p>애플리케이션 스케일링의 기본 아이디어는 파드를 늘리는 것이다. 쿠버네티스를 이용하여 컴퓨팅 계층에서 네트워크와 스토리지 계층을 추상화시켰다. 이제 동일한 애플리케이션이 돌아가는 여러 개의 파드를 똑같은 방식으로 추상화할 수 있다. 쿠버네티스에서는 이렇게 동일한 애플리케이션이 돌아가는 파드를 레플리카라고 한다.
+노드가 여러개인 클러스터에서 레플리카는 여러 노드에 분산 배치된다. 이런 방법으로 더 많은 요청을 처리하고 일부가 고장을 일으키더라도 나머지가 그대로 동작하여 높은 사용성을 확보하는 스케일링의 이점을 누릴 수 있다.</p>
+<h2 id="bm-4">쿠버네티스는 어떻게 애플리케이션을 스케일링하는가</h2>
 <ul>
-<li>라면은 다양한 조리법이 있지</li>
+<li>파드는 쿠버네티스에서 컴퓨팅의 단위다. 사람이 직접 파드를 실행하는 경우는 드물고, 주로 파드를 관리하는 다른 리소스를 정의하여 사용한다. 이런 리소스를 컨트롤러라고 하고, 그중 디플로이먼트를 주로 사용한다.</li>
+<li>컨트롤러 리소스 정의는 파드의 템플릿을 포함한다. 컨트롤러 리소스는 파드를 생성하고 대체하는 데 이 템플릿을 사용하고 템플릿으로 똑같은 파드의 레플리카를 여러 개 만들 수도 있다.</li>
+<li>디플로이먼트는 직접 파드를 관리하지 않는다. 파드를 직접 관리하는 역할은 레플리카셋이 수행한다.</li>
 </ul>
-</blockquote>
-<h2 id="bm-6">재료</h2>
-<h3 id="bm-7">재료</h3>
-<ol>
-<li>라면 / 1봉</li>
-<li>계란 / 1알<ul>
-<li>취향것 후라이나 수란을 만들어 준다,</li>
+<h2 id="bm-7">디플로이먼트와 레플리카셋을 이용한 부하 스케일링</h2>
+<ul>
+<li>애플리케이션을 정의하는 수단으로는 디플로이먼트를 우선적으로 선택해야 한다. 디플로이먼트는 이 레플리카셋 위에 유용한 관리 계층을 추가한다. </li>
+<li>디플로이먼트는 레플리카셋을 관리하는 컨트롤러 리소스다. 디플로이먼트에 스케일링을 적용하려면 레플리카셋과 마찬가지로 디플로이먼트 정의에 replicas 필드가 있어야 한다.</li>
+</ul>
+<h2 id="bm-10">데몬셋을 이용한 스케일링으로 고가용성 확보하기</h2>
+<ul>
+<li>쿠버네티스의 데몬셋은 클러스터 내 모든 노드 또는 셀렉터와 일치하는 일부 노드에서 단일 레플리카 또는 파드로 동작하는 리소스를 의미한다.</li>
+<li>데몬셋은 각 노드에서 정보를 수집하여 중앙의 수집 모듈에 전달하거나 하는 인프라 수준의 관심사와 관련된 목적으로 많이 쓰인다.</li>
+</ul>
+<h2 id="bm-13">쿠버네티스의 객체간 오너쉽</h2>
+<ul>
+<li>컨트롤러 리소스는 레이블 셀렉터를 통해 자신의 관리 대상 리소스를 결정한다. 그리고 관리 대상 리소스는 메타데이터 필드에 자신을 관리하는 리소스 정보를 기록한다.</li>
+<li>컨트롤러 리소스를 삭제하면 관리 대상 리소스가 잠시 남아 있지만, 곧 함께 삭제 된다. 쿠버네티스에는 관리 주체가 사라진 객체를 찾아 제거하는 가비지 컬렉터가 있다.</li>
+<li>객체 간 이런 오너십은 일종의 위계를 형성한다.<ul>
+<li>파드는 레플리카셋의 관리를 받고, 레플리카셋은 다시 디플로이먼트의 관리를 받는 식이다.</li>
 </ul>
 </li>
-<li>대파 or 쪽파 / 적당량</li>
-<li>김가루 / 적당량 / 필수 아님</li>
-<li>참깨 / 적당량 / 필수 아님</li>
-</ol>
-<h3 id="bm-10">조미료</h3>
-<ol>
-<li>양조간장 / 0.5sp</li>
-<li>마요네즈 / 1sp</li>
-<li>참기름 / 1sp</li>
-<li>설탕 / 0.5sp</li>
-</ol>
-<h2 id="bm-13">레시피</h2>
-<ol>
-<li><p>끓는 물에 라면과 건더기 스프를 넣고 익혀준다.</p>
-</li>
-<li><p>그릇에 라면스프 절반과 양조간장, 설탕, 마요네즈, 참기름을 넣고 섞어 준다.</p>
-</li>
-<li><p>면이 익으면 면과 건더기, 면수 3sp 정도를 그릇에 넣어 준다. </p>
-</li>
-<li><p>면 위에 계란과 대파(쪽파), 참깨, 김가루를 뿌리고 잘 섞어 준다.</p>
-</li>
-<li><p>맛있게 먹는다.</p>
-</li>
-</ol>
-<pre><code class="language-plaintext"}>>> 자취생 평가 <<
-
-그래도 역시 한국인은 라면이 필수템</code></pre>
+</ul>
 
 
                         </div>

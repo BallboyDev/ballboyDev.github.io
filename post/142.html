@@ -17,17 +17,17 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
             <style>
-                #p-28 {
+                #p-142 {
                     color: rgb(76, 193, 237) !important;
                 }
             </style>
-            <script id="data" type="application/json">{ "fold": ["3","34"] }</script>
+            <script id="data" type="application/json">{ "fold": ["1","15"] }</script>
 
             <script src="https://ballboyDev.github.io/assets/skin.js"></script>
             <script src="https://ballboyDev.github.io/assets/env.js"></script>
             
 
-                <title>라면 요리 - 마요네즈 비빔 라면</title>
+                <title>2. ConfigMap, Secret</title>
             </head>
 
             <body>
@@ -491,83 +491,80 @@
                         <div class="bookmark">
 
             <div class="title t1">
-                <div><a href="#bm-1"># 마요네즈 비빔 라면 만들기
+                <div><a href="#bm-1"># ConfigMap (컨피그맵), Secret (비밀값)</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-4">## ConfigMap</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-9">### 컨피그맵에 담긴 설정값 데이터 주입하기</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-12">## Volume (볼륨) / Volume Mount (볼륨 마운트)
 </a></div>
                 <p>•</p>
             </div>
 
             <div class="title t2">
-                <div><a href="#bm-6">## 재료</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-7">### 재료</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3">
-                <div><a href="#bm-10">### 조미료</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t2">
-                <div><a href="#bm-13">## 레시피</a></div>
+                <div><a href="#bm-13">## Secret (비밀값)</a></div>
                 <p>•</p>
             </div></div>
                         
                         
                         
                         
-            <a href="https://ballboyDev.github.io/post/70.html" class="next post">
+            <a href="https://ballboyDev.github.io/post/143.html" class="next post">
                 <img src="https://ballboyDev.github.io/assets/img/next.svg" alt="" srcset="">
             </a>
                         
                         <div class="main markdown-body">
 
-                            <h1 id="bm-1">마요네즈 비빔 라면 만들기</h1>
-<pre><code class="language-plaintext"}>라면이 질릴때 한번씩</code></pre>
-<blockquote>
-<p>난이도 ✭</p>
+                            <h1 id="bm-1">ConfigMap (컨피그맵), Secret (비밀값)</h1>
 <ul>
-<li>라면은 다양한 조리법이 있지</li>
+<li>쿠버네티스에서 컨테이너에 설정값을 주입하는 데 쓰는 리소스는 컨피그맵과 비밀값이 있다.</li>
+<li>두 리소스는 모두 포맷 제한 없이 데이터를 보유할 수 있으며 이 데이터는 클러스터 속에서 다른 리소스와 독립적인 장소에 보관된다.</li>
 </ul>
-</blockquote>
-<h2 id="bm-6">재료</h2>
-<h3 id="bm-7">재료</h3>
+<h2 id="bm-4">ConfigMap</h2>
+<ul>
+<li><p>컨피그맵은 파드에서 읽어 들이는 데이터를 저장하는 리소스이다.</p>
+</li>
+<li><p>데이터 형태는 한개 이상의 키-값 쌍, 텍슽, 바이너리 파일까지 다양한다.</p>
+</li>
+<li><p>키-값 쌍을 저장했다면 파드에서 이를 환경 변수 형태로 주입할 수 있고, 텍스트를 저장했다면 json, xml, yaml, toml, ini 등 설정 파일을 파드에 전달할 수 있다.</p>
+</li>
+<li><p>환경 변수의 이름이 중복 되는 경우 env 항목에서 정의된 값이 envFrom 항목에서 정의 된 값에 우선한다.</p>
+</li>
+</ul>
 <ol>
-<li>라면 / 1봉</li>
-<li>계란 / 1알<ul>
-<li>취향것 후라이나 수란을 만들어 준다,</li>
+<li><p>명령어로 컨피그맵 생성</p>
+<ul>
+<li><code style="color: #ffbc36">kubectl create configmap [configmap-name] --from-literal=[path value in setting]='value'</code></li>
 </ul>
 </li>
-<li>대파 or 쪽파 / 적당량</li>
-<li>김가루 / 적당량 / 필수 아님</li>
-<li>참깨 / 적당량 / 필수 아님</li>
-</ol>
-<h3 id="bm-10">조미료</h3>
-<ol>
-<li>양조간장 / 0.5sp</li>
-<li>마요네즈 / 1sp</li>
-<li>참기름 / 1sp</li>
-<li>설탕 / 0.5sp</li>
-</ol>
-<h2 id="bm-13">레시피</h2>
-<ol>
-<li><p>끓는 물에 라면과 건더기 스프를 넣고 익혀준다.</p>
-</li>
-<li><p>그릇에 라면스프 절반과 양조간장, 설탕, 마요네즈, 참기름을 넣고 섞어 준다.</p>
-</li>
-<li><p>면이 익으면 면과 건더기, 면수 3sp 정도를 그릇에 넣어 준다. </p>
-</li>
-<li><p>면 위에 계란과 대파(쪽파), 참깨, 김가루를 뿌리고 잘 섞어 준다.</p>
-</li>
-<li><p>맛있게 먹는다.</p>
+<li><p>파일을 기반으로 컨피그맵 생성</p>
+<ul>
+<li><code style="color: #ffbc36">kubectl create configmap [configmap-name] --from-env-file=[filepath]</code></li>
+</ul>
 </li>
 </ol>
-<pre><code class="language-plaintext"}>>> 자취생 평가 <<
-
-그래도 역시 한국인은 라면이 필수템</code></pre>
+<h3 id="bm-9">컨피그맵에 담긴 설정값 데이터 주입하기</h3>
+<ul>
+<li>환경 변수 외에 설정값을 전달하는 또 다른 방법은 컨테이너 파일 시스템 속 파일로 설정값을 주입하는 것이다. 컨테이너 파일 시스템은 컨테이너 이미지와 그 외 출처에서 온 파일로 구성되는 가상 구조다. 쿠버네티스는 컨테이너 파일 시스템 구성에 컨피그맵도 추가할 수 있다.</li>
+<li>컴피그맵은 디렉터리, 각 항목은 파일 형태로 컨테이너 파일 시스템에 추가된다.</li>
+</ul>
+<h2 id="bm-12">Volume (볼륨) / Volume Mount (볼륨 마운트)</h2>
+<h2 id="bm-13">Secret (비밀값)</h2>
+<ul>
+<li>비밀값은 컴피그맵과 비슷한 API를 가진 별개의 리소스다. 사용 방법은 컨피그맵과 크게 다르지 않다. 컨피그맵과 다른 점이 있다면 비밀값은 민감한 정보를 다루므로 클러스터 내부에서 별도로 관리된다는 것이다.</li>
+<li>컨피그맵과 추된 차이점은 노출이 최소화된다. 비밀값은 해당 값을 사용해야 하는 노드에만 전달되며, 노드에서도 디스크에 저장하지 않고 메모리에만 담긴다. 그리고 전달 과정과 저장할 때 모두 암호화가 적용된다.</li>
+<li>그렇다고 항상 암호화 상태가 유지되는 것은 아니다. 비밀값 객체에 접근할 권한이 있다면 비밀값의 평문을 읽을 수 있다.</li>
+</ul>
 
 
                         </div>
