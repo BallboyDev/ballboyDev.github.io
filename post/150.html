@@ -17,17 +17,17 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
             <style>
-                #p-93 {
+                #p-150 {
                     color: rgb(76, 193, 237) !important;
                 }
             </style>
-            <script id="data" type="application/json">{ "fold": ["2","23"] }</script>
+            <script id="data" type="application/json">{ "fold": ["3","32"] }</script>
 
             <script src="https://ballboyDev.github.io/assets/skin.js"></script>
             <script src="https://ballboyDev.github.io/assets/env.js"></script>
             
 
-                <title>0. 온코테 시스템 만들기 - 시작하며</title>
+                <title>키마 카레</title>
             </head>
 
             <body>
@@ -516,143 +516,102 @@
                         <div class="bookmark">
 
             <div class="title t1">
-                <div><a href="#bm-1"># 0. 온라인 코딩 테스트 시스템 만들기 - 시작하며</a></div>
+                <div><a href="#bm-1"># 키마 카레 만들기
+</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t2">
-                <div><a href="#bm-4">## Repository</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t2">
-                <div><a href="#bm-6">## 테마</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t2">
-                <div><a href="#bm-9">## 설계</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t2">
-                <div><a href="#bm-12">## 기능</a></div>
+                <div><a href="#bm-9">## 재료 
+</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t3">
-                <div><a href="#bm-13">### 기본 기능</a></div>
+                <div><a href="#bm-10">### 재료</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t3">
-                <div><a href="#bm-16">### 추가 기능</a></div>
+                <div><a href="#bm-13">### 양념/조미료</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-16">## 레시피</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2">
+                <div><a href="#bm-21">## 참고 영상</a></div>
                 <p>•</p>
             </div></div>
                         
                         
-            <a href="https://ballboyDev.github.io/post/92.html" class="prev post">
-                <img src="https://ballboyDev.github.io/assets/img/prev.svg" alt="" srcset="">
-            </a>
                         
                         
-            <a href="https://ballboyDev.github.io/post/98.html" class="next post">
-                <img src="https://ballboyDev.github.io/assets/img/next.svg" alt="" srcset="">
-            </a>
                         
                         <div class="main markdown-body">
 
-                            <h1 id="bm-1">0. 온라인 코딩 테스트 시스템 만들기 - 시작하며</h1>
-<p>과거 재직 했던 회사에서 난 온라인 코딩 테스트 솔루션 개발팀의 팀장을 지낸 경험이 있다. 지금 생각했을때 열정과 생각은 많았으나 팀 운영과 사업적인 부분에서 경험이 부족하지 않았나 생각 된다. 좋은 회사에서 만족스러운 환경이었지만 이런 저런 스트레스와 문제로 퇴사를 하였지만 아직도 종종 그 제품에서 이런 부분을 개선 했으면 어땠을까 저런 부분을 개발 했으면 어땠을까 하고 생각을 하곤 한다.
-그래서 시간도 꽤 지났고 솔루션에 대한 기억이 가물가물 해지기 시작한 지금 지금의 개발 실력도 점검해보고 나만의 스타일로 온라인 기반의 코딩 테스트 솔루션을 개발 해 보고자 한다.
-물론 과거 다루었던 제품은 오랜 시간 개발되어 수많은 기능과 고성능의 성능을 제공하기에 그 많큼은 아니지만 기본적은 프로세스를 정리해보고 이 글이 올라가는 블로그와 같이 천천히 하나씩 개선 해보고자 한다.</p>
-<h2 id="bm-4">Repository</h2>
-
-        <table>
-            <thead><tr><th align="center"></th>
-<th align="left">Github repo</th>
-<th align="left">설명</th>
-<th align="left">비고</th>
-</tr></thead>
-            <tbody><tr><td align="center">1</td>
-<td align="left"><a href="https://github.com/BallboyDev/online-coding-test-system/">https://github.com/BallboyDev/online-coding-test-system/</a></td>
-<td align="left">통합 레포지토리</td>
-<td align="left"></td>
-</tr>
-<tr><td align="center">2</td>
-<td align="left">./online-coding-test-backend</td>
-<td align="left">Backend Repo</td>
-<td align="left"></td>
-</tr>
-<tr><td align="center">3</td>
-<td align="left">./online-coding-test-storage</td>
-<td align="left">storage Repo</td>
-<td align="left"></td>
-</tr>
-<tr><td align="center">4</td>
-<td align="left">./online-coding-test-front</td>
-<td align="left">Frontend Repo</td>
-<td align="left">임시 코드</td>
-</tr></tbody>
-        </table>
-        <h2 id="bm-6">테마</h2>
-<ol>
-<li>프로젝트 명 : <strong>onCoTe</strong></li>
-<li>우선은 Front 보다는 Backend와 Infra 중심의 개발</li>
-<li>기본적인 구조 확립과 작동 중심의 개발을 위한 로컬 환경에서의 우선 개발</li>
-<li>언어 선택, 코드 작성, 실행, 결과 출력의 기본 기능 중심의 개발<ul>
-<li>문제 해결이나 실행 결과 정.오답 체크 기능 제외 (추후 추가 기능으로 개발 예정)</li>
-</ul>
-</li>
-</ol>
-<h2 id="bm-9">설계</h2>
+                            <h1 id="bm-1">키마 카레 만들기</h1>
+<pre><code class="language-plaintext"}>오늘도 역시 유튜브를 뒤져 보다가 한신희 셰프님의 채널을 발견하였다.
+모수 출신이라고 하셔서 어려운 레시피가 있을줄 알았는데 자취생 원룸에서도 해먹어 볼만한 레시피가 많았다.
+그중 오늘은 되직한 카레 키라 카레 레시피를 따라 해볼려고 한다.</code></pre>
+<p><img src="https://ballboyDev.github.io/assets/img/150_1.jpeg" alt="이미지 준비중"></p>
+<blockquote>
+<p>난이도 ✭✭</p>
 <ul>
-<li>기본 기능의 중심의 개발 후 기능 및 세부 디자인 및 테마 기획</li>
-<li><strong>Frontend</strong><ul>
-<li>1차로 최소한의 기능 위주의 디자인을 위한 html + css 개발</li>
-<li>2차로 Frontend 프레임워크는 svelte 또는 React 고민중</li>
+<li>흔히 먹는 카레 보다는 볶음? 덮밥?과 비슷한 느낌이었다.</li>
 </ul>
-</li>
-<li><strong>Backend</strong><ul>
-<li>Nest.js(or express) + mongo(or Mariadb) + Docker</li>
-</ul>
-</li>
-</ul>
-<h2 id="bm-12">기능</h2>
-<h3 id="bm-13">기본 기능</h3>
+</blockquote>
+<br/>
+
+<h2 id="bm-9">재료</h2>
+<h3 id="bm-10">재료</h3>
 <ol>
-<li>언어 선택<ul>
-<li>C(C++), JAVA, JS, Python, SQL</li>
+<li>토마토 / 큰거 1개</li>
+<li>양파 / 큰 양파 반개, 작은 양파 1개</li>
+<li>다진 돼지고기 / 계란 만큼?</li>
+</ol>
+<h3 id="bm-13">양념/조미료</h3>
+<ol>
+<li>카레 블럭 / 1개</li>
+<li>크러쉬드 페퍼 / 0.5sp</li>
+<li>큐민 가루 / 0.5sp</li>
+</ol>
+<h2 id="bm-16">레시피</h2>
+<ol>
+<li><p>토마토에 살짝 칼집을 내고 끓는 물에 10 ~ 20초 정도 데쳐 준다.</p>
+</li>
+<li><p>데친 토마토의 껍질을 벗겨 준다.</p>
+</li>
+<li><p>껍질을 벗긴 토마토를 4등분 한 후 수분이 많은 내부의 씨를 제거한다.</p>
+</li>
+<li><p>양파와 씨를 제거한 토마토 과육을 잘게 다져 준다.</p>
+</li>
+<li><p>펜에 기름을 두르고 다진 돼지고기를 볶아준다. 돼지고기가 어느정도 익으면 큐민 가루를 넣고 함께 볶아 주다가 잠시 빼놓는다.</p>
+</li>
+<li><p>고기를 볶은 기름에 다진 양파를 넣고 갈색 빛이 돌때까지 볶아 준다.</p>
+</li>
+<li><p>양파가 볶아 지면 다진 토마토와 볶은 고기를 넣고 볶다가 카레 블럭을 잘게 다져 넣어준다.</p>
+<ul>
+<li>매운 맛을 원한다면 지금 크러쉬드 페퍼를 함께 넣어 볶는다.</li>
+<li>수분이 적기 때문에 카레 블럭을 그냥 넣으면 녹지를 않는다.</li>
 </ul>
 </li>
-<li>코드 작성<ul>
-<li>언어 하이라이팅 기능</li>
-</ul>
+<li><p>계속 저어주다가 카레가 뻑뻑해지면 완성이다.</p>
 </li>
-<li>실행<ul>
-<li>언어별 Docker container 실행 환경 구축</li>
-</ul>
-</li>
-<li>결과 출력<ul>
-<li>실행 결과</li>
-<li>코드 실행 성능 결과</li>
-</ul>
+<li><p>맛있게 먹는다.</p>
 </li>
 </ol>
-<h3 id="bm-16">추가 기능</h3>
-<ol>
-<li>더욱 다양한 언어 지원</li>
-<li>언어별 버전 선택</li>
-<li>특정 라이브러리 설치 및 실행 환경 설정 기능</li>
-<li>문제 선택 및 리스트</li>
-<li>문제별 정.오답 체크</li>
-<li>운영자, 응시자 회원가입/로그인 기능</li>
-<li>시스템 운영을 위한 백오피스 기능 개발</li>
-<li>완성된 전 시스템 하나의 솔루션 패키지로 묶어 공유 서비스로 제공 가능하도록 세팅<ul>
-<li>장기적으로 수익 창출?</li>
+<pre><code class="language-plaintext"}>>> 자취생 평가 <<
+
+사실 토마토는 쉽게 물러져서 자취방에 두기 어려운 재료라고 생각해 사본적이 거의 없지만 가끔은 한 두개 정도 사두면 좋을 것 같다.
+개인적으로 이전에 올린 카레 보다 훨씬 맛이 좋았다.</code></pre>
+<h2 id="bm-21">참고 영상</h2>
+<ul>
+<li><a href="https://youtube.com/shorts/zNFIn9OgcPo?si=w1WGS3KwpCmuKiQ2">키마 카레</a></li>
 </ul>
-</li>
-</ol>
 
 
                         </div>

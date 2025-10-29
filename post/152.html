@@ -17,17 +17,17 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
             <style>
-                #p-93 {
+                #p-152 {
                     color: rgb(76, 193, 237) !important;
                 }
             </style>
-            <script id="data" type="application/json">{ "fold": ["2","23"] }</script>
+            <script id="data" type="application/json">{ "fold": ["1","11"] }</script>
 
             <script src="https://ballboyDev.github.io/assets/skin.js"></script>
             <script src="https://ballboyDev.github.io/assets/env.js"></script>
             
 
-                <title>0. 온코테 시스템 만들기 - 시작하며</title>
+                <title>네트워크</title>
             </head>
 
             <body>
@@ -516,143 +516,155 @@
                         <div class="bookmark">
 
             <div class="title t1">
-                <div><a href="#bm-1"># 0. 온라인 코딩 테스트 시스템 만들기 - 시작하며</a></div>
+                <div><a href="#bm-1"># Network</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t2">
-                <div><a href="#bm-4">## Repository</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t2">
-                <div><a href="#bm-6">## 테마</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t2">
-                <div><a href="#bm-9">## 설계</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t2">
-                <div><a href="#bm-12">## 기능</a></div>
+                <div><a href="#bm-4">## Network 요소</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t3">
-                <div><a href="#bm-13">### 기본 기능</a></div>
+                <div><a href="#bm-5">### OSI 7계층</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t3">
-                <div><a href="#bm-16">### 추가 기능</a></div>
+                <div><a href="#bm-8">### IP</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-11">### 서브넷, 서브넷 마스크</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-21">### 라우팅, 라우터</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3">
+                <div><a href="#bm-24">### TCP, UDP</a></div>
                 <p>•</p>
             </div></div>
                         
                         
-            <a href="https://ballboyDev.github.io/post/92.html" class="prev post">
-                <img src="https://ballboyDev.github.io/assets/img/prev.svg" alt="" srcset="">
-            </a>
                         
                         
-            <a href="https://ballboyDev.github.io/post/98.html" class="next post">
-                <img src="https://ballboyDev.github.io/assets/img/next.svg" alt="" srcset="">
-            </a>
                         
                         <div class="main markdown-body">
 
-                            <h1 id="bm-1">0. 온라인 코딩 테스트 시스템 만들기 - 시작하며</h1>
-<p>과거 재직 했던 회사에서 난 온라인 코딩 테스트 솔루션 개발팀의 팀장을 지낸 경험이 있다. 지금 생각했을때 열정과 생각은 많았으나 팀 운영과 사업적인 부분에서 경험이 부족하지 않았나 생각 된다. 좋은 회사에서 만족스러운 환경이었지만 이런 저런 스트레스와 문제로 퇴사를 하였지만 아직도 종종 그 제품에서 이런 부분을 개선 했으면 어땠을까 저런 부분을 개발 했으면 어땠을까 하고 생각을 하곤 한다.
-그래서 시간도 꽤 지났고 솔루션에 대한 기억이 가물가물 해지기 시작한 지금 지금의 개발 실력도 점검해보고 나만의 스타일로 온라인 기반의 코딩 테스트 솔루션을 개발 해 보고자 한다.
-물론 과거 다루었던 제품은 오랜 시간 개발되어 수많은 기능과 고성능의 성능을 제공하기에 그 많큼은 아니지만 기본적은 프로세스를 정리해보고 이 글이 올라가는 블로그와 같이 천천히 하나씩 개선 해보고자 한다.</p>
-<h2 id="bm-4">Repository</h2>
-
-        <table>
-            <thead><tr><th align="center"></th>
-<th align="left">Github repo</th>
-<th align="left">설명</th>
-<th align="left">비고</th>
-</tr></thead>
-            <tbody><tr><td align="center">1</td>
-<td align="left"><a href="https://github.com/BallboyDev/online-coding-test-system/">https://github.com/BallboyDev/online-coding-test-system/</a></td>
-<td align="left">통합 레포지토리</td>
-<td align="left"></td>
-</tr>
-<tr><td align="center">2</td>
-<td align="left">./online-coding-test-backend</td>
-<td align="left">Backend Repo</td>
-<td align="left"></td>
-</tr>
-<tr><td align="center">3</td>
-<td align="left">./online-coding-test-storage</td>
-<td align="left">storage Repo</td>
-<td align="left"></td>
-</tr>
-<tr><td align="center">4</td>
-<td align="left">./online-coding-test-front</td>
-<td align="left">Frontend Repo</td>
-<td align="left">임시 코드</td>
-</tr></tbody>
-        </table>
-        <h2 id="bm-6">테마</h2>
-<ol>
-<li>프로젝트 명 : <strong>onCoTe</strong></li>
-<li>우선은 Front 보다는 Backend와 Infra 중심의 개발</li>
-<li>기본적인 구조 확립과 작동 중심의 개발을 위한 로컬 환경에서의 우선 개발</li>
-<li>언어 선택, 코드 작성, 실행, 결과 출력의 기본 기능 중심의 개발<ul>
-<li>문제 해결이나 실행 결과 정.오답 체크 기능 제외 (추후 추가 기능으로 개발 예정)</li>
-</ul>
-</li>
-</ol>
-<h2 id="bm-9">설계</h2>
+                            <h1 id="bm-1">Network</h1>
 <ul>
-<li>기본 기능의 중심의 개발 후 기능 및 세부 디자인 및 테마 기획</li>
-<li><strong>Frontend</strong><ul>
-<li>1차로 최소한의 기능 위주의 디자인을 위한 html + css 개발</li>
-<li>2차로 Frontend 프레임워크는 svelte 또는 React 고민중</li>
+<li>네트워킹(Networking)은 &#39;서로 연결한다&#39;는 뜻으로, 서로 간에 의사소통을 하는 환경이다. IT 자원 간 연결하여 통신하는 환경을 의미하며, 어떤 IT 서비스를 제공하고자 한다면, 다양한 IT 자원이 통신할 수 있는 네트워킹 환경이 구성되어야 한다.</li>
+</ul>
+<h2 id="bm-4">Network 요소</h2>
+<h3 id="bm-5">OSI 7계층</h3>
+<ul>
+<li>IT 자원들이 통신할 때는 다양한 네트워킹 요소 간의 계층을 분류하는 여러가지 모델 중 하나로 OSI 7계층 모델은 네트워킹 통신 구조를 7개의 계층으로 분류하는 방식이다.<ul>
+<li><p>7계층 - 응용 계층 (HTTP, SSH, DNS, FTP 등)</p>
+<ul>
+<li>응용 프로세스와 직접 연계하여 실제 응용 프로그램을 서비스 하는 역할</li>
 </ul>
 </li>
-<li><strong>Backend</strong><ul>
-<li>Nest.js(or express) + mongo(or Mariadb) + Docker</li>
+<li><p>6계층 - 표현 계층 (ASCII, JPG, XDR 등)</p>
+<ul>
+<li>데이터 형식에 차이가 있을 때 데이터를 서로 이해할 수 있는 형태로 변환</li>
+</ul>
+</li>
+<li><p>5계층 - 세션 계층 (NetBIOS, SSL, TLS 등)</p>
+<ul>
+<li>종단의 대상 간 응용 프로세스 통신을 관리하는 방법으로, 데이터 통신을 위한 논리적인 연결을 담당</li>
+</ul>
+</li>
+<li><p>4계층 - 전송 계층 (TCP, UDP 등)</p>
+<ul>
+<li>종단의 대상 간에 데이터 전송을 다루는 계층ㅇ,로 데이터 전송의 유효성과 효율성 보장</li>
+</ul>
+</li>
+<li><p>3계층 - 네트워크 계층 (IP, ICMP, IPsec 등)</p>
+<ul>
+<li>데이터를 목적지까지 전달하는 계층으로, 최적의 통신 경로를 제어</li>
+</ul>
+</li>
+<li><p>2계층 - 데이터 링크 계층 (Ethernet, PPP, MAC, LLC 등)</p>
+<ul>
+<li>물리 계층에서 송수진 되는 저보의 오류와 흐름을 제어</li>
+</ul>
+</li>
+<li><p>1계층 - 물리 계층 (100Base-TX, ISDN, Wireless 등)</p>
+<ul>
+<li>네트워크 하드웨어 전송 기술을 이루는 계층으로, 물리적으로 연결된 매체가 서로 데이터를 송수힌 할 수 있게 연결하고 유지</li>
 </ul>
 </li>
 </ul>
-<h2 id="bm-12">기능</h2>
-<h3 id="bm-13">기본 기능</h3>
-<ol>
-<li>언어 선택<ul>
-<li>C(C++), JAVA, JS, Python, SQL</li>
+</li>
+</ul>
+<h3 id="bm-8">IP</h3>
+<ul>
+<li><p>IP 주소는 인터넷상에서 IT 자원을 식별하는 고유한 주소이다. IP 버전에는 IPv4와 IPv6 두 가지가 있으며, 일반적으로 IPv4를 더 많이 사용한다.</p>
+</li>
+<li><p>IPv4는 10진수(0~255) 또는 2진수(00000000 ~ 11111111)되어 있으며, 각 자리는 온점(.)으로 구번해서 표현한다.</p>
+</li>
+<li><p>Public IP, Private IP</p>
+<ul>
+<li>IP 주소는 통신 용도에 따라 퍼블릭 IP 주소와 프라이빗 IP 주소로 분류된다.</li>
+<li>퍼블릭 IP 주소는 실제 인터넷에서 사용하려고 인터넷 서비스 공급자에서 제공하는 유일한 공인 IP 주소이다.</li>
+<li>프라이빗 IP 주소는 인터넷이 아닌 독립된 네트워크 내부에서만 사용하기 위해 네트워크 관리자가 제공하는 사설 IP 주소이다.<ul>
+<li>프라이빗 IP 주소는 세 가지 클래스로 범위가 정해져 있다.<ul>
+<li>클래스 A : 10.0.0.0 ~ 10.255.255.255</li>
+<li>클래스 B : 172.16.0.0 ~ 172.31.255.255</li>
+<li>클래스 C : 192.168.0.0 ~ 192.168.255.255</li>
 </ul>
 </li>
-<li>코드 작성<ul>
-<li>언어 하이라이팅 기능</li>
 </ul>
 </li>
-<li>실행<ul>
-<li>언어별 Docker container 실행 환경 구축</li>
 </ul>
 </li>
-<li>결과 출력<ul>
-<li>실행 결과</li>
-<li>코드 실행 성능 결과</li>
+<li><p>고정 IP, 유동 IP</p>
+<ul>
+<li>IP 주소는 할당하는 방식에 따라 고정 IP 주소와 유동 IP 주소로 분려된다. 고정 IP 주소는 네트워크 관리자가 수동으로 할당하는 방식이며, 유동 IP 주소는 특정 서버가 IP 주소 범위에 따라 동적으로 할당하는 방식이다.</li>
 </ul>
 </li>
-</ol>
-<h3 id="bm-16">추가 기능</h3>
-<ol>
-<li>더욱 다양한 언어 지원</li>
-<li>언어별 버전 선택</li>
-<li>특정 라이브러리 설치 및 실행 환경 설정 기능</li>
-<li>문제 선택 및 리스트</li>
-<li>문제별 정.오답 체크</li>
-<li>운영자, 응시자 회원가입/로그인 기능</li>
-<li>시스템 운영을 위한 백오피스 기능 개발</li>
-<li>완성된 전 시스템 하나의 솔루션 패키지로 묶어 공유 서비스로 제공 가능하도록 세팅<ul>
-<li>장기적으로 수익 창출?</li>
+</ul>
+<h3 id="bm-11">서브넷, 서브넷 마스크</h3>
+<ul>
+<li>모든 네트워크는 하나의 네트워크로만 구성되어 있지 않으며, 주체와 목적에 따라 부분 네트워크로 나뉘고, 서로 연결하여 거대한 네트워크 환경을 이루고 있다.</li>
+<li>서브넷은 부분 네트워크를 의미하며, 다양한 서브넷이 연결되어 거대한 네트워크 환경을 이루고 있다.</li>
+<li>서브넷 마스크는 IP주소와 동일한 32비트 구조에 네트워크 ID와 호스트 ID로 구성되어 있다. 네트워크 ID는 서브넷을 구분하는 기준 값이고, 호스트 ID는 동일 서브넷 내에서 대상을 구분하는 기준 값이다.</li>
+</ul>
+<h4 id="bm-14">서브넷 마스크 구조</h4>
+<ul>
+<li>서브넷 마스크는 32비트로 이루어져 있으며, 32개의 2진수 값 중 1은 네트워크 ID 영역이며 0은 호스트 ID 영역이다.</li>
+</ul>
+<p>| 255.255.255.0 | 11111111.11111111.11111111.00000000 | 서브넷 마스크 (/24)
+| 192.168.100.1 | 11000000.10101000.01100100.00000001 | 동일한 서브넷
+| 192.168.100.2 | 11000000.10101000.01100100.00000010 | 동일한 서브넷
+| 192.168.200.1 | 11000000.10101000.11001000.00000001 | 다른 서브넷</p>
+<ul>
+<li><p>동일한 서브넷이라면 IP 주소의 네트워크 ID 영역 값은 동일한 호스트 ID 영역 값은 서로 다르다. 반대로 다른 서브넷이라면 IP 주소에서 네트워크 ID 영역 값은 서로 다르다.</p>
+</li>
+<li><p>서브넷 마스크 표현볍</p>
+<ul>
+<li>10진수 4자리 : 255.255.255.0</li>
+<li>2진수 32자리 : 11111111.11111111.11111111.00000000</li>
+<li>/네트워크 ID 비트 수 : /24</li>
 </ul>
 </li>
-</ol>
+</ul>
+<h3 id="bm-21">라우팅, 라우터</h3>
+<ul>
+<li>라우팅은 네트워크 통신을 수행할 때 목적지 경로를 선택하는 작업을 의미하며, 이를 수행하는 장비를 라우터라고 한다.</li>
+<li>라우터는 라우팅 테이블이라는 서브넷의 경로 리스트를 가지고 목적지 네트워크에 대한 최적 졍로를 선택해서 전달하는 역할을 한다.</li>
+</ul>
+<h3 id="bm-24">TCP, UDP</h3>
+<ul>
+<li>TCP, UDP는 OSI 7계층의 전송 계층에서 사용하는 대표적인 프로토콜로 데이터 전송을 담당한다.</li>
+<li>TCP는 송수신 대상간 연결을 맺고 데이터 전송 여부를 하나씩 확인하며 전송하는 연결형 프로토콜로 신뢰성 있는 데이터 전송을 보장한다.</li>
+<li>UDP는 TCP와 반대로 송수신 대상 간 연결 없이 전달하는 비 연결형 프로토콜로, 연결이나 제어를 위한 작업이 없어 신뢰성 있는 전송을 보장할 수는 없지만, 빠른 데이터 전송이 가능하다.</li>
+</ul>
 
 
                         </div>
