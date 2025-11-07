@@ -189,7 +189,7 @@ const output = (param) => {
             title: param.title,
             url: param.url,
             index: param.index,
-            // env: param.env
+            env: env
         },
         tag: {
             assets: code.assets({

@@ -7,6 +7,7 @@
     "test": "node test.js",
     "app:dev": "NODE_ENV=dev node app.js",
     "app:test": "NODE_ENV=dev TEST=true node app.js",
+    "app:tistory": "NODE_ENV=tistory node app.js",
     "app:build": "NODE_ENV=build node app.js",
     "app:deploy": "gh-pages -d _dist"
   },

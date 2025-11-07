@@ -9,6 +9,7 @@ const post = require('./_layout/post')
 const custom = require('./_layout/custom')
 
 const env = process.env.NODE_ENV
+const FILE = process.argv[2] || 0;
 
 const utils = require('./config')
 
@@ -97,7 +98,7 @@ const app = {
                         // 개발 환경에서 디렉토리의 index 값이 0인 경우에도 Navi 표현
                         const index = parseInt(tempIdx) === 0 ? `T${Math.floor(Math.random() * 9999)}` : tempIdx
 
-                        if (env === 'dev' || (env === 'build' && parseInt(tempIdx) !== 0)) {
+                        if (env === 'dev' || (['build', 'tistory'].includes(env) && parseInt(tempIdx) !== 0)) {
                             const [child, json] = recursion(`${root}/${v}`, [...fold, index]);
                             const count = Object.keys(child).reduce((a, b) => {
                                 const [type, index] = b.split('_');
@@ -105,7 +106,7 @@ const app = {
                                     type === 'dir' ?
                                         child[b].count :
                                         (
-                                            parseInt(child[b].index) !== 0 && (env === 'dev' || (env === 'build' && child[b].upload)) ? 1 : 0
+                                            parseInt(child[b].index) !== 0 && (env === 'dev' || (['build', 'tistory'].includes(env) && child[b].upload)) ? 1 : 0
                                         )
                                 );
                             }, 0);
@@ -150,7 +151,15 @@ const app = {
                             if (upload) {
                                 temp2[`${title || path.basename(v, path.extname(v))}`] = `${utils.path.build}/post/${parseInt(index)}`
                             }
-                            utils.contents.push(item);
+
+                            if (env === 'tistory') {
+                                if (index === parseInt(FILE)) {
+                                    utils.contents.push(item);
+                                }
+                            } else {
+                                utils.contents.push(item);
+                            }
+
                         }
                     }
 
@@ -261,11 +270,18 @@ const app = {
     mkPostPage: () => {
         console.group('\x1b[43m\x1b[30m%s\x1b[0m', '\n##### [ app.mkPostPage ] #####')
 
+
         try {
             utils.contents.sort((a, b) => {
                 return a.index - b.index
             }).filter((v) => {
-                return parseInt(v.index) !== 0 && (env === 'dev' || (env === 'build' && v.upload))
+
+                return parseInt(v.index) !== 0 && (
+                    env === 'dev'
+                    || (env === 'build' && v.upload)
+                    || env === 'tistory' && v.index === parseInt(FILE)
+                )
+
             }).map((v) => {
 
                 // console.log(v.bookmark)
@@ -288,7 +304,9 @@ const app = {
                     link: v.link
                 }
 
-                const result = post.output(metaData)
+
+                // const result = post.output(metaData)
+                const result = env === 'tistory' ? htmlFile : post.output(metaData)
 
                 fs.writeFileSync(`${utils.path.dist}/post/${v.index}.html`, result)
             })

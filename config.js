@@ -3,10 +3,10 @@ const dayjs = require('dayjs')
 const utils = {
     path: {
         // index.md 파일 위치
-        index: '/Users/ballboy/workspace/project/blog/index.md', // _post/index.md
+        index: '/Users/ballboy/Documents/blog/index.md', // _post/index.md
 
         // 포스팅 글 저장 위치
-        post: '/Users/ballboy/workspace/project/blog', // _post
+        post: '/Users/ballboy/Documents/blog', // _post
 
         // 배포 위치
         dist: '_dist',
@@ -21,7 +21,8 @@ const utils = {
         dev: `file://${__dirname}/_dist`,
 
         // 운영 환경 배포 경로
-        build: 'https://ballboyDev.github.io'
+        build: 'https://ballboyDev.github.io',
+        tistory: 'https://ballboyDev.github.io'
 
     },
     post: {},           // 블로그 생성을 위한 기초 json 데이터
