@@ -58,11 +58,7 @@
                         <div class="navi">
                             <ul class="root">
 
-                                <li id="dt-undefined"  onclick="foldNavi('undefined')">secret (0)</li>
-<ul id="dc-undefined" class='dc-all' style="display: none;">
-
-</ul>
-<li id="dt-1"  onclick="foldNavi('1')">심심한 개발자의 개발 공부 (52)</li>
+                                <li id="dt-1"  onclick="foldNavi('1')">심심한 개발자의 개발 공부 (52)</li>
 <ul id="dc-1" class='dc-all' style="display: block;">
 <a href="https://ballboyDev.github.io/post/108">
 <li id="p-108">• Backend 학습 로드맵</li>
@@ -525,74 +521,7 @@
                         
                         <div class="main markdown-body">
 
-                            <h1 id="bm-undefined">deploy.sh 파일 수정 명세서</h1>
-<h2 id="bm-undefined">1차 개선 작업</h2>
-<h3 id="bm-undefined">목적</h3>
-<ol>
-<li>기존 기능을 동일하게 수행하면서 새로운 tistory 포스트 배포를 위한 기능 추가</li>
-<li>argument 기반의 모듈화로 리팩토링 작업</li>
-</ol>
-<h3 id="bm-undefined">기존 사용 명령어 예시</h3>
-<ol>
-<li><code style="color: #ffbc36">./deploy.sh</code><ul>
-<li>Target 경로 npm script의 <code style="color: #ffbc36">npm run app:dev</code> 실행</li>
-</ul>
-</li>
-<li><code style="color: #ffbc36">./deploy.sh 100</code><ul>
-<li>Target 경로 npm script의 <code style="color: #ffbc36">npm run app:dev</code> 실행 후 Target 경로의 <code style="color: #ffbc36">_dist/post/100.html</code> 파일 Open</li>
-</ul>
-</li>
-<li><code style="color: #ffbc36">./deploy.sh dev</code><ul>
-<li>Target 경로 npm script의 <code style="color: #ffbc36">npm run app:dev</code> 실행 후 Target 경로의 <code style="color: #ffbc36">_dist/index.html</code> 파일 Open 여부 질의</li>
-</ul>
-</li>
-<li><code style="color: #ffbc36">./deploy.sh build</code><ul>
-<li>Target 경로 npm script의 <code style="color: #ffbc36">npm run app:build</code> 실행 후 추가적으로 <code style="color: #ffbc36">npm run app:deploy</code> 명령어 실행 여부 질의</li>
-</ul>
-</li>
-</ol>
-<h3 id="bm-undefined">개선될 사용 명령어 예시</h3>
-<ol>
-<li><code style="color: #ffbc36">./deploy.sh</code><ul>
-<li>Target 경로 npm script의 <code style="color: #ffbc36">npm run app:dev</code> 실행</li>
-</ul>
-</li>
-<li><code style="color: #ffbc36">./deploy.sh 100</code><ul>
-<li>Target 경로 npm script의 <code style="color: #ffbc36">npm run app:dev</code> 실행 후 Target 경로의 <code style="color: #ffbc36">_dist/post/100.html</code> 파일 Open</li>
-</ul>
-</li>
-<li><code style="color: #ffbc36">./deploy.sh build</code><ul>
-<li>Target 경로 npm script의 <code style="color: #ffbc36">npm run app:build</code> 실행 후 추가적으로 <code style="color: #ffbc36">npm run app:deploy</code> 명령어 실행 여부 질의</li>
-</ul>
-</li>
-<li><code style="color: #ffbc36">./deploy.sh tistory</code><ul>
-<li>Target 경로 npm script의 <code style="color: #ffbc36">npm run app:tistory</code> 실행</li>
-</ul>
-</li>
-<li><code style="color: #ffbc36">./deploy.sh tistory 100</code><ul>
-<li>Target 경로 npm script의 <code style="color: #ffbc36">npm run app:tistory</code> 실행 후 Target 경로의 <code style="color: #ffbc36">_dist/post/100.html</code> 파일의 내용을 clipboard에 복사</li>
-</ul>
-</li>
-</ol>
-<h3 id="bm-undefined">코드 개선 방향</h3>
-<ol>
-<li><code style="color: #ffbc36">./deploy.sh</code> 뒤에 나오는 argument 별로 코드 모듈화 작업<ul>
-<li><code style="color: #ffbc36">./deploy.sh</code> 뒤에 추가 적인 arg가 없거나 정수가 나오는 경우 정리</li>
-<li><code style="color: #ffbc36">./deploy.sh</code> 뒤에 arg가 <code style="color: #ffbc36">build</code>인 경우의 코드 분리</li>
-<li><code style="color: #ffbc36">./deploy.sh</code> 뒤에 arg가 <code style="color: #ffbc36">tistory</code>인 경우의 코드 분리</li>
-</ul>
-</li>
-<li>기능이 추가될 경우 유연하게 코드 수정이 가능하도록 코드 정리</li>
-<li>코드 별로 한글 주석을 정리</li>
-</ol>
-<h2 id="bm-undefined">2차 개선</h2>
-<h3 id="bm-undefined">코드 개선 방향</h3>
-<ul>
-<li><code style="color: #ffbc36">./deploy.sh tistory 100</code><ul>
-<li>Target 경로 npm script의 <code style="color: #ffbc36">npm run app:tistory -- 100</code> 실행 후 Target 경로의 <code style="color: #ffbc36">_dist/post/100.html</code> 파일의 내용을 clipboard에 복사</li>
-</ul>
-</li>
-</ul>
+                            <h1 id="bm-undefined">주요 스킬</h1>
 
 
                         </div>
