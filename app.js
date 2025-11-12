@@ -34,6 +34,7 @@ const app = {
             }
             fs.mkdirSync(`${utils.path.dist}`)
             fs.mkdirSync(`${utils.path.dist}/post`)
+            fs.mkdirSync(`${utils.path.dist}/${utils.path.secret}`)
             fs.mkdirSync(`${utils.path.dist}/assets`)
             fs.mkdirSync(`${utils.path.dist}/assets/img`)
 
@@ -49,7 +50,8 @@ const app = {
 
             console.log('>> set Environment <<')
             console.group('set Path')
-            console.log(`index: ${utils.path.index}`)
+            // console.log(`index: ${utils.path.index}`)
+            console.log(`index: ${utils.path.post}/index.md`)
             console.log(`post: ${utils.path[!!process.env.TEST ? 'mdTest' : 'post']}`)
             console.log(`${env}: ${utils.path[env]}`)
             console.groupEnd()
@@ -229,6 +231,8 @@ const app = {
                 return tagList
             }
 
+            // console.log(utils.post)
+
             recursion(utils.post)
             utils.navi = tagList
         } catch (err) {
@@ -242,23 +246,33 @@ const app = {
         console.group('\x1b[43m\x1b[30m%s\x1b[0m', '\n##### [ app.mkMainPage ] #####')
 
         try {
-            const mdFile = matter(fs.readFileSync(`${utils.path.index}`, 'utf8').trim())
-            // const content = `${mdFile.content}\n\n\n${utils.postingList.join('\n')}`
-            const content = `${mdFile.content}`
+            const mkList = (file) => {
+                const mdFile = matter(fs.readFileSync(`${utils.path.post}/${file}`, 'utf8').trim())
+                const content = `${mdFile.content}`
+                const htmlFile = marked.parse(content)
 
-            const htmlFile = marked.parse(content)
+                const metaData = {
+                    env: env,
+                    url: utils.path[env],
+                    fold: [],
+                    navi: utils.navi,
+                    contents: htmlFile
+                }
 
-            const metaData = {
-                env: env,
-                url: utils.path[env],
-                fold: [],
-                navi: utils.navi,
-                contents: htmlFile
+                const result = post.output(metaData)
+                const postInfo = path.parse(file)
+
+                fs.writeFileSync(`${utils.path.dist}/${!!postInfo.dir ? `${utils.path.secret}/${postInfo.name}` : postInfo.name}.html`, result)
+
+                console.log('\x1b[36m%s\x1b[0m', `[ ${!!postInfo.dir ? `${postInfo.dir} / ${utils.path.secret}` : '/'} ] ${postInfo.name}`);
             }
 
-            const result = post.output(metaData)
+            const fileList = ['index.md', ...fs.readdirSync(`${utils.path.post}/secret`).map((v) => { return `secret/${v}` })]
 
-            fs.writeFileSync(`${utils.path.dist}/index.html`, result)
+            fileList.map((file) => {
+                mkList(file)
+            })
+
         } catch (err) {
             console.log(err)
         } finally {
@@ -305,8 +319,8 @@ const app = {
                 }
 
 
-                // const result = post.output(metaData)
-                const result = env === 'tistory' ? htmlFile : post.output(metaData)
+                const result = post.output(metaData)
+                // const result = env === 'tistory' ? htmlFile : post.output(metaData)
 
                 fs.writeFileSync(`${utils.path.dist}/post/${v.index}.html`, result)
             })

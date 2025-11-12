@@ -70,8 +70,8 @@ const code = {
 
         const html = param.reduce((a, b) => {
             return `${a}\n${`
-            <div class="title t${b.depth}">
-                <div><a href="#bm-${b.index}">${b.raw.replace('\n', '')}</a></div>
+            <div class="title t${b.depth}" style="display: flex;">
+                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-${b.index}">${b.raw.replace('\n', '')}</a></div>
                 <p>•</p>
             </div>`}`
         }, '')
@@ -208,7 +208,10 @@ const output = (param) => {
         }
     }
 
-    return code.page(temp)
+
+
+
+    return env === 'tistory' ? `${!!param?.bookmark ? code.bookmark(param.bookmark) : ''} <div class="content-page markdown-body">${param.contents}</div>` : code.page(temp)
 }
 
 module.exports = {

@@ -1,12 +1,20 @@
+/**
+ * 블로그 파일 생성시 사용되는 다양한 경로와 설정 값 모음
+ * 조금 더 동적으로 데이터를 다루고 주석을 위해 json이 아닌 js 파일로 생성
+ */
+
 const dayjs = require('dayjs')
 
 const utils = {
     path: {
         // index.md 파일 위치
-        index: '/Users/ballboy/Documents/blog/index.md', // _post/index.md
+        // index: '/Users/ballboy/Documents/blog/index.md', // _post/index.md
 
         // 포스팅 글 저장 위치
         post: '/Users/ballboy/Documents/blog', // _post
+
+        // 비밀 글 저장 위치
+        secret: 'info', // secret
 
         // 배포 위치
         dist: '_dist',
@@ -22,7 +30,7 @@ const utils = {
 
         // 운영 환경 배포 경로
         build: 'https://ballboyDev.github.io',
-        tistory: 'https://ballboyDev.github.io'
+        tistory: 'https://ballboyDev.github.io' // 티스토리에 포스팅을 올릴때는 첨부 이미지를 따로 올리지 않기에 사용된 이미지를 불러올 경로가 필요하다
 
     },
     post: {},           // 블로그 생성을 위한 기초 json 데이터
@@ -42,13 +50,13 @@ const utils = {
         'deploy.sh',     // 원격 배포 파일
         '.gemini',	// gemini cli 설정 파일
         '.git',         // git 정보
-        '.DS_Store'     // 맥 파일 시스템 데이터
+        '.DS_Store',     // 맥 파일 시스템 데이터
+        'secret'        // 경로 비공개 포스트 모음 폴더
     ],
 
     info: {
         intro: '심심한 개발자의 취미생활',
         profile: 'profile.jpeg'
-
     }
 }
 

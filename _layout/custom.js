@@ -13,7 +13,8 @@ const custom = {
     },
     // 포스팅 첨부 이미지 빌드 시 동적 path 적용
     image: (meta) => {
-        return `<img src="${meta.href.search(/(?:\.\.\/)*docsImg\//g) > -1 ? `${custom.path[env]}/assets/img/${path.basename(meta.href)}` : meta.href}" alt="${meta.text}">`
+
+        return `<img src="${meta.href.search(/(?:\.\.\/)*docsImg\//g) > -1 ? `${custom.path[env]}/assets/img/${path.basename(meta.href)}` : meta.href}" onerror="this.src='https\:\/\/placehold.co/500x300?text=prepareing+image...'" alt="${meta.text}">`
     },
     // 코드 하이라이트 적용
     code: (meta) => {
