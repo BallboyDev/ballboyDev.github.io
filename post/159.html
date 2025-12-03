@@ -17,17 +17,17 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
             <style>
-                #p-94 {
+                #p-159 {
                     color: rgb(76, 193, 237) !important;
                 }
             </style>
-            <script id="data" type="application/json">{ "fold": ["1","13","131"] }</script>
+            <script id="data" type="application/json">{ "fold": ["3","34"] }</script>
 
             <script src="https://ballboyDev.github.io/assets/skin.js"></script>
             <script src="https://ballboyDev.github.io/assets/env.js"></script>
             
 
-                <title>docker 경량 컨테이너 베이스</title>
+                <title>라면 요리 - 라면 밥 (ver.2)</title>
             </head>
 
             <body>
@@ -538,183 +538,98 @@
                         <div class="bookmark">
 
             <div class="title t1" style="display: flex;">
-                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-1"># docker 경량 컨테이너 베이스 비교 (alpine vs slim vs scratch)</a></div>
+                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-1"># 라면 밥 (ver.2) 만들기
+</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t2" style="display: flex;">
-                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-4">## Alpine</a></div>
+                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-8">## 재료
+</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t3" style="display: flex;">
-                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-7">### 장점 / 단점</a></div>
+                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-9">### 재료</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t3" style="display: flex;">
-                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-10">### 예시</a></div>
+                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-12">### 조미료</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t2" style="display: flex;">
-                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-13">## Slim</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3" style="display: flex;">
-                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-16">### 장점 / 단점</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3" style="display: flex;">
-                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-19">### 예시</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t2" style="display: flex;">
-                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-22">## Scratch</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3" style="display: flex;">
-                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-25">### 사용</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t3" style="display: flex;">
-                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-28">### 예시</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t2" style="display: flex;">
-                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-31">## Alpine vs Slim vs Scratch</a></div>
+                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-15">## 레시피</a></div>
                 <p>•</p>
             </div></div>
                         
                         
+            <a href="https://ballboyDev.github.io/post/106.html" class="prev post">
+                <img src="https://ballboyDev.github.io/assets/img/prev.svg" alt="" srcset="">
+            </a>
                         
                         
                         
                         <div class="main markdown-body">
 
-                            <h1 id="bm-1">docker 경량 컨테이너 베이스 비교 (alpine vs slim vs scratch)</h1>
-<p>컨테이너 이미지를 제작할때 베이스 이미지로 다양한 이미지를 사용한다.
-그중 상황과 기능에 따라 이미지의 용량을 줄이기 위해 경량 이미지를 찾아 사용하는데 대표적으로 alpine, slim, scratch 버전의 이미지들을 많이 사용한다.
-본 포스팅에서는 alpine, slim, scratch 이 세 이미지 버전에 대하여 어떤 상황에 사용해야 하는게 좋은지 장단점에 대하여 비교해 본다.</p>
-<h2 id="bm-4">Alpine</h2>
+                            <h1 id="bm-1">라면 밥 (ver.2) 만들기</h1>
+<pre><code class="language-plaintext"}>이전에 라면 밥 레시피를 올린 적이 있다.
+하지만 그렇게 만드니 밥이 눌러 붙는 문제와 너무 되직해지거나 밥이 약간 설익는 문제가 있었다.
+그래서 여러번의 테스트 결과 나의 취향에 딱 맞는 촉촉한 라면 밥 레시피를 만들어 보았다.</code></pre>
+<blockquote>
+<p>난이도 ✭✭</p>
 <ul>
-<li>Alpine 버전은 alpine linux 기반으로 제작된 이미지이다. 
-Alpine linux 자체가 &#39;작고&#39;, &#39;보안이 뛰어나고&#39;, &#39;간담함&#39;을 목적으로 만들어진 배포판으로 타 리눅스 배포판 보다 훨씬 가볍고 깔끔한 것이 장점이기 때문에 Docker 컨테이너에 사용되는 예가 많다.</li>
+<li>촉촉하고 맛이 기가 막힌 라면 밥</li>
 </ul>
-<h3 id="bm-7">장점 / 단점</h3>
+</blockquote>
+<p><img src="https://placehold.co/500x300?text=prepareing+image..." onerror="this.src='https://placehold.co/500x300?text=prepareing+image...'" alt="이미지 준비중"></p>
+<h2 id="bm-8">재료</h2>
+<h3 id="bm-9">재료</h3>
+<ol>
+<li>라면 / 1봉</li>
+<li>계란 / 1알</li>
+<li>다진 마늘 / 1sp</li>
+<li>다진 대파 / 적당량</li>
+</ol>
+<h3 id="bm-12">조미료</h3>
+<ol>
+<li>소금 or 치킨 스톡 / 0.5sp</li>
+<li>후추 / 적당량</li>
+<li>참기름 / 1sp</li>
+</ol>
+<h2 id="bm-15">레시피</h2>
+<ol>
+<li><p>내열 그릇에 씻은 쌀과 물을 약간 찰박할 정도로 부은 후 전자레인지에 5~6분정도 돌려 설 익은 밥을 만든다.</p>
 <ul>
-<li><p>장점</p>
-<ul>
-<li>이미지 크기가 매우 작아서 빌드/배포 속도가 빠름</li>
-<li>패키지 매니저(apk) 사용 가능</li>
-<li>경량 시스템의 특성상 보안 취약점이 적음</li>
-</ul>
-</li>
-<li><p>단점 </p>
-<ul>
-<li>glibc가 아니라 musl 기반으로 일부 라이브러리 호환성 이슈가 있음</li>
-<li>디버깅 도구, 쉘 등이 부족하여 작업에 어려움이 있을수 있음</li>
-</ul>
-</li>
-</ul>
-<h3 id="bm-10">예시</h3>
-<pre class="theme-atom-one-dark"><code class="language-dockerfile"><span class="hljs-keyword">FROM</span> node:alpine
-<span class="hljs-keyword">FROM</span> python:<span class="hljs-number">3.11</span>-alpine</code></pre><h2 id="bm-13">Slim</h2>
-<ul>
-<li>Slim은 Debian 또는 Ubuntu 등 기본 이미지에서 불필요한 패키지를 제거한 경량 버전으로 기존 리눅스 배포판의 기존 기능을 최대한 유지한채 용량만 줄인 버전이다. 특수 목적이 아닌 일반 리눅스 배포판을 경량화 한 버전이기에 glibc 기반으로 라이브러리 호환성이 좋고 기본 디버깅 도구와 라이브러리 사용이 가능하다.</li>
-</ul>
-<h3 id="bm-16">장점 / 단점</h3>
-<ul>
-<li><p>장점</p>
-<ul>
-<li>glibc 기반으로 라이브러리 호환성이 뛰어남</li>
-<li>기본 디버깅 도구, 라이브러리 사용 가능</li>
-<li>Alpine 보다 호환성과 안정성 중시</li>
+<li>햇반은 전자레인지에 돌리지 않고 그냥 사용한다.</li>
 </ul>
 </li>
-<li><p>단점</p>
+<li><p>냄비에 라면 끓일때 보다 20%정도 더 물을 넣고 끓여준다.</p>
+</li>
+<li><p>물이 끓으면 건더기와 라면 스프, 다진 마늘을 넣어준다.</p>
 <ul>
-<li>경량화 버전이긴 하나 경량화를 목적으로 만들어진 Alpine보다는 무거움</li>
-<li>완전한 최소 이미지는 아님</li>
+<li>조금 간간한 맛을 원한다면 소금이나 치킨 스톡을 0.5sp 정도 넣어준다.</li>
 </ul>
 </li>
-</ul>
-<h3 id="bm-19">예시</h3>
-<pre class="theme-atom-one-dark"><code class="language-dockerfile"><span class="hljs-keyword">FROM</span> node:<span class="hljs-number">18</span>-slim
-<span class="hljs-keyword">FROM</span> python:<span class="hljs-number">3.11</span>-slim</code></pre><h2 id="bm-22">Scratch</h2>
-<ul>
-<li>Scratch는 도커에서 제공하는 정말 아무것도 없는 빈(empty) 베이스 이미지이다. <code style="color: #ffbc36">FROM scratch</code>라고 명시하면 그 이후에는 아무것도 포함되지 않은 상태에서 이미지가 생성된다.</li>
-</ul>
-<h3 id="bm-25">사용</h3>
-<ul>
-<li><p>Scratch는 아무런 기능이 없는 빈 이미지 이기에 장단점이라고 할만한 것 자체가 없는데 이러한 Scratch를 사용하는 이유는 극단적으로 작고 안전한 컨테이너 이미지를 생성하여 정적 바이너리 프로그램만을 실행하기 위한 컨테이너를 생성하기 위해 사용된다.</p>
+<li><p>냄비에 설익은 밥을 모두 부어 주고 그 위에 라면 사리를 넣어준다.</p>
 </li>
-<li><p>장점 이자 단점 </p>
+<li><p>계란을 취향것 넣어준다.</p>
 <ul>
-<li>극단적으로 적은 용량의 이미지 제작 가능</li>
-<li>실행 환경에 의존하지 않는 서비스 배포 가능</li>
-<li>쉘, 로그, 디버깅 툴이 없어 디버깅에 대한 분석이 어려움</li>
-<li>리눅스 베포판과 같이 기본적인 기능 조차 없어 동적 라이브러리가 필요한 경우 실행이 불가</li>
-<li>apt, apk, yum 과 같은 패키지 설치 툴이 전혀 없음</li>
-<li>환경 변수나 기본 경로 역시 없어 필요시 직접 제작 생성해야 함</li>
+<li>라면위에 계란을 넣고 반숙으로 넣는 방법</li>
+<li>계란을 풀어 냄비에 둘러 넣고 휘저어 죽처럼 만드는 방법</li>
+<li>능력것 반숙란을 넣는 방법 등등</li>
 </ul>
 </li>
-</ul>
-<h3 id="bm-28">예시</h3>
-<pre class="theme-atom-one-dark"><code class="language-dockerfile"><span class="hljs-keyword">FROM</span> scratch</code></pre><h2 id="bm-31">Alpine vs Slim vs Scratch</h2>
+<li><p>다진 대파와 후추, 참기름을 뿌려 마무리 한다.</p>
+</li>
+<li><p>맛있게 먹는다.</p>
+</li>
+</ol>
+<pre><code class="language-plaintext"}>>> 자취생 평가 <<
 
-        <table>
-            <thead><tr><th align="left"></th>
-<th align="left">Alpine</th>
-<th align="left">Slim</th>
-<th align="left">Scratch</th>
-</tr></thead>
-            <tbody><tr><td align="left">용량</td>
-<td align="left">매우 작음(약 5MB)</td>
-<td align="left">작은 편(20~40MB)</td>
-<td align="left">0MB</td>
-</tr>
-<tr><td align="left">기본 유틸</td>
-<td align="left">최소 제공(apk, 쉘 등)</td>
-<td align="left">대부분 제공</td>
-<td align="left">없음</td>
-</tr>
-<tr><td align="left">패키지 설치</td>
-<td align="left">apk</td>
-<td align="left">apt</td>
-<td align="left">불가</td>
-</tr>
-<tr><td align="left">디버깅</td>
-<td align="left">어려움</td>
-<td align="left">가능</td>
-<td align="left">불가</td>
-</tr>
-<tr><td align="left">사용 예</td>
-<td align="left">경량 이미지가 필요한 경우</td>
-<td align="left">경량 + 호환성이 필요한 경우</td>
-<td align="left">정적 빌드 실행, 보안/최소 크기가 필요한 경우</td>
-</tr></tbody>
-        </table>
-        
-        <table>
-            
-            <tbody><tr><td align="center">Alpine</td>
-<td align="left">이미지 크기를 줄이고, 패키지 호환성이 큰 이슈가 아닐 경우</td>
-</tr>
-<tr><td align="center">Slim</td>
-<td align="left">이미지 크기는 줄이되, glibc와의 호환성 등 안정성도 필요한 경우</td>
-</tr>
-<tr><td align="center">Scratch</td>
-<td align="left">Go, Rust 등 정적 링크된 바이너리를 최종적으로 실행할 경우</td>
-</tr></tbody>
-        </table>
-        
+나의 취향에 더 맞는 방법</code></pre>
+
 
                         </div>
 

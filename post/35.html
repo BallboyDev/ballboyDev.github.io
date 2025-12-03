@@ -262,19 +262,9 @@
 </ul>
 
 </ul>
-<li id="dt-2"  onclick="foldNavi('2')">심심한 개발자의 개발 취미 (16)</li>
+<li id="dt-2"  onclick="foldNavi('2')">심심한 개발자의 개발 취미 (17)</li>
 <ul id="dc-2" class='dc-all' style="display: none;">
-<li id="dt-undefined"  onclick="foldNavi('undefined')">gitea 기반 cicd 구축 (2)</li>
-<ul id="dc-undefined" class='dc-all' style="display: none;">
-<a href="https://ballboyDev.github.io/post/155">
-<li id="p-155">• 1. Gitea 구축</li>
-</a>
-<a href="https://ballboyDev.github.io/post/156">
-<li id="p-156">• 2. Gitea Act_runner 구축</li>
-</a>
-
-</ul>
-<li id="dt-22"  onclick="foldNavi('22')">간단 블로그 만들기 (8)</li>
+<li id="dt-22"  onclick="foldNavi('22')">간단 블로그 만들기 (9)</li>
 <ul id="dc-22" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/1">
 <li id="p-1">• 블로그 개발 기획, 배포 일지</li>
@@ -299,6 +289,9 @@
 </a>
 <a href="https://ballboyDev.github.io/post/71">
 <li id="p-71">• 4. 블로그 만들기 - 목차</li>
+</a>
+<a href="https://ballboyDev.github.io/post/160">
+<li id="p-160">• 3. 블로그 만들기 외전 - 빌드 스크립드 (ver.2)</li>
 </a>
 
 </ul>
@@ -332,9 +325,19 @@
 <ul id="dc-25" class='dc-all' style="display: none;">
 
 </ul>
+<li id="dt-26"  onclick="foldNavi('26')">gitea 기반 cicd 구축 (2)</li>
+<ul id="dc-26" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/155">
+<li id="p-155">• 1. Gitea 구축</li>
+</a>
+<a href="https://ballboyDev.github.io/post/156">
+<li id="p-156">• 2. Gitea Act_runner 구축</li>
+</a>
 
 </ul>
-<li id="dt-3"  onclick="foldNavi('3')">자취생 밥 만들어 먹기 (41)</li>
+
+</ul>
+<li id="dt-3"  onclick="foldNavi('3')">자취생 밥 만들어 먹기 (43)</li>
 <ul id="dc-3" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/27">
 <li id="p-27">• 내돈 내산 양념/조미료 사용 후기</li>
@@ -426,7 +429,7 @@
 </a>
 
 </ul>
-<li id="dt-34"  onclick="foldNavi('34')">면 러버의 면 사랑 요리 (14)</li>
+<li id="dt-34"  onclick="foldNavi('34')">면 러버의 면 사랑 요리 (16)</li>
 <ul id="dc-34" class='dc-all' style="display: none;">
 <a href="https://ballboyDev.github.io/post/25">
 <li id="p-25">• 내 멋대로 알리오 올리오</li>
@@ -469,6 +472,12 @@
 </a>
 <a href="https://ballboyDev.github.io/post/149">
 <li id="p-149">• 된장 파스타</li>
+</a>
+<a href="https://ballboyDev.github.io/post/159">
+<li id="p-159">• 라면 요리 - 라면 밥 (ver.2)</li>
+</a>
+<a href="https://ballboyDev.github.io/post/161">
+<li id="p-161">• 마제소바</li>
 </a>
 
 </ul>
@@ -544,6 +553,9 @@
             </a>
                         
                         
+            <a href="https://ballboyDev.github.io/post/160.html" class="next post">
+                <img src="https://ballboyDev.github.io/assets/img/next.svg" alt="" srcset="">
+            </a>
                         
                         <div class="main markdown-body">
 
@@ -566,7 +578,7 @@
 
 <span class="hljs-comment">#!/bin/bash</span>
 
-TARGET_DIR=<span class="hljs-string">&quot;/Users/ballboy/workspace/project/ballboyDev.github.io/&quot;</span>
+TARGET_DIR=<span class="hljs-string">&quot;~/ballboyDev.github.io/&quot;</span>
 ARG1=<span class="hljs-string">&quot;<span class="hljs-variable">${1:-dev}</span>&quot;</span>
 
 <span class="hljs-comment"># Check if the first argument is a number</span>
