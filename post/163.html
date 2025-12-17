@@ -17,17 +17,17 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
             <style>
-                #p-130 {
+                #p-163 {
                     color: rgb(76, 193, 237) !important;
                 }
             </style>
-            <script id="data" type="application/json">{ "fold": ["1","14"] }</script>
+            <script id="data" type="application/json">{ "fold": ["3","31"] }</script>
 
             <script src="https://ballboyDev.github.io/assets/skin.js"></script>
             <script src="https://ballboyDev.github.io/assets/env.js"></script>
             
 
-                <title>Middleware</title>
+                <title>시금치 무침</title>
             </head>
 
             <body>
@@ -547,145 +547,97 @@
                         <div class="bookmark">
 
             <div class="title t1" style="display: flex;">
-                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-1"># Middleware</a></div>
+                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-1"># 시금치 무침 만들기
+</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t2" style="display: flex;">
-                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-4">## Middleware 구현</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t2" style="display: flex;">
-                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-7">## Middleware 적용</a></div>
+                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-8">## 재료 준비</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t3" style="display: flex;">
-                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-12">### Middleware 조건부 적용</a></div>
+                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-9">### 재료</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3" style="display: flex;">
+                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-12">### 양념(조미료)</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t2" style="display: flex;">
-                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-29">## 전역 (Global) 미들웨어</a></div>
-                <p>•</p>
-            </div>
-
-            <div class="title t2" style="display: flex;">
-                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-34">## 의존성 주입 (Dependency Injection)</a></div>
+                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-15">## 레시피 </a></div>
                 <p>•</p>
             </div></div>
                         
                         
-            <a href="https://ballboyDev.github.io/post/129.html" class="prev post">
-                <img src="https://ballboyDev.github.io/assets/img/prev.svg" alt="" srcset="">
-            </a>
                         
                         
-            <a href="https://ballboyDev.github.io/post/131.html" class="next post">
-                <img src="https://ballboyDev.github.io/assets/img/next.svg" alt="" srcset="">
-            </a>
                         
                         <div class="main markdown-body">
 
-                            <h1 id="bm-1">Middleware</h1>
+                            <h1 id="bm-1">시금치 무침 만들기</h1>
+<pre><code class="language-plaintext"}>자취생은 밥을 해 먹을때 다양한 반찬을 만들어 먹는게 쉬운 일은 아니다.
+나 역시 주로 고기나 국같은 메인 반찬 또는 카레나 덮밥과 같은 밥과 함께 먹을 수 있는 요리 하나만 만들어 먹는 편이다.
+그래서 고향집에 방문할 때 마다 어머니가 해주시는 다양한 반찬을 매우 좋아한다.
+그중에도 손맛이 좋은 우리 어무이의 나물 반찬을 매우 좋아하는데 이번에 김장을 위해 방문해서 간단한 나물 반찬 만드는 법을 2개 배워 왔다.
+그중 첫번째 겨울에 맛이 좋은 시금치 나물 무침을 해 먹었다.</code></pre>
+<p><img src="https://ballboyDev.github.io/assets/img/163_1.jpeg" onerror="this.src='https://placehold.co/500x300?text=prepareing+image...'" alt="이미지 준비중"></p>
+<blockquote>
+<p>난이도 ✭</p>
 <ul>
-<li><code style="color: #ffbc36">Middleware</code>는 라우트 핸들러가 실행되기 전에 호출되는 함수이다.</li>
-<li><code style="color: #ffbc36">Express</code>의 미들웨어와 기본적으로 동일하며, 요청(Request) 및 응답(Response) 객체와 애플리케이션의 요청-응답 주기에서 그 다음의 미들웨어 함수(<code style="color: #ffbc36">next()</code>) 접근할 수 있다.</li>
+<li>다양한 밑반찬, 나물 반찬을 만들어 볼 계획이다.</li>
 </ul>
-<h2 id="bm-4">Middleware 구현</h2>
-<ul>
-<li><code style="color: #ffbc36">NestJS</code>에서 <code style="color: #ffbc36">Middleware</code>는 두 가지 방식으로 구현할 수 있다.<ol>
-<li><p><strong>클래스(Class) 기반 미들웨어</strong></p>
-<ul>
-<li><code style="color: #ffbc36">@Injectable()</code> 데코레이터가 적용된 클래스로 구현하며 이 클래스는 NestMiddleware 인터페이스를 구현해야 한다.</li>
-</ul>
-<pre class="theme-atom-one-dark"><code class="language-js"> <span class="hljs-comment">// logger.middleware.ts</span>
- <span class="hljs-keyword">import</span> { <span class="hljs-title class_">Injectable</span>, <span class="hljs-title class_">NestMiddleware</span>} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@nestjs/common&#x27;</span>
- <span class="hljs-keyword">import</span> { <span class="hljs-title class_">Request</span>, <span class="hljs-title class_">Response</span>, <span class="hljs-title class_">NestFunction</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;express&#x27;</span>
-
- @<span class="hljs-title class_">Injectable</span>()
- <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LoggerMiddleware</span> implements <span class="hljs-title class_">NestMiddleware</span> {
-     <span class="hljs-title function_">use</span>(<span class="hljs-params">req: Request, res: Response, next: NextFunction</span>) {
-         <span class="hljs-comment">// 수행 내용</span>
-         <span class="hljs-title function_">next</span>();
-     }
- }</code></pre></li>
-<li><p><strong>함수(Functional) 기반 미들웨어</strong></p>
-<ul>
-<li>특별한 요구사항 없이 간단한 함수로 구현 가능하며, 의존성 주입이 필요 없는 간단한 미들웨어에 적합하다.</li>
-</ul>
-<pre class="theme-atom-one-dark"><code class="language-js"> <span class="hljs-comment">// logger.middleware.ts</span>
- <span class="hljs-keyword">import</span> { <span class="hljs-title class_">Request</span>, <span class="hljs-title class_">Response</span>, <span class="hljs-title class_">NestFunction</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;express&#x27;</span>
-
- <span class="hljs-keyword">export</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">logger</span>(<span class="hljs-params">req: Request, res: Response, next: NextFunction</span>){
-     <span class="hljs-comment">// 수행 내용</span>
-     <span class="hljs-title function_">next</span>();
- }</code></pre></li>
+</blockquote>
+<h2 id="bm-8">재료 준비</h2>
+<h3 id="bm-9">재료</h3>
+<ol>
+<li>시금치 / 한단</li>
+<li>다진 마늘 / 0.5sp</li>
+<li>쪽파 / 적당량</li>
 </ol>
+<h3 id="bm-12">양념(조미료)</h3>
+<ol>
+<li>소금 / 1sp</li>
+<li>통깨 / 1sp</li>
+<li>국간장 / 0.5sp</li>
+<li>액젓 / 0.5sp</li>
+<li>참기름 / 1sp</li>
+</ol>
+<h2 id="bm-15">레시피</h2>
+<ol>
+<li><p>시금치를 다듬고 흐르는 물에 씻어준다.</p>
+<ul>
+<li>시금치 뿌리 부분을 잘라주고 시들거나 상태가 좋지 못한 잎은 때어준다.</li>
+<li>시금치 뿌리 부분을 4등분정도 쪼개어주고 줄기는 너무 길다면 반으로 잘라 준다.</li>
+</ul>
 </li>
-</ul>
-<h2 id="bm-7">Middleware 적용</h2>
+<li><p>소금 1sp을 푼 끓는 물에 시금치를 1분정도 삶아 준다.</p>
 <ul>
-<li><code style="color: #ffbc36">Middleware</code>는 <code style="color: #ffbc36">@Module()</code> 데코레이터에서 설정하는 것이 아니라, 모듈 클래스의 <code style="color: #ffbc36">configure()</code>메서드를 사용하여 설정한다. 미들웨어를 포함하는 모듈은 <code style="color: #ffbc36">NestModule</code> 인터페이스를 구현해야 한다.</li>
-<li><code style="color: #ffbc36">MiddlewareConsumer</code>는 미들웨어 관리를 돕는 헬퍼 클래스이며, <code style="color: #ffbc36">apply()</code>와 <code style="color: #ffbc36">forRoutes()</code> 같은 메서드를 제공한다.</li>
+<li>너무 오래 삶으면 시금치가 너무 곤죽이 되니 적당히 삶아 준다.</li>
 </ul>
-<pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">// app.module.ts</span>
-<span class="hljs-keyword">import</span> { <span class="hljs-title class_">Module</span>, <span class="hljs-title class_">NestModule</span>, <span class="hljs-title class_">MiddlewareConsumer</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@nestjs/common&#x27;</span>;
-<span class="hljs-keyword">import</span> { <span class="hljs-title class_">LoggerMiddleware</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./common/middleware/logger.middleware&#x27;</span>;
-<span class="hljs-keyword">import</span> { <span class="hljs-title class_">CatsModule</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./cats/cats.module&#x27;</span>;
-<span class="hljs-keyword">import</span> { <span class="hljs-title class_">CatsController</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./cats/cats.controller&#x27;</span>;
+</li>
+<li><p>삶은 시금치를 흐르는 찬물에 헹궈 주고 물끼를 짜준다.</p>
+</li>
+<li><p>시금치에 마늘 0.5sp 과 국간장, 액젓을 0.5sp씩 넣고 참기름을 1sp 넣는다.</p>
+</li>
+<li><p>깨 1sp을 반은 통깨로 반은 갈아서 넣어주고 잘 버무려 준다.</p>
+</li>
+<li><p>버무린 시금치의 간을 보고 소금 또는 맛소금으로 간을 해준다.</p>
+<ul>
+<li>시간이 지나면 시금치에서 수분이 나오면서 조금 싱거워지니 조금 간간하게 간을 해주면 좋다.</li>
+</ul>
+</li>
+<li><p>바로 먹어도 좋지만 1시간 이상 냉장했다가 먹으면 맛이 좋다.</p>
+</li>
+<li><p>맛있게 먹는다.</p>
+</li>
+</ol>
+<pre><code class="language-plaintext"}>>> 자취생 평가 <<
 
-@<span class="hljs-title class_">Module</span>({
-    <span class="hljs-attr">imports</span>: [<span class="hljs-title class_">CatsModule</span>],
-})
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AppModule</span> implements <span class="hljs-title class_">NestModule</span> {
-    <span class="hljs-title function_">configure</span>(<span class="hljs-params">consumer: MiddlewareConsumer</span>) {
-        consumer
-            .<span class="hljs-title function_">apply</span>(<span class="hljs-title class_">LoggerMiddleware</span>)        <span class="hljs-comment">// 적용할 미들웨어</span>
-            .<span class="hljs-title function_">forRoutes</span>(<span class="hljs-title class_">CatsController</span>);     <span class="hljs-comment">// 특정 컨트롤러의 모든 라우트에 적용</span>
-    }
-}</code></pre><h3 id="bm-12">Middleware 조건부 적용</h3>
-<h4 id="bm-13">특정 라우트 적용</h4>
-<ul>
-<li><code style="color: #ffbc36">forRoutes()</code> 메서드에 문자열로 된 경로를 전달하여 특정 라우트에만 미들웨어를 적용할 수 있다. 특정 HTTP 요청 메서드에만 적용할려면 경로와 메서드를 포함한 객체를 전달한다.</li>
-</ul>
-<pre class="theme-atom-one-dark"><code class="language-js">consumer
-    .<span class="hljs-title function_">apply</span>(<span class="hljs-title class_">LoggerMiddleware</span>)
-    .<span class="hljs-title function_">forRoutes</span>({ <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;cats&#x27;</span>, <span class="hljs-attr">method</span>: <span class="hljs-title class_">RequestMethod</span>.<span class="hljs-property">GET</span> }) <span class="hljs-comment">// &#x27;cats&#x27; 경로의 GET 요청에만 적용</span></code></pre><h4 id="bm-17">라우트 와일드 카드</h4>
-<ul>
-<li>경로에 와일드 카드(<code style="color: #ffbc36">*</code>)를 사용하여 패턴 기반으로 라우트를 지정할 수 있다.</li>
-</ul>
-<pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-title function_">forRoutes</span>({ <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;ab*cd&#x27;</span>, <span class="hljs-attr">method</span>: <span class="hljs-title class_">RequestMethod</span>.<span class="hljs-property">ALL</span> })</code></pre><h4 id="bm-21">특정 라우트 제외</h4>
-<ul>
-<li><code style="color: #ffbc36">exclude()</code> 메서드를 사용하면 특정 라우트를 미들웨어 적용 대상에서 제외할 수 있다.</li>
-</ul>
-<pre class="theme-atom-one-dark"><code class="language-js">consumer
-    .<span class="hljs-title function_">apply</span>(<span class="hljs-title class_">LoggerMiddleware</span>)
-    .<span class="hljs-title function_">exclude</span>(
-        { <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;cats&#x27;</span>, <span class="hljs-attr">method</span>: <span class="hljs-title class_">RequestMethod</span>.<span class="hljs-property">GET</span> },    <span class="hljs-comment">// &#x27;cats&#x27; 경로의 GET 요청 제외</span>
-        { <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;cats&#x27;</span>, <span class="hljs-attr">method</span>: <span class="hljs-title class_">RequestMethod</span>.<span class="hljs-property">POST</span> },   <span class="hljs-comment">// &#x27;cats&#x27; 경로의 POST 요청 제외</span>
-    )
-    .<span class="hljs-title function_">forRoutes</span>(<span class="hljs-title class_">CatsController</span>); <span class="hljs-comment">// CatsController의 나머지 라우트에 적용</span></code></pre><h4 id="bm-25">여러 미들웨어 적용</h4>
-<ul>
-<li><code style="color: #ffbc36">apply()</code> 메서드에 여러 미들웨어를 쉼표로 구분하여 전달하면 순차적으로 실행되는 여러 미들웨어를 바인딩 할 수 있다.</li>
-</ul>
-<pre class="theme-atom-one-dark"><code class="language-js">consumer
-    .<span class="hljs-title function_">apply</span>(<span class="hljs-title function_">cors</span>(), <span class="hljs-title function_">helmet</span>(), logger)
-    .<span class="hljs-title function_">forRoutes</span>(<span class="hljs-title class_">CatController</span>);</code></pre><h2 id="bm-29">전역 (Global) 미들웨어</h2>
-<ul>
-<li>애플리케이션의 모든 라우트에 미들웨어를 한 번에 적용하려면 <code style="color: #ffbc36">main.ts</code> 파일에서 <code style="color: #ffbc36">INestApplication</code> 인스턴스의 <code style="color: #ffbc36">use()</code> 메서드를 사용한다.</li>
-</ul>
-<pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">// main.ts</span>
-<span class="hljs-keyword">const</span> app = <span class="hljs-keyword">await</span> <span class="hljs-title class_">NestFactory</span>.<span class="hljs-title function_">create</span>(<span class="hljs-title class_">AppModule</span>);
-app.<span class="hljs-title function_">use</span>(logger) <span class="hljs-comment">// &#x27;logger&#x27; 미들웨어를 전역으로 적용</span>
-<span class="hljs-keyword">await</span> app.<span class="hljs-title function_">listen</span>(<span class="hljs-number">3000</span>)</code></pre><ul>
-<li>이 방식으로는 의존성 주입(DI) 컨테이너에 접근할 수 없어, DI가 필요한 경우, 모듈 내에서 <code style="color: #ffbc36">consumer.apply(MyMiddleware).forRoutes('*')</code>와 같이 모든 라우트에 적용하는 방식을 사용해야 한다.</li>
-</ul>
-<h2 id="bm-34">의존성 주입 (Dependency Injection)</h2>
-<ul>
-<li>클래스 기반 미들웨어는 <code style="color: #ffbc36">NestJS</code>의 다른 구성요소(<code style="color: #ffbc36">Provider</code>, <code style="color: #ffbc36">Controller</code>)와 마찬가지로 의존성 주입을 완벽하게 지원한다. 생성자를 통해 같은 모듈 내에서 사용가능한 의존성을 주입 받을 수 있다.</li>
-</ul>
+겨울 시금치는 단맛이 올라오고 가격도 많이 낮아져서 지금 해먹기 딱 좋은 반찬이다.</code></pre>
 
 
                         </div>
