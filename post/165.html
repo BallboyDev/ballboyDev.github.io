@@ -17,17 +17,17 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
             <style>
-                #p-99 {
+                #p-165 {
                     color: rgb(76, 193, 237) !important;
                 }
             </style>
-            <script id="data" type="application/json">{ "fold": ["2","23"] }</script>
+            <script id="data" type="application/json">{ "fold": ["3","31"] }</script>
 
             <script src="https://ballboyDev.github.io/assets/skin.js"></script>
             <script src="https://ballboyDev.github.io/assets/env.js"></script>
             
 
-                <title>2. 온코테 시스템 만들기 - Backend</title>
+                <title>무 생채</title>
             </head>
 
             <body>
@@ -538,149 +538,100 @@
                         <div class="bookmark">
 
             <div class="title t1" style="display: flex;">
-                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-1"># 2. 온라인 코딩 테스트 시스템 Backend 만들기</a></div>
+                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-1"># 무생채 만들기
+</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t2" style="display: flex;">
-                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-4">## 기능과 기본 구조</a></div>
+                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-8">## 재료 준비</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t3" style="display: flex;">
-                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-7">### 모듈 통합과 </a></div>
+                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-11">### 재료</a></div>
                 <p>•</p>
             </div>
 
             <div class="title t3" style="display: flex;">
-                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-12">### 코드 제출 (exam.module)</a></div>
+                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-14">### 양념(조미료)</a></div>
                 <p>•</p>
             </div>
 
-            <div class="title t3" style="display: flex;">
-                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-16">### 컨테이너 관리 (container.module)</a></div>
+            <div class="title t2" style="display: flex;">
+                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-17">## 레시피 </a></div>
                 <p>•</p>
             </div></div>
                         
                         
-            <a href="https://ballboyDev.github.io/post/98.html" class="prev post">
-                <img src="https://ballboyDev.github.io/assets/img/prev.svg" alt="" srcset="">
-            </a>
                         
                         
-            <a href="https://ballboyDev.github.io/post/100.html" class="next post">
-                <img src="https://ballboyDev.github.io/assets/img/next.svg" alt="" srcset="">
-            </a>
                         
                         <div class="main markdown-body">
 
-                            <h1 id="bm-1">2. 온라인 코딩 테스트 시스템 Backend 만들기</h1>
-<p>이 프로젝트의 중심은 backend이다.
-내가 이 프로젝트를 진행하기 위한 목적은 과거 아쉬웠던 경험을 기억하며 다시 한번 되돌아 보는 기회를 가지는것과 함께 인프라적으로 학습했던 Docker와 backend 중심의 개발을 학습해보기 위해서이다.
-프로젝트의 중심인 Backend에 대하여 정리 해보겠다.</p>
-<h2 id="bm-4">기능과 기본 구조</h2>
-<p>onCoTe-backend의 핵심 기능은 제출과 실행의 관리이다.
-frontend에서 코드를 작성하여 제출을 하면 backend에서는 제출된 코드를 파일 데이터로 가공 후 저장을 위한 storage 서버로 전달을 하고 저장된 파일을 기반으로 언어 컨테이너를 실행 시켜 코드의 결과값을 도출한다.</p>
-<h3 id="bm-7">모듈 통합과</h3>
-<pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">/** exam.controller.ts / submit */</span>
-
-<span class="hljs-keyword">const</span> saveResult = <span class="hljs-keyword">await</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">examService</span>.<span class="hljs-title function_">submit</span>(body.<span class="hljs-property">lang</span>, body.<span class="hljs-property">code</span>)
-<span class="hljs-keyword">const</span> {id, file, ext, msg} = saveResult
-
-<span class="hljs-keyword">const</span> executeResult = <span class="hljs-keyword">await</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">containerService</span>.<span class="hljs-title function_">runContainer</span>(<span class="hljs-string">`container_<span class="hljs-subst">${ext}</span>:latest`</span>, fileName)</code></pre><pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">/** container.provider.ts */</span>
-<span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> <span class="hljs-title class_">Docker</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;dockerode&#x27;</span>;
-
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title class_">ContainerProvider</span> = {
-    <span class="hljs-attr">provide</span>: <span class="hljs-title class_">Docker</span>,
-    <span class="hljs-comment">// Docker 클래스의 새 인스턴스를 생성</span>
-    <span class="hljs-comment">// socketPath는 도커 데몬과 통신하기 위한 유닉스 소켓의 경로를 지정</span>
-    <span class="hljs-attr">useFactory</span>: <span class="hljs-function">() =&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Docker</span>({ <span class="hljs-attr">socketPath</span>: <span class="hljs-string">&#x27;/var/run/docker.sock&#x27;</span> })
-}</code></pre><h3 id="bm-12">코드 제출 (exam.module)</h3>
+                            <h1 id="bm-1">무생채 만들기</h1>
+<pre><code class="language-plaintext"}>아마 라면과 같은 음식을 제외하면 마음 먹고 처음 만들어본 음식이 바로 이 무생채 일것이다.
+유튜브에서 이것 저것 찾아 보면서 만들다 보니 성공과 실패를 모두 해보았는데
+이번에는 정호영 셰프의 무생체 레시피를 따라 만들어 보았다.
+정호영 셰프님의 레시피를 선택한 이유는 절이는 과정이 없어서 이다.</code></pre>
+<p><img src="https://ballboyDev.github.io/assets/img/165_1.jpeg" onerror="this.src='https://placehold.co/500x300?text=prepareing+image...'" alt="이미지 준비중">
+<img src="https://ballboyDev.github.io/assets/img/165_2.jpeg" onerror="this.src='https://placehold.co/500x300?text=prepareing+image...'" alt="이미지 준비중">
+<img src="https://ballboyDev.github.io/assets/img/165_3.jpeg" onerror="this.src='https://placehold.co/500x300?text=prepareing+image...'" alt="이미지 준비중">
+<img src="https://ballboyDev.github.io/assets/img/165_4.jpeg" onerror="this.src='https://placehold.co/500x300?text=prepareing+image...'" alt="이미지 준비중"></p>
+<blockquote>
+<p>난이도 ✭✭ ~ ✭✭✭</p>
 <ul>
-<li>클라이언트로부터 받은 소스코드를 다른 서버(storage server)에 업로드</li>
+<li>채칼이 있으면 편하지만 자취생에게는 채칼도 사치다. 칼질 연습 겸 열심히 썰었다.</li>
 </ul>
-<pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">/** exam.service.ts */</span>
-<span class="hljs-keyword">async</span> <span class="hljs-title function_">submit</span>(<span class="hljs-params">lang, code</span>){
-    <span class="hljs-comment">// 언어별 확장자 설정</span>
-    <span class="hljs-keyword">const</span> fileExtension = <span class="hljs-string">&#x27;언어별 확장자 설정&#x27;</span>
-
-    <span class="hljs-comment">// storage 저장 파일 이름</span>
-    <span class="hljs-keyword">const</span> fileName = <span class="hljs-string">&#x27;제출자 ID_제출 시간&#x27;</span>
-
-    <span class="hljs-comment">// 파일 데이터 생성 (FormData 생성)</span>
-    <span class="hljs-keyword">const</span> formData = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FormData</span>()
-    formData.<span class="hljs-title function_">append</span>(<span class="hljs-string">&#x27;file&#x27;</span>, <span class="hljs-keyword">new</span> <span class="hljs-title class_">Blob</span>([code], {<span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;text/plain&#x27;</span>}), fileName)
-
-    <span class="hljs-comment">// HTTP PORT 요청 전송</span>
-    <span class="hljs-keyword">const</span> res = <span class="hljs-keyword">await</span> <span class="hljs-title function_">firstValueFrom</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">httpService</span>.<span class="hljs-title function_">post</span>(<span class="hljs-string">&#x27;uploadURL&#x27;</span>, formData, {
-        <span class="hljs-attr">headers</span>: {
-            <span class="hljs-string">&#x27;content-Type&#x27;</span>: <span class="hljs-string">&#x27;multipart/form-data&#x27;</span>
-        }
-    }))
-
-    <span class="hljs-comment">// 성공 응답 처리</span>
-    <span class="hljs-keyword">const</span> {id, fileName, ext} = res.<span class="hljs-property">data</span>
-    <span class="hljs-keyword">return</span> {
-        <span class="hljs-attr">id</span>: id,
-        <span class="hljs-attr">fileName</span>: fileName,
-        <span class="hljs-attr">ext</span>: ext,
-        <span class="hljs-attr">msg</span>: <span class="hljs-string">&#x27;upload success&#x27;</span>
-    }
-}</code></pre><h3 id="bm-16">컨테이너 관리 (container.module)</h3>
+</blockquote>
+<h2 id="bm-8">재료 준비</h2>
 <ul>
-<li>주어진 도커 이미지를 사용하여 컨테이너를 생성 및 실행하고, 실행 결과를 반환</li>
+<li>유튜브 영상에는 무 반개를 사용하지만 난 한개를 모두 사용하면서 계량이 조금 바뀌었다.</li>
 </ul>
-<pre class="theme-atom-one-dark"><code class="language-js"><span class="hljs-comment">/** container.service.ts */</span>
-<span class="hljs-keyword">async</span> <span class="hljs-title function_">runContainer</span>(<span class="hljs-params">image, fileName</span>) {
-    <span class="hljs-keyword">let</span> output = <span class="hljs-string">&#x27;&#x27;</span>
-    <span class="hljs-comment">// 컨테이너의 표준 출력과 표준 에러를 수신하여 output 변수에 저장</span>
-    <span class="hljs-keyword">const</span> outputStream = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Writable</span>({
-        <span class="hljs-title function_">write</span>(<span class="hljs-params">chunk, encoding, callback</span>) {
-            output += chunk.<span class="hljs-title function_">toString</span>()
-            <span class="hljs-title function_">callback</span>()
-        }
-    })
+<h3 id="bm-11">재료</h3>
+<ol>
+<li>무 / 한개</li>
+<li>양파 / 1알</li>
+<li>쪽파 / 적당히</li>
+<li>다진 마늘 / 2sp</li>
+</ol>
+<h3 id="bm-14">양념(조미료)</h3>
+<ol>
+<li>고추가루 / 8~10sp</li>
+<li>멸치 액젓 / 1sp</li>
+<li>소금 / 1sp</li>
+<li>설탕 / 3sp</li>
+<li>식초 / 2sp</li>
+<li>미원 / 0.5sp</li>
+<li>참기름 / 1sp</li>
+<li>통깨 / 2sp</li>
+</ol>
+<h2 id="bm-17">레시피</h2>
+<ol>
+<li><p>무를 적당한 길이로 모두 채썰어 준다.</p>
+</li>
+<li><p>양파와 쪽파도 무와 비슷한 길이로 채 썰어 준다.</p>
+</li>
+<li><p>큰 볼에 채썬 무와 양파, 쪽파를 전부 넣고 다진 마늘과 준비한 양념들을 모두 넣어 준다.</p>
+<ul>
+<li>단맛이 싫다면 설탕을 줄이고 시큼한 맛을 줄이고 싶다면 식초를 줄이거나 빼준다.</li>
+<li>미원도 제외 가능하다.</li>
+<li>통깨는 반은 그냥 넣고 반은 갈아서 넣는다.</li>
+</ul>
+</li>
+<li><p>모든 재료를 잘 섞어 준다.</p>
+</li>
+<li><p>간을 보고 액젓이나 식초, 설탕을 가감한다.</p>
+</li>
+<li><p>잘 버무러진 무 생채를 통애 담고 하루 정도 숙성시킨후 먹으면 맛이 더 좋다.</p>
+</li>
+<li><p>맛있게 먹는다.</p>
+</li>
+</ol>
+<pre><code class="language-plaintext"}>>> 자취생 평가 <<
 
-    <span class="hljs-comment">// 컨테이너 생성 옵션 설정</span>
-    <span class="hljs-keyword">const</span> options = { <span class="hljs-comment">// docker run --rm -v vol-onCoTe-storage:/exam container_lang:latest [fileName]</span>
-        <span class="hljs-comment">// 생성할 컨테이너 도커 이미지</span>
-        <span class="hljs-title class_">Image</span>: image,
-        <span class="hljs-comment">// 컨테이너가 시작 될때 실행할 명령어 / 실행할 파일명 전달</span>
-        <span class="hljs-title class_">Cmd</span>: [fileName],
+다양한 레시피를 따라 만들어 보았다. 개인적으로 가장 맛이 좋다고 생각했는데 참기름과 통깨의 고소한 향과 식초의 시큼한 향 설탕과 양파 무의 달큰한 맛이 정말 잘 어우러지는게 앞으로 이 레시피에 정착할것 같다.</code></pre>
 
-        <span class="hljs-title class_">HostConfig</span>: {
-            <span class="hljs-comment">// 컨테이너의 실행이 완료되면 자동으로 컨테이너 삭제</span>
-            <span class="hljs-title class_">AutoRemove</span>: <span class="hljs-literal">true</span>,
-            <span class="hljs-comment">// 저장된 storage 서버의 파일에 접근하기 위한 볼륨 마운트</span>
-            <span class="hljs-title class_">Binds</span>: [
-                <span class="hljs-string">&quot;vol-onCoTe-storage:/exam&quot;</span>
-            ]
-        }
-    }
-
-    <span class="hljs-comment">// 정의된 옵션으로 새로운 컨테이너 생성</span>
-    <span class="hljs-keyword">const</span> container = <span class="hljs-keyword">await</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">docker</span>.<span class="hljs-title function_">createContainer</span>(options)
-
-    <span class="hljs-comment">// 컨테이너의 입출력 스트림 연결 </span>
-    <span class="hljs-keyword">const</span> stream = <span class="hljs-keyword">await</span> container.<span class="hljs-title function_">attach</span>({
-        <span class="hljs-attr">stream</span>: <span class="hljs-literal">true</span>,
-        <span class="hljs-attr">stdout</span>: <span class="hljs-literal">true</span>,
-        <span class="hljs-attr">stderr</span>: <span class="hljs-literal">true</span>
-    })
-
-    <span class="hljs-comment">// 도커 스트림에서 오는 데이터를 outputStream 전송</span>
-    container.<span class="hljs-property">modem</span>.<span class="hljs-title function_">demuxStream</span>(stream, outputStream, outputStream)
-
-    <span class="hljs-comment">// 컨테이너 시작과 컨테이너 내부의 프로세스가 종료될 때까지 대기</span>
-    <span class="hljs-keyword">await</span> container.<span class="hljs-title function_">start</span>()
-    <span class="hljs-keyword">await</span> container.<span class="hljs-title function_">wait</span>()
-
-    <span class="hljs-comment">// 결과 반환</span>
-    <span class="hljs-keyword">return</span> {
-        <span class="hljs-attr">id</span>: container.<span class="hljs-property">id</span>,
-        <span class="hljs-attr">msg</span>: output
-    }
-}</code></pre>
 
                         </div>
 
