@@ -1,0 +1,769 @@
+
+            <!DOCTYPE html>
+            <html lang="en">
+
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta name="google-site-verification" content="jrh7qB1kgowvnvE0P3KqlhI-iNmw9CvGJF4dQsaCTAk" />
+                <meta name="naver-site-verification" content="6fe49ccdb8613221b89ae2d580300c63a91af446" />
+                
+                
+            <link rel="icon" href="https://ballboyDev.github.io/assets/img/bDev.ico">
+            <link rel="stylesheet" href="https://ballboyDev.github.io/assets/markdown.css">
+            <link rel="stylesheet" href="https://ballboyDev.github.io/assets/skin.css">
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+
+            <style>
+                #p-177 {
+                    color: rgb(76, 193, 237) !important;
+                }
+            </style>
+            <script id="data" type="application/json">{ "fold": ["3","33"] }</script>
+
+            <script src="https://ballboyDev.github.io/assets/skin.js"></script>
+            <script src="https://ballboyDev.github.io/assets/env.js"></script>
+            
+
+                <title>닭 한마리</title>
+            </head>
+
+            <body>
+                <div id="wrapper">
+                    <!-- side bar component -->
+                    <div id="head-bar">
+                        <img id="openNavi" class="menu"
+                            src="https://ballboyDev.github.io/assets/img/menu.svg"
+                            alt="" srcset="">
+                        <div class="title">심심한 개발자의 취미생활</div>
+                        <img class="img"
+                            src="https://ballboyDev.github.io/assets/img/profile.jpeg"
+                            alt="" srcset="">
+                    </div>
+                    <div id="side-bar">
+                        <img id="closeNavi" class="close"
+                            src="https://ballboyDev.github.io/assets/img/close.svg"
+                            alt="" srcset="">
+                        <div class="profile">
+                            <img class="img" src="https://ballboyDev.github.io/assets/img/profile.jpeg" alt="" srcset="">
+                            <p>심심한 개발자의 취미생활</p>
+                        </div>
+                        <hr />
+                        <h3 class="home"><a href="https://ballboyDev.github.io">HOME</a></h3>
+                        <hr />
+                        
+                        <h3 class="category" onclick="foldNavi()">카테고리</h3>
+                        <div class="navi">
+                            <ul class="root">
+
+                                <li id="dt-1"  onclick="foldNavi('1')">심심한 개발자의 개발 공부 (52)</li>
+<ul id="dc-1" class='dc-all' style="display: block;">
+<li id="dt-11"  onclick="foldNavi('11')">개발 정보 정리 (13)</li>
+<ul id="dc-11" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/3">
+<li id="p-3">• vim 에디터 정리</li>
+</a>
+<a href="https://ballboyDev.github.io/post/31">
+<li id="p-31">• json객체와 Map()의 비교</li>
+</a>
+<a href="https://ballboyDev.github.io/post/32">
+<li id="p-32">• 배열 생성 성능 비교</li>
+</a>
+<a href="https://ballboyDev.github.io/post/36">
+<li id="p-36">• console 객체 활용하기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/58">
+<li id="p-58">• 자주쓰는 git/git-flow 명령어</li>
+</a>
+<a href="https://ballboyDev.github.io/post/69">
+<li id="p-69">• curl 명령어 사용법 정리</li>
+</a>
+<a href="https://ballboyDev.github.io/post/73">
+<li id="p-73">• node 내장 객체와 내장 모듈 사용하기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/80">
+<li id="p-80">• 터미널 이미지 형식 변환(sips)</li>
+</a>
+<a href="https://ballboyDev.github.io/post/107">
+<li id="p-107">• Shell Script 기초 문법 정리</li>
+</a>
+<a href="https://ballboyDev.github.io/post/116">
+<li id="p-116">• Cookie, Session, JWT, OAuth 개념</li>
+</a>
+<a href="https://ballboyDev.github.io/post/152">
+<li id="p-152">• 네트워크</li>
+</a>
+<a href="https://ballboyDev.github.io/post/153">
+<li id="p-153">• DNS (Domain Name Service)</li>
+</a>
+<a href="https://ballboyDev.github.io/post/154">
+<li id="p-154">• CDN (Contents Deliver Network)</li>
+</a>
+
+</ul>
+<li id="dt-12"  onclick="foldNavi('12')">svelte, sveltekit (14)</li>
+<ul id="dc-12" class='dc-all' style="display: none;">
+<li id="dt-121"  onclick="foldNavi('121')">svelte (1)</li>
+<ul id="dc-121" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/168">
+<li id="p-168">• Runes</li>
+</a>
+
+</ul>
+<li id="dt-122"  onclick="foldNavi('122')">sveltekit (5)</li>
+<ul id="dc-122" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/117">
+<li id="p-117">• sveltekit 기본구조</li>
+</a>
+<a href="https://ballboyDev.github.io/post/118">
+<li id="p-118">• 파일 시스템 기반 라우팅</li>
+</a>
+<a href="https://ballboyDev.github.io/post/119">
+<li id="p-119">• 데이터 로드</li>
+</a>
+<a href="https://ballboyDev.github.io/post/120">
+<li id="p-120">• sveltekit API 요청</li>
+</a>
+<a href="https://ballboyDev.github.io/post/122">
+<li id="p-122">• 폼 액션</li>
+</a>
+
+</ul>
+<li id="dt-123"  onclick="foldNavi('123')">archive (8)</li>
+<ul id="dc-123" class='dc-all' style="display: none;">
+<li id="dt-1231"  onclick="foldNavi('1231')">svelte (8)</li>
+<ul id="dc-1231" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/18">
+<li id="p-18">• svelte Basic</li>
+</a>
+<a href="https://ballboyDev.github.io/post/19">
+<li id="p-19">• svelte 속성</li>
+</a>
+<a href="https://ballboyDev.github.io/post/20">
+<li id="p-20">• life cycle</li>
+</a>
+<a href="https://ballboyDev.github.io/post/21">
+<li id="p-21">• runes</li>
+</a>
+<a href="https://ballboyDev.github.io/post/22">
+<li id="p-22">• template Syntax</li>
+</a>
+<a href="https://ballboyDev.github.io/post/23">
+<li id="p-23">• Directive</li>
+</a>
+<a href="https://ballboyDev.github.io/post/24">
+<li id="p-24">• Runtime</li>
+</a>
+<a href="https://ballboyDev.github.io/post/68">
+<li id="p-68">• setting svelte.config.js</li>
+</a>
+
+</ul>
+
+</ul>
+
+</ul>
+<li id="dt-13"  onclick="foldNavi('13')">Infra (18)</li>
+<ul id="dc-13" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/151">
+<li id="p-151">• app, docker, kubernetes 인프라 환경의 포트 설정</li>
+</a>
+<li id="dt-131"  onclick="foldNavi('131')">Docker (9)</li>
+<ul id="dc-131" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/77">
+<li id="p-77">• docker mariadb setting</li>
+</a>
+<a href="https://ballboyDev.github.io/post/78">
+<li id="p-78">• docker mongodb setting</li>
+</a>
+<a href="https://ballboyDev.github.io/post/89">
+<li id="p-89">• docker network, volume</li>
+</a>
+<a href="https://ballboyDev.github.io/post/90">
+<li id="p-90">• docker compose</li>
+</a>
+<a href="https://ballboyDev.github.io/post/94">
+<li id="p-94">• docker 경량 컨테이너 베이스</li>
+</a>
+<li id="dt-1311"  onclick="foldNavi('1311')">Docker 기본 명령어 정리 (4)</li>
+<ul id="dc-1311" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/81">
+<li id="p-81">• Docker image 관련 명령어</li>
+</a>
+<a href="https://ballboyDev.github.io/post/82">
+<li id="p-82">• Docker container 관련 명령어</li>
+</a>
+<a href="https://ballboyDev.github.io/post/83">
+<li id="p-83">• Docker run 명령어 관련 옵션</li>
+</a>
+<a href="https://ballboyDev.github.io/post/84">
+<li id="p-84">• Dockerfile 명령어 정리</li>
+</a>
+
+</ul>
+
+</ul>
+<li id="dt-132"  onclick="foldNavi('132')">Kubernetes (8)</li>
+<ul id="dc-132" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/141">
+<li id="p-141">• 1. Pod, Deployment, Service</li>
+</a>
+<a href="https://ballboyDev.github.io/post/142">
+<li id="p-142">• 2. ConfigMap, Secret</li>
+</a>
+<a href="https://ballboyDev.github.io/post/143">
+<li id="p-143">• 3. Volume, Mount, Clame</li>
+</a>
+<a href="https://ballboyDev.github.io/post/144">
+<li id="p-144">• 4. Scailing, Replicaset</li>
+</a>
+<a href="https://ballboyDev.github.io/post/145">
+<li id="p-145">• 5. Multi Container</li>
+</a>
+<a href="https://ballboyDev.github.io/post/146">
+<li id="p-146">• 6. StatefulSet, Job, ClonJob</li>
+</a>
+<a href="https://ballboyDev.github.io/post/147">
+<li id="p-147">• 7. RollOut, RollBack</li>
+</a>
+<a href="https://ballboyDev.github.io/post/148">
+<li id="p-148">• 8. Helm</li>
+</a>
+
+</ul>
+
+</ul>
+<li id="dt-14"  onclick="foldNavi('14')">NestJS (6)</li>
+<ul id="dc-14" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/125">
+<li id="p-125">• NestJS</li>
+</a>
+<a href="https://ballboyDev.github.io/post/126">
+<li id="p-126">• Controller</li>
+</a>
+<a href="https://ballboyDev.github.io/post/128">
+<li id="p-128">• Provider</li>
+</a>
+<a href="https://ballboyDev.github.io/post/129">
+<li id="p-129">• Module</li>
+</a>
+<a href="https://ballboyDev.github.io/post/130">
+<li id="p-130">• Middleware</li>
+</a>
+<a href="https://ballboyDev.github.io/post/131">
+<li id="p-131">• ExceptionFilter</li>
+</a>
+
+</ul>
+<li id="dt-16"  onclick="foldNavi('16')">Spring (1)</li>
+<ul id="dc-16" class='dc-all' style="display: none;">
+<li id="dt-161"  onclick="foldNavi('161')">Spring Boot (1)</li>
+<ul id="dc-161" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/115">
+<li id="p-115">• vscode에 Spring Boot 개발 세팅 하기</li>
+</a>
+
+</ul>
+
+</ul>
+
+</ul>
+<li id="dt-2"  onclick="foldNavi('2')">심심한 개발자의 개발 취미 (17)</li>
+<ul id="dc-2" class='dc-all' style="display: none;">
+<li id="dt-22"  onclick="foldNavi('22')">간단 블로그 만들기 (9)</li>
+<ul id="dc-22" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/1">
+<li id="p-1">• 블로그 개발 기획, 배포 일지</li>
+</a>
+<a href="https://ballboyDev.github.io/post/10">
+<li id="p-10">• 0. 블로그 만들기 - 시작하며</li>
+</a>
+<a href="https://ballboyDev.github.io/post/13">
+<li id="p-13">• 1. 블로그 만들기 - 폴더 탐색</li>
+</a>
+<a href="https://ballboyDev.github.io/post/16">
+<li id="p-16">• 2. 블로그 만들기 - 마크다운 변환</li>
+</a>
+<a href="https://ballboyDev.github.io/post/17">
+<li id="p-17">• 3. 블로그 만들기 - 리펙토링</li>
+</a>
+<a href="https://ballboyDev.github.io/post/34">
+<li id="p-34">• 1. 블로그 만들기 외전 - 애플 단축어 활용</li>
+</a>
+<a href="https://ballboyDev.github.io/post/35">
+<li id="p-35">• 2. 블로그 만들기 외전 - 외부 빌드 스크립트 만들기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/71">
+<li id="p-71">• 4. 블로그 만들기 - 목차</li>
+</a>
+<a href="https://ballboyDev.github.io/post/160">
+<li id="p-160">• 3. 블로그 만들기 외전 - 빌드 스크립드 (ver.2)</li>
+</a>
+
+</ul>
+<li id="dt-23"  onclick="foldNavi('23')">온라인 코딩 테스트 시스템 (6)</li>
+<ul id="dc-23" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/92">
+<li id="p-92">• 온라인 코딩 테스트 시스템 배포 일지</li>
+</a>
+<a href="https://ballboyDev.github.io/post/93">
+<li id="p-93">• 0. 온코테 시스템 만들기 - 시작하며</li>
+</a>
+<a href="https://ballboyDev.github.io/post/98">
+<li id="p-98">• 1. 온코테 시스템 만들기 - 기초 설계</li>
+</a>
+<a href="https://ballboyDev.github.io/post/99">
+<li id="p-99">• 2. 온코테 시스템 만들기 - Backend</li>
+</a>
+<a href="https://ballboyDev.github.io/post/100">
+<li id="p-100">• 3. 온코테 시스템 만들기 - Storage</li>
+</a>
+<a href="https://ballboyDev.github.io/post/101">
+<li id="p-101">• 4. 온코테 시스템 만들기 - Container</li>
+</a>
+
+</ul>
+<li id="dt-24"  onclick="foldNavi('24')">로드맵(chart) 제작 (0)</li>
+<ul id="dc-24" class='dc-all' style="display: none;">
+
+</ul>
+<li id="dt-25"  onclick="foldNavi('25')">바이브 코딩 프로젝트 (0)</li>
+<ul id="dc-25" class='dc-all' style="display: none;">
+
+</ul>
+<li id="dt-26"  onclick="foldNavi('26')">gitea 기반 cicd 구축 (2)</li>
+<ul id="dc-26" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/155">
+<li id="p-155">• 1. Gitea 구축</li>
+</a>
+<a href="https://ballboyDev.github.io/post/156">
+<li id="p-156">• 2. Gitea Act_runner 구축</li>
+</a>
+
+</ul>
+<li id="dt-27"  onclick="foldNavi('27')">google app script를 활용한 웹 서비스 개발기 (0)</li>
+<ul id="dc-27" class='dc-all' style="display: none;">
+
+</ul>
+
+</ul>
+<li id="dt-3"  onclick="foldNavi('3')">자취생 밥 만들어 먹기 (59)</li>
+<ul id="dc-3" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/27">
+<li id="p-27">• 내돈 내산 양념/조미료 사용 후기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/33">
+<li id="p-33">• 전자레인지로 밥 짓기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/91">
+<li id="p-91">• 찍어 먹는 양념 만들기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/176">
+<li id="p-176">• 전자레인지로 밥 짓기 (개선 버전)</li>
+</a>
+<li id="dt-31"  onclick="foldNavi('31')">5첩 반상을 위한 밑반찬 (13)</li>
+<ul id="dc-31" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/5">
+<li id="p-5">• 겉절이 김치</li>
+</a>
+<a href="https://ballboyDev.github.io/post/7">
+<li id="p-7">• 고추다대기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/11">
+<li id="p-11">• 김짱아치</li>
+</a>
+<a href="https://ballboyDev.github.io/post/162">
+<li id="p-162">• 두부조림</li>
+</a>
+<a href="https://ballboyDev.github.io/post/163">
+<li id="p-163">• 시금치 무침</li>
+</a>
+<a href="https://ballboyDev.github.io/post/164">
+<li id="p-164">• 콩나물 조림</li>
+</a>
+<a href="https://ballboyDev.github.io/post/165">
+<li id="p-165">• 무 생채</li>
+</a>
+<a href="https://ballboyDev.github.io/post/166">
+<li id="p-166">• 마르코프차 (당근김치)</li>
+</a>
+<a href="https://ballboyDev.github.io/post/167">
+<li id="p-167">• 당근 라페</li>
+</a>
+<a href="https://ballboyDev.github.io/post/169">
+<li id="p-169">• 마늘쫑 돼지고기 볶음</li>
+</a>
+<a href="https://ballboyDev.github.io/post/171">
+<li id="p-171">• 우엉 조림</li>
+</a>
+<a href="https://ballboyDev.github.io/post/174">
+<li id="p-174">• 시레기 볶음</li>
+</a>
+<a href="https://ballboyDev.github.io/post/175">
+<li id="p-175">• 시레기 된장 볶음</li>
+</a>
+
+</ul>
+<li id="dt-32"  onclick="foldNavi('32')">밥의 영혼의 단짝 국, 소스 (12)</li>
+<ul id="dc-32" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/2">
+<li id="p-2">• 미역국</li>
+</a>
+<a href="https://ballboyDev.github.io/post/4">
+<li id="p-4">• 양배추 강된장</li>
+</a>
+<a href="https://ballboyDev.github.io/post/6">
+<li id="p-6">• 진한 카레</li>
+</a>
+<a href="https://ballboyDev.github.io/post/9">
+<li id="p-9">• 계란국</li>
+</a>
+<a href="https://ballboyDev.github.io/post/14">
+<li id="p-14">• 짜장소스</li>
+</a>
+<a href="https://ballboyDev.github.io/post/74">
+<li id="p-74">• 냉이 된장찌개</li>
+</a>
+<a href="https://ballboyDev.github.io/post/132">
+<li id="p-132">• 쯔유 오뎅탕</li>
+</a>
+<a href="https://ballboyDev.github.io/post/135">
+<li id="p-135">• 버섯 스프</li>
+</a>
+<a href="https://ballboyDev.github.io/post/138">
+<li id="p-138">• 된장 술밥</li>
+</a>
+<a href="https://ballboyDev.github.io/post/150">
+<li id="p-150">• 키마 카레</li>
+</a>
+<a href="https://ballboyDev.github.io/post/157">
+<li id="p-157">• 한식 마파두부</li>
+</a>
+<a href="https://ballboyDev.github.io/post/170">
+<li id="p-170">• 마녀 스프</li>
+</a>
+
+</ul>
+<li id="dt-33"  onclick="foldNavi('33')">삶의 에너지 고기(육식) (11)</li>
+<ul id="dc-33" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/8">
+<li id="p-8">• 국물 두루치기</li>
+</a>
+<a href="https://ballboyDev.github.io/post/12">
+<li id="p-12">• 삼겹살 덮밥</li>
+</a>
+<a href="https://ballboyDev.github.io/post/26">
+<li id="p-26">• 전자레인지 대패 삼겹살 솥밥</li>
+</a>
+<a href="https://ballboyDev.github.io/post/30">
+<li id="p-30">• 멍게 비빔밥</li>
+</a>
+<a href="https://ballboyDev.github.io/post/37">
+<li id="p-37">• 제육볶음</li>
+</a>
+<a href="https://ballboyDev.github.io/post/72">
+<li id="p-72">• 멍게 무침</li>
+</a>
+<a href="https://ballboyDev.github.io/post/79">
+<li id="p-79">• 닭근위 볶음</li>
+</a>
+<a href="https://ballboyDev.github.io/post/124">
+<li id="p-124">• 깐풍 삼겹살</li>
+</a>
+<a href="https://ballboyDev.github.io/post/133">
+<li id="p-133">• 매운 삼겹살 찜</li>
+</a>
+<a href="https://ballboyDev.github.io/post/177">
+<li id="p-177">• 닭 한마리</li>
+</a>
+<a href="https://ballboyDev.github.io/post/178">
+<li id="p-178">• 후라이팬 닭 구이</li>
+</a>
+
+</ul>
+<li id="dt-34"  onclick="foldNavi('34')">면 러버의 면 사랑 요리 (17)</li>
+<ul id="dc-34" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/25">
+<li id="p-25">• 내 멋대로 알리오 올리오</li>
+</a>
+<a href="https://ballboyDev.github.io/post/28">
+<li id="p-28">• 라면 요리 - 마요네즈 비빔 라면</li>
+</a>
+<a href="https://ballboyDev.github.io/post/29">
+<li id="p-29">• 들기름 막국수</li>
+</a>
+<a href="https://ballboyDev.github.io/post/38">
+<li id="p-38">• 고추 기름 비빔면</li>
+</a>
+<a href="https://ballboyDev.github.io/post/70">
+<li id="p-70">• 라면 요리 - 마늘 해장 라면</li>
+</a>
+<a href="https://ballboyDev.github.io/post/76">
+<li id="p-76">• 라면 요리 - 대파 해장 라면</li>
+</a>
+<a href="https://ballboyDev.github.io/post/85">
+<li id="p-85">• 라면 요리 - 라면밥</li>
+</a>
+<a href="https://ballboyDev.github.io/post/87">
+<li id="p-87">• 이열치냉 - 냉 미역 국수</li>
+</a>
+<a href="https://ballboyDev.github.io/post/105">
+<li id="p-105">• 이열치냉 - 간단 야식 냉면</li>
+</a>
+<a href="https://ballboyDev.github.io/post/106">
+<li id="p-106">• 라면 요리 - 윤남노 사천 짜파게티</li>
+</a>
+<a href="https://ballboyDev.github.io/post/121">
+<li id="p-121">• 알리오 올리오 에 페퍼론치노</li>
+</a>
+<a href="https://ballboyDev.github.io/post/134">
+<li id="p-134">• 스리라차 나폴리탄 파스타</li>
+</a>
+<a href="https://ballboyDev.github.io/post/136">
+<li id="p-136">• 해물 볶음 우동</li>
+</a>
+<a href="https://ballboyDev.github.io/post/149">
+<li id="p-149">• 된장 파스타</li>
+</a>
+<a href="https://ballboyDev.github.io/post/159">
+<li id="p-159">• 라면 요리 - 라면 밥 (ver.2)</li>
+</a>
+<a href="https://ballboyDev.github.io/post/161">
+<li id="p-161">• 마제소바</li>
+</a>
+<a href="https://ballboyDev.github.io/post/173">
+<li id="p-173">• 멸치 액젓 잔치 국수</li>
+</a>
+
+</ul>
+<li id="dt-35"  onclick="foldNavi('35')">출출할때 만들어 먹는 요리 (2)</li>
+<ul id="dc-35" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/139">
+<li id="p-139">• 감자전</li>
+</a>
+<a href="https://ballboyDev.github.io/post/172">
+<li id="p-172">• 감자채전</li>
+</a>
+
+</ul>
+
+</ul>
+<li id="dt-4"  onclick="foldNavi('4')">의식의 흐름대로 (0)</li>
+<ul id="dc-4" class='dc-all' style="display: none;">
+<li id="dt-41"  onclick="foldNavi('41')">일상 회고록 (0)</li>
+<ul id="dc-41" class='dc-all' style="display: none;">
+
+</ul>
+
+</ul>
+<li id="dt-5"  onclick="foldNavi('5')">심심한 개발자의 일상 (1)</li>
+<ul id="dc-5" class='dc-all' style="display: none;">
+<a href="https://ballboyDev.github.io/post/137">
+<li id="p-137">• 웨일 북마크 복원</li>
+</a>
+
+</ul>
+
+                            </ul>
+                        </div>
+
+                        <div class="copyright">
+                            <img class="img"
+                                src="https://ballboyDev.github.io/assets/img/github-mark-white.svg"
+                                alt="" srcset="">
+                            <a href="https://github.com/BallboyDev/ballboyDev.github.io" target="_blank">Designed by ballboyDev</a>
+                        </div>
+
+                    </div>
+
+                    <!-- contents component -->
+                    <div id="contents">
+
+                        
+
+                        <div class="bookmark">
+
+            <div class="title t1" style="display: flex;">
+                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-1"># 밥솥 닭 한마리 만들기 + 닭 국수 만들기
+
+
+</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2" style="display: flex;">
+                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-3">## 소개</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2" style="display: flex;">
+                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-6">## 재료 (난이도 ✭✭)
+</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2" style="display: flex;">
+                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-9">## 조리 과정
+</a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t2" style="display: flex;">
+                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-12">## 닭 국수 </a></div>
+                <p>•</p>
+            </div>
+
+            <div class="title t3" style="display: flex;">
+                <div style="display:flex;align-items: center;"><a style="text-decoration: none;" href="#bm-15">### 조리 과정</a></div>
+                <p>•</p>
+            </div></div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="main markdown-body">
+
+                            <h1 id="bm-1">밥솥 닭 한마리 만들기 + 닭 국수 만들기</h1>
+
+        <table>
+            
+            <tbody><tr><td align="center"><img src="https://ballboyDev.github.io/assets/img/177_2.jpeg" onerror="this.src='https://placehold.co/500x300?text=prepareing+image...'" alt="닭한마리"></td>
+<td align="center"><img src="https://ballboyDev.github.io/assets/img/177_1.jpeg" onerror="this.src='https://placehold.co/500x300?text=prepareing+image...'" alt="닭한마리"></td>
+</tr>
+<tr><td align="center">밥솥 조리</td>
+<td align="center">팬에 옮긴 상태</td>
+</tr>
+<tr><td align="center"><img src="https://ballboyDev.github.io/assets/img/177_4.jpeg" onerror="this.src='https://placehold.co/500x300?text=prepareing+image...'" alt="닭한마리"></td>
+<td align="center"><img src="https://ballboyDev.github.io/assets/img/177_5.jpeg" onerror="this.src='https://placehold.co/500x300?text=prepareing+image...'" alt="닭한마리"></td>
+</tr>
+<tr><td align="center">닭 국수</td>
+<td align="center">콜라비 무생채 + 닭 국수 + 닭 구이 정식</td>
+</tr></tbody>
+        </table>
+        <h2 id="bm-3">소개</h2>
+<p>전과 동일한 레퍼토리로 역시 마트를 돌아 다니다가 닭볶음탕용 닭이 할인을 하길레 구매를 했다.
+맨날 치킨 스톡과 닭가슴살로 닭 느낌만 냈지 한번도 닭 요리를 시도해본적이 없는데 
+최근 사용 하는 재료의 풀이 늘어 나면서 나름 자신감이 생긴거 같아 도전을 해보았다.
+이번에 시도해볼 요리는 닭한마리인데... 사실 부산이 고향인 나는 살면서 닭한마리를 딱 한번밖에 안먹어 보았다.
+그래서 닭한마리가 정확히 어떤 요리이고 어떻게 만드는지 모르지만 다양한 레시피와 경험을 살려 만들어 보았다.
+거기다 간편한게 밥솥을 사용한...,</p>
+<h2 id="bm-6">재료 (난이도 ✭✭)</h2>
+<ul>
+<li><p><strong>주재료:</strong></p>
+<ul>
+<li>닭볶음탕용 손질 닭: 700g<ul>
+<li>1kg을 구매 했지만 밥솥 사이즈 문제로 700g만 사용했다.</li>
+</ul>
+</li>
+<li>대파 : 너무 크지 않은 사이즈 2대</li>
+<li>양파 : 반알</li>
+<li>당근 : 1/3개<ul>
+<li>필수 아님</li>
+</ul>
+</li>
+<li>다진 마늘 : 1sp</li>
+<li>다진 생강 : 1sp</li>
+</ul>
+</li>
+<li><p><strong>양념:</strong></p>
+<ul>
+<li>미림 : 3sp</li>
+<li>치킨 스톡 : 0.5sp<ul>
+<li>치킨 스톡이 없으면 소금을 사용 해도 된다.</li>
+</ul>
+</li>
+<li>후추 : 0.5sp</li>
+</ul>
+</li>
+<li><p><strong>찍어 먹을 양념</strong></p>
+<ul>
+<li>고추가루 : 2sp</li>
+<li>간장 : 1sp</li>
+<li>식초 : 2sp</li>
+<li>설탕 : 1sp<ul>
+<li>매실청이나 생강청이 있다면 대신 사용하면 더 좋다.</li>
+</ul>
+</li>
+<li>다진 마늘 : 1sp</li>
+<li>깨 : 0.3sp</li>
+<li>참기름 : 적당량</li>
+<li>쪽파 : 적당량</li>
+<li>연겨자 or 와사비 : 적당량<ul>
+<li>집에 연겨자가 없어 와사비를 넣었는데 나쁘지 않은듯 하다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="bm-9">조리 과정</h2>
+<ol>
+<li><p><strong>깨끗히 씻은 대파와 양파, 당근을 적당한 크기로 썰고 밥솥에 깔아 준다.</strong></p>
+<ul>
+<li>대파는 3 ~ 5cm 길이, 당근과 양파는 2 ~ 3cm 깍뚝썰어 준다.</li>
+</ul>
+</li>
+<li><p><strong>닭을 손질하여 야채 위에 깔아 준다.</strong></p>
+<ul>
+<li>닭 손질 하는 방법은 인터넷에 잘 정리 되어 있지만 사실 난 귀찮기도 하고 별 생각없이 그냥 사용 했다...</li>
+</ul>
+</li>
+<li><p><strong>밥 솥에 미림 3sp, 치킨 스톡 0.5sp, 후추 0.5sp, 다진 마늘과 다진 생강을 1sp 씩 넣어 준다.</strong></p>
+</li>
+<li><p><strong>물을 400ml 정도 아래 야채가 잠길정도로 부어 준다.</strong></p>
+<ul>
+<li>야채와 닭이 익으면서 수분이 나와 국물이 늘어나 물을 너무 많이 넣으면 넘칠수가 있다.</li>
+</ul>
+</li>
+<li><p><strong>밥솥의 기능에 만능 찜 모드로 40분으로 맞추고 취사를 눌러 준다.</strong></p>
+<ul>
+<li>만늠찜 모드가 없다면 일반 취사 모드로 해도 괜찮을것 같다.</li>
+</ul>
+</li>
+<li><p><strong>닭 요리가 만들어 지면서 함께 찍어 먹을 소스를 만들어 준다.</strong></p>
+<ul>
+<li>준비된 찍어 먹을 양념 재로를 모두 넣어주고 잘 섞었놓았다가 닭이 모두 완성되면 육수를 5sp 정도 넣어 섞어 완성한다.</li>
+</ul>
+</li>
+<li><p><strong>취사가 끝나면 닭 고기 몇개를 갈라 보며 속까지 다 익었는지 확인하고 덜 익었다면 만능찜을 10분정도 더 진행한다.</strong></p>
+</li>
+<li><p><strong>맛있게 먹는다.</strong></p>
+</li>
+</ol>
+<h2 id="bm-12">닭 국수</h2>
+<p>닭 한마리를 모두 먹고 나니 국물이 남았다. (물론 앞접시에 덜어 먹어 깨끗한 국물이다.) 보통은 한번에 칼국수까지 해먹던데 난 배가 불러 다음날 해먹기로 했다.
+남은 닭 국물은 다시 한번 팔팔 끓이고 락앤락 그릇에 채를 받쳐 건더기를 걸러 보관했다. (앙파와 대파는 꾹꾹눌러 육수를 짜주었다.)
+남은 살이 있다면? 살 부분만 잘 발라 보관해줬겠지만 난 살이 남지는 않았다</p>
+<h3 id="bm-15">조리 과정</h3>
+<ol>
+<li><p><strong>보관해두었던 닭육수를 냄비에 부어 다시 끓여준다.</strong></p>
+</li>
+<li><p><strong>양과 간을 보고 물과 소금, 간장, 치킨스톡등으로 양을 늘리고 간을 맞춰주고 계속 끓여준다.</strong></p>
+</li>
+<li><p><strong>면을 삶고 그릇에 옮겨준다. 혹시 남은 닭 고기가 있다면 고명으로 올려준다.</strong></p>
+</li>
+<li><p><strong>끓은 육수를 그릇에 부어주고 위에 고명 쪽파와 후추, 참기름을 둘러 준다.</strong></p>
+</li>
+<li><p><strong>맛있게 먹는다.</strong></p>
+</li>
+</ol>
+
+
+                        </div>
+
+                        
+            <script src="https://utteranc.es/client.js"
+                repo="ballboyDev/personal-storage"
+                issue-term="pathname"
+                label="comments"
+                theme="github-dark"
+                crossorigin="anonymous"
+                async>
+            </script>
+
+                    </div>
+                </div>
+            </body>
+            </html>
