@@ -94,14 +94,39 @@ const code = {
     page: (param) => {
         const { data, tag } = param
 
+        const description = utils.info.description
+        const currentUrl = `${data.url}/post/${data.index}${data.env === 'dev' ? '.html' : ''}`
+        const siteTitle = data?.title ? `${data.title} | 심심한 개발자` : '심심한 개발자의 취미생활';
+
         const html = `
             <!DOCTYPE html>
-            <html lang="en">
+            <html lang="ko">
 
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+                <!-- 기본 SEO -->
+                <title>${siteTitle}</title>
+                <meta name='description' content="${description}">
+                <link rel="canonical" href="${currentUrl}" >
+
+                <!-- Open Graph / Facebook -->
+                <meta property="og:type" content="website">
+                <meta property="og:url" content="${currentUrl}">
+                <meta property="og:title" content="${siteTitle}">
+                <meta property="og:description" content="${description}">
+                <meta property="og:image" content="${data.url}/assets/img/profile.jpeg">
+
+                <!-- Twitter -->
+                <meta property="twitter:card" content="summary_large_image">
+                <meta property="twitter:url" content="${currentUrl}">
+                <meta property="twitter:title" content="${siteTitle}">
+                <meta property="twitter:description" content="${description}">
+                <meta property="twitter:image" content="${data.url}/assets/img/profile.jpeg">
+                
                 <meta name="google-site-verification" content="jrh7qB1kgowvnvE0P3KqlhI-iNmw9CvGJF4dQsaCTAk" />
+                
                 <meta name="naver-site-verification" content="6fe49ccdb8613221b89ae2d580300c63a91af446" />
                 
                 ${tag.assets}
@@ -146,7 +171,7 @@ const code = {
                             <img class="img"
                                 src="${data.url}/assets/img/github-mark-white.svg"
                                 alt="" srcset="">
-                            <a href="https://github.com/BallboyDev/ballboyDev.github.io" target="_blank">Designed by ballboyDev</a>
+                            <a href="https://github.com/ballboydev/ballboydev.github.io" target="_blank">Designed by ballboydev</a>
                         </div>
 
                     </div>

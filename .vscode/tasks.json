@@ -1,0 +1,25 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Gemini: Do Something Custom",
+            "type": "shell",
+            "command": "gemini -o \"${input:prompt}\"",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "focus": true,
+                "clear": true
+            },
+            "problemMatcher": []
+        }
+    ],
+    "inputs": [
+        {
+            "id": "prompt",
+            "description": "What should Gemini do?",
+            "default": "Fix bugs in the current file",
+            "type": "promptString"
+        }
+    ]
+}

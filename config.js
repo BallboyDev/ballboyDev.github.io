@@ -29,8 +29,8 @@ const utils = {
         dev: `file://${__dirname}/_dist`,
 
         // 운영 환경 배포 경로
-        build: 'https://ballboyDev.github.io',
-        tistory: 'https://ballboyDev.github.io' // 티스토리에 포스팅을 올릴때는 첨부 이미지를 따로 올리지 않기에 사용된 이미지를 불러올 경로가 필요하다
+        build: 'https://ballboydev.github.io',
+        tistory: 'https://ballboydev.github.io' // 티스토리에 포스팅을 올릴때는 첨부 이미지를 따로 올리지 않기에 사용된 이미지를 불러올 경로가 필요하다
 
     },
     post: {},           // 블로그 생성을 위한 기초 json 데이터
@@ -56,7 +56,9 @@ const utils = {
 
     info: {
         intro: '심심한 개발자의 취미생활',
-        profile: 'profile.jpeg'
+        profile: 'profile.jpeg',
+        description: '심심한 개발자의 일상, 취미 생활 블로그 입니다. 다양한 취미생활과 개발관련 내용을 공유합니다.'
+
     }
 }
 
